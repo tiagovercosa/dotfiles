@@ -1,0 +1,34 @@
+[Default Applications]
+x-scheme-handler/tg=userapp-Telegram Desktop-1322Y0.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/ftp=firefox.desktop
+x-scheme-handler/chrome=firefox.desktop
+text/html=firefox.desktop
+text/plain=nvim.desktop
+application/x-extension-htm=firefox.desktop
+application/x-extension-html=firefox.desktop
+application/x-extension-shtml=firefox.desktop
+application/xhtml+xml=firefox.desktop
+application/x-extension-xhtml=firefox.desktop
+application/x-extension-xht=firefox.desktop
+application/octet-stream=libreoffice.desktop
+image/vnd.djvu=org.pwmt.zathura.desktop
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+image/bmp=sxiv.desktop
+image/gif=sxiv.desktop
+image/jpeg=sxiv.desktop
+image/jpg=sxiv.desktop
+image/png=sxiv.desktop
+image/tiff=sxiv.desktop
+inode/x-empty=nvim.desktop
+text/markdown=nvim.desktop
+x-scheme-handler/magnet=transmission-cli.desktop
+
+[Added Associations]
+application/postscript=org.pwmt.zathura-ps.desktop;
+application/pdf=qpdfview.desktop;foxitreader.desktop;atril.desktop;org.pwmt.zathura-pdf-mupdf.desktop;
+text/markdown=nvim-qt.desktop;nvim.desktop;
+image/jpeg=sxiv.desktop;
+application/x-subrip=wine-extension-txt.desktop;
+video/x-matroska=vlc.desktop;

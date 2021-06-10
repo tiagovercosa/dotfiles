@@ -1,0 +1,77 @@
+# i3blocks configuration file
+
+# Global properties
+separator=true
+markup=pango
+align=center
+color=#d8dee9
+separator_block_width=10
+#background=#434c5e
+
+# [deezer]
+# label= 
+# command=${HOME}/.local/bin/deezer.py
+# interval=1
+
+[spotify]
+label=  
+command=${HOME}/.local/bin/spotify.py
+interval=1
+
+#[kernelversion]
+#label=🐧 
+#command=${HOME}/.local/bin/kernel
+#interval=3600
+
+# Guess the weather hourly
+#[weather]
+#command=curl -Ss 'https://wttr.in?format=1'
+#interval=3600
+#color=#A4C2F4
+
+[separator]
+
+[caps-lock]
+command=${HOME}/.local/bin/keyindicator
+interval=once
+signal=11
+
+#[uptime]
+#label=🔺 
+#command=${HOME}/.local/bin/upt
+#interval=60
+
+#[update]
+#label=📦 
+#command=${HOME}/.local/bin/pacupdate
+#interval=60
+
+#[memory]
+#label=💻 
+#command=${HOME}/.local/bin/memory
+#interval=10
+
+[brightness]
+label=🔆 
+command=${HOME}/.local/bin/brightness
+interval=2
+
+[volume]
+instance=Master
+interval=once
+command=${HOME}/.local/bin/volume
+signal=10
+
+[module-calendar]
+label=📅 
+interval=1
+command=${HOME}/.local/bin/clock
+
+[internet]
+command=${HOME}/.local/bin/internet
+interval=1
+
+[battery]
+command=${HOME}/.local/bin/battery
+markup=pango
+interval=1
