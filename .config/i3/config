@@ -298,6 +298,7 @@ for_window [class="qt5ct"] floating enable
 for_window [class="Clamtk"] floating enable
 for_window [class="Nvidia-settings"] floating enable
 for_window [class="(?i)Firefox" window_role="About"] floating enable
+for_window [class="Zotero"] floating enable
 for_window [class="Qalculate-gtk"] floating enable
 for_window [class="Steam"] floating enable
 for_window [class="Thunar"] floating enable
