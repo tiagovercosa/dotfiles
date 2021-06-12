@@ -26,9 +26,9 @@ disabled = true
 #utc_time_offset = "local"
 
 [character]
-success_symbol = "[❯](82)"
-error_symbol = "[❯](196)"
-vicmd_symbol = "[❯](45)"
+success_symbol = "[➜ \\$](82)"
+error_symbol = "[✗ \\$](196)"
+vicmd_symbol = "[ \\$](45)"
 
 [directory]
 style = "45"

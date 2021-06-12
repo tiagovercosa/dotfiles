@@ -67,11 +67,11 @@ label=📅
 interval=1
 command=${HOME}/.local/bin/clock
 
-[internet]
-command=${HOME}/.local/bin/internet
-interval=1
+#[internet]
+#command=${HOME}/.local/bin/internet
+#interval=1
 
-[battery]
-command=${HOME}/.local/bin/battery
-markup=pango
-interval=1
+#[battery]
+#command=${HOME}/.local/bin/battery
+#markup=pango
+#interval=1

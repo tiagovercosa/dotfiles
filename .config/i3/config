@@ -16,7 +16,7 @@ font pango:FantasqueSansMono Nerd Font 10
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -f -i ${HOME}/img/locks/lockscreen.png
 
 #AUTO START
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy
 exec --no-startup-id dunst
 exec --no-startup-id numlockx
 exec --no-startup-id picom -b
@@ -29,9 +29,6 @@ force_display_urgency_hint 400 ms
 workspace_auto_back_and_forth yes
 popup_during_fullscreen smart
 
-hide_edge_borders both
-
-#hide_edge_borders smart
 workspace 1 output primary
 
 # A window running qalc for basic arithmetic
@@ -39,14 +36,19 @@ workspace 1 output primary
 #bindsym $mod+c exec --no-startup-id st -n math -e qalc; move position center; resize set 700 400
 bindsym $mod+c exec --no-startup-id qalculate-gtk
 
+# Atalhos serviços no notebook
+bindsym $mod+Shift+w exec --no-startup-id st -e nmtui
+bindsym $mod+Shift+t exec --no-startup-id st -e htop
+bindsym $mod+Shift+f exec --no-startup-id firefox
+bindsym $mod+Shift+u exec --no-startup-id emoji
+bindsym Mod1+F12 exec --no-startup-id ${HOME}/.local/bin/dmenu-logout.sh
+bindsym Mod1+m exec --no-startup-id ${HOME}/.local/bin/dmenu-monitor.sh
+
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
 # Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus move scratchpad
-
-bindsym Mod1+Ctrl+q exec --no-startup-id ${HOME}/.local/bin/dmenu-logout.sh
-bindsym Mod1+Ctrl+m exec --no-startup-id ${HOME}/.local/bin/dmenu-monitor.sh
+bindsym $mod+Shift+minus move scratchpad'
 
 # Audio controls
 set $vol_signal pkill -SIGRTMIN+10 i3blocks
@@ -212,7 +214,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 #new_window pixel 3
 
 # lock screen
-bindsym $mod+Ctrl+l exec --no-startup-id i3lock
+bindsym $mod+Ctrl+l exec --no-startup-id i3lock-fancy
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -242,7 +244,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # window colors         <border>  <backgr>  <text>    <indicator> <child_border>
-client.focused          #88c0d0   #88c0d0   #2e3440   #dddddd
+client.focused          #005577   #005577   #eeeeee   #dddddd
 client.unfocused        #2e3440   #2e3440   #989a99   #292d2e
 client.focused_inactive #434c5e   #434c5e   #d8dee9   #292d2e
 client.urgent           #bf616a   #bf616a   #eceff4   #900000
@@ -260,31 +262,37 @@ bar {
          position top
          font pango: FantasqueSansMono Nerd Font 13
          separator_symbol "|" 
-#         tray_output primary
+         tray_output primary
 #         tray_padding 2
-#         binding_mode_indicator yes
+         binding_mode_indicator yes
 
          colors {
             statusline #e5e9f0
-            background #2e3440
+            background #222222
             separator  #d8dee9
 
             #                   border  backgr  text
-            focused_workspace   #88c0d0 #88c0d0 #2e3440
-            active_workspace    #a3be8c #a3be8c #4c566a
-            inactive_workspace  #2e3440 #2e3440 #989a99
-#            inactive_workspace  #434c5e #434c5e #989a99
+            focused_workspace   #005577 #005577 #ffffff
+            active_workspace    #c6e2ff #c6e2ff #222222
+            inactive_workspace  #222222 #222222 #989a99
+
             urgent_workspace    #bf616a #bf616a #eceff4
                 } 
 }
 
 # You can also use any non-zero value if you'd like to have a border
-for_window [class=".*"] border pixel 2
-smart_gaps on
-smart_gaps inverse_outer
+for_window [class=".*"] border pixel 1
+#smart_gaps on
+
+# Só habilita quando tem apenas um conteiner aberto
+#smart_gaps inverse_outer
 
 # Set inner/outer gaps
-gaps inner 7
+#gaps vertical 7
+#gaps horizontal 7
+
+# Activate smart borders (always)
+#smart_borders on
 
 # Floating
 for_window [class="TelegramDesktop"] floating enable
