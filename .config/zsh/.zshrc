@@ -165,7 +165,7 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 zinit light zdharma/fast-syntax-highlighting
-#zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 
 # StarShip config
