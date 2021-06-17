@@ -3,7 +3,7 @@ add_newline = false
 
 # Make prompt a single line instead of two lines
 [line_break]
-disabled = false
+disabled = true
 
 # Replace the "❯" symbol in the prompt with "➜" ✗  
 # [character]                         # The name of the module we are configuring is "character"
@@ -26,28 +26,28 @@ disabled = true
 #utc_time_offset = "local"
 
 [character]
-success_symbol = "[➜ \\$](82)"
+success_symbol = "[\\$](82)"
 error_symbol = "[✗ \\$](196)"
 vicmd_symbol = "[ \\$](45)"
 
 [directory]
-style = "45"
+style = "#88c0d0"
 format = "[$path $read_only(#4682B4 )]($style)($read_only_style)"
-#format = "[$path $read_only[\\]](bold 124)]($style)($read_only_style)"
+#format = "[$path$read_only[\\] ](bold #bf616a)]($style)($read_only_style)"
 truncation_length = 3
 truncation_symbol = "…/"
 read_only = "🔒" 
 
-[username]
-style_user = "white"
-style_root = "black"
-format = "[$user](bold 14) [in](15) "
-#format = "[\\[](bold 124)[$user[@](34)](172)"
-disabled = false
-show_always = true
+#[username]
+#style_user = "white"
+#style_root = "black"
+#format = "[$user](bold 14) [in](15) " 124
+#format = "[\\[](bold #bf616a)[$user[@](#a3be8c)](bold #d08770)"
+#disabled = false
+#show_always = true
 
 #[hostname]
 #ssh_only = false
-#format =  "[$hostname](80) [in](bold 15) "
+#format =  "[$hostname](#8fbcbb) [in](bold #d8dee9) "
 #trim_at = ".companyname.com"
 #disabled = false
