@@ -5,31 +5,34 @@ set $term st
 
 # i3blocks - caps lock status
 bindsym --release Caps_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
+
 # i3blocks - num lock status
 #bindsym --release Num_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
 
-font pango:FantasqueSansMono Nerd Font 10
+# Fonte para títulos de janela. Também será usado pela barra, a menos que uma fonte
+# diferente seja usada no bloco de barras {} abaixo.
+    font pango:FantasqueSansMono Nerd Font 12
 
 # Lock-session to lock your screen.
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -f -i ${HOME}/img/locks/lockscreen.png
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy
 
 #AUTO START
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy
 exec --no-startup-id dunst
 exec --no-startup-id numlockx
+exec --no-startup-id flameshot
 exec --no-startup-id picom -b
 exec_always --no-startup-id  ${HOME}/.fehbg
 #exec --no-startup-id nm-applet
-exec --no-startup-id setxkbmap br abnt2
+#exec --no-startup-id setxkbmap br abnt2
 #exec --no-startup-id redshift-gtk
 
 force_display_urgency_hint 400 ms
 workspace_auto_back_and_forth yes
 popup_during_fullscreen smart
 
-workspace 1 output primary
+
+# open empty container
+#bindsym $mod+Shift+Return exec --no-startup-id i3-msg open
 
 # A window running qalc for basic arithmetic
 #for_window [instance="math"] floating enable
@@ -48,7 +51,7 @@ bindsym Mod1+m exec --no-startup-id ${HOME}/.local/bin/dmenu-monitor.sh
 bindsym $mod+minus scratchpad show
 
 # Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus move scratchpad'
+bindsym $mod+Shift+minus move scratchpad
 
 # Audio controls
 set $vol_signal pkill -SIGRTMIN+10 i3blocks
@@ -143,14 +146,14 @@ bindsym $mod+Ctrl+Right     workspace next
 #set $ws2 "2:  "
 #set $ws3 "3: <span font='Font Awesome'>&#xf07c;</span>"
 #set $ws4 "4: <span font='Font Awesome'>&#xf044;</span>"
-#set $ws5 "5: <span font='Font Awesome'>&#xf10d;</span>"
-#set $ws6 "6: <span font='Font Awesome'>&#xf15c;</span>"
-#set $ws7 "7: <span font='Font Awesome'>&#xf0e0;</span>"
-#set $ws8 "8: <span font='Font Awesome'>&#xf03d;</span>"
-#set $ws9 "9: <span font='Font Awesome'>&#xf4ad;</span>"
-#set $ws10 "10: <span font='Font Awesome'>&#xf025;</span>"
+#set $ws5 "5: <span font='Font Awesome'>&#xf249;</span>"
+#set $ws6 "6: <span font='Font Awesome'>&#xf1c2;</span>"
+#set $ws7 "7: <span font='Font Awesome'>&#xf1fa;</span>"
+#set $ws8 "8: <span font='Font Awesome'>&#xf04b;</span>"
+#set $ws9 "9: <span font='Font Awesome'>&#xf3fe;</span>"
+#set $ws10 "10: <span font='Font Awesome'>&#xf001;</span>"
 
-set $ws1 "1" 
+set $ws1 "1"
 set $ws2 "2" 
 set $ws3 "3" 
 set $ws4 "4" 
@@ -160,6 +163,9 @@ set $ws7 "7"
 set $ws8 "8" 
 set $ws9 "9" 
 set $ws10 "10"
+
+# Set workspace for output primary
+workspace 1 output primary
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -185,20 +191,21 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-assign [class="firefox"]                 → 2
-assign [class="qutebrowser"]             → 2
-assign [class="(?i)Microsoft-edge-dev"]  → 2
-assign [class="bitwarden"]               $ws3
-assign [class="(?i)Pcmanfm"]             $ws3
-assign [class="Simplenote"]              $ws5
-assign [class="libreoffice-startcenter"] $ws6
-assign [class="libreoffice-writer"]      $ws6
-assign [class="libreoffice-calc"]        $ws6
-assign [class="Thunderbird"]             $ws7
-assign [class="vlc"]                     $ws8
-assign [class="TelegramDesktop"]         $ws9
-assign [class="Deezer"]                  $ws10
-assign [class="(?i)Spotify"]             → 10
+assign [class="firefox"]                 → $ws2
+assign [class="qutebrowser"]             → $ws2
+assign [class="(?i)Microsoft-edge-dev"]  → $ws2
+assign [class="bitwarden"]               → $ws3
+assign [class="(?i)Pcmanfm"]             → $ws3
+assign [class="Simplenote"]              → $ws5
+assign [class="libreoffice-startcenter"] → $ws6
+assign [class="libreoffice-writer"]      → $ws6
+assign [class="libreoffice-calc"]        → $ws6
+assign [class="Thunderbird"]             → $ws7
+assign [class="vlc"]                     → $ws8
+assign [class="TelegramDesktop"]         → $ws9
+assign [class="Deezer"]                  → $ws10
+assign [class="(?i)Spotify"]             → $ws10
+for_window [class="Spotify"] move to workspace $ws10 
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -206,9 +213,6 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
-## Hide titles ##
-#for_window [class="firefox" instance="Navigator"] border none
 
 ## Size of border ##
 #new_window pixel 3
@@ -244,7 +248,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # window colors         <border>  <backgr>  <text>    <indicator> <child_border>
-client.focused          #005577   #005577   #eeeeee   #dddddd
+client.focused          #5e81ac   #5e81ac   #eeeeee   #dddddd
 client.unfocused        #2e3440   #2e3440   #989a99   #292d2e
 client.focused_inactive #434c5e   #434c5e   #d8dee9   #292d2e
 client.urgent           #bf616a   #bf616a   #eceff4   #900000
@@ -256,46 +260,49 @@ bindsym $mod+b bar mode hide
 bindsym $mod+m bar mode dock
 
 bar {
-         output HDMI1
-         output eDP1
-         status_command i3blocks
-         position top
-         font pango: FantasqueSansMono Nerd Font 13
-         separator_symbol "|" 
-         tray_output primary
-#         tray_padding 2
-         binding_mode_indicator yes
+        output HDMI1
+        output eDP1
+        status_command i3blocks
+        position top
+#        workspace_min_width 70
+#        font pango: Iosevka Nerd Font 12
+#        separator_symbol "|" 
+        tray_output primary
+       # Height in pixels
+#        height 45
+#        tray_padding 2
+        binding_mode_indicator yes
 
-         colors {
+        colors {
             statusline #e5e9f0
-            background #222222
+            background #2e3440
             separator  #d8dee9
 
             #                   border  backgr  text
-            focused_workspace   #005577 #005577 #ffffff
-            active_workspace    #c6e2ff #c6e2ff #222222
-            inactive_workspace  #222222 #222222 #989a99
+            focused_workspace   #5e81ac #5e81ac #ffffff
+            active_workspace    #4c566a #4c566a #ffffff
+            inactive_workspace  #2e3440 #2e3440 #989a99
 
             urgent_workspace    #bf616a #bf616a #eceff4
                 } 
 }
 
 # You can also use any non-zero value if you'd like to have a border
-for_window [class=".*"] border pixel 1
-#smart_gaps on
+for_window [class=".*"] border pixel 2
+smart_gaps on
 
 # Só habilita quando tem apenas um conteiner aberto
 #smart_gaps inverse_outer
 
 # Set inner/outer gaps
-#gaps vertical 7
-#gaps horizontal 7
+gaps inner 7
+gaps outer 0
 
 # Activate smart borders (always)
-#smart_borders on
+smart_borders on
 
 # Floating
-for_window [class="TelegramDesktop"] floating enable
+# for_window [class="TelegramDesktop"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Pavucontrol"] floating enable
@@ -310,3 +317,14 @@ for_window [class="Zotero"] floating enable
 for_window [class="Qalculate-gtk"] floating enable
 for_window [class="Steam"] floating enable
 for_window [class="Thunar"] floating enable
+
+# screenshot
+bindsym $mod+Print exec --no-startup-id flameshot gui 
+bindsym Print exec --no-startup-id flameshot full -c 
+bindsym Shift+Print exec --no-startup-id flameshot full -p $HOME/img/screenshots
+bindsym Ctrl+Print exec scrot -u $HOME/img/screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+
+
+# Limitando o tamanho máximo da janela flutuante:
+floating_minimum_size 0 x 0
+floating_maximum_size 1278 x 750
