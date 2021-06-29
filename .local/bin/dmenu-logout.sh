@@ -8,7 +8,7 @@ azul="#0088CC"
 red="#8A2A0B"
 
 ask() {
-    answer="$( echo -e $1 | dmenu -i -p "$2" -fn 'FuraCode Nerd Font-11 #999' -nb '#292d3e' -sf '#eee' -sb "$azul" -l 2 )"
+    answer="$( echo -e $1 | dmenu -i -p "$2" -fn 'FantasqueSansMono Nerd Font-13 #999' -nb '#292d3e' -sf '#eee' -sb "$azul" -l 2 )"
 }
 
 ask "$opt1" "$first_prompt"
