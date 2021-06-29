@@ -25,5 +25,5 @@ case "$BLOCK_BUTTON" in
 	3) setsid -f st -e calcurse ;;
 	6) "$TERM" -e "$EDITOR" "$0" ;;
 esac
-#:%S
-date "+%a %d %b %y $icon %I:%M %p"
+
+date "+%a, %d %B %y $icon %H:%M"
