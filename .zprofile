@@ -41,8 +41,8 @@ export NNN_OPTS=eo
 #export NNN_FCOLORS='030304020006060801050501'
 export NNN_OPENER=xdg-open
 export NNN_TRASH=1
-export NNN_PLUG='r:preview-tabbed;t:preview-tui;o:fzopen;c:fzcd;p:pdfview;i:imgview'
-export NNN_FIFO=/tmp/nnn.fifo
+#export NNN_PLUG='r:preview-tabbed;t:preview-tui;o:fzopen;c:fzcd;p:pdfview;i:imgview'
+#export NNN_FIFO=/tmp/nnn.fifo
 #export NNN_BMS='h:~;m:/run/media/nate/;t:~/.local/share/Trash/files/;'
 #set --export NNN_FIFO "/tmp/nnn.fifo"
 
@@ -61,4 +61,3 @@ export BAT_THEME="base16"
 if systemctl -q is-active graphical.target && [[ ! $DISPLAY && "$(tty)" = "/dev/tty1" ]]; then
   exec startx "$XINITRC"
 fi
-
