@@ -95,15 +95,15 @@ fi
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+
 # Example aliases
-#alias vim='nvim'
+alias vim='nvim'
 
 # Changing "ls" to "exa"
 alias ls='exa --color=always --group-directories-first' # Normal listing
 alias la='exa -la --color=always --group-directories-first'  # All files and dirs (long format)
 alias l='exa -l --color=always --group-directories-first'  # Long format
-alias lt='exa -aT --color=always --group-directories-first' # Tree listing
+alias lt='exa -T --color=always --group-directories-first' # Tree listing
 
 # i3config
 alias i3conf='nvim ~/.config/i3/config'
@@ -130,7 +130,6 @@ man() {
     LESS_TERMCAP_ue=$'\e[0m' \
     command man "$@"
 }
-
 
 # Adding flags
 alias ..='cd ..'
@@ -172,3 +171,8 @@ zinit light zsh-users/zsh-completions
 eval "$(starship init zsh)"
 
 [ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
+
+autoload -Uz compinit
+compinit
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
