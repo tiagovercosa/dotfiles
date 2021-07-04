@@ -27,8 +27,8 @@ disabled = true
 
 [character]
 success_symbol = "[\\$](82)"
-error_symbol = "[✗ \\$](196)"
-vicmd_symbol = "[ \\$](45)"
+error_symbol = "[\\$](196)"
+vicmd_symbol = "[\\$](45)"
 
 [directory]
 style = "#88c0d0"
@@ -41,7 +41,7 @@ read_only = "🔒"
 #[username]
 #style_user = "white"
 #style_root = "black"
-#format = "[$user](bold 14) [in](15) " 124
+#format = "[$user](14) [in](bold 15) "
 #format = "[\\[](bold #bf616a)[$user[@](#a3be8c)](bold #d08770)"
 #disabled = false
 #show_always = true
