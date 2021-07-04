@@ -1,17 +1,20 @@
 # i3blocks configuration file
 
 # Global properties
-separator=true
 markup=pango
 align=center
-color=#d8dee9
-separator_block_width=10
-#background=#434c5e
+color=#eceff4
+separator_block_width=15
 
-# [deezer]
-# label= 
-# command=${HOME}/.local/bin/deezer.py
-# interval=1
+########################################################
+########################################################
+
+[window]
+command=xtitle -s
+interval=persist
+align=left
+min_width=700
+color=#FFFFFF
 
 [spotify]
 label=  
@@ -25,11 +28,10 @@ interval=1
 
 # Guess the weather hourly
 #[weather]
-#command=curl -Ss 'https://wttr.in?format=1'
+#command=curl -Ss 'https://pt.wttr.in?format=1'
 #interval=3600
 #color=#A4C2F4
 
-[separator]
 
 [caps-lock]
 command=${HOME}/.local/bin/keyindicator
@@ -62,14 +64,14 @@ interval=once
 command=${HOME}/.local/bin/volume
 signal=10
 
-[module-calendar]
-label=📅 
-interval=1
-command=${HOME}/.local/bin/clock
-
 #[internet]
 #command=${HOME}/.local/bin/internet
 #interval=1
+
+[module-calendar]
+#label=📅 
+command=${HOME}/.local/bin/clock
+interval=1
 
 #[battery]
 #command=${HOME}/.local/bin/battery
