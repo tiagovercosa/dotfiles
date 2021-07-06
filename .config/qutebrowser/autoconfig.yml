@@ -18,21 +18,22 @@ settings:
         xt: config-cycle tabs.show always switching
         xx: config-cycle statusbar.show always never ;; config-cycle tabs.show always
           switching
-  colors.webpage.darkmode.enabled:
-    global: true
   content.geolocation:
     https://g1.globo.com: false
     https://globoesporte.globo.com: false
     https://outlook.live.com: true
   content.notifications.enabled:
+    https://calendar.google.com: true
     https://diolinux.com.br: false
     https://meet.google.com: false
+    https://multicanais.com: false
     https://tomato-timer.com: true
     https://web.whatsapp.com: false
     https://www.estrategiaconcursos.com.br: false
     https://www.reddit.com: false
     https://www.youtube.com: false
   content.register_protocol_handler:
+    https://calendar.google.com?cid=%25s: true
     https://mail.google.com?extsrc=mailto&url=%25s: false
   downloads.location.directory:
     global: /home/tiago/tmp
