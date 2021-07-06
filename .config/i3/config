@@ -1,7 +1,7 @@
 # i3 config file (v4)
 
 set $mod Mod4
-set $term st
+set $term kitty
 
 # i3blocks - caps lock status
 bindsym --release Caps_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
@@ -255,7 +255,7 @@ bar {
         font pango:FantasqueSansMono Nerd Font 13
         tray_output primary
         binding_mode_indicator yes
-        tray_padding 3
+#        tray_padding 2
 
 # Height in pixels
 # height 45
@@ -288,7 +288,7 @@ gaps inner 9
 gaps outer -4
 
 # Activate smart borders (always)
-smart_borders on
+#smart_borders on
 
 # Floating
 # for_window [class="TelegramDesktop"] floating enable
