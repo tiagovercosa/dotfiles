@@ -26,7 +26,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'arcticicestudio/nord'
   Plug 'lervag/vimtex'
   Plug 'dense-analysis/ale' " LaTeX Linting
-  Plug 'gabrielelana/vim-markdown'
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
@@ -57,16 +56,15 @@ if (has('termguicolors'))
 endif
 
 colorscheme nord
-let g:material_terminal_italics = 1
 
-let g:nord_cursor_line_number_background = 1
-let g:nord_uniform_status_lines = 1
-let g:nord_bold_vertical_split_line = 1
-let g:nord_uniform_diff_background = 1
-let g:nord_bold = 0
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
-let g:nord_underline = 1
+" let g:nord_cursor_line_number_background = 1
+" let g:nord_uniform_status_lines = 1
+" let g:nord_bold_vertical_split_line = 1
+" let g:nord_uniform_diff_background = 1
+" let g:nord_bold = 0
+" let g:nord_italic = 1
+" let g:nord_italic_comments = 1
+" let g:nord_underline = 1
  
 " enable tabline
 let g:airline#extensions#tabline#enabled = 1
