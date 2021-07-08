@@ -1,7 +1,7 @@
 # i3 config file (v4)
 
 set $mod Mod4
-set $term kitty
+set $term st
 
 # i3blocks - caps lock status
 bindsym --release Caps_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
