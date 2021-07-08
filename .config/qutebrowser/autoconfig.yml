@@ -18,6 +18,8 @@ settings:
         xt: config-cycle tabs.show always switching
         xx: config-cycle statusbar.show always never ;; config-cycle tabs.show always
           switching
+  colors.webpage.darkmode.enabled:
+    global: true
   content.geolocation:
     https://g1.globo.com: false
     https://globoesporte.globo.com: false
