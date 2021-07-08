@@ -12,8 +12,8 @@ separator_block_width=15
 [window]
 command=xtitle -s
 interval=persist
-align=left
-min_width=700
+align=center
+min_width=800
 color=#FFFFFF
 
 [spotify]
