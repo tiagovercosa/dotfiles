@@ -19,7 +19,7 @@ set scrolloff=7
 set nocompatible
 filetype plugin indent on
 set clipboard=unnamedplus
-set colorcolumn=80
+set colorcolumn=90
 highlight ColorColumn ctermbg=0 guibg=lightgrey
  
 " set autoread " trigger `autoread` when files changes on disk

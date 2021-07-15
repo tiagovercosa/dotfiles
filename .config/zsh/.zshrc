@@ -121,6 +121,9 @@ alias egrep='egrep --color=auto'
 alias ip='ip -color=auto'
 alias diff='diff --color=auto'
 
+# Commit for VimWiki
+alias wiki-commit='git add . && git commit -a -m "updated on `date +'%Y%m%d_%H:%M'`"'
+
 man() {
     LESS_TERMCAP_md=$'\e[01;31m' \
     LESS_TERMCAP_me=$'\e[0m' \

@@ -1,5 +1,5 @@
 [Default Applications]
-x-scheme-handler/tg=userapp-Telegram Desktop-1322Y0.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-ORMO50.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/ftp=firefox.desktop
@@ -24,6 +24,8 @@ image/tiff=sxiv.desktop
 inode/x-empty=nvim.desktop
 text/markdown=nvim.desktop
 x-scheme-handler/magnet=transmission-cli.desktop
+application/json=nvim.desktop
+application/x-dvi=okularApplication_dvi.desktop
 
 [Added Associations]
 application/postscript=org.pwmt.zathura-ps.desktop;
@@ -32,3 +34,7 @@ text/markdown=nvim-qt.desktop;nvim.desktop;
 image/jpeg=sxiv.desktop;
 application/x-subrip=wine-extension-txt.desktop;
 video/x-matroska=vlc.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-ORMO50.desktop;
+application/json=nvim.desktop;
+application/x-dvi=org.pwmt.zathura.desktop;okularApplication_dvi.desktop;
+application/x-trash=nvim.desktop;

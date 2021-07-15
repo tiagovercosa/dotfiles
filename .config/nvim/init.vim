@@ -6,7 +6,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   "autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'sheerun/vim-polyglot'
@@ -27,6 +27,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'lervag/vimtex'
   Plug 'dense-analysis/ale' " LaTeX Linting
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+  Plug 'mhinz/vim-startify'
 call plug#end()
 
 " Automatically install missing plugins on startup
@@ -36,9 +37,10 @@ autocmd VimEnter *
   \| endif
 
 source $HOME/.config/nvim/general/settings.vim
+source $HOME/.config/nvim/plug-config/start-screen.vim
 
 " VimWiki
-let g:vimwiki_list = [{'path': '~/docs/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/Document/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_listsyms = ' ○◐●✗'
 
 " Goyo
@@ -57,14 +59,14 @@ endif
 
 colorscheme nord
 
-" let g:nord_cursor_line_number_background = 1
-" let g:nord_uniform_status_lines = 1
-" let g:nord_bold_vertical_split_line = 1
-" let g:nord_uniform_diff_background = 1
-" let g:nord_bold = 0
-" let g:nord_italic = 1
-" let g:nord_italic_comments = 1
-" let g:nord_underline = 1
+let g:nord_cursor_line_number_background = 1
+let g:nord_uniform_status_lines = 1
+let g:nord_bold_vertical_split_line = 1
+let g:nord_uniform_diff_background = 1
+let g:nord_bold = 0
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+let g:nord_underline = 1
  
 " enable tabline
 let g:airline#extensions#tabline#enabled = 1

@@ -29,7 +29,6 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    # geometry = "300x10-7+23"
     geometry = "350x20-10+33"
 
     # Show how many messages are currently hidden (because of geometry).
@@ -52,7 +51,8 @@
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 2
+    # separator_height = 2
+    separator_height = 3
 
     # Padding between text and separator.
     padding = 8
@@ -62,7 +62,8 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 1
+    # frame_width = 1
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
     frame_color = "#aaaaaa"
@@ -86,12 +87,12 @@
     idle_threshold = 120
 
     ### Text ###
-
     font = Envy Code R Regular 9
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
-    line_height = 0
+    # line_height = 0
+    line_height = 1
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
@@ -277,22 +278,25 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
     #background = "#2E3440"
-    background = "#000000"
+    background = "#2d3743"
     foreground = "#f9f9f9"
     #   foreground = "#a89984"
     #   frame_color = "#689d6a"
-    frame_color = "#88c0d0"
+    #   frame_color = "#88c0d0"
+    frame_color = "#26a69a"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
     #   background = "#000000"
-    background = "#2E3440"
+    #background = "#2E3440"
+    background = "#2d3743"
     foreground = "#f9f9f9"
     #   foreground = "#a89984"
     #   frame_color = "#98971a"
-    frame_color = "#88c0d0"
+    frame_color = "#26a69a"
+    #   frame_color = "#88c0d0"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon

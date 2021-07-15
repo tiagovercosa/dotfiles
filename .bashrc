@@ -12,6 +12,8 @@ export TERM="kitty"
 export BROWSER="firefox"
 export MANPAGER="less"
 export READER="zathura"
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export STARSHIP_CONFIG=~/.config/starship/config.toml
 
 ### COLORS IN LESS (31 - red; 32 - green; 33 - yellow; 0 - reset/normal; 1 - bold; 4 - underlined) ###
 export LESS_TERMCAP_mb=$'\e[1;32m'

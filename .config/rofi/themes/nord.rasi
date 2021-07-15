@@ -8,7 +8,7 @@
 
 configuration {
 
-	font: "mononoki Nerd Font 15";
+	font: "FantasqueSansMono Nerd Font 14";
 	width: 40;
 	line-margin: 10;
 	lines: 9;

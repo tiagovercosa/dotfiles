@@ -1,1 +1,7 @@
-exec i3
+dunst &
+numlockx &
+flameshot &
+${HOME}/.fehbg
+picom -b --experimental-backends
+dwmblocks &
+exec dwm

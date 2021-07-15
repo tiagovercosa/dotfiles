@@ -7,7 +7,7 @@ set render-loading "false"
 set window-width 960
 set window-height 1080
 
-map <Space> toggle_index
+# map <Space> toggle_index
 map K zoom in
 map J zoom out
 map p print

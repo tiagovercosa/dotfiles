@@ -12,14 +12,13 @@ separator_block_width=15
 [window]
 command=xtitle -s
 interval=persist
-align=center
-min_width=800
-color=#FFFFFF
+align=left
+min_width=750
 
-[spotify]
-label=  
-command=${HOME}/.local/bin/spotify.py
-interval=1
+#[spotify]
+#label=  
+#command=${HOME}/.local/bin/spotify.py
+#interval=1
 
 #[kernelversion]
 #label=🐧 
@@ -73,7 +72,7 @@ signal=10
 command=${HOME}/.local/bin/clock
 interval=1
 
-#[battery]
-#command=${HOME}/.local/bin/battery
-#markup=pango
-#interval=1
+[battery]
+command=${HOME}/.local/bin/battery
+markup=pango
+interval=1

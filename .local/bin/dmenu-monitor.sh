@@ -4,9 +4,10 @@ ask="Qual monitor?"
 opt="1. Interno\n2. Externo\n3. Lado a lado"
 red="#8A2A0B"
 azul="#0088CC"
+green="#26A69A"
 
 ask() {
-    answer="$( echo -e $1 | dmenu -fn 'FantasqueSansMono Nerd Font-13 #999' -nb '#292d3e' -sf '#eee' -sb "$azul" -p "$2" -l 3)"
+    answer="$( echo -e $1 | dmenu -fn 'FantasqueSansMono Nerd Font-13 #999' -nb '#292d3e' -sf '#000' -sb "$green" -p "$2" -l 3)"
 }
 
 ask "$opt" "$ask"
