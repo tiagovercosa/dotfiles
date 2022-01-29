@@ -49,4 +49,4 @@ set noswapfile
 set mouse=a
 set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
 
-set whichwrap=b,s,<,>,[,]
+set whichwrap+=<,>,[,],h,l
