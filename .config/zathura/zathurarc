@@ -1,0 +1,27 @@
+# Basic Settings
+
+set font "Hack Nerd Font Mono normal 9"
+set highlight-transparency .1
+set zoom-center "true"
+set selection-clipboard clipboard
+set render-loading "false"
+set window-width 960
+set window-height 1080
+set sandbox none
+set recolor-lightcolor \#2f2d2e
+set recolor-darkcolor \#f4ecd6
+
+map <Space> toggle_index
+map K zoom in
+map J zoom out
+map p print
+map i recolor
+map R rotate
+map u scroll half-up
+map d scroll half-down
+
+set default-bg                  "#292d3e"
+set default-fg                  "#d7d7d7"
+
+set statusbar-bg                "#151515"
+set statusbar-fg                "#d7d7d7"

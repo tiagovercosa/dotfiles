@@ -1,0 +1,320 @@
+# i3 config file (v4)
+
+set $mod Mod4
+set $term st
+
+# i3blocks - caps lock status
+bindsym --release Caps_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
+
+# i3blocks - num lock status
+#bindsym --release Num_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
+
+# Fonte para títulos de janela. Também será usado pela barra, a menos que uma fonte
+# diferente seja usada no bloco de barras {} abaixo.
+font pango:FantasqueSansMono Nerd Font 12
+
+# Lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy
+
+#AUTO START
+exec --no-startup-id dunst
+exec --no-startup-id numlockx on
+exec --no-startup-id flameshot
+exec --no-startup-id picom -b --experimental-backends
+exec_always --no-startup-id  ${HOME}/.fehbg
+exec --no-startup-id nm-applet
+#exec --no-startup-id setxkbmap br abnt2
+exec --no-startup-id redshift-gtk
+
+force_display_urgency_hint 400 ms
+workspace_auto_back_and_forth yes
+popup_during_fullscreen smart
+
+# open empty container
+#bindsym $mod+Shift+Return exec --no-startup-id i3-msg open
+
+# A window running qalc for basic arithmetic
+#for_window [instance="math"] floating enable
+#bindsym $mod+c exec --no-startup-id st -n math -e qalc; move position center; resize set 700 400
+bindsym $mod+c exec --no-startup-id qalculate-gtk
+
+# Atalhos serviços no notebook
+bindsym $mod+Shift+w exec --no-startup-id qutebrowser
+bindsym $mod+Shift+t exec --no-startup-id $term -e htop
+bindsym $mod+Shift+f exec --no-startup-id firefox
+bindsym $mod+Shift+u exec --no-startup-id emoji
+bindsym Mod1+F12 exec --no-startup-id ${HOME}/.local/bin/dmenu-logout.sh
+bindsym Mod1+m exec --no-startup-id ${HOME}/.local/bin/dmenu-monitor.sh
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Audio controls
+set $vol_signal pkill -SIGRTMIN+10 i3blocks
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% && $vol_signal
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5% && $vol_signal
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle   && $vol_signal
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+
+# Multimedia controls
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioStop exec --no-startup-id playerctl stop
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec --no-startup-id $term
+
+# kill focused window
+bindsym $mod+q kill
+
+# start a program launcher
+# bindsym $mod+d exec --no-startup-id dmenu_run -p 'Run:' -b -fn 'FantasqueSansMono Nerd Font-12' -sb '#5e81ac'
+bindsym $mod+d exec --no-startup-id rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+g split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+t floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+z focus child
+
+#switch to worlspace
+bindsym $mod+comma          workspace prev
+bindsym $mod+Ctrl+Left      workspace prev
+bindsym $mod+period         workspace next
+bindsym $mod+Ctrl+Right     workspace next
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+#   "10: <span font='Font Awesome'>&#xf001;</span>"
+
+set $ws1 "1"
+set $ws2 "2" 
+set $ws3 "3" 
+set $ws4 "4" 
+set $ws5 "5" 
+set $ws6 "6" 
+set $ws7 "7" 
+set $ws8 "8" 
+set $ws9 "9" 
+set $ws10 "10"
+
+# Set workspace for output primary
+workspace 1 output primary
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+assign [class="firefox"]                 → $ws2
+assign [class="qutebrowser"]             → $ws2
+assign [class="(?i)Microsoft-edge-dev"]  → $ws2
+assign [class="bitwarden"]               → $ws3
+assign [class="(?i)Pcmanfm"]             → $ws3
+assign [class="Simplenote"]              → $ws5
+assign [class="libreoffice-startcenter"] → $ws6
+assign [class="libreoffice-writer"]      → $ws6
+assign [class="libreoffice-calc"]        → $ws6
+assign [class="Thunderbird"]             → $ws7
+assign [class="vlc"]                     → $ws8
+assign [class="TelegramDesktop"]         → $ws9
+assign [class="Deezer"]                  → $ws10
+assign [class="(?i)Spotify"]             → $ws10
+for_window [class="Spotify"] move to workspace $ws10 
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+## Size of border
+# new_window pixel 3
+
+# lock screen
+bindsym $mod+Ctrl+l exec --no-startup-id i3lock-fancy
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# window colors         <border>  <backgr>  <text>    <indicator> <child_border>
+client.focused          #88c0d0   #88c0d0   #263238   #dddddd
+client.unfocused        #2e3440   #2e3440   #989a99   #292d2e
+client.focused_inactive #434c5e   #434c5e   #d8dee9   #292d2e
+client.urgent           #bf616a   #bf616a   #eceff4   #900000
+
+client.background       #ffffff
+
+# Toggle between hide state and show state
+bindsym $mod+b bar mode hide
+bindsym $mod+m bar mode dock
+
+bar {
+        #status_command i3status
+        status_command i3blocks
+        position top
+        font pango:FantasqueSansMono Nerd Font 12
+        tray_output primary
+        binding_mode_indicator yes
+        
+# separator_symbol " "
+# tray_padding 2
+# Height in pixels
+# height 45
+# workspace_min_width 70
+
+        colors {
+            statusline #e5e9f0
+            background #2b303c
+            separator  #eceff4
+
+            #                   border  backgr  text
+            focused_workspace   #88c0d0 #88c0d0 #263238
+            active_workspace    #4c566a #4c566a #ffffff
+            inactive_workspace  #2b303c #2b303c #989a99
+
+            urgent_workspace    #bf616a #bf616a #263238
+                } 
+}
+
+# You can also use any non-zero value if you'd like to have a border
+for_window [class=".*"] border pixel 2
+smart_gaps on
+
+# Só habilita quando tem apenas um conteiner aberto
+smart_gaps inverse_outer
+
+# Set inner/outer gaps
+gaps inner 9
+gaps outer -4
+
+# Activate smart borders (always)
+#smart_borders on
+
+# Floating
+# for_window [class="TelegramDesktop"] floating enable
+for_window [class="Arandr"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="flameshot"] floating enable
+for_window [class="Bitwarden"] floating enable
+for_window [class="Deezer"] floating enable
+for_window [class="qt5ct"] floating enable
+for_window [class="Clamtk"] floating enable
+for_window [class="Nvidia-settings"] floating enable
+for_window [class="(?i)Firefox" window_role="About"] floating enable
+for_window [class="Zotero"] floating enable
+for_window [class="Qalculate-gtk"] floating enable
+for_window [class="Steam"] floating enable
+#for_window [class="TelegramDesktop"] floating enable
+for_window [class="Virt-manager"] floating enable
+
+# screenshot
+bindsym $mod+Print exec --no-startup-id flameshot gui 
+bindsym Print exec --no-startup-id flameshot full -c 
+bindsym Shift+Print exec --no-startup-id flameshot full -p $HOME/img/screenshots
+bindsym Ctrl+Print exec scrot -u $HOME/img/screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+
+
+# Limitando o tamanho máximo da janela flutuante:
+#floating_minimum_size 0 x 0
+#floating_maximum_size 1278 x 750

@@ -1,0 +1,8 @@
+configuration {
+  modi: "window,drun,ssh,combi";
+  combi-modi: "window,drun,ssh";
+  show-icons: true;
+  icon-theme: "ePapirus-Dark";
+ }
+
+@theme "spotlight-dark"

@@ -1,0 +1,35 @@
+# status bar
+dwmblocks &
+
+# Network Manager Applet
+nm-applet --indicator &
+
+# For QT Themes
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+# Compositor
+picom -b &
+
+# Screenshots
+flameshot &
+
+# For active NumLock
+numlockx on &
+
+# Daemon mode Pcmanfm
+pcmanfm -d &
+
+# Set keyboard layout for pt-br
+setxkbmap br &
+
+# Enable notify
+dunst &
+
+# Monitor config
+monitor.sh
+
+# Lock screen automatically
+xss-lock -l -- i3lock -c 000000 &
+
+## Disabled
+# redshift
