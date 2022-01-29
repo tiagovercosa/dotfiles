@@ -25,11 +25,11 @@ setxkbmap br &
 # Enable notify
 dunst &
 
-# Monitor config
-monitor.sh
-
 # Lock screen automatically
 xss-lock -l -- i3lock -c 000000 &
+
+# Set wallpaper
+nitrogen --restore
 
 ## Disabled
 # redshift
