@@ -55,7 +55,7 @@ export NNN_TRASH=1
 export NNN_FIFO='/tmp/nnn.fifo'
 
 # Aliases
-alias nv='nvim'
+alias v='nvim'
 alias update="sudo pacman -Syu"
 alias myip="curl ipinfo.io/ip"
 
