@@ -38,17 +38,14 @@ set $menu j4-dmenu-desktop --dmenu='bemenu -iwbn -p "Run:" --fn "Hack Nerd Font 
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg $HOME/img/wallpapers/0005.jpg fill
+output HDMI-A-1 bg $HOME/img/wallpapers/0005.jpg fill
+output eDP-1 bg $HOME/img/wallpapers/0009.jpg fill
 
 # configuration Monitor:
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output HDMI-A-1 resolution 1920x1080 position 0,0
 output eDP-1 resolution 1366x768 position 1920,312
 focus output HDMI-A-1
-
-set $laptop eDP-1
-bindswitch --reload --locked lid:on output $laptop disable
-bindswitch --reload --locked lid:off output $laptop enable
 
 # Teclas de mídia 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -64,9 +61,7 @@ bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous	
 
 ### Idle configuration
-#
 # Example configuration:
-#
 exec swayidle -w \
          timeout 300 'swaylock -f -c 000000' \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
@@ -171,19 +166,19 @@ input type:touchpad tap enabled
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
-    assign [app_id="firefox"] $ws2
+    assign [class="firefox"] $ws2
+    assign [app_id="pcmanfm"] $ws3
+    assign [app_id="telegramdesktop"] $ws9
+    assign [class="Deezer"] $ws10
 #    for_window [app_id="galculator"] floating enable
     assign [class="qutebrowser"]             → $ws2
     assign [class="bitwarden"]               → $ws3
-    assign [class="(?i)Pcmanfm"]             → $ws3
     assign [class="Simplenote"]              → $ws5
     assign [class="libreoffice-startcenter"] → $ws6
     assign [class="libreoffice-writer"]      → $ws6
     assign [class="libreoffice-calc"]        → $ws6
     assign [class="Thunderbird"]             → $ws7
     assign [class="vlc"]                     → $ws8
-    assign [app_id="telegramdesktop"] $ws9
-    assign [class="Deezer"] $ws10
     assign [class="(?i)Spotify"]             → $ws10
     for_window [class="Spotify"] move to workspace $ws10 
 
@@ -275,9 +270,10 @@ for_window [app_id="pavucontrol"] floating enable
 for_window [class="Bitwarden"] floating enable
 for_window [class="Deezer"] floating enable
 for_window [class="qt5ct"] floating enable
-for_window [app_id="(?i)Firefox" title="Library"] floating enable
-for_window [app_id="(?i)Firefox" title="About Mozilla Firefox"] floating enable
+for_window [class="(?i)Firefox" title="Library"] floating enable
+for_window [class="(?i)Firefox" title="About Mozilla Firefox"] floating enable
 for_window [app_id="qalculate-gtk"] floating enable
+for_window [app_id="pcmanfm"] floating enable
 for_window [class="Virt-manager"] floating enable
 #for_window [class="Steam"] floating enable
 #for_window [class="Clamtk"] floating enable
@@ -305,12 +301,12 @@ bindsym --to-code Shift+Print exec grim -g "$(slurp)" $HOME/img/screenshots/`dat
 bindsym --to-code $mod+Print exec grim -g "$(slurp)" - | wl-copy && dunstify "Screenshot of saved to clipboard!"
 
 ## For gtk applications settings
-#set $gnomeschema org.gnome.desktop.interface
+set $gnomeschema org.gnome.desktop.interface
 #
 ## Gtk applications settings
-# exec_always {
-#    gsettings set $gnomeschema gtk-theme 'Adwaita'
-#    gsettings set $gnomeschema icon-theme 'Adwaita'
-#    gsettings set $gnomeschema cursor-theme 'Adwaita'
-#    gsettings set $gnomeschema font-name 'Cantarell 11'
-#}
+exec_always {
+    gsettings set $gnomeschema gtk-theme 'Adwaita'
+    gsettings set $gnomeschema icon-theme 'Adwaita'
+    gsettings set $gnomeschema cursor-theme 'Adwaita'
+    gsettings set $gnomeschema font-name 'Cantarell 11'
+}
