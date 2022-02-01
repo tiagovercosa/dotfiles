@@ -16,19 +16,19 @@ ask "$opt" "$ask"
 case $answer in
   "1. Interno")
     if [[ $answer == "1. Interno" ]]; then
-      $HOME/.local/bin/screenlayout/mobile.sh && nitrogen --restore && dunstify -I /usr/share/icons/oxygen/base/48x48/devices/video-display.png -i Display "Perfil de Monitor" "Interno"
+      swaymsg output eDP-1 enable && swaymsg output HDMI-A-1 disable && dunstify -I /usr/share/icons/oxygen/base/48x48/devices/video-display.png -i Display "Perfil de Monitor" "Interno"
     fi
     exit 0
     ;;
   "2. Externo")
     if [[ $answer == "2. Externo" ]]; then
-      $HOME/.local/bin/screenlayout/docked-home.sh && nitrogen --restore && dunstify -I /usr/share/icons/oxygen/base/48x48/devices/video-display.png -i Display "Perfil de Monitor" "Externo"
+       swaymsg output eDP-1 disable && swaymsg output HDMI-A-1 enable && dunstify -I /usr/share/icons/oxygen/base/48x48/devices/video-display.png -i Display "Perfil de Monitor" "Externo"
     fi
     exit 0
     ;;
   "3. Lado a lado")
     if [[ $answer == "3. Lado a lado" ]]; then
-      $HOME/.local/bin/screenlayout/side-by-side.sh && nitrogen --restore && dunstify -I /usr/share/icons/oxygen/base/48x48/devices/video-display.png -i Display "Perfil de Monitor" "Lado a Lado"
+       swaymsg output eDP-1 enable && swaymsg output HDMI-A-1 enable && dunstify -I /usr/share/icons/oxygen/base/48x48/devices/video-display.png -i Display "Perfil de Monitor" "Lado a Lado"
     fi
     exit 0
     ;;
