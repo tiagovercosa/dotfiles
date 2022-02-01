@@ -2,7 +2,10 @@
 dwmblocks &
 
 # Network Manager Applet
-nm-applet --indicator &
+# nm-applet --indicator &
+
+# Monitor  Config
+monitor.sh
 
 # For QT Themes
 export QT_QPA_PLATFORMTHEME=qt5ct
