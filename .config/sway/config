@@ -1,0 +1,316 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+font pango:FantasqueSansMono Nerd Font 12
+
+gaps inner 3
+gaps outer 2
+smart_gaps on
+
+#disable  window titlebar
+default_border pixel 2
+default_floating_border pixel 3
+
+force_display_urgency_hint 400 ms
+workspace_auto_back_and_forth yes
+popup_during_fullscreen smart
+
+### Variables
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term foot
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+# set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu j4-dmenu-desktop --dmenu='bemenu -iwbn -p "Run:" --fn "Hack Nerd Font 11" --tb="#bbccdd" --tf="#333333" --hb="#bbccdd" --hf="#333333" --nb="#111111"  ' --term='foot'
+
+### Output configuration
+
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg $HOME/img/wallpapers/0005.jpg fill
+
+# configuration Monitor:
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+output HDMI-A-1 resolution 1920x1080 position 0,0
+output eDP-1 resolution 1366x768 position 1920,312
+focus output HDMI-A-1
+
+set $laptop eDP-1
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+
+# Teclas de mídia 
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous	
+
+### Idle configuration
+#
+# Example configuration:
+#
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
+
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Input configuration
+input * accel_profile flat
+input * xkb_numlock enable
+
+# ----- INPUT
+input type:keyboard xkb_layout br
+input type:touchpad natural_scroll enabled
+input type:touchpad tap enabled
+
+### Key bindings
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Kill focused window
+    bindsym $mod+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+r reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+# Moving around:
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+# Workspaces:
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+#   "10: <span font='Font Awesome'>&#xf001;</span>"
+
+    set $ws1 "1"
+    set $ws2 "2" 
+    set $ws3 "3" 
+    set $ws4 "4" 
+    set $ws5 "5" 
+    set $ws6 "6" 
+    set $ws7 "7" 
+    set $ws8 "8" 
+    set $ws9 "9" 
+    set $ws10 "10"
+    # Switch to workspace
+    bindsym $mod+1 workspace number $ws1
+    bindsym $mod+2 workspace number $ws2
+    bindsym $mod+3 workspace number $ws3
+    bindsym $mod+4 workspace number $ws4
+    bindsym $mod+5 workspace number $ws5
+    bindsym $mod+6 workspace number $ws6
+    bindsym $mod+7 workspace number $ws7
+    bindsym $mod+8 workspace number $ws8
+    bindsym $mod+9 workspace number $ws9
+    bindsym $mod+0 workspace number $ws10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace number $ws1
+    bindsym $mod+Shift+2 move container to workspace number $ws2
+    bindsym $mod+Shift+3 move container to workspace number $ws3
+    bindsym $mod+Shift+4 move container to workspace number $ws4
+    bindsym $mod+Shift+5 move container to workspace number $ws5
+    bindsym $mod+Shift+6 move container to workspace number $ws6
+    bindsym $mod+Shift+7 move container to workspace number $ws7
+    bindsym $mod+Shift+8 move container to workspace number $ws8
+    bindsym $mod+Shift+9 move container to workspace number $ws9
+    bindsym $mod+Shift+0 move container to workspace number $ws10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+
+    assign [app_id="firefox"] $ws2
+#    for_window [app_id="galculator"] floating enable
+    assign [class="qutebrowser"]             → $ws2
+    assign [class="bitwarden"]               → $ws3
+    assign [class="(?i)Pcmanfm"]             → $ws3
+    assign [class="Simplenote"]              → $ws5
+    assign [class="libreoffice-startcenter"] → $ws6
+    assign [class="libreoffice-writer"]      → $ws6
+    assign [class="libreoffice-calc"]        → $ws6
+    assign [class="Thunderbird"]             → $ws7
+    assign [class="vlc"]                     → $ws8
+    assign [app_id="telegramdesktop"] $ws9
+    assign [class="Deezer"] $ws10
+    assign [class="(?i)Spotify"]             → $ws10
+    for_window [class="Spotify"] move to workspace $ws10 
+
+# lock screen
+bindsym $mod+Ctrl+l exec swaylock -c 000000
+
+# Layout stuff:
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym --to-code --to-code $mod+b splith; exec notify-send "Split horizontaly"
+    bindsym --to-code --to-code $mod+v splitv; exec notify-send "Split verticaly"
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym --to-code $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+
+# Scratchpad:
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+
+# Resizing containers:
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#switch to worlspace
+bindsym $mod+comma          workspace prev
+bindsym $mod+Ctrl+Left      workspace prev
+bindsym $mod+period         workspace next
+bindsym $mod+Ctrl+Right     workspace next
+
+# window colors         <border>  <backgr>  <text>    <indicator> <child_border>
+client.focused          #88c0d0   #88c0d0   #263238   #dddddd
+client.unfocused        #2e3440   #2e3440   #989a99   #292d2e
+client.focused_inactive #434c5e   #434c5e   #d8dee9   #292d2e
+client.urgent           #bf616a   #bf616a   #eceff4   #900000
+
+#client.background       #ffffff
+
+# Status Bar:
+bar {
+  swaybar_command waybar
+}
+
+include /etc/sway/config.d/*
+
+# Floating
+for_window [app_id="telegramdesktop"] floating enable
+for_window [app_id="pavucontrol"] floating enable
+for_window [class="Bitwarden"] floating enable
+for_window [class="Deezer"] floating enable
+for_window [class="qt5ct"] floating enable
+for_window [app_id="(?i)Firefox" title="Library"] floating enable
+for_window [app_id="(?i)Firefox" title="About Mozilla Firefox"] floating enable
+for_window [app_id="qalculate-gtk"] floating enable
+for_window [class="Virt-manager"] floating enable
+#for_window [class="Steam"] floating enable
+#for_window [class="Clamtk"] floating enable
+#for_window [class="Nvidia-settings"] floating enable
+
+exec --no-startup-id nm-applet --indicator
+exec --no-startup-id dunst
+exec --no-startup-id monitor.sh
+
+bindsym $mod+c exec qalculate-gtk
+
+bindsym Mod1+F12 exec --no-startup-id ${HOME}/.local/bin/dmenu-logout.sh
+bindsym Mod1+m exec --no-startup-id ${HOME}/.local/bin/dmenu-monitor.sh
+
+# Take a screenshot from the focused monitor
+bindsym --to-code Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $HOME/img/screenshots/`date +%Y-%m-%d_%H:%M:%S`.png && dunstify "Screenshot from the focused monitor of saved!"
+
+#Take a screenshot from the focused window
+bindsym --to-code Ctrl+Print exec $HOME/.local/bin/screen.sh
+
+# Take a screenshot (select screen)
+bindsym --to-code Shift+Print exec grim -g "$(slurp)" $HOME/img/screenshots/`date +%Y-%m-%d_%H:%M:%S`.png && dunstify "Screenshot of saved!"
+
+# Take a screenshot to clipboard (select screen)
+bindsym --to-code $mod+Print exec grim -g "$(slurp)" - | wl-copy && dunstify "Screenshot of saved to clipboard!"
+
+## For gtk applications settings
+#set $gnomeschema org.gnome.desktop.interface
+#
+## Gtk applications settings
+# exec_always {
+#    gsettings set $gnomeschema gtk-theme 'Adwaita'
+#    gsettings set $gnomeschema icon-theme 'Adwaita'
+#    gsettings set $gnomeschema cursor-theme 'Adwaita'
+#    gsettings set $gnomeschema font-name 'Cantarell 11'
+#}
