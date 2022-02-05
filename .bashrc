@@ -24,30 +24,12 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
-#nnn config
-export NNN_COLORS="2136"                           # use a different color for each context
-export NNN_TRASH=1                                 # trash (needs trash-cli) instead of delete
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='nvim'
 fi
-
-# aliases
-alias vim='nvim'
-alias nvimconf='nvim ~/.config/nvim/init.vim'
-
-# Changing "ls" to "exa"
-alias ls='exa --color=always --group-directories-first' # Normal listing
-alias la='exa -la --color=always --group-directories-first'  # All files and dirs (long format)
-alias l='exa -l --color=always --group-directories-first'  # Long format
-alias lt='exa -aT --color=always --group-directories-first' # Tree listing
-
-# i3config
-alias i3conf='nvim ~/.config/i3/config'
-alias i3bconf='nvim ~/.config/i3blocks/config'
 
 # Confirm before overwriting
 alias cp='cp -i'
@@ -62,10 +44,9 @@ alias egrep='egrep --color=auto'
 # Adding flags
 alias ..='cd ..'
 alias ...='cd ../..'
-alias n='nnn -d'
 
 #git dotfiles
-alias dotfile='/usr/bin/git --git-dir=$HOME/dotfile/ --work-tree=$HOME'
+alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # StarShip config
 eval "$(starship init bash)"
