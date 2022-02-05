@@ -1,7 +1,7 @@
 export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
 
 # Define default applications
-export TERM="st-256color"
+export TERM="foot"
 export EDITOR="nvim"
 export BROWSER="firefox"
 export READER="zathura"
@@ -9,6 +9,7 @@ export MANPAGER="less"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 export HISTCONTROL=ignoredups:erasedups
+export KITTY_ENABLE_WAYLAND=1
 
 # Default directories in compliance with XDG standards
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -45,6 +46,9 @@ export SAVEHIST=1000
 # Set bat highlighting colour theme
 export BAT_THEME="base16"
 
-if systemctl -q is-active graphical.target && [[ ! $DISPLAY && "$(tty)" = "/dev/tty1" ]]; then
-  exec startx "$XINITRC"
-fi
+# If running from tty1 start sway
+[ "$(tty)" = "/dev/tty1" ] && exec sway
+
+# if systemctl -q is-active graphical.target && [[ ! $DISPLAY && "$(tty)" = "/dev/tty1" ]]; then
+#   exec startx "$XINITRC"
+# fi
