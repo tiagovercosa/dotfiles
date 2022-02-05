@@ -36,6 +36,13 @@ export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc" # Use python startup
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history" # Change node.js history location
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
+# wayland session for sway
+export SDL_VIDEODRIVER=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
+export QT_QPA_PLATFORM=wayland
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
+
 # Disables less history file
 export LESSHISTFILE=/dev/null
 
