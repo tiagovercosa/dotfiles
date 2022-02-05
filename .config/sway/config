@@ -6,13 +6,16 @@
 
 font pango:FantasqueSansMono Nerd Font 12
 
-gaps inner 3
-gaps outer 2
+gaps inner 5
+gaps outer 5
 smart_gaps on
+smart_borders on
 
-#disable  window titlebar
+#xwayland disable
+
+# Disable window titlebar
 default_border pixel 2
-default_floating_border pixel 3
+#default_floating_border pixel 3
 
 force_display_urgency_hint 400 ms
 workspace_auto_back_and_forth yes
@@ -21,18 +24,29 @@ popup_during_fullscreen smart
 ### Variables
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+
+# Your preferred app's
 set $term foot
+set $browser firefox
+set $filer pcmanfm
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu j4-dmenu-desktop --dmenu='bemenu -iwbn -p "Run:" --fn "Hack Nerd Font 11" --tb="#bbccdd" --tf="#333333" --hb="#bbccdd" --hf="#333333" --nb="#111111"  ' --term='foot'
+set $menu j4-dmenu-desktop --dmenu='bemenu -iwbn -p "Run:" --fn "Hack Nerd Font 11" --tb="#bbccdd" --tf="#333333" --hb="#bbccdd" --hf="#333333" --nb="#111111"  ' --term='kitty'
+
+# Start browser
+bindsym --to-code $mod+x exec $browser
+
+# Start file manager
+bindsym --to-code $mod+n exec $filer
 
 ### Output configuration
 
@@ -63,7 +77,7 @@ bindsym --locked XF86AudioPrev exec playerctl previous
 ### Idle configuration
 # Example configuration:
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+         timeout 300 'swaylock -f -C $HOME/.config/swaylock/config' \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
 
@@ -88,7 +102,9 @@ input type:touchpad tap enabled
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym --to-code $mod+z exec $menu
+    bindsym --to-code $mod+d exec wofi
+
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -100,8 +116,36 @@ input type:touchpad tap enabled
     # Reload the configuration file
     bindsym $mod+Shift+r reload
 
+## Shutdown/Logout menu
+#    set $mode_system System (l) lock, (e) exit, (s) suspend, (r) reboot, (Shift+s) Shutdown
+#    mode "$mode_system" {
+#        bindsym l exec $locker, mode "default"
+#        bindsym e exec swaymsg exit, mode "default"
+#        bindsym s exec $locker && systemctl suspend, mode "default"
+#        bindsym r exec systemctl reboot, mode "default"
+#        bindsym Shift+s exec systemctl poweroff -i, mode "default"
+#
+#        # back to normal: Enter or Escape
+#        bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#    }
+#
+#    bindsym $mod+Shift+e mode "$mode_system"
+
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym --to-code Mod1+F12 exec swaynag -t mtype -m \
+      'You pressed the exit shortcut. What do you want?' \
+      -b 'Poweroff' 'systemctl poweroff' \
+      -b 'Reboot' 'systemctl reboot' \
+      -b 'Sleep' 'systemctl suspend' \
+      -b 'Logout' 'swaymsg exit'
+
+    # Change monitor view
+    bindsym --to-code Mod1+m exec swaynag -t mtype -m \
+      'You pressed the exit shortcut. What do you want?' \
+      -b 'HDMI' 'swaymsg output eDP-1 disable && swaymsg output HDMI-A-1 enable' \
+      -b 'eDP' 'swaymsg output eDP-1 enable && swaymsg output HDMI-A-1 disable' \
+      -b 'HDMI and eDP' 'swaymsg output eDP-1 enable && swaymsg output HDMI-A-1 enable' \
 
 # Moving around:
     # Move your focus around
@@ -183,25 +227,26 @@ input type:touchpad tap enabled
     for_window [class="Spotify"] move to workspace $ws10 
 
 # lock screen
-bindsym $mod+Ctrl+l exec swaylock -c 000000
+bindsym $mod+Ctrl+l exec swaylock -C $HOME/.config/swaylock/config
 
 # Layout stuff:
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym --to-code --to-code $mod+b splith; exec notify-send "Split horizontaly"
-    bindsym --to-code --to-code $mod+v splitv; exec notify-send "Split verticaly"
+    bindsym --to-code $mod+b splith; exec notify-send "Split horizontaly"
+    bindsym --to-code $mod+v splitv; exec notify-send "Split verticaly"
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    bindsym --to-code $mod+s layout stacking
+    bindsym --to-code $mod+w layout tabbed
+    bindsym --to-code $mod+e layout toggle split
+    bindsym --to-code $mod+Shift+s sticky toggle
 
     # Make the current focus fullscreen
     bindsym --to-code $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    bindsym $mod+t floating toggle
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
@@ -267,26 +312,30 @@ include /etc/sway/config.d/*
 # Floating
 for_window [app_id="telegramdesktop"] floating enable
 for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="org.gnome.Nautilus"] floating enable
 for_window [class="Bitwarden"] floating enable
 for_window [class="Deezer"] floating enable
-for_window [class="qt5ct"] floating enable
+for_window [app_id="qt5ct"] floating enable
 for_window [class="(?i)Firefox" title="Library"] floating enable
+for_window [class="firefox"] inhibit_idle fullscreen
 for_window [class="(?i)Firefox" title="About Mozilla Firefox"] floating enable
 for_window [app_id="qalculate-gtk"] floating enable
 for_window [app_id="pcmanfm"] floating enable
 for_window [class="Virt-manager"] floating enable
+for_window [class="Spotify"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="dialog"] floating enable
+for_window [window_type="dialog"] floating enable
 #for_window [class="Steam"] floating enable
 #for_window [class="Clamtk"] floating enable
-#for_window [class="Nvidia-settings"] floating enable
 
 exec --no-startup-id nm-applet --indicator
 exec --no-startup-id dunst
 exec --no-startup-id monitor.sh
+exec --to-code pcmanfm -d
 
 bindsym $mod+c exec qalculate-gtk
-
-bindsym Mod1+F12 exec --no-startup-id ${HOME}/.local/bin/dmenu-logout.sh
-bindsym Mod1+m exec --no-startup-id ${HOME}/.local/bin/dmenu-monitor.sh
 
 # Take a screenshot from the focused monitor
 bindsym --to-code Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $HOME/img/screenshots/`date +%Y-%m-%d_%H:%M:%S`.png && dunstify "Screenshot from the focused monitor of saved!"
@@ -305,8 +354,8 @@ set $gnomeschema org.gnome.desktop.interface
 #
 ## Gtk applications settings
 exec_always {
-    gsettings set $gnomeschema gtk-theme 'Adwaita'
-    gsettings set $gnomeschema icon-theme 'Adwaita'
-    gsettings set $gnomeschema cursor-theme 'Adwaita'
+    gsettings set $gnomeschema gtk-theme 'Yaru-Blue-dark'
+    gsettings set $gnomeschema icon-theme 'Yaru-Blue'
+    gsettings set $gnomeschema cursor-theme 'Yaru-Blue'
     gsettings set $gnomeschema font-name 'Cantarell 11'
 }
