@@ -46,14 +46,6 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# nnn configuration
-export NNN_PLUG='p:preview-tabbed;f:fzopen;i:imgview'
-export NNN_OPTS=eo
-export NNN_OPS_PROG=0
-export NNN_OPENER=xdg-open
-export NNN_TRASH=1
-export NNN_FIFO='/tmp/nnn.fifo'
-
 # Aliases
 alias v='nvim'
 alias update="sudo pacman -Syu"
@@ -91,7 +83,6 @@ alias diff='diff --color=auto'
 # Adding flags
 alias ..='cd ..'
 alias ...='cd ../..'
-alias n='nnn -cCx'
 alias clima="curl http://pt.wttr.in"
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
@@ -107,7 +98,7 @@ autoload -Uz compinit
 compinit
 
 # Completion for kitty
-# kitty + complete setup zsh | source /dev/stdin
+kitty + complete setup zsh | source /dev/stdin
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.config/zsh/.zinit/bin/zinit.zsh ]]; then
