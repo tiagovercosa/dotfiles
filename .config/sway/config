@@ -8,8 +8,8 @@ font pango:FantasqueSansMono Nerd Font 12
 
 gaps inner 5
 gaps outer 5
-smart_gaps on
-smart_borders on
+# smart_gaps on
+# smart_borders on
 
 #xwayland disable
 
@@ -52,8 +52,8 @@ bindsym --to-code $mod+n exec $filer
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output HDMI-A-1 bg $HOME/img/wallpapers/0005.jpg fill
-output eDP-1 bg $HOME/img/wallpapers/0009.jpg fill
+output HDMI-A-1 bg $HOME/Pictures/wallpapers/0005.jpg fill
+output eDP-1 bg $HOME/Pictures/wallpapers/0009.jpg fill
 
 # configuration Monitor:
 # You can get the names of your outputs by running: swaymsg -t get_outputs
@@ -338,13 +338,13 @@ exec --to-code pcmanfm -d
 bindsym $mod+c exec qalculate-gtk
 
 # Take a screenshot from the focused monitor
-bindsym --to-code Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $HOME/img/screenshots/`date +%Y-%m-%d_%H:%M:%S`.png && dunstify "Screenshot from the focused monitor of saved!"
+bindsym --to-code Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $HOME/Pictures/screenshots/`date +%Y-%m-%d_%H:%M:%S`.png && dunstify "Screenshot from the focused monitor of saved!"
 
 #Take a screenshot from the focused window
 bindsym --to-code Ctrl+Print exec $HOME/.local/bin/screen.sh
 
 # Take a screenshot (select screen)
-bindsym --to-code Shift+Print exec grim -g "$(slurp)" $HOME/img/screenshots/`date +%Y-%m-%d_%H:%M:%S`.png && dunstify "Screenshot of saved!"
+bindsym --to-code Shift+Print exec grim -g "$(slurp)" $HOME/Pictures/screenshots/`date +%Y-%m-%d_%H:%M:%S`.png && dunstify "Screenshot of saved!"
 
 # Take a screenshot to clipboard (select screen)
 bindsym --to-code $mod+Print exec grim -g "$(slurp)" - | wl-copy && dunstify "Screenshot of saved to clipboard!"
