@@ -9,7 +9,7 @@ export MANPAGER="less"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 export HISTCONTROL=ignoredups:erasedups
-export KITTY_ENABLE_WAYLAND=1
+#export KITTY_ENABLE_WAYLAND=1
 
 # Default directories in compliance with XDG standards
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -37,11 +37,11 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history" # Change node.js his
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
 # wayland session for sway
-export SDL_VIDEODRIVER=wayland
-export _JAVA_AWT_WM_NONREPARENTING=1
-export QT_QPA_PLATFORM=wayland
-export XDG_CURRENT_DESKTOP=sway
-export XDG_SESSION_DESKTOP=sway
+#export SDL_VIDEODRIVER=wayland
+#export _JAVA_AWT_WM_NONREPARENTING=1
+#export QT_QPA_PLATFORM=wayland
+#export XDG_CURRENT_DESKTOP=sway
+#export XDG_SESSION_DESKTOP=sway
 
 # Disables less history file
 export LESSHISTFILE=/dev/null
@@ -54,8 +54,8 @@ export SAVEHIST=1000
 export BAT_THEME="base16"
 
 # If running from tty1 start sway
-[ "$(tty)" = "/dev/tty1" ] && exec sway
+# [ "$(tty)" = "/dev/tty1" ] && exec sway
 
-# if systemctl -q is-active graphical.target && [[ ! $DISPLAY && "$(tty)" = "/dev/tty1" ]]; then
-#   exec startx "$XINITRC"
-# fi
+if systemctl -q is-active graphical.target && [[ ! $DISPLAY && "$(tty)" = "/dev/tty1" ]]; then
+  exec startx "$XINITRC"
+fi
