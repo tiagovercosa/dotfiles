@@ -16,7 +16,7 @@ ask "$opt" "$ask"
 case $answer in
   "1. Interno")
     if [[ $answer == "1. Interno" ]]; then
-      $HOME/.local/bin/screenlayout/mobile.sh && nitrogen --restore && dunstify -I /usr/share/icons/oxygen/base/48x48/devices/video-display.png -i Display "Perfil de Monitor" "Interno"
+      $HOME/.local/bin/screenlayout/mobile.sh && nitrogen --restore && dunstify -I /usr/share/icons/oxygen/base/48x48/devices/computer-laptop.png -i Display "Perfil de Monitor" "Interno"
     fi
     exit 0
     ;;
