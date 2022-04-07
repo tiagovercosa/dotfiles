@@ -1,7 +1,7 @@
 # i3 config file (v4)
 
 set $mod Mod4
-set $term st
+set $term alacritty
 
 # i3blocks - caps lock status
 bindsym --release Caps_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
@@ -11,19 +11,18 @@ bindsym --release Caps_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
 
 # Fonte para títulos de janela. Também será usado pela barra, a menos que uma fonte
 # diferente seja usada no bloco de barras {} abaixo.
-font pango:FantasqueSansMono Nerd Font 12
+font pango:JetBrains Mono Nerd Font 12
 
 # Lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c #000000
 
 #AUTO START
 exec --no-startup-id dunst
-exec --no-startup-id numlockx on
-exec --no-startup-id flameshot
-exec --no-startup-id picom -b --experimental-backends
+exec --no-startup-id picom -b --config ~/.config/picom/picom.conf
+exec --no-startup-id xset r rate 300 50
 exec_always --no-startup-id  ${HOME}/.fehbg
 exec --no-startup-id nm-applet
-#exec --no-startup-id setxkbmap br abnt2
+exec --no-startup-id setxkbmap br abnt2
 exec --no-startup-id redshift-gtk
 
 force_display_urgency_hint 400 ms
@@ -79,8 +78,7 @@ bindsym $mod+Return exec --no-startup-id $term
 bindsym $mod+q kill
 
 # start a program launcher
-# bindsym $mod+d exec --no-startup-id dmenu_run -p 'Run:' -b -fn 'FantasqueSansMono Nerd Font-12' -sb '#5e81ac'
-bindsym $mod+d exec --no-startup-id rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
+bindsym $mod+d exec --no-startup-id dmenu_run -p 'Run:' -b -fn 'FantasqueSansMono Nerd Font-15' -sb '#5e81ac' -sf '#000000'
 
 # change focus
 bindsym $mod+h focus left
@@ -207,7 +205,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # new_window pixel 3
 
 # lock screen
-bindsym $mod+Ctrl+l exec --no-startup-id i3lock-fancy
+bindsym $mod+Ctrl+l exec --no-startup-id i3lock -c #000000
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -252,7 +250,7 @@ bar {
         #status_command i3status
         status_command i3blocks
         position top
-        font pango:FantasqueSansMono Nerd Font 12
+        font pango:JetBrains Mono Nerd Font Bold 12
         tray_output primary
         binding_mode_indicator yes
         
@@ -281,7 +279,7 @@ for_window [class=".*"] border pixel 2
 smart_gaps on
 
 # Só habilita quando tem apenas um conteiner aberto
-smart_gaps inverse_outer
+#smart_gaps inverse_outer
 
 # Set inner/outer gaps
 gaps inner 9
@@ -292,6 +290,8 @@ gaps outer -4
 
 # Floating
 # for_window [class="TelegramDesktop"] floating enable
+#for_window [class="Clamtk"] floating enable
+#for_window [class="Zotero"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Pavucontrol"] floating enable
@@ -299,14 +299,14 @@ for_window [class="flameshot"] floating enable
 for_window [class="Bitwarden"] floating enable
 for_window [class="Deezer"] floating enable
 for_window [class="qt5ct"] floating enable
-for_window [class="Clamtk"] floating enable
 for_window [class="Nvidia-settings"] floating enable
 for_window [class="(?i)Firefox" window_role="About"] floating enable
-for_window [class="Zotero"] floating enable
 for_window [class="Qalculate-gtk"] floating enable
 for_window [class="Steam"] floating enable
-#for_window [class="TelegramDesktop"] floating enable
 for_window [class="Virt-manager"] floating enable
+for_window [class="R_x11"] floating enable
+for_window [class="gnuplot_qt"] floating enable
+for_window [class="matplotlib"] floating enable
 
 # screenshot
 bindsym $mod+Print exec --no-startup-id flameshot gui 
