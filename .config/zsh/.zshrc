@@ -1,21 +1,17 @@
 # Path to your oh-my-zsh installation.
-export ZSH="/home/$USER/.config/oh-my-zsh"
+export ZSH="$HOME/.config/oh-my-zsh"
 
-plugins=(
-    git
-    vi-mode
-    bgnotify
-    fzf
-    sudo
-)
- 
+#ZSH_THEME="robbyrussell"
+
+plugins=(vi-mode
+    	bgnotify
+    	fzf
+    	sudo
+    	git)
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# Define PATH
-export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
 
 ### COLORS IN LESS (31 - red; 32 - green; 33 - yellow; 0 - reset/normal; 1 - bold; 4 - underlined) ###
 export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -43,6 +39,12 @@ else
   export EDITOR='nvim'
 fi
 
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -57,7 +59,7 @@ alias zat='echo "$(rg --files -t pdf | fzf)" | xargs -r -0 -I{} devour zathura "
 alias oko='devour okular "$(rg --files -t pdf | fzf)" &> /dev/null'
 # alias rgf='$(rg --files | fzf)'
 
-alias hd='cd /storage'
+alias data='cd /storage'
 
 # Changing "ls" to "exa"
 alias ls='exa --color=always --group-directories-first' # Normal listing
@@ -70,6 +72,12 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
+# Adding flags
+alias ..='cd ..'
+alias ...='cd ../..'
+alias clima="curl http://pt.wttr.in"
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+
 # Colorize grep output
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -77,39 +85,28 @@ alias egrep='egrep --color=auto'
 alias ip='ip -color=auto'
 alias diff='diff --color=auto'
 
-# Commit for VimWiki
-# alias wiki-commit='git add . && git commit -a -m "updated on `date +'%Y%m%d_%H:%M'`" && git push origin main'
-
-# Adding flags
-alias ..='cd ..'
-alias ...='cd ../..'
-alias clima="curl http://pt.wttr.in"
-alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
-
-#git dotfiles
-alias dot='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME'
-
-# StarShip config
+# Starship
 eval "$(starship init zsh)"
 
+# startx
+alias startx='startx "$XINITRC"'
+
+# FZF
 [ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
 
 autoload -Uz compinit
 compinit
 
-# Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
-
 ### Added by Zinit's installer
-if [[ ! -f $HOME/.config/zsh/.zinit/bin/zinit.zsh ]]; then
+if [[ ! -f $ZDOTDIR/.zinit/bin/zinit.zsh ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.config/zsh/.zinit" && command chmod g-rwX "$HOME/.config/zsh/.zinit"
-    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.config/zsh/.zinit/bin" && \
+    command mkdir -p "$ZDOTDIR/.zinit" && command chmod g-rwX "$ZDOTDIR/.zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$ZDOTDIR/.zinit/bin" && \
         print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
         print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
 
-source "$HOME/.config/zsh/.zinit/bin/zinit.zsh"
+source "$ZDOTDIR/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
