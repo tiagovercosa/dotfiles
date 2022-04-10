@@ -40,16 +40,28 @@ keys = [
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
+    # Floating window
+    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating mode"),
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen mode"),
+
+    # Move to the groups
+    Key([mod], "period", lazy.screen.next_group(), desc="Move to the group on the right"),
+    Key([mod], "comma", lazy.screen.prev_group(), desc="Move to the group on the left"),
+    Key([mod], "Tab", lazy.screen.toggle_group(), desc="Move to the last visited group"),
+
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
+
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "Left", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "Right", lazy.prev_layout(), desc="Toggle between layouts"),
+
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod, "shift"], "e", lazy.shutdown(), desc="Shutdown Qtile"),
 
     # Audio control
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle")),
@@ -60,18 +72,37 @@ keys = [
     Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 15")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 15")),
 
+    # Control music player
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
+    Key([], "XF86AudioStop", lazy.spawn("playerctl stop")),
+
     # Screenshot
     Key([mod], "z", lazy.spawn(screenshot)),
     Key([mod], "s", lazy.spawn(screenshot_selection)),
 ]
 
-groups = [Group(i) for i in "123456789"]
+groups = [
+    Group("1"),
+    Group("2", matches=[Match(wm_class=["firefox"])]),
+    Group("3"),
+    Group("4"),
+    Group("5"),
+    Group("6"),
+    Group("7"),
+    Group("8", matches=[Match(wm_class=["telegram-desktop"]), Match(wm_class=["vlc"])]),
+    Group("9")
+]
+
+# groups = [
+#     Group(i) for i in "123456789"
+# ]
 
 for i in groups:
     keys.extend([
             # mod1 + letter of group = switch to group
-            Key([mod], i.name, lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name)),
+            Key([mod], i.name, lazy.group[i.name].toscreen(), desc="Switch to group {}".format(i.name)),
 
             # mod1 + shift + letter of group = switch to & move focused window to group
             Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
@@ -106,23 +137,27 @@ colors = {
           }
 
 # Default theme for layouts
-layout_theme = {"border_width": 2,
-                "margin": 8,
-                "border_focus": colors["maroon"],
-                "border_normal": colors["black1"]
+layout_theme = {"border_width": 3,
+                "margin": 5,
+                "border_focus": "#96cdfb",
+                "border_normal": "#575268"
                 }
 
 layouts = [
-    #layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.MonadTall(**layout_theme, ratio = 0.55),
+    layout.Tile(**layout_theme, ratio = 0.55),
     layout.Max(**layout_theme),
     layout.Stack(num_stacks=2),
-    layout.RatioTile(**layout_theme),
-    layout.Floating(**layout_theme),
+    layout.RatioTile(),
+    layout.Floating(
+        border_focus = "#96cdfb",
+        border_normal = "#575268",
+        border_width = 2
+    ),
+    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    # layout.MonadTall(**layout_theme, ratio = 0.55),
     # layout.MonadWide(),
     # layout.Bsp(),
     # layout.Matrix(),
-    # layout.Tile(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
@@ -134,9 +169,9 @@ prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 # Default widget settings
 widget_defaults = dict(
     font='JetBrains Mono Nerd Font',
-    fontsize=16,
+    fontsize=17,
     padding=2,
-    background=colors["white"]
+    background="#000000"
 )
 
 extension_defaults = widget_defaults.copy()
@@ -148,83 +183,109 @@ screens = [
               widget.GroupBox(
                        font = "JetBrains Mono Nerd Font Bold",
                        fontsize = 16,
-                       margin_y = 2,
-                       margin_x = 0,
-                       padding_y = 5,
-                       padding_x = 3,
-                       borderwidth = 3,
-                       active = colors["white"],
-                       inactive = colors["black3"],
-                       rounded = False,
-                       highlight_color = colors["black4"],
+                       active = "#ffffff",
+                       inactive = "#404040",
                        highlight_method = "line",
-                       this_current_screen_border = colors["blue"],
-                       this_screen_border = colors["green"],
-                       other_current_screen_border = colors["blue"],
-                       other_screen_border = colors["green"],
-                       foreground = colors["white"],
-                       background = colors["black0"]
+                       this_current_screen_border = "#bbccdd",
+                       foreground = "#ffffff",
+                       background = "#000000"
+                       #margin_y = 5,
+                       #margin_x = 0,
+                       #padding_y = 5,
+                       #padding_x = 3,
+                       #borderwidth = 2,
+                       #rounded = False,
+                       #highlight_color = colors["black4"],
+                       #this_screen_border = colors["green"],
+                       #other_current_screen_border = colors["blue"],
+                       #other_screen_border = colors["green"],
                        ),
              widget.TextBox(
                        text = '|',
                        font = "JetBrains Mono Nerd Font",
-                       background = colors["black0"],
-                       foreground = colors["gray0"],
+                       background = "#000000",
+                       foreground = "#ffffff",
                        padding = 2,
                        fontsize = 16
                        ),
               widget.CurrentLayoutIcon(
                        custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
                        foreground = colors["white"],
-                       background = colors["black0"],
+                       background = "#000000",
                        padding = 0,
                        scale = 0.7
                        ),
               widget.CurrentLayout(
                        foreground = colors["white"],
-                       background = colors["black0"],
+                       background = "#000000",
                        padding = 5
                        ),
              widget.TextBox(
                        text = '|',
                        font = "JetBrains Mono Nerd Font",
-                       background = colors["black0"],
-                       foreground = colors["gray0"],
+                       background = "#000000",
+                       foreground = "#ffffff",
                        padding = 2,
                        fontsize = 16
                        ),
               widget.WindowName(
+                       font = "JetBrains Mono Nerd Font bold",
                        foreground = colors["teal"],
-                       background = colors["black0"],
+                       background = None,
                        padding = 0,
-                       fontsize = 15
+                       fontsize = 16,
                        ),
               widget.Prompt(
-                	prompt = 'Run: ',
-                	padding = 5,
-                	foreground = colors["white"],
-                	background = colors["black0"],
+                	   prompt = 'Run: ',
+                	   padding = 5,
+                       background = "#000000",
+                	   foreground = colors["white"],
                 	),
               widget.Sep(
                        linewidth = 0,
                        padding = 6,
                        foreground = colors["black0"],
-                       background = colors["black0"]
+                       background = "#000000",
+                       ),
+#                widget.NvidiaSensors(
+#                    background = None,
+#                    fmt = 'nvidia:{}',
+#                    format = '{temp}ºC',
+#                    threshold = 70,
+#                    foreground_alert = '#ff6000',
+#                       mouse_callbacks={
+#                           "Button1": lambda: qtile.cmd_spawn("nvidia-settings")}
+#                ),
+             widget.TextBox(
+                       text = '|',
+                       font = "JetBrains Mono Nerd Font",
+                       background = "#000000",
+                       foreground = "#ffffff",
+                       padding = 2,
+                       fontsize = 16
                        ),
               widget.Volume(
                        #emoji = True,
                        font = "JetBrains Mono Nerd Font Bold",
-                       fmt = 'VOL:{}',
-                       foreground = colors["black0"],
-                       background = colors["mauve"],
+                       fmt = 'Vol:{}',
+                       foreground = "#bbccdd",
+                       background = None,
                        padding = 5,
                        mouse_callbacks={
                            "Button1": lambda: qtile.cmd_spawn("pavucontrol")}
                        ),
+             widget.TextBox(
+                       text = '|',
+                       font = "JetBrains Mono Nerd Font",
+                       background = "#000000",
+                       foreground = "#ffffff",
+                       padding = 2,
+                       fontsize = 16
+                       ),
               widget.Battery(
                        font = "JetBrains Mono Nerd Font Bold",
-                       foreground = colors["black0"],
-                       background = colors["green"],
+                       foreground = "#bbccdd",
+                       background = None,
                        fmt = 'BAT:{}',
                        low_percentage = 0.25,
                        update_interval = 5,
@@ -236,19 +297,37 @@ screens = [
                        format = '{char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W',
                        padding = 5
                        ),
+             widget.TextBox(
+                       text = '|',
+                       font = "JetBrains Mono Nerd Font",
+                       background = "#000000",
+                       foreground = "#ffffff",
+                       padding = 2,
+                       fontsize = 16
+                       ),
               widget.Clock(
                        font = "JetBrains Mono Nerd Font Bold",
-                       foreground = colors["black0"],
-                       background = colors["sky"],
-                       format = " %A, %B %d - %H:%M",
+                       foreground = "#bbccdd",
+                       background = None,
+                       format = "🕛 %A, %B %d - %H:%M",
                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(browser + " https://calendar.google.com")}
                        ),
+             widget.TextBox(
+                       text = '|',
+                       font = "JetBrains Mono Nerd Font",
+                       background = "#000000",
+                       foreground = "#ffffff",
+                       padding = 2,
+                       fontsize = 16
+                       ),
                 widget.Systray(
-                       background = colors["black0"],
+                       background = None,
                        padding = 5,
                         ),
             ],
-            22,
+            26,
+            border_width = [0,0,2,0],
+            background = "#000000",
             opacity = 0.8,
         ),
             wallpaper = '/home/tiago/pic/wallpapers/0274.jpg',
@@ -280,6 +359,9 @@ floating_layout = layout.Floating(
         Match(wm_class='R_x11'),
         Match(wm_class='gnuplot_qt'),
         Match(wm_class='matplotlib'),
+        Match(wm_class='Nvidia-settings'),
+        Match(title="About Mozilla Firefox"),
+        Match(title="Library"),
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
     ]
