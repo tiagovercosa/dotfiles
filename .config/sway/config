@@ -32,15 +32,15 @@ set $up k
 set $right l
 
 # Your preferred app's
-set $term foot
+set $term alacritty
 set $browser firefox
-set $filer pcmanfm
+#set $filer pcmanfm
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-# set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu j4-dmenu-desktop --dmenu='bemenu -iwbn -p "Run:" --fn "Hack Nerd Font 11" --tb="#bbccdd" --tf="#333333" --hb="#bbccdd" --hf="#333333" --nb="#111111"  ' --term='kitty'
+set $menu dmenu_path | dmenu | xargs swaymsg exec --
+#set $menu j4-dmenu-desktop --dmenu='bemenu -iwbn -p "Run:" --fn "Hack Nerd Font 11" --tb="#bbccdd" --tf="#333333" --hb="#bbccdd" --hf="#333333" --nb="#111111"  ' --term='kitty'
 
 # Start browser
 bindsym --to-code $mod+x exec $browser
@@ -52,14 +52,14 @@ bindsym --to-code $mod+n exec $filer
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output HDMI-A-1 bg $HOME/Pictures/wallpapers/0005.jpg fill
-output eDP-1 bg $HOME/Pictures/wallpapers/0009.jpg fill
+#output HDMI-A-1 bg $HOME/Pictures/wallpapers/0005.jpg fill
+output eDP-1 bg $HOME/Pictures/Wallpapers/0133.jpg fill
 
 # configuration Monitor:
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output HDMI-A-1 resolution 1920x1080 position 0,0
 output eDP-1 resolution 1366x768 position 1920,312
-focus output HDMI-A-1
+focus output eDP-1
 
 # Teclas de mídia 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -86,8 +86,8 @@ exec swayidle -w \
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
-input * accel_profile flat
-input * xkb_numlock enable
+#input * accel_profile flat
+#input * xkb_numlock enable
 
 # ----- INPUT
 input type:keyboard xkb_layout br
@@ -103,7 +103,7 @@ input type:touchpad tap enabled
 
     # Start your launcher
     bindsym --to-code $mod+z exec $menu
-    bindsym --to-code $mod+d exec wofi
+    #bindsym --to-code $mod+d exec wofi
 
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -332,8 +332,8 @@ for_window [window_type="dialog"] floating enable
 
 exec --no-startup-id nm-applet --indicator
 exec --no-startup-id dunst
-exec --no-startup-id monitor.sh
-exec --to-code pcmanfm -d
+#exec --no-startup-id monitor.sh
+#exec --to-code pcmanfm -d
 
 bindsym $mod+c exec qalculate-gtk
 
@@ -350,12 +350,12 @@ bindsym --to-code Shift+Print exec grim -g "$(slurp)" $HOME/Pictures/screenshots
 bindsym --to-code $mod+Print exec grim -g "$(slurp)" - | wl-copy && dunstify "Screenshot of saved to clipboard!"
 
 ## For gtk applications settings
-set $gnomeschema org.gnome.desktop.interface
+# set $gnomeschema org.gnome.desktop.interface
 #
 ## Gtk applications settings
-exec_always {
-    gsettings set $gnomeschema gtk-theme 'Yaru-Blue-dark'
-    gsettings set $gnomeschema icon-theme 'Yaru-Blue'
-    gsettings set $gnomeschema cursor-theme 'Yaru-Blue'
-    gsettings set $gnomeschema font-name 'Cantarell 11'
-}
+# exec_always {
+#     gsettings set $gnomeschema gtk-theme 'Yaru-Blue-dark'
+#     gsettings set $gnomeschema icon-theme 'Yaru-Blue'
+#     gsettings set $gnomeschema cursor-theme 'Yaru-Blue'
+#     gsettings set $gnomeschema font-name 'Cantarell 11'
+# }
