@@ -9,45 +9,42 @@ from libqtile.lazy import lazy
 mod = "mod4"
 terminal = "alacritty"
 browser = "firefox"
-file_manager = "alacritty -e nnn"
+file_manager = "alacritty -e nnn -dic"
 editor = "alacritty -e nvim"
 screenshot = "scrot -e 'mv $f ~/img/screenshots/Screenshot%Y-%m-%d%H:%M:%S.png'"
 screenshot_selection = "scrot -s -e 'mv $f ~/img/screenshots/Screenshot%Y-%m-%d%H:%M:%S.png'"
 
 keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch my terminal"),
-    Key([mod], "f", lazy.spawn(file_manager), desc="Launch my file manager"),
+    Key([mod], "m", lazy.spawn(file_manager), desc="Launch my file manager"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch my web browser"),
     Key([mod], "d", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
     # Switch between windows
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([mod], "h", lazy.layout.left()),
+    Key([mod], "l", lazy.layout.right()),
+    Key([mod], "j", lazy.layout.down()),
+    Key([mod], "k", lazy.layout.up()),
+    Key([mod], "space", lazy.layout.next()),
 
-    # Move windows between left/right columns or move up/down in current stack.
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-
-    # Grow windows.
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    # MonadTall keybins
+    Key([mod, "shift"], "h", lazy.layout.swap_left()),
+    Key([mod, "shift"], "l", lazy.layout.swap_right()),
+    Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
+    Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
+    Key([mod], "i", lazy.layout.grow()),
+    Key([mod], "m", lazy.layout.shrink()),
+    Key([mod], "o", lazy.layout.maximize()),
+    Key([mod, "shift"], "space", lazy.layout.flip()),
 
     # Floating window
-    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating mode"),
-    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen mode"),
+    Key([mod], "t", lazy.window.toggle_floating()),
+    Key([mod], "f", lazy.window.toggle_fullscreen()),
 
     # Move to the groups
-    Key([mod], "period", lazy.screen.next_group(), desc="Move to the group on the right"),
-    Key([mod], "comma", lazy.screen.prev_group(), desc="Move to the group on the left"),
-    Key([mod], "Tab", lazy.screen.toggle_group(), desc="Move to the last visited group"),
+    Key([mod], "period", lazy.screen.next_group()),
+    Key([mod], "comma", lazy.screen.prev_group()),
+    Key([mod], "Tab", lazy.screen.toggle_group()),
 
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
@@ -69,8 +66,8 @@ keys = [
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -5%")),
 
     # Screen brightness control
-    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 15")),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 15")),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 10")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 10")),
 
     # Control music player
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
@@ -137,27 +134,37 @@ colors = {
           }
 
 # Default theme for layouts
-layout_theme = {"border_width": 3,
-                "margin": 5,
-                "border_focus": "#96cdfb",
-                "border_normal": "#575268"
-                }
+layout_theme = {
+    "border_width": 1,
+    "margin": 8,
+    "border_focus": "#96cdfb",
+    "border_normal": "#575268"
+    }
 
 layouts = [
-    layout.Tile(**layout_theme, ratio = 0.55),
-    layout.Max(**layout_theme),
-    layout.Stack(num_stacks=2),
-    layout.RatioTile(),
+    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.MonadTall(
+        border_focus = "#96cdfb",
+        border_normal = "#575268",
+        ratio = 0.55,
+        new_client_position = 'before_current',
+        single_border_width = 1,
+        single_margin = 9,
+        margin = 8
+    ),
     layout.Floating(
         border_focus = "#96cdfb",
         border_normal = "#575268",
-        border_width = 2
+        border_width = 2,
+        fullscreen_border_width = 9
     ),
-    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    # layout.MonadTall(**layout_theme, ratio = 0.55),
+    layout.Max(),
+
+    # layout.Stack(num_stacks=2),
+    # layout.RatioTile(),
     # layout.MonadWide(),
+    # layout.Tile(),
     # layout.Bsp(),
-    # layout.Matrix(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
@@ -330,7 +337,7 @@ screens = [
             background = "#000000",
             opacity = 0.8,
         ),
-            wallpaper = '/home/tiago/pic/wallpapers/0274.jpg',
+            wallpaper = '/home/tiago/Pictures/Wallpapers/0133.jpg',
             wallpaper_mode = 'fill',
     ),
 ]
@@ -388,4 +395,4 @@ wl_input_rules = None
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"
+#wmname = "LG3D"
