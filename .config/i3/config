@@ -128,7 +128,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # Windowns defaults
 default_border pixel 2
 default_floating_border normal
-hide_edge_borders smart
+#hide_edge_borders smart
 
 # focus defaults
 focus_follows_mouse no
@@ -138,9 +138,13 @@ focus_wrapping no
 floating_modifier $mod
 
 # Firefox
+for_window [class="[Cc]hromium"]        title_format "  $ico_chrome  %title"
+# Firefox
 for_window [class="[Ff]irefox"]         title_format "  $ico_firefox  %title"
 # Alacritty
 for_window [class="[Aa]lacritty"]       title_format "  $ico_terminal  %title"
+# SimpleTerminal
+for_window [class="[Ss]t"]              title_format "  $ico_terminal  %title"
 # Telegram
 for_window [class="TelegramDesktop"]    title_format "  $ico_chat  %title"
 # Spotify
@@ -150,8 +154,6 @@ assign [class="TelegramDesktop"]         → $ws9
 assign [class="firefox"]                 → $ws2
 assign [class="qutebrowser"]             → $ws2
 assign [class="bitwarden"]               → $ws3
-assign [class="libreoffice-startcenter"] → $ws6
-assign [class="libreoffice-writer"]      → $ws6
 assign [class="libreoffice-calc"]        → $ws6
 assign [class="vlc"]                     → $ws8
 assign [class="Deezer"]                  → $ws10
@@ -171,7 +173,7 @@ for_window [class="Qalculate-gtk"]      floating enable
 for_window [class="Virt-manager"]       floating enable
 for_window [class="R_x11"]              floating enable
 for_window [class="gnuplot_qt"]         floating enable
-for_window [class="matplotlib"]         floating enable
+for_window [class="Matplotlib"]         floating enable
 
 # Set workspace for output primary
 workspace 1 output primary
@@ -195,9 +197,10 @@ client.urgent            $red    $red    $dark      $cyan      $red
 
 bar {
         position bottom
-        wheel_up_cmd nop
-        wheel_down_cmd nop
+        bindsym button4 nop
+        bindsym button5 nop
         tray_padding 5
+        tray_output primary
 
         mode dock
 
@@ -207,12 +210,10 @@ bar {
 
         # separator_symbol "|"
         # workspace_min_width 10
-        # tray_output none
 
         status_command i3blocks
 
-        font pango:JetBrains Mono Nerd Font Medium 12
-        #font pango:Open Sans 12
+        font pango:Open Sans Semibold 12
 
         colors {
             statusline    $white
@@ -340,12 +341,10 @@ bindsym $mod+Shift+minus move scratchpad
 # Program launchers
 # ----------------------------------------------------------------------------
 
-# rofi show windows list
-bindsym Mod1+Tab                     $exe rofi -show window
 #Telegram
 bindsym $mod+o                       $exe telegram-desktop
 # Firefox
-bindsym $mod+f                       $exe firefox
+bindsym $mod+f                       $exe env GTK_THEME=Arc-Dark firefox
 # nnn
 bindsym $mod+n                       $exe $term -e nnn -dic
 # LibreOffice
@@ -366,7 +365,7 @@ bindsym $mod+Shift+e                 $exe emoji
 # Session startup
 # ----------------------------------------------------------------------------
 
-$exe_always feh --no-fehbg --bg-fill Pictures/Wallpapers/0133.jpg
+$exe_always feh --no-fehbg --bg-fill Pictures/Wallpapers/0180.jpg
 
 # start a program launcher
 bindsym $mod+d exec --no-startup-id dmenu_run -p 'Run:' -b -fn 'FantasqueSansMono Nerd Font-15' -sb '#5e81ac' -sf '#000000'
