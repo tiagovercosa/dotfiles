@@ -1,78 +1,42 @@
 # i3blocks configuration file
 
 # Global properties
+
+command=/usr/share/i3blocks/$BLOCK_NAME
+separator_block_width=20
 markup=pango
-align=center
-color=#eceff4
-separator_block_width=15
-
-########################################################
-########################################################
-
-#[window]
-#command=xtitle -s
-#interval=persist
-#align=left
-#min_width=750
+color=#BBCCDD
+#color=#88C0D0
 
 [spotify]
-#label=🎶 
 label=  
 command=${HOME}/.local/bin/spotify.py
 interval=1
-
-#[kernelversion]
-#label=🐧 
-#command=${HOME}/.local/bin/kernel
-#interval=3600
-
-# Guess the weather hourly
-#[weather]
-#command=curl -Ss 'https://pt.wttr.in?format=1'
-#interval=3600
-#color=#A4C2F4
 
 [caps-lock]
 command=${HOME}/.local/bin/keyindicator
 interval=once
 signal=11
 
-[uptime]
-label=🔺 
-command=${HOME}/.local/bin/upt
-interval=60
-
-#[update]
-#label=📦 
-#command=${HOME}/.local/bin/pacupdate
-#interval=60
-
-#[memory]
-#label=💻 
-#command=${HOME}/.local/bin/memory
-#interval=10
+[memory]
+command=${HOME}/.local/bin/memory
+interval=10
 
 [brightness]
-label=🔆 
 command=${HOME}/.local/bin/brightness
 interval=2
 
 [volume]
+command=${HOME}/.local/bin/module-volume
 instance=Master
 interval=once
-command=${HOME}/.local/bin/volume
 signal=10
 
-#[internet]
-#command=${HOME}/.local/bin/internet
-#interval=1
-
 [module-calendar]
-#label=📅 
-command=${HOME}/.local/bin/clock
+command=${HOME}/.local/bin/module-calendar
 interval=1
 
 [battery]
-command=${HOME}/.local/bin/battery
+command=${HOME}/.local/bin/module-battery
 markup=pango
 interval=1
