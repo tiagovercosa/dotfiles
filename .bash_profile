@@ -3,4 +3,4 @@
 #
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
-export HISTFILE="$XDG_DATA_HOME"/bash/history
+HISTFILE="$XDG_STATE_HOME"/bash/history
