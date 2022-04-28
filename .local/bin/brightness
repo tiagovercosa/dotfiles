@@ -53,14 +53,13 @@ if [[ "${percent}" -le "${URGENT_VALUE}" ]]; then
   #exit 33
 fi
 
-if [[ "${percent}" -le 30 ]]; then
+if [[ "${percent}" -le 35 ]]; then
   echo " ${percent}%"
   else
-    if [[ "${percent}" -le 60 ]]; then
+    if [[ "${percent}" -le 75 ]]; then
       echo " ${percent}%"
     else
         echo " ${percent}%"
     fi
-  fi
 fi
 
