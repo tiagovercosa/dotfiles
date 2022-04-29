@@ -60,6 +60,6 @@ if [[ "${percent}" -le 50 ]]; then
     #  echo "🔆 ${percent}%"
     #else
         echo "🔆 ${percent}%"
-    fi
+    #fi
 fi
 
