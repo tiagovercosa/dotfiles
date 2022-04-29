@@ -1,9 +1,10 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Prints the current volume or 🔇 if muted.
 
 case $BLOCK_BUTTON in
-	1) setsid -f "$TERM" -e pulsemixer ;;
+	#1) setsid -f "$TERM" -e pulsemixer ;;
+	1) env GTK_THEME=Arc-Dark pavucontrol ;;
 	2) pamixer -t ;;
 	4) pamixer --allow-boost -i 1 ;;
 	5) pamixer --allow-boost -d 1 ;;
