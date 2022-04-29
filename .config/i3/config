@@ -1,10 +1,9 @@
 # i3 config file (v4)
 
-# ----------------------------------------------------------------------------
 # Variables
 # ----------------------------------------------------------------------------
-
 # mod key (Alt=Mod1, Super=Mod4)
+
 set $mod Mod4
 set $term alacritty
 
@@ -126,8 +125,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # ----------------------------------------------------------------------------
 
 # Windowns defaults
-default_border pixel 2
 default_floating_border normal
+#default_border pixel 2
 #hide_edge_borders smart
 
 # focus defaults
@@ -143,8 +142,6 @@ for_window [class="[Cc]hromium"]        title_format "  $ico_chrome  %title"
 for_window [class="[Ff]irefox"]         title_format "  $ico_firefox  %title"
 # Alacritty
 for_window [class="[Aa]lacritty"]       title_format "  $ico_terminal  %title"
-# SimpleTerminal
-for_window [class="[Ss]t"]              title_format "  $ico_terminal  %title"
 # Telegram
 for_window [class="TelegramDesktop"]    title_format "  $ico_chat  %title"
 # Spotify
@@ -213,7 +210,7 @@ bar {
 
         status_command i3blocks
 
-        font pango:Open Sans Semibold 12
+        font pango:Ubuntu Nerd Font Book 12
 
         colors {
             statusline    $white
@@ -241,12 +238,10 @@ bindsym $mod+Shift+u         $exe pkill -SIGRTMIN+14 i3blocks
 
 # i3blocks volume control and status
 set $vol_signal pkill -SIGRTMIN+10 i3blocks
-
-bindsym $mod+p               $exe env GTK_THEME=Arc-Dark pavucontrol && $vol_signal
 # Audio controls
-bindsym XF86AudioMute        $exe amixer set Master toggle && $vol_signal
-bindsym XF86AudioLowerVolume $exe amixer set Master playback 5%- unmute && $vol_signal
-bindsym XF86AudioRaiseVolume $exe amixer set Master playback 5%+ unmute && $vol_signal
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% && $vol_signal
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5% && $vol_signal
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle   && $vol_signal
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp   $exe xbacklight -inc 10
@@ -305,12 +300,12 @@ bindsym $mod+Shift+r restart
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l $exe i3exit lock, mode "default"
-    bindsym e $exe i3exit logout, mode "default"
-    bindsym s $exe i3exit suspend, mode "default"
-    bindsym h $exe i3exit hibernate, mode "default"
-    bindsym r $exe i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym l $exe my_i3lock, mode "default"
+    bindsym e $exe i3-msg exit, mode "default"
+    bindsym s $exe systemctl suspend, mode "default"
+    bindsym h $exe systemctl hibernate, mode "default"
+    bindsym r $exe systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -341,6 +336,8 @@ bindsym $mod+Shift+minus move scratchpad
 # Program launchers
 # ----------------------------------------------------------------------------
 
+# Pavucontrol
+bindsym $mod+p                       $exe env GTK_THEME=Arc-Dark pavucontrol && $vol_signal
 #Telegram
 bindsym $mod+o                       $exe telegram-desktop
 # Firefox
@@ -357,37 +354,36 @@ bindsym $mod+Return                  $exe $term
 bindsym $mod+KP_Enter                $exe $term
 # Calculator
 bindsym $mod+c                       $exe env GTK_THEME=Arc-Dark  qalculate-gtk
-bindsym $mod+a                       $exe env GTK_THEME=Arc-Dark  nautilus
+# PcManFM
+bindsym $mod+a                       $exe env GTK_THEME=Arc-Dark  pcmanfm
 # Emojis
-bindsym $mod+Shift+e                 $exe emoji
+#bindsym $mod+Shift+e                 $exe emoji
 
 # ----------------------------------------------------------------------------
 # Session startup
 # ----------------------------------------------------------------------------
 
-$exe_always feh --no-fehbg --bg-fill Pictures/Wallpapers/0180.jpg
-
-# start a program launcher
-bindsym $mod+d exec --no-startup-id dmenu_run -p 'Run:' -b -fn 'FantasqueSansMono Nerd Font-15' -sb '#5e81ac' -sf '#000000'
+# start a program launcher -b
+bindsym $mod+d exec --no-startup-id dmenu_run -p 'Run:' -fn 'Open Sans-12' -sb '#5e81ac' -sf '#000000'
 
 # ----------------------------------------------------------------------------
 # i3-gaps
 # ----------------------------------------------------------------------------
 
 # You can also use any non-zero value if you'd like to have a border
-for_window [class=".*"] border pixel 2
-smart_gaps on
+#  for_window [class=".*"] border pixel 2
+#  smart_gaps on
 
 # Só habilita quando tem apenas um conteiner aberto
-#smart_gaps inverse_outer
+#  smart_gaps inverse_outer
 
 # Set inner/outer gaps
-gaps inner 9
-gaps outer -4
+#  gaps inner 9
+#  gaps outer -4
 
 # Activate smart borders (always)
 #smart_borders on
 
-# Limitando o tamanho máximo da janela flutuante:
-floating_minimum_size 0 x 0
-floating_maximum_size 1278 x 850
+# # Limitando o tamanho máximo da janela flutuante:
+# floating_minimum_size 0 x 0
+# floating_maximum_size 1278 x 850
