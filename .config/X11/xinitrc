@@ -3,4 +3,4 @@
 [ -f /etc/xprofile ] && . /etc/xprofile
 [ -f ~/.config/X11/xprofile ] && . ~/.config/X11/xprofile
 
-exec dwm
+exec i3
