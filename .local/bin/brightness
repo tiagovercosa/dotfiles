@@ -49,17 +49,17 @@ if [[ "${percent}" -le 0 ]]; then
 fi
 
 if [[ "${percent}" -le "${URGENT_VALUE}" ]]; then
-  echo "<span color='#BF616A'> ${percent}%</span>"
-  #exit 33
+  echo "🔅<span color='#BF616A'> ${percent}%</span>"
+  #exit 33 
 fi
 
-if [[ "${percent}" -le 35 ]]; then
-  echo " ${percent}%"
+if [[ "${percent}" -le 50 ]]; then
+  echo "🔅 ${percent}%"
   else
-    if [[ "${percent}" -le 75 ]]; then
-      echo " ${percent}%"
-    else
-        echo " ${percent}%"
+    #if [[ "${percent}" -le 50 ]]; then
+    #  echo "🔆 ${percent}%"
+    #else
+        echo "🔆 ${percent}%"
     fi
 fi
 
