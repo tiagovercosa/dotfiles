@@ -10,7 +10,7 @@ color=#BBCCDD
 
 [spotify]
 label=  
-command=${HOME}/.local/bin/spotify.py
+command=${HOME}/.local/bin/title_spotify
 interval=1
 
 [caps-lock]
@@ -18,22 +18,18 @@ command=${HOME}/.local/bin/keyindicator
 interval=once
 signal=11
 
-[memory]
-command=${HOME}/.local/bin/memory
-interval=10
-
 [brightness]
 command=${HOME}/.local/bin/brightness
 interval=2
 
 [volume]
-command=${HOME}/.local/bin/module-volume
+command=${HOME}/.local/bin/volume
 instance=Master
 interval=once
 signal=10
 
 [module-calendar]
-command=${HOME}/.local/bin/module-calendar
+command=${HOME}/.local/bin/clock
 interval=1
 
 [battery]
