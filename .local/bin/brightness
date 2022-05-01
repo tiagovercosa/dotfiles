@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # One of the following: xrandr, xbacklight, kernel
 METHOD="xbacklight"
@@ -55,11 +55,11 @@ fi
 
 if [[ "${percent}" -le 50 ]]; then
   echo "🔅 ${percent}%"
-  else
+else
     #if [[ "${percent}" -le 50 ]]; then
     #  echo "🔆 ${percent}%"
     #else
-        echo "🔆 ${percent}%"
+  echo "🔆 ${percent}%"
     #fi
 fi
 
