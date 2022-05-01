@@ -1,7 +1,8 @@
 # The .First function is called after everything else in .Rprofile is executed
 
 .First <- function() {
-    message("Working directory is: ", getwd())
+    #message("Working directory is: ", getwd())
+    message("Welcome back ", Sys.getenv("USER"),"!\n","working directory is: ", getwd())
 }
 
 options(digits = 12)                            # Number of digits to print. Default is 7, max is 15
