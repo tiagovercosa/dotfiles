@@ -10,7 +10,7 @@ export PAGER="less"
 export READER="zathura"
 export HISTFILE="$XDG_STATE_HOME"/bash/history
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export XAUTHORITY="$XDG_DATA_HOME"/Xauthority
 export DIFFPROG="nvim -d $1"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
@@ -26,6 +26,7 @@ export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv 
 export RSTUDIO_CHROMIUM_ARGUMENTS="--disable-seccomp-filter-sandbox"
 export QT_QPA_PLATFORMTHEME=qt5ct
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME"/starship/starship.toml
 
 ### COLORS IN LESS (31 - red; 32 - green; 33 - yellow; 0 - reset/normal; 1 - bold; 4 - underlined) ###
 export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -94,7 +95,7 @@ alias egrep='egrep --color=auto'
 alias ..='cd ..' 
 alias ...='cd ../..'
 
-alias vim=nvim
+#alias vim=nvim
 
 alias cp="cp -i"
 alias mv='mv -i'
@@ -117,3 +118,6 @@ alias diff='diff --color=auto'
 
 #git dotfiles
 alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# Starship
+eval "$(starship init bash)"
