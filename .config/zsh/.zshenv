@@ -1,5 +1,3 @@
-export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
-
 # Define default applications
 export TERM="alacritty"
 export EDITOR="nvim"
@@ -7,8 +5,9 @@ export BROWSER="firefox"
 export READER="zathura"
 export MANPAGER="less"
 export QT_QPA_PLATFORMTHEME="qt5ct"
-export STARSHIP_CONFIG=~/.config/starship/config.toml
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export HISTCONTROL=ignoredups:erasedups
+export DIFFPROG="nvim -d $1"
 
 # Default directories in compliance with XDG standards
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -26,7 +25,6 @@ export HISTFILE="$ZDOTDIR/.histfile"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export R_ENVIRON_USER="$XDG_CONFIG_HOME/r/.Renviron" # Change R environment file location
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
