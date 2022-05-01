@@ -125,8 +125,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # ----------------------------------------------------------------------------
 
 # Windowns defaults
-default_floating_border normal 2
-default_border normal 2
+default_floating_border normal 1
+default_border normal 1
+title_align center
 #hide_edge_borders smart
 
 # focus defaults
@@ -136,16 +137,16 @@ focus_wrapping no
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Firefox
-for_window [class="[Cc]hromium"]        title_format "  $ico_chrome  %title"
-# Firefox
-for_window [class="[Ff]irefox"]         title_format "  $ico_firefox  %title"
-# Alacritty
-for_window [class="[Aa]lacritty"]       title_format "  $ico_terminal  %title"
-# Telegram
-for_window [class="TelegramDesktop"]    title_format "  $ico_chat  %title"
+#  # Chromium
+#  for_window [class="[Cc]hromium"]        title_format "  $ico_chrome  %title"
+#  # Firefox
+#  for_window [class="[Ff]irefox"]         title_format "  $ico_firefox  %title"
+#  # Alacritty
+#  for_window [class="[Aa]lacritty"]       title_format "  $ico_terminal  %title"
+#  # Telegram
+#  for_window [class="TelegramDesktop"]    title_format "  $ico_chat  %title"
 # Spotify
-for_window [class="Spotify"]            title_format "  $ico_music  %title"    move to workspace $ws10 
+for_window [class="Spotify"]               move to workspace $ws10 
 
 assign [class="TelegramDesktop"]         → $ws9
 assign [class="firefox"]                 → $ws2
@@ -165,12 +166,14 @@ for_window [class="Bitwarden"]          floating enable
 for_window [class="Deezer"]             floating enable
 for_window [class="qt5ct"]              floating enable
 for_window [class="Nvidia-settings"]    floating enable
-for_window [class="(?i)Firefox" window_role="About"] floating enable
+for_window [class="[fF]Firefox" window_role="About"] floating enable
+for_window [class="[fF]irefox" window_role="Organizer"] floating enable
 for_window [class="Qalculate-gtk"]      floating enable
 for_window [class="Virt-manager"]       floating enable
 for_window [class="R_x11"]              floating enable
 for_window [class="gnuplot_qt"]         floating enable
 for_window [class="Matplotlib"]         floating enable
+for_window [class="RStudio" title="Plot Zoom"] floating enable
 
 # Set workspace for output primary
 workspace 1 output primary
@@ -179,7 +182,7 @@ workspace 1 output primary
 # Apearance
 # ----------------------------------------------------------------------------
 
-font pango:Open Sans Semibold 12
+font pango:Open Sans SemiBold 8
 
 # class                  border  backgr  text       indicator  client_border
 client.focused           $black  $black  $blue      $cyan      $black
@@ -196,21 +199,13 @@ bar {
         position bottom
         bindsym button4 nop
         bindsym button5 nop
-        tray_padding 5
+        tray_padding 4
         tray_output primary
 
         mode dock
 
-        # mode hide
-        # hidden_state hide
-        # modifier Mod4
-
-        # separator_symbol "|"
-        # workspace_min_width 10
-
         status_command i3blocks
-
-        font pango:Ubuntu Nerd Font Book 12
+        font pango:Ubuntu Nerd Font Book 9
 
         colors {
             statusline    $white
@@ -269,6 +264,9 @@ bindsym $mod+q kill
 
 # border type
 bindsym $mod+b              border toggle
+
+# Focus parent
+bindsym $mod+z              focus parent
 
 # change focus
 bindsym $mod+Left focus left
@@ -346,35 +344,30 @@ bindsym $mod+p                       $exe env GTK_THEME=Arc-Dark pavucontrol && 
 #Telegram
 bindsym $mod+o                       $exe telegram-desktop
 # Firefox
-bindsym $mod+f                       $exe env GTK_THEME=Arc-Dark firefox
+bindsym $mod+f                       $exe firefox
 # nnn
 bindsym $mod+n                       $exe $term -e nnn -dic
 # LibreOffice
-bindsym $mod+i                       $exe lowriter
-bindsym $mod+Shift+i                 $exe localc
+bindsym $mod+i                       $exe env GTK_THEME=Arc lowriter
+bindsym $mod+Shift+i                 $exe env GTK_THEME=Arc localc
 # Qutebrowser
-bindsym $mod+w                       $exe qutebrowser
+#bindsym $mod+w                       $exe qutebrowser
 # Terminal
 bindsym $mod+Return                  $exe $term
 bindsym $mod+KP_Enter                $exe $term
 # Calculator
 bindsym $mod+c                       $exe env GTK_THEME=Arc-Dark  qalculate-gtk
 # PcManFM
-bindsym $mod+a                       $exe env GTK_THEME=Arc-Dark  pcmanfm
+bindsym $mod+a                       $exe env GTK_THEME=Arc-Dark  nemo
 # Emojis
 #bindsym $mod+Shift+e                 $exe emoji
 
-# ----------------------------------------------------------------------------
-# Session startup
-# ----------------------------------------------------------------------------
-
 # start a program launcher -b
-bindsym $mod+d exec --no-startup-id dmenu_run -p 'Run:' -fn 'Open Sans-12' -sb '#5e81ac' -sf '#000000'
+bindsym $mod+d exec --no-startup-id dmenu_run -p 'Run:' -fn 'Open Sans-8' -sb '#5e81ac' -sf '#000000'
 
 # ----------------------------------------------------------------------------
 # i3-gaps
 # ----------------------------------------------------------------------------
-
 # You can also use any non-zero value if you'd like to have a border
 #  for_window [class=".*"] border pixel 2
 #  smart_gaps on
@@ -388,7 +381,3 @@ bindsym $mod+d exec --no-startup-id dmenu_run -p 'Run:' -fn 'Open Sans-12' -sb '
 
 # Activate smart borders (always)
 #smart_borders on
-
-# # Limitando o tamanho máximo da janela flutuante:
-# floating_minimum_size 0 x 0
-# floating_maximum_size 1278 x 850
