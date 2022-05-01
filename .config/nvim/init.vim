@@ -24,6 +24,8 @@ set ignorecase              " ignore case in search patterns
 set laststatus=2            " Always display the status line
 set whichwrap+=<,>,[,],h,l
 set showtabline=2           " always show tabs
+set t_Co=256
+set termguicolors
 
 """ Plugins
 call plug#begin('~/.local/share/nvim/site/plugins')
@@ -39,8 +41,10 @@ call plug#begin('~/.local/share/nvim/site/plugins')
 call plug#end()
 
 """ Settings
-let maplocalleader = ","                " Set local leader
-let mapleader =";"                      " Set global leader
+let maplocalleader = ";"                " Set local leader
+let mapleader =","                      " Set global leader
+let g:colorizer_auto_color = 1
+let g:colorizer_skip_comments = 1
 " let R_assign_map = "__" " Nvim-R -> Press -- to have Nvim-R insert the assignment operator: <-
 " let R_objbr_opendf = 0 " Nvim-R -> Don't expand a dataframe to show columns by default
 " let rout_follow_colorscheme = 1 " Nvim-R -> Use terminal colorscheme in R output
@@ -54,7 +58,7 @@ let mapleader =";"                      " Set global leader
 colorscheme catppuccin                  " Set color palette
 let g:lightline = { 'colorscheme': 'catppuccin' }
 let g:vimwiki_list = [{'path': '~/documents/repos/mywiki', 'syntax': 'markdown',
-            \ 'ext': '.md', 'path_html': '~/document/repos/mywiki/html_path'}] " vimwiki -> Change paths
+            \ 'path_html': '~/document/repos/mywiki/html_path'}] " vimwiki -> Change paths
 let g:vimwiki_global_ext = 0            " vimwiki -> Don't overwrite md files' filetype to vimwiki
 let g:vimwiki_listsyms = ' ○◐●✗'
 
@@ -81,7 +85,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 nmap <Leader>l :CocAction<CR>
 
 " move among buffers with Shift
-nmap <S-n> :vnew<CR>
+"nmap <S-n> :vnew<CR>
 nmap <S-d> :bdelete<CR>
 nmap <S-l> :bnext<CR>
 nmap <S-h> :bprevious<CR>
