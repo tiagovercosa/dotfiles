@@ -67,6 +67,8 @@ alias la='exa -la --color=always --group-directories-first'  # All files and dir
 alias l='exa -l --color=always --group-directories-first'  # Long format
 alias lt='exa -T --color=always --group-directories-first' # Tree listing
 
+alias du='du -sh'
+
 # Confirm before overwriting
 alias cp='cp -i'
 alias mv='mv -i'

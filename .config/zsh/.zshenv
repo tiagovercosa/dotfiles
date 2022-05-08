@@ -1,5 +1,7 @@
+export PATH="$HOME/.local/bin:$PATH"
+
 # Define default applications
-export TERM="alacritty"
+export TERM="xterm-kitty"
 export EDITOR="nvim"
 export BROWSER="firefox"
 export READER="zathura"

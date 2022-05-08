@@ -92,10 +92,12 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+alias du='du -sh'
+
 alias ..='cd ..' 
 alias ...='cd ../..'
 
-#alias vim=nvim
+alias v=nvim
 
 alias cp="cp -i"
 alias mv='mv -i'
