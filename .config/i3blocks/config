@@ -33,6 +33,6 @@ command=${HOME}/.local/bin/clock
 interval=1
 
 [battery]
-command=${HOME}/.local/bin/module-battery
+command=${HOME}/.local/bin/battery
 markup=pango
 interval=1
