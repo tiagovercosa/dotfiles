@@ -1,36 +1,31 @@
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.config/oh-my-zsh"
+## User configuration
 
-#ZSH_THEME="robbyrussell"
+# Starship
+eval "$(starship init zsh)"
+# some useful options (man zshoptions)
+setopt autocd extendedglob nomatch menucomplete
+setopt interactive_comments
+stty stop undef		# Disable ctrl-s to freeze terminal.
+zle_highlight=('paste:none')
 
-plugins=(vi-mode
-    	bgnotify
-    	fzf
-    	sudo
-    	git)
+# beeping is annoying
+unsetopt BEEP
 
-source $ZSH/oh-my-zsh.sh
+# completions
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+# zstyle ':completion::complete:lsof:*' menu yes select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.
 
-# User configuration
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
 
-### COLORS IN LESS (31 - red; 32 - green; 33 - yellow; 0 - reset/normal; 1 - bold; 4 - underlined) ###
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
-
-man() {
-    LESS_TERMCAP_md=$'\e[01;31m' \
-    LESS_TERMCAP_me=$'\e[0m' \
-    LESS_TERMCAP_so=$'\e[01;44;33m' \
-    LESS_TERMCAP_se=$'\e[0m' \
-    LESS_TERMCAP_us=$'\e[01;32m' \
-    LESS_TERMCAP_ue=$'\e[0m' \
-    command man "$@"
-}
+# Colors
+autoload -Uz colors && colors
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -39,79 +34,61 @@ else
   export EDITOR='nvim'
 fi
 
+# Useful Functions
+source "$ZDOTDIR/zsh-functions"
 
-# export MANPATH="/usr/local/man:$MANPATH"
+zsh_add_file "zsh-aliases"
+zsh_add_file "zsh-export"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# Key-bindings
+typeset -g -A key
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+key[Home]="${terminfo[khome]}"
+key[End]="${terminfo[kend]}"
+key[Insert]="${terminfo[kich1]}"
+key[Backspace]="${terminfo[kbs]}"
+key[Delete]="${terminfo[kdch1]}"
+key[Up]="${terminfo[kcuu1]}"
+key[Down]="${terminfo[kcud1]}"
+key[Left]="${terminfo[kcub1]}"
+key[Right]="${terminfo[kcuf1]}"
+key[PageUp]="${terminfo[kpp]}"
+key[PageDown]="${terminfo[knp]}"
+key[Shift-Tab]="${terminfo[kcbt]}"
 
-# Aliases
-alias v='nvim'
-alias update="sudo pacman -Syu"
-alias myip="curl ipinfo.io/ip"
+# setup key accordingly
+[[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"       beginning-of-line
+[[ -n "${key[End]}"       ]] && bindkey -- "${key[End]}"        end-of-line
+[[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"     overwrite-mode
+[[ -n "${key[Backspace]}" ]] && bindkey -- "${key[Backspace]}"  backward-delete-char
+[[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"     delete-char
+[[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         up-line-or-history
+[[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-history
+[[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"       backward-char
+[[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"      forward-char
+[[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"     beginning-of-buffer-or-history
+[[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"   end-of-buffer-or-history
+[[ -n "${key[Shift-Tab]}" ]] && bindkey -- "${key[Shift-Tab]}"  reverse-menu-complete
 
-alias cf='cd $(fd . -H -t d ~ | fzf)'
-alias fzfo='devour xdg-open "$(rg --files | fzf)" &> /dev/null'
-alias zat='echo "$(rg --files -t pdf | fzf)" | xargs -r -0 -I{} devour zathura "{}"'
-alias oko='devour okular "$(rg --files -t pdf | fzf)" &> /dev/null'
-# alias rgf='$(rg --files | fzf)'
-
-alias data='cd /storage'
-
-# Changing "ls" to "exa"
-alias ls='exa --color=always --group-directories-first' # Normal listing
-alias la='exa -la --color=always --group-directories-first'  # All files and dirs (long format)
-alias l='exa -l --color=always --group-directories-first'  # Long format
-alias lt='exa -T --color=always --group-directories-first' # Tree listing
-
-alias du='du -sh'
-
-# Confirm before overwriting
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-
-# Adding flags
-alias ..='cd ..'
-alias ...='cd ../..'
-alias clima="curl http://pt.wttr.in"
-alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
-
-# Colorize grep output
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias ip='ip -color=auto'
-alias diff='diff --color=auto'
-
-# Starship
-eval "$(starship init zsh)"
-
-# startx
-alias startx='startx "$XINITRC"'
-
-# FZF
-[ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
-
-autoload -Uz compinit
-compinit
-
-### Added by Zinit's installer
-if [[ ! -f $ZDOTDIR/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-    command mkdir -p "$ZDOTDIR/.zinit" && command chmod g-rwX "$ZDOTDIR/.zinit"
-    command git clone https://github.com/zdharma-continuum/zinit "$ZDOTDIR/.zinit/bin" && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
+	autoload -Uz add-zle-hook-widget
+	function zle_application_mode_start { echoti smkx }
+	function zle_application_mode_stop { echoti rmkx }
+	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
 
-source "$ZDOTDIR/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
+# FZF
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
+# export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
+compinit
 
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-completions
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

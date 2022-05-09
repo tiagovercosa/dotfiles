@@ -1,0 +1,35 @@
+alias v='nvim'
+alias update="sudo pacman -Syu"
+alias myip="curl ipinfo.io/ip"
+
+alias data='cd /storage'
+
+# Changing "ls" to "exa"
+alias ls='exa --color=always --group-directories-first' # Normal listing
+alias la='exa -la --color=always --group-directories-first'  # All files and dirs (long format)
+alias l='exa -l --color=always --group-directories-first'  # Long format
+alias lt='exa -T --color=always --group-directories-first' # Tree listing
+
+alias du='du -sh'
+
+# Confirm before overwriting
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+# Adding flags
+alias ..='cd ..'
+alias ...='cd ../..'
+alias clima="curl http://pt.wttr.in"
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+
+# Colorize grep output
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ip='ip -color=auto'
+alias diff='diff --color=auto'
+
+# startx
+alias startx='startx "$XINITRC"'
+
