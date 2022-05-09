@@ -40,6 +40,20 @@ vim.g.tokyodark_color_gamma = "1.0"
 vim.cmd("colorscheme tokyodark")
 
 -- LunaLine
+local diagnostics = {
+	"diagnostics",
+	sources = { "nvim_diagnostic" },
+	sections = { "error", "warn" },
+	symbols = { error = " ", warn = " " },
+	colored = false,
+	update_in_insert = false,
+	always_visible = false,
+}
+local branch = {
+	"branch",
+	icons_enabled = true,
+	icon = "",
+}
 require('lualine').setup{
   options = {
     icons_enabled = true,
@@ -49,7 +63,10 @@ require('lualine').setup{
     disabled_filetypes = {},
     always_divide_middle = true,
     globalstatus = false,
-  }
+  },
+  sections = {
+	lualine_b = { branch, diagnostics },
+	},
 }
 
 -- VimWiki config
