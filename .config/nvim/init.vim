@@ -33,15 +33,24 @@ require('colorizer').setup{
 }
 
 -- Colorscheme
-vim.g.nord_cursor_line_number_background = 1
-vim.g.nord_uniform_status_lines = 1
-vim.g.nord_bold_vertical_split_line = 1
-vim.g.nord_uniform_diff_background = 1
-vim.g.nord_bold = 1
-vim.g.nord_italic = 1
-vim.g.nord_italic_comments = 1
-vim.g.nord_underline = 1
-vim.cmd[[colorscheme nord]]
+vim.g.tokyodark_transparent_background = false
+vim.g.tokyodark_enable_italic_comment = true
+vim.g.tokyodark_enable_italic = true
+vim.g.tokyodark_color_gamma = "1.0"
+vim.cmd("colorscheme tokyodark")
+
+-- LunaLine
+require('lualine').setup{
+  options = {
+    icons_enabled = true,
+    theme = 'tokyodark',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {},
+    always_divide_middle = true,
+    globalstatus = false,
+  }
+}
 
 -- VimWiki config
 vim.cmd([[
@@ -49,11 +58,6 @@ let g:vimwiki_list = [{'path': '~/documents/repos/mywiki', 'syntax': 'markdown',
 let g:vimwiki_global_ext = 0
 let g:vimwiki_listsyms = ' ○◐●✗'
 	    ]])
-
--- LightLine config
-vim.cmd([[
-let g:lightline = { 'colorscheme': 'nord'}
-        ]])
 
 -- VimTex
 vim.cmd([[
