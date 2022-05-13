@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-cupd=$(checkupdates | wc -l)
-echo -e "$cupd updates "
-#printf "$cupd updates "
+upd=$(checkupdates | wc -l)
+
+echo -e "<span color='#88C0FF'>  Update-Arch: $upd </span>"
