@@ -1,20 +1,41 @@
 #!/usr/bin/env bash
 
-# Print all batteries, their percentage remaining and an emoji corresponding
-# to charge status (🔌 for plugged up, 🔋 for discharging on battery, etc).
+# <span lang='&#xf240;' foreground='#ef97d0' face='Font Awesome'>&#xf240;</span>
+percentage=$(cat /sys/class/power_supply/BAT?/capacity)
+Status=$(cat /sys/class/power_supply/BAT?/status)
 
-# Loop through all attached batteries.
-for battery in /sys/class/power_supply/BAT?
-do
-    # Get its remaining capacity and charge status.
-    capacity=$(cat "$battery"/capacity) || exit
-    status=$(cat "$battery"/status)
+if [[ $Status = "Discharging" ]]; then
+  if [[ $percentage -ge 80 ]]; then
+    echo "<span color='#BBCCDD'>  ${percentage}%</span>"
+  elif [[ $percentage -ge 65 ]]; then
+    echo "<span color='#BBCCDD'>  ${percentage}%</span>"
+  elif [[ $percentage -ge 45 ]]; then
+    echo "<span color='#BBCCDD'>  ${percentage}%</span>"
+  elif [[ $percentage -ge 20 ]]; then
+    echo "<span color='#BBCCDD'>  ${percentage}%</span>"
+  elif [[ $percentage -ge 10 ]]; then
+    echo "<span color='#ccb00d'>   ${percentage}%</span>"
+  elif [[ $percentage -ge 0 ]]; then
+    echo "!  ${percentage}%"
+    exit 33;
+  fi
+elif [[ $Status = "Charging" ]]; then
+  if [[ $percentage -ge 80 ]]; then
+    echo "<span color='#ffdd11'></span>   ${percentage}%"
+  elif [[ $percentage -ge 65 ]]; then
+    echo "<span color='#ffdd11'></span>   ${percentage}%"
+  elif [[ $percentage -ge 45 ]]; then
+    echo "<span color='#ffdd11'></span>   ${percentage}%"
+  elif [[ $percentage -ge 20 ]]; then
+    echo "<span color='#ffdd11'></span>   ${percentage}%"
+  elif [[ $percentage -ge 0 ]]; then
+    echo "<span color='#ffdd11'></span>   ${percentage}%"
+  fi
+elif [[ $Status = 'Full' ]]; then
+  echo "<span color='#74c580'>   ${percentage}%</span>"
+fi
+ 
+if [[ $Status = "Not charging" ]]; then
+  echo "<span color='#ff1133'> ${percentage}%</span>"
+fi
 
-    # If it is discharging and 25% or less, we will add a ! as a warning.
-    [ "$status" = "Discharging" ] && [ "$capacity" -le 25 ] && warn="❗ "
-
-    # Print the battery status (replaced by a corresponding emoji with
-    # sed), the percentage left and the warning if there is one.<span lang='&#xf240;' foreground='#ef97d0' face='Font Awesome'>&#xf240;</span>
-    printf "%s%s%s\n" "$(echo "$status" | sed "s/,//;s/[Dd]ischarging/ /;s/[Nn]ot charging/🛑 /;s/[Cc]harging/ /;s/[Uu]nknown/ /;s/[Ff]ull/ /;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity" | sed -e 's/$/% /')"
-    unset warn
-done
