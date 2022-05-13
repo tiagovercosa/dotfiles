@@ -50,8 +50,7 @@ fi
 
 if [[ "${percent}" -le "${URGENT_VALUE}" ]]; then
   echo "🔅<span color='#BF616A'> ${percent}%</span>"
-  #exit 33 
-fi
+  #exit 33 fi
 
 if [[ "${percent}" -le 50 ]]; then
   echo "🔅 ${percent}%"
