@@ -18,21 +18,29 @@ command=${HOME}/.local/bin/keyindicator
 interval=once
 signal=11
 
-[brightness]
-command=${HOME}/.local/bin/brightness
-interval=2
+[pacman-updates]
+command=${HOME}/.local/bin/arch-update
+markup=pango
+interval= 3600
+QUIET=true
+WATCH=^linux.* ^pacman.*
+BASE_COLOR=#5fff5f
+UPDATE_COLOR=#FFFF85
 
 [volume]
-command=${HOME}/.local/bin/volume
-instance=Master
+command=$HOME/.local/bin/volume-pipewire
 interval=once
-signal=10
+signal=1
+
+[brightness]
+command=${HOME}/.local/bin/brightness2
+interval=1
 
 [module-calendar]
-command=${HOME}/.local/bin/clock
+command=${HOME}/.local/bin/module-calendar
 interval=1
 
 [battery]
-command=${HOME}/.local/bin/battery
+command=${HOME}/.local/bin/module-battery
 markup=pango
 interval=1

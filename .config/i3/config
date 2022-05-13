@@ -182,7 +182,7 @@ workspace 1 output primary
 # Apearance
 # ----------------------------------------------------------------------------
 
-font pango:Open Sans SemiBold 8
+font pango:Roboto Medium 8
 
 # class                  border  backgr  text       indicator  client_border
 client.focused           $black  $black  $blue      $cyan      $black
@@ -201,12 +201,12 @@ bar {
         bindsym button5 nop
         tray_padding 4
         tray_output primary
+        separator_symbol "|"
 
         mode dock
 
         status_command i3blocks
-        font pango:Ubuntu Medium 9
-        #font pango:Open Sans Nerd Font 8
+        font pango:Symbols Nerd Font,Roboto Medium 9
 
         colors {
             statusline    $white
@@ -232,16 +232,24 @@ bindsym --release Num_Lock   $exe pkill -SIGRTMIN+11 i3blocks
 # i3blocks - upgrades
 bindsym $mod+Shift+u         $exe pkill -SIGRTMIN+14 i3blocks
 
-# i3blocks volume control and status
-set $vol_signal pkill -SIGRTMIN+10 i3blocks
-# Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% && $vol_signal
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5% && $vol_signal
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle   && $vol_signal
+# Pipewire-pulse
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioMute --release exec --no-startup-id pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioLowerVolume --release exec --no-startup-id pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioRaiseVolume --release exec --no-startup-id pkill -RTMIN+1 i3blocks
+
+# # i3blocks volume control and status
+# set $vol_signal pkill -SIGRTMIN+10 i3blocks
+# # Audio controls
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% && $vol_signal
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5% && $vol_signal
+# bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle   && $vol_signal
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp   $exe xbacklight -inc 10
-bindsym XF86MonBrightnessDown $exe xbacklight -dec 10
+bindsym XF86MonBrightnessUp   $exe light -A 3
+bindsym XF86MonBrightnessDown $exe light -U 3
 
 # Multimedia controls
 bindsym XF86AudioNext $exe playerctl next
@@ -364,7 +372,7 @@ bindsym $mod+a                       $exe env GTK_THEME=Arc-Dark nemo
 #bindsym $mod+Shift+e                 $exe emoji
 
 # start a program launcher -b
-bindsym $mod+d exec --no-startup-id dmenu_run -p 'Run:' -fn 'Open Sans-8' -sb '#5e81ac' -sf '#000000'
+bindsym $mod+d exec --no-startup-id dmenu_run -b -p 'Run:' -fn 'Roboto Light-9' -sb '#5e81ac' -sf '#000000'
 
 # ----------------------------------------------------------------------------
 # i3-gaps
