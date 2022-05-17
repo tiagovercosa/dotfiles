@@ -10,6 +10,9 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export HISTCONTROL=ignoredups:erasedups
 export DIFFPROG="nvim -d $1"
+export RANGER_LOAD_DEFAULT_RC="FALSE"
+export VISUAL="nvim"
+export PAGER="less -Ri"
 
 # Default directories in compliance with XDG standards
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -17,7 +20,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
 # Path to your oh-my-zsh installation.
-export ZSH="$XDG_CONFIG_HOME/oh-my-zsh"
+#export ZSH="$XDG_CONFIG_HOME/oh-my-zsh"
 
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 export XAUTHORITY="$XDG_DATA_HOME/Xauthority"
@@ -50,3 +53,11 @@ export SAVEHIST=5000
 
 # Set bat highlighting colour theme
 export BAT_THEME="base16"
+
+# NNN config
+BLK="0B" CHR="0B" DIR="04" EXE="06" REG="00" HARDLINK="06" SYMLINK="06" MISSING="00" ORPHAN="09" FIFO="06" SOCK="0B" OTHER="06"
+export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
+export NNN_FIFO='/tmp/nnn.fifo'
+export NNN_OPTS="dicErx"
+export NNN_TRASH=1
+export NNN_PLUG='p:preview-tui;g:git-changes'
