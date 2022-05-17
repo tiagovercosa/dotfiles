@@ -8,10 +8,6 @@ markup=pango
 color=#BBCCDD
 #color=#88C0D0
 
-[i3-focusedwindow]
-command=${HOME}/.local/bin/i3-focusedwindow 100
-interval=persist
-
 [spotify]
 label=  
 command=${HOME}/.local/bin/title_spotify
