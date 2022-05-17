@@ -8,6 +8,10 @@ markup=pango
 color=#BBCCDD
 #color=#88C0D0
 
+[i3-focusedwindow]
+command=${HOME}/.local/bin/i3-focusedwindow 100
+interval=persist
+
 [spotify]
 label=  
 command=${HOME}/.local/bin/title_spotify
@@ -21,9 +25,9 @@ signal=11
 [pacman-updates]
 command=${HOME}/.local/bin/arch-update
 markup=pango
-interval= 3600
+interval= 600
 QUIET=true
-WATCH=^linux.* ^pacman.*
+WATCH=^linux.* ^pacman.* ^nvidia.*
 BASE_COLOR=#5fff5f
 UPDATE_COLOR=#FFFF85
 
