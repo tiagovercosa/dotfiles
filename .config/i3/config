@@ -182,7 +182,7 @@ workspace 1 output primary
 # Apearance
 # ----------------------------------------------------------------------------
 
-font pango:Roboto Medium 8
+font pango:Roboto Medium 12
 
 # class                  border  backgr  text       indicator  client_border
 client.focused           $black  $black  $blue      $cyan      $black
@@ -196,21 +196,20 @@ client.urgent            $red    $red    $dark      $cyan      $red
 # ----------------------------------------------------------------------------
 
 bar {
-        position bottom
+        position top
         bindsym button4 nop
         bindsym button5 nop
         tray_padding 4
         tray_output primary
-        separator_symbol "|"
-
-        mode dock
+        #separator_symbol " | "
 
         status_command i3blocks
-        font pango:Symbols Nerd Font,Roboto Medium 9
+        font pango:Symbols Nerd Font,Roboto Mono Medium 13
 
         colors {
             statusline    $white
             background    $dark
+            separator     #bbccdd
 
             #                   border     backgr    text
             focused_workspace   $blue      $blue     $darker
@@ -355,7 +354,7 @@ bindsym $mod+o                       $exe telegram-desktop
 # Firefox
 bindsym $mod+f                       $exe firefox
 # nnn
-bindsym $mod+n                       $exe $term -e nnn -dic
+bindsym $mod+n                       $exe $term -e nnn
 # LibreOffice
 bindsym $mod+i                       $exe env GTK_THEME=Arc lowriter
 bindsym $mod+Shift+i                 $exe env GTK_THEME=Arc localc
@@ -365,14 +364,14 @@ bindsym $mod+Shift+i                 $exe env GTK_THEME=Arc localc
 bindsym $mod+Return                  $exe $term
 bindsym $mod+KP_Enter                $exe $term
 # Calculator
-bindsym $mod+c                       $exe env GTK_THEME=Pocillo-slim qalculate-gtk
+bindsym $mod+c                       $exe env GTK_THEME=Arc-Dark qalculate-gtk
 # PcManFM
 bindsym $mod+a                       $exe env GTK_THEME=Arc-Dark nemo
 # Emojis
 #bindsym $mod+Shift+e                 $exe emoji
 
 # start a program launcher -b
-bindsym $mod+d exec --no-startup-id dmenu_run -b -p 'Run:' -fn 'Roboto Light-9' -sb '#5e81ac' -sf '#000000'
+bindsym $mod+d exec --no-startup-id dmenu_run -b -p 'Run:' -fn 'Roboto Mono Medium-12' -sb '#5e81ac' -sf '#000000'
 
 # ----------------------------------------------------------------------------
 # i3-gaps
