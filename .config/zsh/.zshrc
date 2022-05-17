@@ -34,6 +34,14 @@ else
   export EDITOR='nvim'
 fi
 
+fcd() {
+  cd "$(find -type d | fzf)"
+}
+
+open() {
+  xdg-open "$(find -type f | fzf)"
+}
+
 # Useful Functions
 source "$ZDOTDIR/zsh-functions"
 
