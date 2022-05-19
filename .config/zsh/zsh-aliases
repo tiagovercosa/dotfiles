@@ -33,3 +33,7 @@ alias diff='diff --color=auto'
 
 # startx
 alias startx='startx "$XINITRC"'
+
+# udisks
+alias drive='udisksctl mount -b'
+alias undrive='udisksctl unmount -b'
