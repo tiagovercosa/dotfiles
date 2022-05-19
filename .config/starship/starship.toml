@@ -9,6 +9,7 @@ disabled = true
 [character]
 success_symbol = "[\\$](green)"
 error_symbol = "[\\$](#bf616a)"
+vicmd_symbol = "[\\$](cyan)"
 
 [directory]
 format = "[$path$read_only ](bright-cyan)"
@@ -17,3 +18,26 @@ read_only = " 🔒"
 
 [git_branch]
 symbol = " "
+
+[cmd_duration]
+disabled = true
+
+[lua]
+symbol = " "
+
+[python]
+symbol = " "
+
+[rlang]
+symbol = "R "
+
+[conda]
+ignore_base = false
+
+[git_status]
+staged = "[${count}](green)"
+modified = "[!${count}](yellow)"
+ahead = "[${count}](cyan)"
+behind = "${count}"
+untracked = "?${count}(white)"
+deleted = "✘${count}"
