@@ -6,9 +6,9 @@ require "user.cmp"
 -- Plugins's config --
 require("nvim-lsp-installer").setup {}
 
-require'lspconfig'.pyright.setup{}
-require"lspconfig".r_language_server.setup{}
-require'lspconfig'.texlab.setup{}
+require'lspconfig'.jedi_language_server.setup{}
+-- require"lspconfig".r_language_server.setup{}
+-- require'lspconfig'.texlab.setup{}
 
 require'lspconfig'.sumneko_lua.setup{
   settings = {
@@ -71,7 +71,7 @@ require('lualine').setup{
 
 -- VimWiki config
 vim.cmd([[
-let g:vimwiki_list = [{'path': '~/documents/repos/mywiki', 'syntax': 'markdown', 'path_html': '~/document/repos/mywiki/html_path'}]
+let g:vimwiki_list = [{'path': '~/dox/repos/mywiki', 'syntax': 'markdown', 'path_html': '~/document/repos/mywiki/html_path'}]
 let g:vimwiki_global_ext = 0
 let g:vimwiki_listsyms = ' ○◐●✗'
 	    ]])

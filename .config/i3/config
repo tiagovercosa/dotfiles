@@ -204,7 +204,7 @@ bar {
         #separator_symbol " | "
 
         status_command i3blocks
-        font pango:Symbols Nerd Font,Roboto Mono Medium 13
+        font pango:Symbols Nerd Font,Roboto Medium 13
 
         colors {
             statusline    $white
@@ -356,8 +356,8 @@ bindsym $mod+f                       $exe firefox
 # nnn
 bindsym $mod+n                       $exe $term -e nnn
 # LibreOffice
-bindsym $mod+i                       $exe env GTK_THEME=Arc lowriter
-bindsym $mod+Shift+i                 $exe env GTK_THEME=Arc localc
+bindsym $mod+i                       $exe lowriter
+bindsym $mod+Shift+i                 $exe localc
 # Qutebrowser
 #bindsym $mod+w                       $exe qutebrowser
 # Terminal
@@ -365,7 +365,7 @@ bindsym $mod+Return                  $exe $term
 bindsym $mod+KP_Enter                $exe $term
 # Calculator
 bindsym $mod+c                       $exe env GTK_THEME=Arc-Dark qalculate-gtk
-# PcManFM
+# FileManager
 bindsym $mod+a                       $exe env GTK_THEME=Arc-Dark nemo
 # Emojis
 #bindsym $mod+Shift+e                 $exe emoji

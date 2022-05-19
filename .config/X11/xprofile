@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-picom -b --config ~/.config/picom/picom.conf &
-nm-applet --no-agent &
+xcompmgr &
+env GTK_THEME=Arc-Dark nm-applet --no-agent &
 /usr/bin/dropbox &
 setxkbmap br &
 dunst -conf ~/.config/dunst/dunstrc &
