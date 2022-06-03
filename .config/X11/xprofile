@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 xcompmgr &
-env GTK_THEME=Arc-Dark nm-applet --no-agent &
+nm-applet &
 /usr/bin/dropbox &
 setxkbmap br &
 dunst -conf ~/.config/dunst/dunstrc &
