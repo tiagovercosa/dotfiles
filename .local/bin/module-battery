@@ -6,17 +6,17 @@ Status=$(cat /sys/class/power_supply/BAT?/status)
 
 if [[ $Status = "Discharging" ]]; then
   if [[ $percentage -ge 85 ]]; then
-    echo "<span color='#BBCCDD'>  ${percentage}%</span>"
+    echo "  ${percentage}%"
   elif [[ $percentage -ge 70 ]]; then
-    echo "<span color='#BBCCDD'>  ${percentage}%</span>"
+    echo "  ${percentage}%"
   elif [[ $percentage -ge 40 ]]; then
-    echo "<span color='#BBCCDD'>  ${percentage}%</span>"
+    echo "  ${percentage}%"
   elif [[ $percentage -ge 20 ]]; then
-    echo "<span color='#BBCCDD'>  ${percentage}%</span>"
+    echo "  ${percentage}%"
   elif [[ $percentage -ge 10 ]]; then
     echo "<span color='#ccb00d'>   ${percentage}%</span>"
   elif [[ $percentage -ge 0 ]]; then
-    echo "!  ${percentage}%"
+    echo "  ${percentage}%"
     exit 33;
   fi
 elif [[ $Status = "Charging" ]]; then
@@ -32,7 +32,7 @@ elif [[ $Status = "Charging" ]]; then
     echo "<span color='#ffdd11'></span>   ${percentage}%"
   fi
 elif [[ $Status = 'Full' ]]; then
-  echo "<span color='#ffdd11'></span>    "
+  echo "   ${percentage}%"
 fi
  
 if [[ $Status = "Not charging" ]]; then
