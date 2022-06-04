@@ -10,7 +10,6 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export HISTCONTROL=ignoredups:erasedups
 export DIFFPROG="nvim -d $1"
-export RANGER_LOAD_DEFAULT_RC="FALSE"
 export VISUAL="nvim"
 export PAGER="less -Ri"
 
@@ -25,7 +24,6 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 export XAUTHORITY="$XDG_DATA_HOME/Xauthority"
 
-export HISTFILE="$XDG_CACHE_HOME/zsh/history"
 export HISTFILE="$ZDOTDIR/.histfile"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter"

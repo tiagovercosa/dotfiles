@@ -20,8 +20,9 @@ map R rotate
 map u scroll half-up
 map d scroll half-down
 
-set default-bg                  "#292d3e"
-set default-fg                  "#d7d7d7"
+#set default-bg                  "#292d3e"
+set default-bg                  "#2f343f"
+set default-fg                  "#bbccdd"
 
 set statusbar-bg                "#151515"
 set statusbar-fg                "#d7d7d7"

@@ -2,31 +2,70 @@
 source "$HOME"/.config/user-dirs.dirs
 
 ### Exports and variables ###
+# Define default applications
 export EDITOR="nvim"
-export TERM="alacritty"
+export TERM="xterm-kitty"
 export BROWSER="firefox"
 export MANPAGER="less"
 export PAGER="less"
 export READER="zathura"
-export HISTFILE="$XDG_STATE_HOME"/bash/history
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export DIFFPROG="nvim -d $1"
+export VISUAL="nvim"
+export PAGER="less -Ri"
+export HISTCONTROL=ignoredups:erasedups
+
+# Default directories in compliance with XDG standards
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XAUTHORITY="$XDG_DATA_HOME"/Xauthority
-export DIFFPROG="nvim -d $1"
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+
+export HISTFILE="$XDG_STATE_HOME/bash/history"
+export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
+export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter" 
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export LESSHISTFILE="-"
-export R_ENVIRON_USER="$XDG_CONFIG_HOME"/r/.Renviron
-export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter 
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
-export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc
-export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+
+# R user config
+export R_PROFILE_USER="$XDG_CONFIG_HOME/r/.Rprofile"
+export R_ENVIRON_USER="$XDG_CONFIG_HOME/r/.Renviron" # Change R environment file location
+
+# Disables less history file
+export LESSHISTFILE=/dev/null
+
+
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv 
 export RSTUDIO_CHROMIUM_ARGUMENTS="--disable-seccomp-filter-sandbox"
-export QT_QPA_PLATFORMTHEME=qt5ct
-export STARSHIP_CONFIG="$XDG_CONFIG_HOME"/starship/starship.toml
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+
+# Set bat highlighting colour theme
+export BAT_THEME="base16"
+
+# NNN config
+BLK="0B" CHR="0B" DIR="04" EXE="06" REG="00" HARDLINK="06" SYMLINK="06" MISSING="00" ORPHAN="09" FIFO="06" SOCK="0B" OTHER="06"
+export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
+export NNN_FIFO='/tmp/nnn.fifo'
+export NNN_OPTS="dicEx"
+export NNN_TRASH=1
+export NNN_PLUG='p:preview-tui'
+export NNN_OPS_PROG=0
 
 ### COLORS IN LESS (31 - red; 32 - green; 33 - yellow; 0 - reset/normal; 1 - bold; 4 - underlined) ###
 export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -80,46 +119,58 @@ ex ()
   fi
 }
 
+# Starship
+eval "$(starship init bash)"
+
 ### Aliases ###
-alias startx='startx "$XDG_CONFIG_HOME/X11/xinitrc"'
+alias startx='startx "$XINITRC"'
 
 alias ls='exa --color=always --group-directories-first'      # Normal listing
 alias la='exa -la --color=always --group-directories-first'  # All files and dirs (long format)
-alias ll='exa -l --color=always --group-directories-first'   # Long format
+alias l='exa -l --color=always --group-directories-first'   # Long format
+alias ll='exa -lh --color=always --group-directories-first'
 alias lt='exa -aT --color=always --group-directories-first'  # Tree listing
-
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 
 alias du='du -sh'
 
-alias ..='cd ..' 
-alias ...='cd ../..'
+alias ..="cd .." 
+alias ...="cd ../.."
+alias clima="curl http://pt.wttr.in"
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
-alias v=nvim
 
+alias v="nvim"
+
+# Confirm before overwriting
 alias cp="cp -i"
-alias mv='mv -i'
-alias rm='rm -i'
+alias mv="mv -i"
+alias rm="rm -i"
 
 alias update="sudo pacman -Syu"
 alias myip="curl ipinfo.io/ip"
 
 alias data='cd /storage'
 
-alias clima="curl http://pt.wttr.in"
-alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
-
 # Colorize grep output
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
 alias ip='ip -color=auto'
 alias diff='diff --color=auto'
 
 #git dotfiles
-alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+#alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-# Starship
-eval "$(starship init bash)"
+# udisks
+alias drive='udisksctl mount -b'
+alias undrive='udisksctl unmount -b'
+
+fcd() {
+  cd "$(find -type d | fzf)"
+}
+
+open() {
+  xdg-open "$(find -type f | fzf)"
+}
+
