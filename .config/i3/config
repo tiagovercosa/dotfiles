@@ -12,20 +12,21 @@ set $exe        exec --no-startup-id
 set $exe_always exec_always --no-startup-id
 
 # colors
-set $darker   #080910
-set $dark     #181920
-set $black    #2F343F
-set $darkgray #3B4252
-set $gray     #E7E8EB
-set $white    #F5F6F7
-set $red      #BF616A
-set $orange   #DBAB6B
-set $yellow   #EBCB8B
-set $green    #A3BE8C
-set $cyan     #88C0D0
-set $blue     #91B1D1
-set $darkblue #416181
-set $purple   #B48EAD
+set $darker    #080910
+set $dark      #181920
+set $black     #2F343F
+set $darkgray  #3B4252
+set $graybrown #808080
+set $gray      #E7E8EB
+set $white     #F5F6F7
+set $red       #BF616A
+set $orange    #DBAB6B
+set $yellow    #EBCB8B
+set $green     #A3BE8C
+set $cyan      #88C0D0
+set $blue      #91B1D1
+set $darkblue  #416181
+set $purple    #B48EAD
 
 # icons
 
@@ -80,7 +81,7 @@ set $ico_window   <span font='Font Awesome'>&#xf2d0;</span>
 # ----------------------------------------------------------------------------
 
 # Define o layout padrão do workspace
-workspace_layout tabbed
+#workspace_layout tabbed
 
 # labels
 set $ws1 "1"
@@ -126,9 +127,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Windowns defaults
 default_floating_border normal 1
-default_border pixel 2
+default_border normal 2
 title_align center
-#hide_edge_borders smart
+hide_edge_borders smart
 
 # focus defaults
 focus_follows_mouse no
@@ -137,15 +138,18 @@ focus_wrapping no
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-#  # Chromium
-#  for_window [class="[Cc]hromium"]        title_format "  $ico_chrome  %title"
-#  # Firefox
-#  for_window [class="[Ff]irefox"]         title_format "  $ico_firefox  %title"
-#  # Alacritty
-#  for_window [class="[Aa]lacritty"]       title_format "  $ico_terminal  %title"
-#  # Telegram
-#  for_window [class="TelegramDesktop"]    title_format "  $ico_chat  %title"
+# Chromium
+for_window [class="[Cc]hromium"]        title_format "  $ico_chrome  %title"
+# Firefox
+for_window [class="[Ff]irefox"]         title_format "  $ico_firefox  %title"
+# Alacritty
+for_window [class="[Kk]itty"]           title_format "  $ico_terminal  %title"
+# Telegram
+for_window [class="TelegramDesktop"]    title_format "  $ico_telegram  %title"
+# Qalculate-gtk
+for_window [class="Qalculate-gtk"]      title_format "  $ico_window  %title"
 # Spotify
+for_window [class="Spotify"]			title_format "  $ico_music  %title"
 for_window [class="Spotify"]               move to workspace $ws10 
 
 assign [class="TelegramDesktop"]         → $ws9
@@ -157,7 +161,7 @@ assign [class="vlc"]                     → $ws8
 assign [class="Deezer"]                  → $ws10
 
 # Floating defaults
-for_window [class="Pavucontrol"]        floating enable "  $ico_music  %title"
+for_window [class="Pavucontrol"]        floating enable
 for_window [class="mpv"]                floating enable
 for_window [class="Arandr"]             floating enable
 for_window [class="Lxappearance"]       floating enable
@@ -172,7 +176,7 @@ for_window [class="Qalculate-gtk"]      floating enable
 for_window [class="Virt-manager"]       floating enable
 for_window [class="R_x11"]              floating enable
 for_window [class="gnuplot_qt"]         floating enable
-for_window [class="Matplotlib"]         floating enable
+for_window [class="matplotlib"]         floating enable
 for_window [class="RStudio" title="Plot Zoom"] floating enable
 
 # Set workspace for output primary
@@ -182,7 +186,7 @@ workspace 1 output primary
 # Apearance
 # ----------------------------------------------------------------------------
 
-font pango:Roboto Medium 12
+font pango:Open Sans SemiBold 12
 
 # class                  border  backgr  text       indicator  client_border
 client.focused           $black  $black  $blue      $cyan      $black
@@ -196,27 +200,26 @@ client.urgent            $red    $red    $dark      $cyan      $red
 # ----------------------------------------------------------------------------
 
 bar {
-        position top
-        bindsym button4 nop
-        bindsym button5 nop
-        tray_padding 4
-        tray_output primary
-        #separator_symbol " | "
+  status_command i3blocks
+  font pango:Symbols Nerd Font,Open Sans SemiBold 12
+  #separator_symbol " | "
+  bindsym button4 nop
+  bindsym button5 nop
+  position bottom
+  tray_output primary
+  #tray_padding 4
 
-        status_command i3blocks
-        font pango:Symbols Nerd Font,Roboto Medium 13
+  colors {
+      statusline    $white
+      background    $dark
+      #separator     #bbccdd
 
-        colors {
-            statusline    $white
-            background    $dark
-            separator     #bbccdd
-
-            #                   border     backgr    text
-            focused_workspace   $blue      $blue     $darker
-            active_workspace    $dark      $dark     $blue
-            inactive_workspace  $dark      $dark     $blue
-            urgent_workspace    $red       $red      $darker
-        }
+      #                   border     backgr    text
+      focused_workspace   $dark      $dark     $cyan
+      active_workspace    $dark      $dark     $blue
+      inactive_workspace  $dark      $dark     $graybrown
+      urgent_workspace    $red       $red      $darker
+  }
 }
 
 
@@ -239,16 +242,9 @@ bindsym XF86AudioLowerVolume --release exec --no-startup-id pkill -RTMIN+1 i3blo
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioRaiseVolume --release exec --no-startup-id pkill -RTMIN+1 i3blocks
 
-# # i3blocks volume control and status
-# set $vol_signal pkill -SIGRTMIN+10 i3blocks
-# # Audio controls
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% && $vol_signal
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5% && $vol_signal
-# bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle   && $vol_signal
-
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp   $exe light -A 3
-bindsym XF86MonBrightnessDown $exe light -U 3
+bindsym XF86MonBrightnessUp   $exe light -A 10
+bindsym XF86MonBrightnessDown $exe light -U 10
 
 # Multimedia controls
 bindsym XF86AudioNext $exe playerctl next
@@ -348,7 +344,7 @@ bindsym $mod+Shift+minus move scratchpad
 # ----------------------------------------------------------------------------
 
 # Pavucontrol
-bindsym $mod+p                       $exe env GTK_THEME=Arc-Dark pavucontrol && $vol_signal
+bindsym $mod+p                       $exe pavucontrol && $vol_signal
 #Telegram
 bindsym $mod+o                       $exe telegram-desktop
 # Firefox
@@ -359,19 +355,19 @@ bindsym $mod+n                       $exe $term -e nnn
 bindsym $mod+i                       $exe lowriter
 bindsym $mod+Shift+i                 $exe localc
 # Qutebrowser
-#bindsym $mod+w                       $exe qutebrowser
+bindsym $mod+w                       $exe qutebrowser
 # Terminal
 bindsym $mod+Return                  $exe $term
 bindsym $mod+KP_Enter                $exe $term
 # Calculator
 bindsym $mod+c                       $exe env GTK_THEME=Arc-Dark qalculate-gtk
 # FileManager
-bindsym $mod+a                       $exe env GTK_THEME=Arc-Dark nemo
+bindsym $mod+a                       $exe pcmanfm
 # Emojis
 #bindsym $mod+Shift+e                 $exe emoji
 
 # start a program launcher -b
-bindsym $mod+d exec --no-startup-id dmenu_run -b -p 'Run:' -fn 'Roboto Mono Medium-12' -sb '#5e81ac' -sf '#000000'
+bindsym $mod+d exec --no-startup-id dmenu_run -p 'Run:' -fn 'Open Sans SemiBold-12' -sb '$blue' -sf '$dark'
 
 # ----------------------------------------------------------------------------
 # i3-gaps

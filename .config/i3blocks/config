@@ -5,8 +5,9 @@
 command=/usr/share/i3blocks/$BLOCK_NAME
 separator_block_width=20
 markup=pango
-color=#BBCCDD
+#color=#BBCCDD
 #color=#88C0D0
+color=#A4C2F4
 
 [spotify]
 label=  
@@ -25,7 +26,8 @@ interval= 600
 QUIET=true
 WATCH=^linux.* ^pacman.* ^nvidia.*
 BASE_COLOR=#5fff5f
-UPDATE_COLOR=#FFFF85
+UPDATE_COLOR=#EBCB8B
+#UPDATE_COLOR=#FFFF85
 
 [volume]
 command=$HOME/.local/bin/volume-pipewire
