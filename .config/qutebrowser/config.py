@@ -297,4 +297,3 @@ c.colors.tabs.selected.even.bg = base02
 c.colors.webpage.bg = base00
 
 config.load_autoconfig()
-
