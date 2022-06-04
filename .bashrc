@@ -154,6 +154,7 @@ alias diff='diff --color=auto'
 alias drive='udisksctl mount -b'
 alias undrive='udisksctl unmount -b'
 
+### Functions ###
 fcd () {
   cd "$(find -type d | fzf)"
 }
@@ -178,7 +179,7 @@ ex () {
       *.tar.bz2)   tar xjf $1   ;;
       *.tar.gz)    tar xzf $1   ;;
       *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
+      *.rar)       unrar x $1   ;;
       *.gz)        gunzip $1    ;;
       *.tar)       tar xf $1    ;;
       *.tbz2)      tar xjf $1   ;;
@@ -195,6 +196,6 @@ ex () {
 
 # Add git branch if its present to PS1
 get_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
-  #git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/\(.*\)/(\1) /'
+  #git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/\(.*\)/(\1) /'
 }
