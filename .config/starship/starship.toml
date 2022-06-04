@@ -7,16 +7,17 @@ disabled = true
 
 # Replace the "❯" symbol in the prompt with "➜" ✗  ❮
 [character]
-success_symbol = "[\\$](green)"
+success_symbol = "[\\$](white)"
 error_symbol = "[\\$](#bf616a)"
 vicmd_symbol = "[\\$](cyan)"
 
 [directory]
-format = "[$path$read_only ](bright-cyan)"
+format = "[$path$read_only ](purple)"
 truncation_symbol = "…/"
 read_only = " 🔒" 
 
 [git_branch]
+format = "on [$symbol$branch(:$remote_branch)](bold cyan) "
 symbol = " "
 
 [cmd_duration]
@@ -39,5 +40,5 @@ staged = "[${count}](green)"
 modified = "[!${count}](yellow)"
 ahead = "[${count}](cyan)"
 behind = "${count}"
-untracked = "?${count}(white)"
+untracked = "[?${count}](white)"
 deleted = "✘${count}"
