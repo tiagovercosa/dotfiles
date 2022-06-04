@@ -45,7 +45,6 @@ export R_ENVIRON_USER="$XDG_CONFIG_HOME/r/.Renviron" # Change R environment file
 # Disables less history file
 export LESSHISTFILE=/dev/null
 
-
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
@@ -76,11 +75,24 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
-#PATH="$HOME/.local/bin${PATH:+:${PATH}}"
-PATH="$HOME/.local/bin:${PATH}"
+### Options ###
+shopt -s autocd
+shopt -s checkwinsize
+shopt -s histappend
+shopt -s cdspell
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
 HISTCONTROL=ignoredups:erasedups
+
+PATH="$HOME/.local/bin:${PATH}"
+
 #PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
-PS1="\[$(tput setaf 5)\]\w \[$(tput bold)\]$(tput setaf 2)\]\\$ \[$(tput sgr0)\]"
+#PS1="\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+#PS1="\[$(tput setaf 5)\]\w \[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+
+PS1="\[$(tput setaf 5)\]\w\[$(tput sgr0)\] \[$(tput bold)\]\[$(tput setaf 2)\]\$(get_branch)\[$(tput sgr0)\]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -95,32 +107,8 @@ case ${TERM} in
 		;;
 esac
 
-## Archive extraction function ###
-### Usage: ex <file> ###
-ex ()
-{
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
-
 # Starship
-eval "$(starship init bash)"
+#eval "$(starship init bash)"
 
 ### Aliases ###
 alias startx='startx "$XINITRC"'
@@ -166,11 +154,47 @@ alias diff='diff --color=auto'
 alias drive='udisksctl mount -b'
 alias undrive='udisksctl unmount -b'
 
-fcd() {
+fcd () {
   cd "$(find -type d | fzf)"
 }
 
-open() {
+open () {
   xdg-open "$(find -type f | fzf)"
 }
 
+## Get word definition function ##
+### Usage: def <word> ###
+function def() {
+	sdcv -n --utf8-output --color "$@" 2>&1 | \
+	fold --width=$(tput cols) | \
+	less --quit-if-one-screen -RX
+}
+
+## Archive extraction function ###
+### Usage: ex <file> ###
+ex () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+# Add git branch if its present to PS1
+get_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
+  #git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/\(.*\)/(\1) /'
+}
