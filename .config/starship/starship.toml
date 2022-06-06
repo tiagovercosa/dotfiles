@@ -1,3 +1,6 @@
+# PROMPT
+format = "$directory$git_branch$character"
+
 # Don't print a new line at the start of the prompt
 add_newline = false
 
@@ -12,12 +15,12 @@ error_symbol = "[\\$](#bf616a)"
 vicmd_symbol = "[\\$](cyan)"
 
 [directory]
+truncation_length = 10
 format = "[$path$read_only ](purple)"
-truncation_symbol = "…/"
-read_only = " 🔒" 
+truncate_to_repo = false
 
 [git_branch]
-format = "on [$symbol$branch(:$remote_branch)](bold cyan) "
+format = "[\\($branch(:$remote_branch)\\)](bold cyan) "
 symbol = " "
 
 [cmd_duration]
@@ -36,6 +39,7 @@ symbol = "R "
 ignore_base = false
 
 [git_status]
+disabled = true
 staged = "[${count}](green)"
 modified = "[!${count}](yellow)"
 ahead = "[${count}](cyan)"
