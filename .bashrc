@@ -2,6 +2,11 @@
 source "$HOME/.config/user-dirs.dirs"
 source "$HOME/.bash_aliases"
 
+### fzf ###
+source /usr/share/fzf/key-bindings.bash
+source /usr/share/fzf/completion.bash
+bind "$(bind -s | grep '^"\\C-r"' | sed 's/"/"\\C-x/' | sed 's/"$/\\C-m"/')"
+
 ### Exports and variables ###
 # Define default applications
 export EDITOR="nvim"

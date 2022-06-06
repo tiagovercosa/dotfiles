@@ -39,6 +39,10 @@ alias diff='diff --color=auto'
 #alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # udisks
-alias drive='udisksctl mount -b'
-alias undrive='udisksctl unmount -b'
+alias drive="udisksctl mount -b"
+alias undrive="udisksctl unmount -b"
 
+# uninstall package
+alias uninstall="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
+# install package
+alias install="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
