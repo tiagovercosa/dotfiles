@@ -6,6 +6,7 @@ source "$HOME/.bash_aliases"
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
 bind "$(bind -s | grep '^"\\C-r"' | sed 's/"/"\\C-x/' | sed 's/"$/\\C-m"/')"
+bind -x '"\C-l": clear'
 
 ### Exports and variables ###
 # Define default applications
@@ -27,8 +28,12 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
-export XAUTHORITY="$XDG_DATA_HOME"/Xauthority
+# Realine
+export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
+
+# X11
+export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
+export XAUTHORITY="$XDG_DATA_HOME/Xauthority"
 
 export HISTFILE="$XDG_STATE_HOME/bash/history"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
