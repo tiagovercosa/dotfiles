@@ -15,6 +15,13 @@ command=${HOME}/.local/bin/title_spotify
 interval=1
 
 [caps-lock]
+instance=CAPS
+interval=once
+signal=11
+command=${HOME}/.local/bin/keyindicator
+
+[num-lock]
+instance=NUM
 command=${HOME}/.local/bin/keyindicator
 interval=once
 signal=11
