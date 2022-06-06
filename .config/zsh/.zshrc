@@ -11,6 +11,9 @@ zle_highlight=('paste:none')
 # beeping is annoying
 unsetopt BEEP
 
+# prompt
+#PROMPT='%F{magenta}%~%f $ '
+
 # completions
 autoload -Uz compinit
 zstyle ':completion:*' menu select
