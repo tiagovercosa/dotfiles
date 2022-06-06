@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 #
 # Copyright 2014 Marcelo Cerri <mhcerri at gmail dot com>
 #
@@ -24,7 +24,7 @@ use File::Basename;
 # Default values
 my $indicator = $ENV{BLOCK_INSTANCE} || "CAPS";
 my $color_on  = "#ff1133";
-my $color_off = "#808080";
+my $color_off = "#2F343F";
 
 sub help {
     my $program = basename($0);
