@@ -5,8 +5,6 @@ source "$HOME/.bash_aliases"
 ### fzf ###
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
-bind "$(bind -s | grep '^"\\C-r"' | sed 's/"/"\\C-x/' | sed 's/"$/\\C-m"/')"
-bind -x '"\C-l": clear'
 
 ### Exports and variables ###
 # Define default applications
