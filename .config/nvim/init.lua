@@ -77,7 +77,7 @@ require('lualine').setup{
 
 -- VimWiki config
 vim.cmd([[
-let g:vimwiki_list = [{'path': '~/dox/repos/mywiki', 'syntax': 'markdown', 'path_html': '~/document/repos/mywiki/html_path'}]
+let g:vimwiki_list = [{'path': '~/doc/repos/mywiki', 'syntax': 'markdown', 'path_html': '~/doc/repos/mywiki/html_path'}]
 let g:vimwiki_global_ext = 0
 let g:vimwiki_listsyms = ' ○◐●✗'
 	    ]])
