@@ -18,6 +18,16 @@ require'lspconfig'.sumneko_lua.setup{
   },
 }
 
+-- Indent Blankline --
+vim.opt.termguicolors = true
+vim.opt.list = true
+
+require("indent_blankline").setup {
+  show_current_context = false,
+  show_current_context_start = true,
+}
+
+
 require('nvim-autopairs').setup{}
 require('colorizer').setup{
   '*';
@@ -31,19 +41,21 @@ require('colorizer').setup{
 }
 
 -- Colorscheme
--- vim.g.tokyodark_transparent_background = false
--- vim.g.tokyodark_enable_italic_comment = true
--- vim.g.tokyodark_enable_italic = true
--- vim.g.tokyodark_color_gamma = "1.0"
-vim.g.nord_cursor_line_number_background = 1
-vim.g.nord_uniform_status_lines = 1
-vim.g.nord_bold_vertical_split_line = 1
-vim.g.nord_uniform_diff_background = 1
-vim.g.nord_bold = 1
-vim.g.nord_italic = 1
-vim.g.nord_italic_comments = 1
-vim.g.nord_underline = 1
-vim.cmd("colorscheme nord")
+vim.g.tokyodark_transparent_background = false
+vim.g.tokyodark_enable_italic_comment = true
+vim.g.tokyodark_enable_italic = true
+vim.g.tokyodark_color_gamma = "1.0"
+vim.g.tokyonight_style = "storm"
+vim.g.tokyonight_lualine_bold = true
+-- vim.g.nord_cursor_line_number_background = 1
+-- vim.g.nord_uniform_status_lines = 1
+-- vim.g.nord_bold_vertical_split_line = 1
+-- vim.g.nord_uniform_diff_background = 1
+-- vim.g.nord_bold = 1
+-- vim.g.nord_italic = 1
+-- vim.g.nord_italic_comments = 1
+-- vim.g.nord_underline = 1
+vim.cmd("colorscheme tokyonight")
 
 -- LunaLine
 local diagnostics = {
@@ -51,7 +63,7 @@ local diagnostics = {
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn" },
 	symbols = { error = " ", warn = " " },
-	colored = false,
+	colored = true,
 	update_in_insert = false,
 	always_visible = false,
 }
@@ -63,7 +75,7 @@ local branch = {
 require('lualine').setup{
   options = {
     icons_enabled = true,
-    theme = 'nord',
+    theme = 'tokyonight',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {},
@@ -80,7 +92,7 @@ vim.cmd([[
 let g:vimwiki_list = [{'path': '~/doc/repos/mywiki', 'syntax': 'markdown', 'path_html': '~/doc/repos/mywiki/html_path'}]
 let g:vimwiki_global_ext = 0
 let g:vimwiki_listsyms = ' ○◐●✗'
-	    ]])
+]])
 
 -- VimTex
 vim.cmd([[

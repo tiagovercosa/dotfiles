@@ -45,6 +45,8 @@ return packer.startup(function(use)
   use "lervag/vimtex"
   use "vimwiki/vimwiki"
   use "tpope/vim-surround"
+  use "lukas-reineke/indent-blankline.nvim"
+  use "fladson/vim-kitty"
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
