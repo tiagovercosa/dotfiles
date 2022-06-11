@@ -81,7 +81,7 @@ set $ico_window   <span font='Font Awesome'>&#xf2d0;</span>
 # ----------------------------------------------------------------------------
 
 # Define o layout padrão do workspace
-#workspace_layout tabbed
+workspace_layout tabbed
 
 # labels
 set $ws1 "1"
@@ -127,9 +127,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Windowns defaults
 default_floating_border normal 1
-default_border normal 2
+default_border pixel 2
 title_align center
-hide_edge_borders smart
+#hide_edge_borders smart
 
 # focus defaults
 focus_follows_mouse no
@@ -161,6 +161,7 @@ assign [class="vlc"]                     → $ws8
 assign [class="Deezer"]                  → $ws10
 
 # Floating defaults
+for_window [class="Blueman-manager"]    floating enable
 for_window [class="Pavucontrol"]        floating enable
 for_window [class="mpv"]                floating enable
 for_window [class="Arandr"]             floating enable
@@ -217,7 +218,7 @@ bar {
       #                   border     backgr    text
       focused_workspace   $dark      $dark     $cyan
       active_workspace    $dark      $dark     $blue
-      inactive_workspace  $dark      $dark     $graybrown
+      inactive_workspace  $dark      $dark     $black
       urgent_workspace    $red       $red      $darker
   }
 }
@@ -367,7 +368,8 @@ bindsym $mod+a                       $exe pcmanfm
 #bindsym $mod+Shift+e                 $exe emoji
 
 # start a program launcher -b
-bindsym $mod+d exec --no-startup-id dmenu_run -p 'Run:' -fn 'Open Sans SemiBold-12' -sb '$blue' -sf '$dark'
+#bindsym $mod+d exec --no-startup-id dmenu_run -p 'Run:' -fn 'Open Sans SemiBold-12' -sb '$blue' -sf '$dark'
+bindsym $mod+d $exe rofi -show drun -font "Open Sans SemiBold 12" -run-shell-command '{terminal} -e bash -ic "{cmd} && read"'
 
 # ----------------------------------------------------------------------------
 # i3-gaps

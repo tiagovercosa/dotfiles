@@ -2,6 +2,7 @@
 
 xcompmgr &
 nm-applet &
+blueman-applet &
 /usr/bin/dropbox &
 setxkbmap br &
 dunst -conf ~/.config/dunst/dunstrc &
