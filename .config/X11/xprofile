@@ -3,7 +3,6 @@
 xcompmgr &
 nm-applet &
 blueman-applet &
-/usr/bin/dropbox &
 setxkbmap br &
 dunst -conf ~/.config/dunst/dunstrc &
 xss-lock -l -- $HOME/.local/bin/my_i3lock &
