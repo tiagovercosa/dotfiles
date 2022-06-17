@@ -44,3 +44,17 @@ keymap("n", "<C-o>", ":!opout % <cr><cr>", opts)
 
 keymap("n", "<F2>", ":e .<cr>", opts)
 keymap("n", "<F3>", ":e ~/.config/nvim/<cr>", opts)
+
+-- LaTeX bindings
+keymap("n", "<LocalLeader>c", ":VimtexCountWords<CR>", opts)
+keymap("n", "<LocalLeader>l", ":VimtexCompile<CR>", opts)
+keymap("n", "<LocalLeader>k", ":VimtexStop<CR>", opts)
+keymap("n", "<LocalLeader>t", ":VimtexTocOpen<CR>", opts)
+keymap("n", "<LocalLeader>p", ":VimtexView<CR>", opts)
+keymap("n", "<LocalLeader>x", ":VimtexClean<CR>", opts)
+keymap("n", "<LocalLeader>b", ":VimtexLabelsToggle<CR>", opts)
+
+-- Nvim-Tree
+keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<Leader>r", ":NvimTreeRefresh<CR>", opts)
+keymap("n", "<Leader>n", ":NvimTreeFindFile<CR>", opts)
