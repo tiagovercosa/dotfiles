@@ -151,8 +151,9 @@ sed 's/.*= "\(.*\)".*/\1/')
     fi
 
     if [[ $ACTIVE = "" ]] ; then
-        echo "Sound inactive"
-        COLOR='#222225'
+        #echo "Sound inactive"
+        echo "No Sound"
+        COLOR='#181920'
     fi
 
     if [[ $SUBSCRIBE == 1 ]] ; then
