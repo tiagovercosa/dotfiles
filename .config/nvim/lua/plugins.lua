@@ -39,37 +39,43 @@ packer.init {
 -- Instalar seus plugins aqui
 return packer.startup(function(use)
   use "wbthomason/packer.nvim"              -- Have packer manage itself
+  use "gabrielelana/vim-markdown"
+  use "lervag/vimtex"
+
   use "norcalli/nvim-colorizer.lua"
   use "nvim-lualine/lualine.nvim"
   use "windwp/nvim-autopairs"               -- Autopairs, integrates with both cmp and treesitter
-  use "lervag/vimtex"
   use "vimwiki/vimwiki"
   use "tpope/vim-surround"
-  use "lukas-reineke/indent-blankline.nvim"
   use "fladson/vim-kitty"
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+      },
+  }
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 
   -- Colorscheme
-  use 'tiagovla/tokyodark.nvim'
-  use "lunarvim/darkplus.nvim"
-  use "folke/tokyonight.nvim"
   use "rebelot/kanagawa.nvim"
-  use "arcticicestudio/nord-vim"
+  -- use 'tiagovla/tokyodark.nvim'
+  -- use "lunarvim/darkplus.nvim"
+  -- use "folke/tokyonight.nvim"
+  -- use "arcticicestudio/nord-vim"
 
   -- cmp plugins
-  -- use "hrsh7th/nvim-cmp" -- The completion plugin
-  -- use "hrsh7th/cmp-buffer" -- buffer completions
-  -- use "hrsh7th/cmp-path" -- path completions
-  -- use "hrsh7th/cmp-cmdline" -- cmdline completions
-  -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  -- use "hrsh7th/cmp-nvim-lsp"
-  -- use "hrsh7th/cmp-emoji"
-  -- use "hrsh7th/cmp-nvim-lua"
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-buffer"          -- buffer completions
+  use "hrsh7th/cmp-path"            -- path completions
+  use "hrsh7th/cmp-cmdline"         -- cmdline completions
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-nvim-lua"
+  use "saadparwaiz1/cmp_luasnip"    -- snippet completions
 
   -- snippets
-  -- use "L3MON4D3/LuaSnip"             --snippet engine
-  -- use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  use "L3MON4D3/LuaSnip"             --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 end)
