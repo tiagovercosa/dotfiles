@@ -49,6 +49,7 @@ local options = {
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   sidescrolloff = 8,                    -- ???
   compatible = false,
+  spelllang = "pt_br",
 }
 
 for k, v in pairs(options) do
