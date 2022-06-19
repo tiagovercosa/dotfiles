@@ -15,9 +15,11 @@ unsetopt BEEP
 #PROMPT='%F{magenta}%~%f $ '
 
 # completions
-autoload -Uz compinit
+#autoload -Uz compinit
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
-# zstyle ':completion::complete:lsof:*' menu yes select
+zstyle ':completion::complete:lsof:*' menu yes select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
@@ -103,3 +105,5 @@ bindkey '^e' edit-command-line
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+alfetch
