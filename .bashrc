@@ -91,6 +91,9 @@ shopt -s checkwinsize
 shopt -s histappend
 shopt -s cdspell
 
+bind -m vi-command 'Control-l: clear-screen'
+bind -m vi-insert 'Control-l: clear-screen'
+
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
