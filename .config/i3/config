@@ -81,7 +81,7 @@ set $ico_window   <span font='Font Awesome'>&#xf2d0;</span>
 # ----------------------------------------------------------------------------
 
 # Define o layout padrão do workspace
-workspace_layout tabbed
+#workspace_layout tabbed
 
 # labels
 set $ws1 "1"
@@ -206,7 +206,7 @@ bar {
   #separator_symbol " | "
   bindsym button4 nop
   bindsym button5 nop
-  position bottom
+  position top
   tray_output primary
   #tray_padding 4
 
@@ -366,6 +366,8 @@ bindsym $mod+c                       $exe env GTK_THEME=Arc-Dark qalculate-gtk
 bindsym $mod+a                       $exe pcmanfm
 # Emojis
 #bindsym $mod+Shift+e                 $exe emoji
+# PrintScreen
+bindsym Print                   $exe flameshot gui
 
 # start a program launcher -b
 #bindsym $mod+d exec --no-startup-id dmenu_run -p 'Run:' -fn 'Open Sans SemiBold-12' -sb '$blue' -sf '$dark'

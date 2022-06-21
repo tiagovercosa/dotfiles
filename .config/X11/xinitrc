@@ -4,4 +4,4 @@
 [ -f ~/.config/X11/xprofile ] && . ~/.config/X11/xprofile
 [[ -f ~/.config/X11/Xresources ]] && xrdb -merge -I$HOME ~/.config/X11/Xresources
 
-exec i3
+exec dbus-launch i3
