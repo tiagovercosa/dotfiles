@@ -1,5 +1,5 @@
 # PROMPT
-format = "$directory$git_branch$character"
+format = "$directory$git_status$git_branch$character"
 
 # Don't print a new line at the start of the prompt
 add_newline = false
@@ -20,7 +20,7 @@ format = "[$path$read_only ](purple)"
 truncate_to_repo = false
 
 [git_branch]
-format = "[\\($branch(:$remote_branch)\\)](bold cyan) "
+format = "[\\($branch(:$remote_branch)\\)](cyan) "
 symbol = " "
 
 [cmd_duration]
@@ -39,10 +39,5 @@ symbol = "R "
 ignore_base = false
 
 [git_status]
-disabled = true
-staged = "[${count}](green)"
-modified = "[!${count}](yellow)"
-ahead = "[${count}](cyan)"
-behind = "${count}"
-untracked = "[?${count}](white)"
-deleted = "✘${count}"
+format = '[$modified](cyan)'
+modified = "*"
