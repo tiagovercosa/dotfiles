@@ -15,7 +15,7 @@ AUDIO_MUTED_SYMBOL=${AUDIO_MUTED_SYMBOL:-' '}
 
 AUDIO_DELTA=${AUDIO_DELTA:-5}
 
-DEFAULT_COLOR=${DEFAULT_COLOR:-"#A4C2F4"}
+DEFAULT_COLOR=${DEFAULT_COLOR:-"#BBCCDD"}
 MUTED_COLOR=${MUTED_COLOR:-"#BF616A"}
 
 LONG_FORMAT=${LONG_FORMAT:-'${SYMB} ${VOL}%'}
@@ -110,8 +110,8 @@ case "$BLOCK_BUTTON" in
     1) set_default_playback_device_next ;;
     2) amixer -q -D $MIXER sset $SCONTROL $CAPABILITY toggle ;;
     3) set_default_playback_device_next -1 ;;
-    4) amixer -q -D $MIXER sset $SCONTROL $CAPABILITY $AUDIO_DELTA%+ ;;
-    5) amixer -q -D $MIXER sset $SCONTROL $CAPABILITY $AUDIO_DELTA%- ;;
+    4) pactl set-sink-volume 0 +5%;;
+    5) pactl set-sink-volume 0 -5%;;
 esac
 
 function print_format {
