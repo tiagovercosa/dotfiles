@@ -5,6 +5,6 @@ case "$BLOCK_BUTTON" in
     i3-msg 'exec gsimplecal' > /dev/null ;;
 esac
 
-date=$(date '+%a, %d %b - %H:%M')
+date=$(date '+%A, %d %b - %H:%M')
 
 echo "  $date"
