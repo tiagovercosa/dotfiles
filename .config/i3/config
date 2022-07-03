@@ -20,9 +20,11 @@ set $graybrown #808080
 set $gray      #E7E8EB
 set $white     #F5F6F7
 set $red       #BF616A
+set $pink      #FF6F9C
 set $orange    #DBAB6B
 set $yellow    #EBCB8B
 set $green     #A3BE8C
+set $cyanlght  #BBCCDD
 set $cyan      #88C0D0
 set $blue      #91B1D1
 set $darkblue  #416181
@@ -126,13 +128,13 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # ----------------------------------------------------------------------------
 
 # Windowns defaults
-default_floating_border normal 1
+default_floating_border pixel 2
 default_border pixel 2
-title_align center
+#title_align center
 #hide_edge_borders smart
 
 # focus defaults
-focus_follows_mouse no
+# focus_follows_mouse no
 focus_wrapping no
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -149,19 +151,17 @@ for_window [class="TelegramDesktop"]    title_format "  $ico_telegram  %title"
 # Qalculate-gtk
 for_window [class="Qalculate-gtk"]      title_format "  $ico_window  %title"
 # Spotify
-for_window [class="Spotify"]			title_format "  $ico_music  %title"
-for_window [class="Spotify"]               move to workspace $ws10 
+for_window [class="Spotify"]			      title_format "  $ico_music  %title"
+for_window [class="Spotify"]            move to workspace $ws10 
 
 assign [class="TelegramDesktop"]         → $ws9
-assign [class="firefox"]                 → $ws2
-assign [class="qutebrowser"]             → $ws2
-assign [class="bitwarden"]               → $ws3
-assign [class="libreoffice-calc"]        → $ws6
-assign [class="vlc"]                     → $ws8
 assign [class="Deezer"]                  → $ws10
+#assign [class="firefox"]                 → $ws2
+#assign [class="qutebrowser"]             → $ws2
 
 # Floating defaults
 for_window [class="Blueman-manager"]    floating enable
+for_window [class="TelegramDesktop"]    floating enable
 for_window [class="Pavucontrol"]        floating enable
 for_window [class="mpv"]                floating enable
 for_window [class="Arandr"]             floating enable
@@ -190,9 +190,9 @@ workspace 1 output primary
 font pango:Open Sans SemiBold 12
 
 # class                  border  backgr  text       indicator  client_border
-client.focused           $black  $black  $blue      $cyan      $black
-client.unfocused         $darker $darker $darkblue  $cyan      $darker
-client.focused_inactive  $dark   $dark   $darkblue  $cyan      $dark
+client.focused           $pink   $pink   $black      $cyan      $pink
+client.unfocused         $darker $darker $darkgray  $cyan      $darker
+client.focused_inactive  $dark   $dark   $darkgray  $cyan      $dark
 client.urgent            $red    $red    $dark      $cyan      $red
 
 
@@ -208,21 +208,20 @@ bar {
   bindsym button5 nop
   position top
   tray_output primary
-  #tray_padding 4
+  tray_padding 5
 
   colors {
-      statusline    $white
+      #statusline    $white
       background    $dark
       #separator     #bbccdd
 
       #                   border     backgr    text
-      focused_workspace   $dark      $dark     $cyan
+      focused_workspace   $cyanlght  $dark     $cyanlght
       active_workspace    $dark      $dark     $blue
-      inactive_workspace  $dark      $dark     $black
+      inactive_workspace  $dark      $dark     $graybrown
       urgent_workspace    $red       $red      $darker
   }
 }
-
 
 # ----------------------------------------------------------------------------
 # i3blocks
@@ -236,12 +235,12 @@ bindsym --release Num_Lock   $exe pkill -SIGRTMIN+11 i3blocks
 bindsym $mod+Shift+u         $exe pkill -SIGRTMIN+14 i3blocks
 
 # Pipewire-pulse
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym XF86AudioMute --release exec --no-startup-id pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioLowerVolume --release exec --no-startup-id pkill -RTMIN+1 i3blocks
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioRaiseVolume --release exec --no-startup-id pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute $exe pactl set-sink-mute 0 toggle
+bindsym XF86AudioMute --release $exe pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume $exe pactl set-sink-volume 0 -5%
+bindsym XF86AudioLowerVolume --release $exe pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume $exe pactl set-sink-volume 0 +5%
+bindsym XF86AudioRaiseVolume --release $exe pkill -RTMIN+1 i3blocks
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp   $exe light -A 10
@@ -306,14 +305,13 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system System (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l $exe my_i3lock, mode "default"
     bindsym e $exe i3-msg exit, mode "default"
     bindsym s $exe systemctl suspend, mode "default"
     bindsym h $exe systemctl hibernate, mode "default"
     bindsym r $exe systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
+    bindsym Shift+s $exe systemctl poweroff, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -363,15 +361,18 @@ bindsym $mod+KP_Enter                $exe $term
 # Calculator
 bindsym $mod+c                       $exe env GTK_THEME=Arc-Dark qalculate-gtk
 # FileManager
-bindsym $mod+a                       $exe pcmanfm
+bindsym $mod+a                       $exe env GTK_THEME=Arc-Dark pcmanfm
 # Emojis
 #bindsym $mod+Shift+e                 $exe emoji
 # PrintScreen
-bindsym Print                   $exe flameshot gui
+bindsym Print                        $exe flameshot full
+bindsym $mod+Print                   $exe flameshot gui
+# Lock Screen
+bindsym $mod+shift+l                 $exe sflock -h -b 'LOCKED!'
 
 # start a program launcher -b
-#bindsym $mod+d exec --no-startup-id dmenu_run -p 'Run:' -fn 'Open Sans SemiBold-12' -sb '$blue' -sf '$dark'
-bindsym $mod+d $exe rofi -show drun -font "Open Sans SemiBold 12" -run-shell-command '{terminal} -e bash -ic "{cmd} && read"'
+bindsym $mod+d $exe dmenu_run -p 'Run:' -fn 'Open Sans SemiBold-12' -sb '$blue' -sf '$dark'
+#bindsym $mod+d $exe rofi -show drun -font "Open Sans SemiBold 12" -run-shell-command '{terminal} -e bash -ic "{cmd} && read"'
 
 # ----------------------------------------------------------------------------
 # i3-gaps
@@ -384,8 +385,8 @@ bindsym $mod+d $exe rofi -show drun -font "Open Sans SemiBold 12" -run-shell-com
 # smart_gaps inverse_outer
 
 # Set inner/outer gaps
-#gaps inner 9
-#gaps outer -4
+#gaps inner 4
+#gaps outer 2
 
 # Activate smart borders (always)
 #smart_borders on

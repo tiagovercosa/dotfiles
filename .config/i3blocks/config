@@ -48,7 +48,7 @@ CRIT_TX=51200
 
 [memory]
 command=${HOME}/.local/bin/memory
-label=MEM: 
+label= 
 interval=30
 
 [volume-pipewire]
