@@ -41,6 +41,7 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim"              -- Have packer manage itself
   use "gabrielelana/vim-markdown"
   use "lervag/vimtex"
+  use "junegunn/goyo.vim"
 
   use "norcalli/nvim-colorizer.lua"
   use "nvim-lualine/lualine.nvim"

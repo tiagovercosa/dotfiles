@@ -58,3 +58,6 @@ keymap("n", "<LocalLeader>b", ":VimtexLabelsToggle<CR>", opts)
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<Leader>r", ":NvimTreeRefresh<CR>", opts)
 keymap("n", "<Leader>n", ":NvimTreeFindFile<CR>", opts)
+
+-- Goyo
+keymap("n", "<Leader>g", ":Goyo<CR>", opts)

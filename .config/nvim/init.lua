@@ -17,3 +17,6 @@ require "plug-config.nvimtree"
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
+vim.cmd([[
+let g:goyo_width = 100
+]])
