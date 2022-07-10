@@ -363,7 +363,7 @@ bindsym $mod+d $exe dmenu_run -p 'Run:' -fn 'Open Sans SemiBold-12' -sb '$blue' 
 # i3-gaps
 # ----------------------------------------------------------------------------
 # You can also use any non-zero value if you'd like to have a border
-for_window [class=".*"] border pixel 2
+# for_window [class=".*"] border pixel 2
 smart_gaps on
 
 # Só habilita quando tem apenas um conteiner aberto
