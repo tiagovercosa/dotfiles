@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+blue="$(tput setaf 4)"
+bold="$(tput bold)"
+reset="$(tput sgr0)"
+
+#clear
+
+. /etc/os-release
+
+echo "
+${blue} ⠀⠀⠀⠀⣶⠀    ${reset}${bold}"$PRETTY_NAME"${reset}
+${blue} ⠀⠀⠀⣼⣿⣧⠀⠀⠀ ${reset}${bold}Kernel:${reset} $(uname -r)
+${blue} ⠀⠀⣼⣿⠿⣿⣧⠀⠀ ${reset}${bold}Uptime:${reset} $(uptime -p | cut -d' ' -f2-)
+${blue} ⠀⣼⣿⡇⠀⢸⣿⣧⠀ ${reset}${bold}Pacman:${reset} $(pacman -Q | wc -l) pkg
+${blue} ⠘⠉⠀⠀⠀⠀⠀⠉⠃ ${reset}${bold}$USER@$HOSTNAME${reset}
+"
+exit 0
