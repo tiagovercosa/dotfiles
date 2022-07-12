@@ -9,7 +9,6 @@ source /usr/share/fzf/completion.bash
 ### Exports and variables ###
 # Define default applications
 export EDITOR="nvim"
-export TERM="xterm-kitty"
 export BROWSER="firefox"
 export MANPAGER="less"
 export PAGER="less"
