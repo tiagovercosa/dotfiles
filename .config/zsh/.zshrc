@@ -15,11 +15,16 @@ unsetopt BEEP
 #PROMPT='%F{magenta}%~%f $ '
 
 # completions
-#autoload -Uz compinit
 autoload -Uz compinit && compinit
+autoload -U age
+autoload zmv
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
 zstyle ':completion::complete:lsof:*' menu yes select
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
@@ -39,50 +44,10 @@ else
   export EDITOR='nvim'
 fi
 
-fcd() {
-  cd "$(find -type d | fzf)"
-}
-
-open() {
-  xdg-open "$(find -type f | fzf)"
-}
-
-## Get word definition function ##
-### Usage: def <word> ###
-function def() {
-	sdcv -n --utf8-output --color "$@" 2>&1 | \
-	fold --width=$(tput cols) | \
-	less --quit-if-one-screen -RX
-}
-
-## Archive extraction function ###
-### Usage: ex <file> ###
-ex () {
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1   ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
-
 # Useful Functions
 source "$ZDOTDIR/zsh-functions"
 
 zsh_add_file "zsh-aliases"
-zsh_add_file "zsh-export"
 
 # Key-bindings
 typeset -g -A key
