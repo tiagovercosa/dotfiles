@@ -1,22 +1,22 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Displays the default device, volume, and mute status for i3blocks
 
 set -a
 
-AUDIO_HIGH_SYMBOL=${AUDIO_HIGH_SYMBOL:-' '}
+AUDIO_HIGH_SYMBOL=${AUDIO_HIGH_SYMBOL:-'  '}
 
-AUDIO_MED_THRESH=${AUDIO_MED_THRESH:-50}
-AUDIO_MED_SYMBOL=${AUDIO_MED_SYMBOL:-' '}
+AUDIO_MED_THRESH=${AUDIO_MED_THRESH:-70}
+AUDIO_MED_SYMBOL=${AUDIO_MED_SYMBOL:-'墳  '}
 
-AUDIO_LOW_THRESH=${AUDIO_LOW_THRESH:-0}
-AUDIO_LOW_SYMBOL=${AUDIO_LOW_SYMBOL:-' '}
+AUDIO_LOW_THRESH=${AUDIO_LOW_THRESH:-30}
+AUDIO_LOW_SYMBOL=${AUDIO_LOW_SYMBOL:-'  '}
 
 AUDIO_MUTED_SYMBOL=${AUDIO_MUTED_SYMBOL:-' '}
 
 AUDIO_DELTA=${AUDIO_DELTA:-5}
 
-DEFAULT_COLOR=${DEFAULT_COLOR:-"#BBCCDD"}
-MUTED_COLOR=${MUTED_COLOR:-"#BF616A"}
+DEFAULT_COLOR=${DEFAULT_COLOR:-"#ffffff"}
+MUTED_COLOR=${MUTED_COLOR:-"#a0a0a0"}
 
 LONG_FORMAT=${LONG_FORMAT:-'${SYMB} ${VOL}%'}
 SHORT_FORMAT=${SHORT_FORMAT:-'${SYMB} ${VOL}% [${INDEX}]'}
@@ -106,12 +106,21 @@ function set_default_playback_device_next {
     move_sinks_to_new_default $default_sink
 }
 
+# case "$BLOCK_BUTTON" in
+#     1) set_default_playback_device_next ;;
+#     2) amixer -q -D $MIXER sset $SCONTROL $CAPABILITY toggle ;;
+#     3) set_default_playback_device_next -1 ;;
+#     4) amixer -q -D $MIXER sset $SCONTROL $CAPABILITY $AUDIO_DELTA%+ ;;
+#     5) amixer -q -D $MIXER sset $SCONTROL $CAPABILITY $AUDIO_DELTA%- ;;
+# esac
+
+# my customization
 case "$BLOCK_BUTTON" in
     1) set_default_playback_device_next ;;
-    2) amixer -q -D $MIXER sset $SCONTROL $CAPABILITY toggle ;;
+    2) pactl set-sink-mute 0 toggle ;;
     3) set_default_playback_device_next -1 ;;
-    4) pactl set-sink-volume 0 +5%;;
-    5) pactl set-sink-volume 0 -5%;;
+    4) pactl set-sink-volume 0 +5% ;;
+    5) pactl set-sink-volume 0 -5% ;;
 esac
 
 function print_format {
@@ -151,9 +160,8 @@ sed 's/.*= "\(.*\)".*/\1/')
     fi
 
     if [[ $ACTIVE = "" ]] ; then
-        #echo "Sound inactive"
-        echo "No Sound"
-        COLOR='#181920'
+        echo "Sound inactive"
+        COLOR='#222225'
     fi
 
     if [[ $SUBSCRIBE == 1 ]] ; then
