@@ -30,13 +30,13 @@ function zsh_add_completion() {
 	if [ "$2" = true ] && compinit "${completion_file:1}"
 }
 
-fcd() {
+function fcd() {
   cd "$(find -type d | fzf)"
 }
 
 ## Archive extraction function ###
 ### Usage: ex <file> ###
-ex () {
+function ex () {
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;
@@ -63,4 +63,14 @@ function def() {
 	sdcv -n --utf8-output --color "$@" 2>&1 | \
 	fold --width=$(tput cols) | \
 	less --quit-if-one-screen -RX
+}
+
+function man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    command man "$@"
 }
