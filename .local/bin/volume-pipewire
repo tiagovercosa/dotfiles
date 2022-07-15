@@ -160,7 +160,7 @@ sed 's/.*= "\(.*\)".*/\1/')
     fi
 
     if [[ $ACTIVE = "" ]] ; then
-        echo "Sound inactive"
+        echo "No Sound"
         COLOR='#222225'
     fi
 
