@@ -1,8 +1,8 @@
 alias v='nvim'
-alias upgrade="sudo pacman -Syu"
-alias myip="curl ipinfo.io/ip"
+alias upgrade='sudo pacman -Syu'
+alias myip='curl ipinfo.io/ip'
 
-alias data='cd /storage'
+alias data='/storage'
 
 # Changing "ls" to "exa"
 alias ls='exa --color=always --group-directories-first'  # All files and dirs (long format)
@@ -21,8 +21,8 @@ alias rm='rm -i'
 # Adding flags
 alias -g ...='../..'
 alias -g ....='../../..'
-alias clima="curl http://pt.wttr.in"
-alias wget='wget --hsts-file="$HOME/.cache/wget-hsts"'
+alias -g clima="curl http://pt.wttr.in"
+alias -g wget='wget --hsts-file="$HOME/.cache/wget-hsts"'
 
 # Colorize grep output
 alias grep='grep --color=auto'
@@ -43,5 +43,5 @@ alias drive='udisksctl mount -b'
 alias undrive='udisksctl unmount -b'
 
 # Suffix aliases
-alias -s {js,json,env,md,html,css,toml,txt,tex,log}="less -ri"
-alias -s git="git clone"
+alias -s {md,html,css,toml,txt,tex,log,py,R,Rmd,conf,vim}='nvim'
+alias -s git='git clone'
