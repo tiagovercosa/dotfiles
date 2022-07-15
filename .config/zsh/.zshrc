@@ -1,7 +1,5 @@
 ## User configuration
 
-# Starship
-eval "$(starship init zsh)"
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete
 setopt interactive_comments
@@ -9,15 +7,24 @@ stty stop undef		# Disable ctrl-s to freeze terminal.
 zle_highlight=('paste:none')
 
 # beeping is annoying
-unsetopt BEEP
+#unsetopt BEEP
+
+autoload -Uz add-zsh-hook vcs_info
+add-zsh-hook precmd vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+zstyle ':vcs_info:*' formats ' %s(%F{196}%b%f)'
 
 # prompt
-#PROMPT='%F{magenta}%~%f $ '
+PS1='%B%F{213}%(4~|.../%3~|%~)%f%b${vcs_info_msg_0_} $ '
+#RPROMPT='${vcs_info_msg_0_}'
+
+autoload -U zsh-mime-setup
+zsh-mime-setup
 
 # completions
 autoload -Uz compinit && compinit
-autoload -U age
-autoload zmv
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
 zstyle ':completion::complete:lsof:*' menu yes select
