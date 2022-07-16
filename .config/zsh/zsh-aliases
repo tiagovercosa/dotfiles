@@ -3,6 +3,7 @@ alias upgrade='sudo pacman -Syu'
 alias myip='curl ipinfo.io/ip'
 
 alias data='/storage'
+alias books='/storage/Books'
 
 # Changing "ls" to "exa"
 alias ls='exa --color=always --group-directories-first'  # All files and dirs (long format)

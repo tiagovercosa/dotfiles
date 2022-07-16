@@ -17,7 +17,7 @@ setopt prompt_subst
 zstyle ':vcs_info:*' formats ' %s(%F{196}%b%f)'
 
 # prompt
-PS1='%B%F{213}%(4~|.../%3~|%~)%f%b${vcs_info_msg_0_} $ '
+PS1='%n@%m: %B%F{213}%(4~|.../%3~|%~)%f%b${vcs_info_msg_0_} $ '
 #RPROMPT='${vcs_info_msg_0_}'
 
 autoload -U zsh-mime-setup
@@ -108,3 +108,8 @@ bindkey '^e' edit-command-line
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Pyenv integration
+eval "$(pyenv init --path)"
+
+alfetch

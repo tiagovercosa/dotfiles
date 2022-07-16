@@ -29,7 +29,8 @@ export HISTFILE="$ZDOTDIR/history"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export LESSHISTFILE="-"
 export STARDICT_DATA_DIR="$XDG_DATA_HOME"
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 
 # Disables less history file
 export LESSHISTFILE=/dev/null
