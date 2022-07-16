@@ -1,6 +1,6 @@
 # Basic Settings
 
-set font "Hack Nerd Font Mono normal 9"
+set font "Hack 12"
 set highlight-transparency .1
 set zoom-center "true"
 set selection-clipboard clipboard
