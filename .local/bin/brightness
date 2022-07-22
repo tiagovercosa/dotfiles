@@ -11,7 +11,7 @@ elif [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
   xbacklight -dec 5
 fi
 
-URGENT_VALUE=20
+URGENT_VALUE=15
 
 if [[ "${METHOD}" = "xrandr" ]]; then
   device="${BLOCK_INSTANCE:-primary}"
@@ -49,16 +49,14 @@ if [[ "${percent}" -le 0 ]]; then
 fi
 
 if [[ "${percent}" -le "${URGENT_VALUE}" ]]; then
-  echo "🔅<span color='#BF616A'> ${percent}%</span>"
-  #exit 33 fi
+  echo "<span color='#BF616A'>  ${percent}%</span>"
+fi
 
-if [[ "${percent}" -le 50 ]]; then
-  echo "🔅 ${percent}%"
+if [[ "${percent}" -le 35 ]]; then
+  echo "  ${percent}%"
+elif [[ "${percent}" -le 65 ]]; then
+  echo "  ${percent}%"
 else
-    #if [[ "${percent}" -le 50 ]]; then
-    #  echo "🔆 ${percent}%"
-    #else
-  echo "🔆 ${percent}%"
-    #fi
+  echo "  ${percent}%"
 fi
 
