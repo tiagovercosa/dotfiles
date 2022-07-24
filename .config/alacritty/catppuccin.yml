@@ -7,8 +7,10 @@ colors:
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x1E1D2F'
-    cursor: '0xF5E0DC'
+    # text:   '0x1E1D2F'
+    # cursor: '0xF5E0DC'
+    text: CellBackground
+    cursor: CellForeground
 
   # Normal colors
   normal:

@@ -5,24 +5,25 @@ window:
   position:
     x: 1920
     y: 1080
+  opacity: 0.97
 
 scrolling:
   history: 10000
   multiplier: 3
 
 font:
-  size: 14.0
+  size: 9.0
   normal:
-    family: JetBrains Mono
-    style: Medium
+    family: Hack
+    style: Regular
   bold:
-    family: JetBrains Mono
+    family: Hack
     style: Bold
   italic:
-    family: JetBrains Mono
+    family: Hack
     style: Italic
   bold_italic:
-    family: JetBrains Mono
+    family: Hack
     style: Bold Italic
       
 import:
@@ -44,3 +45,4 @@ key_bindings:
   - { key: Key0,      mods: Control,                            action: ResetFontSize     }
   - { key: Equals,    mods: Control,                            action: IncreaseFontSize  }
   - { key: Minus,     mods: Control,                            action: DecreaseFontSize  }
+  - { key: F,         mods: Control|Shift,   mode: ~Search,     action: SearchForward     }
