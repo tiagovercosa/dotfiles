@@ -1,9 +1,9 @@
 configuration{
     modi: "run,drun,window";
     lines: 5;
-    font: "JetBrainsMono Nerd Font 14";
+    font: "Fira Sans Medium 14";
     show-icons: true;
-    icon-theme: "Oranchelo";
+    icon-theme: "Breeze";
     terminal: "kitty";
     drun-display-format: "{icon} {name}";
     location: 0;
