@@ -5,7 +5,7 @@
 # mod key (Alt=Mod1, Super=Mod4)
 
 set $mod Mod4
-set $term alacritty
+set $term kitty
 
 # exec shortener
 set $exe        exec --no-startup-id
@@ -128,34 +128,35 @@ for_window [class="[Aa]lacritty"]       title_format "  $ico_terminal  %title"
 # Telegram
 for_window [class="TelegramDesktop"]    title_format "  $ico_telegram  %title"
 # Qalculate-gtk
-for_window [class="Qalculate-gtk"]      title_format "  $ico_window  %title"
+for_window [class="qalculate-qt"]       title_format "  $ico_window  %title"
 # Spotify
-for_window [class="Spotify"]	        title_format "  $ico_music  %title"
+for_window [class="Spotify"]	          title_format "  $ico_music  %title"
 for_window [class="Spotify"]            move to workspace $ws10 
 
-assign [class="TelegramDesktop"]         → $ws9
-assign [class="Deezer"]                  → $ws10
-#assign [class="firefox"]                 → $ws2
-#assign [class="qutebrowser"]             → $ws2
+assign [class="TelegramDesktop"]        → $ws9
+#assign [class="Deezer"]                 → $ws10
+#assign [class="firefox"]                → $ws2
+#assign [class="qutebrowser"]            → $ws2
 
 # Floating defaults
-for_window [class="Nitrogen"] 		floating enable sticky enable border normal
+for_window [class="Nitrogen"] 		      floating enable sticky enable border normal
 for_window [class="TelegramDesktop"]    floating enable border normal
 for_window [class="Pavucontrol"]        floating enable sticky enable border normal
 for_window [class="mpv"]                floating enable border normal
 for_window [class="Arandr"]             floating enable sticky enable border normal
-for_window [class="flameshot"]          floating enable sticky enable border normal
 for_window [class="Bitwarden"]          floating enable sticky enable border normal
-for_window [class="Deezer"]             floating enable border normal
 for_window [class="Nvidia-settings"]    floating enable border normal
 for_window [class="[fF]irefox" window_role="About"] floating enable border normal
 for_window [class="[fF]irefox" window_role="Organizer"] floating enable border normal
-for_window [class="Qalculate-gtk"]      floating enable sticky enable border normal
-for_window [class="Virt-manager"]       floating enable border normal
-for_window [class="R_x11"]              floating enable border normal
-for_window [class="gnuplot_qt"]         floating enable border normal
+for_window [class="qalculate-qt"]       floating enable sticky enable border normal
 for_window [class="matplotlib"]         floating enable border normal
-for_window [class="RStudio" title="Plot Zoom"] floating enable border normal
+
+#for_window [class="Deezer"]             floating enable border normal
+#for_window [class="gnuplot_qt"]         floating enable border normal
+#for_window [class="Virt-manager"]       floating enable border normal
+#for_window [class="flameshot"]          floating enable sticky enable border normal
+#for_window [class="R_x11"]              floating enable border normal
+#for_window [class="RStudio" title="Plot Zoom"] floating enable border normal
 
 # Set workspace for output primary
 workspace 1 output primary
@@ -164,10 +165,10 @@ workspace 1 output primary
 # Apearance
 # ----------------------------------------------------------------------------
 
-font pango:Open Sans SemiBold 12
+font pango:Fira Sans Regular 13
 
 # class                  border  backgr  text       indicator  client_border
-client.focused           $cyan   $cyan   $black     $pink      $cyan
+client.focused           $black  $black  $cyan      $pink      $black
 client.unfocused         $darker $darker $darkgray  $cyan      $darker
 client.focused_inactive  $dark   $dark   $darkgray  $cyan      $dark
 client.urgent            $red    $red    $dark      $cyan      $red
@@ -187,13 +188,13 @@ bar {
 
   colors {
       statusline    $white
-      background    $dark
-      #separator     #bbccdd
+      background    #1e1e2e
+      separator     #bbccdd
 
       #                   border     backgr    text
-      focused_workspace   $cyanlght  $dark     $cyanlght
+      focused_workspace   #CCCCFF    #1e1e2e   #CCCCFF
       active_workspace    $dark      $dark     $blue
-      inactive_workspace  $dark      $dark     $graybrown
+      inactive_workspace  #1e1e2e    #1e1e2e   $graybrown
       urgent_workspace    $red       $red      $darker
   }
 }
@@ -232,15 +233,15 @@ bindsym XF86AudioStop $exe playerctl stop
 # ----------------------------------------------------------------------------
 
 # switch workspace
-bindsym $mod+comma          workspace prev
-bindsym $mod+period         workspace next
+bindsym $mod+Ctrl+comma     workspace prev
+bindsym $mod+Ctrl+period    workspace next
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
 bindsym $mod+u              [urgent=latest] focus
 
 # kill focused window
-bindsym $mod+q kill
+bindsym $mod+q              kill
 
 # border type
 bindsym $mod+b              border toggle
@@ -273,16 +274,16 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # resize window (you can also use the mouse for that)
-bindsym $mod+Ctrl+h resize shrink width 1 px or 1 ppt
-bindsym $mod+Ctrl+j resize grow height 1 px or 1 ppt
-bindsym $mod+Ctrl+k resize shrink height 1 px or 1 ppt
-bindsym $mod+Ctrl+l resize grow width 1 px or 1 ppt
+bindsym $mod+Mod1+h resize shrink width 1 px or 1 ppt
+bindsym $mod+Mod1+j resize grow height 1 px or 1 ppt
+bindsym $mod+Mod1+k resize shrink height 1 px or 1 ppt
+bindsym $mod+Mod1+l resize grow width 1 px or 1 ppt
 
 # resize window
-bindsym $mod+Ctrl+Left resize shrink width 1 px or 1 ppt
-bindsym $mod+Ctrl+Down resize grow height 1 px or 1 ppt
-bindsym $mod+Ctrl+Up resize shrink height 1 px or 1 ppt
-bindsym $mod+Ctrl+Right resize grow width 1 px or 1 ppt
+bindsym $mod+Mod1+Left resize shrink width 1 px or 1 ppt
+bindsym $mod+Mod1+Down resize grow height 1 px or 1 ppt
+bindsym $mod+Mod1+Up resize shrink height 1 px or 1 ppt
+bindsym $mod+Mod1+Right resize grow width 1 px or 1 ppt
 
 # floating windows
 bindsym $mod+t                  floating toggle
@@ -346,9 +347,9 @@ bindsym $mod+w                       $exe qutebrowser
 bindsym $mod+Return                  $exe $term
 bindsym $mod+KP_Enter                $exe $term
 # Calculator
-bindsym $mod+c                       $exe qalculate-gtk
+bindsym $mod+c                       $exe qalculate-qt
 # FileManager
-bindsym $mod+n                       $exe pcmanfm
+bindsym $mod+n                       $exe $term -e vifm
 # PrintScreen
 bindsym Print                        $exe flameshot full
 bindsym $mod+Print                   $exe flameshot gui
@@ -356,8 +357,8 @@ bindsym $mod+Print                   $exe flameshot gui
 #bindsym $mod+shift+l                 $exe sflock -h -b 'LOCKED!'
 
 # start a program launcher -b
-bindsym $mod+d $exe dmenu_run -p 'Run:' -fn 'Open Sans SemiBold-12' -sb '$blue' -sf '$dark'
-#bindsym $mod+d $exe rofi -show drun -font "Open Sans SemiBold 12" -run-shell-command '{terminal} -e bash -ic "{cmd} && read"'
+#bindsym $mod+d $exe dmenu_run -p 'Run:' -fn 'Open Sans SemiBold-12' -sb '$blue' -sf '$dark'
+bindsym $mod+d $exe rofi -show drun
 
 # ----------------------------------------------------------------------------
 # i3-gaps
@@ -496,3 +497,5 @@ mode "$mode_gaps_left" {
         bindsym Return mode "$mode_gaps"
         bindsym Escape mode "default"
 }
+
+exec --no-startup-id ~/.config/i3/autostart.sh
