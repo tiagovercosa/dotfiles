@@ -150,11 +150,11 @@ for_window [class="[fF]irefox" window_role="About"] floating enable border norma
 for_window [class="[fF]irefox" window_role="Organizer"] floating enable border normal
 for_window [class="qalculate-qt"]       floating enable sticky enable border normal
 for_window [class="matplotlib"]         floating enable border normal
+for_window [class="flameshot"]          floating enable sticky enable border normal
 
 #for_window [class="Deezer"]             floating enable border normal
 #for_window [class="gnuplot_qt"]         floating enable border normal
 #for_window [class="Virt-manager"]       floating enable border normal
-#for_window [class="flameshot"]          floating enable sticky enable border normal
 #for_window [class="R_x11"]              floating enable border normal
 #for_window [class="RStudio" title="Plot Zoom"] floating enable border normal
 
@@ -351,8 +351,7 @@ bindsym $mod+c                       $exe qalculate-qt
 # FileManager
 bindsym $mod+n                       $exe $term -e vifm
 # PrintScreen
-bindsym Print                        $exe flameshot full
-bindsym $mod+Print                   $exe flameshot gui
+bindsym Print                        $exe flameshot launcher
 # Lock Screen
 #bindsym $mod+shift+l                 $exe sflock -h -b 'LOCKED!'
 
