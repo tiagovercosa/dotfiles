@@ -7,7 +7,7 @@ stty stop undef		# Disable ctrl-s to freeze terminal.
 zle_highlight=('paste:none')
 
 # beeping is annoying
-#unsetopt BEEP
+unsetopt BEEP
 
 autoload -Uz add-zsh-hook vcs_info
 add-zsh-hook precmd vcs_info
@@ -17,7 +17,7 @@ setopt prompt_subst
 zstyle ':vcs_info:*' formats ' %s(%F{196}%b%f)'
 
 # prompt
-PS1='%n@%m: %B%F{213}%(4~|.../%3~|%~)%f%b${vcs_info_msg_0_} $ '
+PS1='%B%F{213}%(4~|.../%3~|%~)%f%b${vcs_info_msg_0_} $ '
 #RPROMPT='${vcs_info_msg_0_}'
 
 autoload -U zsh-mime-setup
