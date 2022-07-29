@@ -107,7 +107,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # ----------------------------------------------------------------------------
 
 # Windowns defaults
-default_floating_border pixel 2
+default_floating_border normal 2
 default_border pixel 2
 #title_align center
 hide_edge_borders smart
@@ -353,7 +353,7 @@ bindsym $mod+n                       $exe $term -e vifm
 # PrintScreen
 bindsym Print                        $exe flameshot launcher
 # Lock Screen
-#bindsym $mod+shift+l                 $exe sflock -h -b 'LOCKED!'
+bindsym $mod+Ctrl+l                  $exe ~/.local/bin/my_i3lock 
 
 # start a program launcher -b
 #bindsym $mod+d $exe dmenu_run -p 'Run:' -fn 'Open Sans SemiBold-12' -sb '$blue' -sf '$dark'
