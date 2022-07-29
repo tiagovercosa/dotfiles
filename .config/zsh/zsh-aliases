@@ -1,4 +1,4 @@
-alias v='nvim'
+alias vi='nvim'
 alias upgrade='sudo pacman -Syu'
 alias myip='curl ipinfo.io/ip'
 
