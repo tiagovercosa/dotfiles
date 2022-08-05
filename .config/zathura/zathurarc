@@ -22,7 +22,5 @@ map i recolor
 map R rotate
 map u scroll half-up
 map d scroll half-down
-map k 5k
-map j 5k
 
 include catppuccin-mocha
