@@ -50,12 +50,6 @@ else:
     else:
         percentleft = 0
 
-    # stands for charging
-    FA_LIGHTNING = "<span color='#FFFF00'><span font='FontAwesome'>\uf0e7</span></span>"
-
-    # stands for plugged in
-    FA_PLUG = "<span font='FontAwesome'>\uf1e6 {}</span>"
-
     # stands for using battery\uf240
     FA_BATTERY = "<span font='FontAwesome'>{}</span>"
 
@@ -64,31 +58,45 @@ else:
 
     if state == "Discharging":
         if percentleft < 10:
-            stateself = FA_BATTERY.format('\uf244 \uf12a') + " "
+            stateself = " "
+        elif percentleft < 20:
+            stateself = " "
         elif percentleft < 30:
-            stateself = FA_BATTERY.format('\uf243') + " "
-        elif percentleft < 55:
-            stateself = FA_BATTERY.format('\uf242') + " "
+            stateself = " "
+        elif percentleft < 40:
+            stateself = " "
+        elif percentleft < 50:
+            stateself = " "
+        elif percentleft < 60:
+            stateself = " "
+        elif percentleft < 70:
+            stateself = " "
         elif percentleft < 80:
-            stateself = FA_BATTERY.format('\uf241') + " "
+            stateself = " "
+        elif percentleft < 90:
+            stateself = " "
         else:
-            stateself = FA_BATTERY.format('\uf240') + " "
+            stateself = " "
     elif state == "Charging":
         if percentleft < 10:
-            stateself = FA_LIGHTNING + " " + FA_PLUG.format('\uf244 \uf12a') + " "
+            stateself = " "
         elif percentleft < 30:
-            stateself = FA_LIGHTNING + " " + FA_PLUG.format('\uf243') + " "
-        elif percentleft < 55:
-            stateself = FA_LIGHTNING + " " + FA_PLUG.format('\uf242') + " "
+            stateself = " "
+        elif percentleft < 45:
+            stateself = " "
+        elif percentleft < 65:
+            stateself = " "
         elif percentleft < 80:
-            stateself = FA_LIGHTNING + " " + FA_PLUG.format('\uf241') + " "
+            stateself = " "
+        elif percentleft < 95:
+            stateself = " "
         else:
-            stateself = FA_LIGHTNING + " " + FA_PLUG.format('\uf240') + " "
+            stateself = " "
     elif state == "Full":
-        stateself = FA_PLUG.format('\uf240') + " "
+        stateself = " "
         timeleft = ""
     elif state == "Unknown":
-        stateself = FA_QUESTION + " " + FA_BATTERY + " "
+        stateself = ""
         timeleft = ""
     else:
         stateself = None
