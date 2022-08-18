@@ -23,4 +23,7 @@ map R rotate
 map u scroll half-up
 map d scroll half-down
 
-include catppuccin-mocha
+set highlight-color           "#b57614" # bright:yellow
+set highlight-active-color    "#af3a03" # bright:orange
+
+include nord
