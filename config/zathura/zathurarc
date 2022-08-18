@@ -26,4 +26,4 @@ map d scroll half-down
 set highlight-color           "#b57614" # bright:yellow
 set highlight-active-color    "#af3a03" # bright:orange
 
-include nord
+include ./themes/nord
