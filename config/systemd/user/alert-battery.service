@@ -1,0 +1,10 @@
+[Unit]
+Description=Desktop alert warning of low remaining battery
+
+[Service]
+Type=oneshot
+# Change username and modify path to script as needed
+ExecStart=/home/tiago/.local/bin/alert-battery.sh
+
+[Install]
+WantedBy=graphical.target
