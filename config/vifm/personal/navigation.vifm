@@ -1,0 +1,5 @@
+" % vim: set filetype=vim :
+
+" Config and dotfiles
+" ------------------------------------------------------------------------------
+nnoremap gnn :goto ~/.config/vifm/personal/navigation.vifm<CR>

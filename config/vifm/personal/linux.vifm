@@ -1,0 +1,53 @@
+" % vim: set filetype=vim :
+
+" BEGIN FILE OPENING CONFIGURATION
+" ---------------------------------------------
+" PDF
+filetype {*.pdf},<application/pdf> zathura %c &
+
+" GIF
+filetype {*.gif},<image/gif> mpv %c
+
+" APNG
+filetype {*.apng},<image/apng> mpv %c
+
+" SVG
+filetype {*.svg},<image/svg> inkscape %c &
+
+" Image
+filetype {*.jpg,*.jpeg,*.png},<image/*> feh %c &
+
+" PostScript
+filetype {*.ps,*.eps,*.ps.gz},<application/postscript> zathura
+
+" Office spreadsheet files
+" filetype {*.xls,*.xlsx,*.ods},<application/msexcel> gnumeric %c &
+filetype {*.xls,*.xlsx},<application/msexcel> libreoffice --calc %c &
+filetype {*.ods},<application/vnd.oasis.opendocument.spreadsheet> libreoffice --calc %c &
+" Word files
+filetype {*.doc,*.docx},<application/msword> libreoffice --writer %c &
+filetype {*.odt},<application/vnd.oasis.opendocument.text> libreoffice --writer %c &
+
+" M3U files
+filetype {*.m3u},<text/m3u> mpv %c
+
+" CSV files
+" filetype {*.csv},<text/csv> sc-im --import_delimited_as_text
+" ---------------------------------------------
+" END FILE OPENING CONFIGURATION
+
+" Copy and paste
+" See https://wiki.vifm.info/index.php/How_to_copy_path_to_current_file/directory_to_system_clipboard
+" ---------------------------------------------
+" yank current directory path into the clipboard
+nnoremap yd :!echo -n %d | xclip -selection clipboard %i<cr>:echo expand('%"d') "is yanked to clipboard"<cr>
+
+" yank current file path into the clipboard
+nnoremap yp :!echo -n %c:p | xclip -selection clipboard %i<cr>:echo expand('%"c:p') "is yanked to clipboard"<cr>
+
+" yank current filename without path into the clipboard
+nnoremap yn :!echo -n %c | xclip -selection clipboard %i<cr>:echo expand('%"c') "is yanked to clipboard"<cr>
+
+" yank root of current file's name into the clipboard
+nnoremap yr :!echo -n %c:r | xclip -selection clipboard %i<cr>:echo expand('%"c:r') "is yanked to clipboard"<cr>
+" ---------------------------------------------
