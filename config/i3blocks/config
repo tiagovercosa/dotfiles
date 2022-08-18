@@ -1,0 +1,66 @@
+# i3blocks configuration file
+
+# Global properties
+separator_block_width=20
+markup=pango
+color=#CCCCFF
+#color=#88C0D0
+#color=#A4C2F4
+
+[caps-lock]
+instance=CAPS
+interval=once
+signal=11
+command=${HOME}/.local/bin/keyindicator
+
+[num-lock]
+instance=NUM
+command=${HOME}/.local/bin/keyindicator
+interval=once
+signal=11
+
+[pacman-updates]
+command=${HOME}/.local/bin/arch-update
+markup=pango
+interval= 600
+QUIET=true
+WATCH=^linux.* ^pacman.* ^nvidia.*
+BASE_COLOR=#5fff5f
+UPDATE_COLOR=#EBCB8B
+#UPDATE_COLOR=#FFFF85
+
+[volume-pipewire]
+command=${HOME}/.local/bin/volume-pipewire
+interval=once
+signal=1
+#MIXER=[determined automatically]
+#SCONTROL=[determined automatically]
+##exposed format variables: ${SYMB}, ${VOL}, ${INDEX}, ${NAME}
+#LONG_FORMAT="${SYMB} ${VOL}% [${INDEX}:${NAME}]"
+LONG_FORMAT="${SYMB}${VOL}%"
+#SHORT_FORMAT="${SYMB} ${VOL}% [${INDEX}]"
+#AUDIO_HIGH_SYMBOL='  '
+#AUDIO_MED_THRESH=50
+#AUDIO_MED_SYMBOL='  '
+#AUDIO_LOW_THRESH=0
+#AUDIO_LOW_SYMBOL='  '
+#AUDIO_DELTA=5
+DEFAULT_COLOR="#CCCCFF"
+MUTED_COLOR="#BF616A"
+#USE_ALSA_NAME=0
+#USE_DESCRIPTION=0
+## SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
+#SUBSCRIBE=0
+
+[brightness]
+command=${HOME}/.local/bin/brightness
+interval=1
+
+[module-calendar]
+command=${HOME}/.local/bin/module-calendar
+interval=1
+
+[battery2]
+command=${HOME}/.local/bin/battery2
+markup=pango
+interval=30

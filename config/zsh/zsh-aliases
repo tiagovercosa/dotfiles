@@ -1,0 +1,48 @@
+alias vi='nvim'
+alias upgrade='sudo pacman -Syu'
+alias myip='curl ipinfo.io/ip'
+
+alias data='/storage'
+alias books='/storage/Books'
+
+# Changing "ls" to "exa"
+alias ls='exa --color=always --group-directories-first'  # All files and dirs (long format)
+alias la='exa -la --color=always --group-directories-first'  # All files and dirs (long format)
+alias l='exa -l --color=always --group-directories-first'  # Long format
+alias ll='exa -lh --color=always --group-directories-first'
+alias lt='exa -aT --color=always --group-directories-first' # Tree listing
+
+alias du='du -sh'
+
+# Confirm before overwriting
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+# Adding flags
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g clima="curl http://pt.wttr.in"
+alias -g wget='wget --hsts-file="$HOME/.cache/wget-hsts"'
+
+# Colorize grep output
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias ip='ip -color=auto'
+alias diff='diff --color=auto'
+
+# startx
+alias startx='startx "$XINITRC"'
+
+#git dotfiles
+#alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# udisks
+alias drive='udisksctl mount -b'
+alias undrive='udisksctl unmount -b'
+
+# Suffix aliases
+alias -s {md,html,css,toml,txt,tex,log,py,R,Rmd,conf,vim}='nvim'
+alias -s git='git clone'

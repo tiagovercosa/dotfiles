@@ -1,0 +1,47 @@
+[Added Associations]
+application/x-trash=nvim.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-0AM0F1.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+image/jpeg=sxiv.desktop;
+application/vnd.ms-publisher=nvim.desktop;
+audio/mpeg=mpv.desktop;vlc.desktop;
+x-content/video-dvd=vlc.desktop;
+x-content/audio-cdda=vlc.desktop;
+x-content/audio-player=vlc.desktop;
+
+[Default Applications]
+x-scheme-handler/tg=userapp-Telegram Desktop-0AM0F1.desktop
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
+image/jpeg=sxiv.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/ftp=firefox.desktop
+text/html=nvim.desktop
+text/*=nvim.desktop
+text/plain=nvim.desktop
+application/x-extension-htm=firefox.desktop
+application/x-extension-html=firefox.desktop
+application/x-extension-shtml=firefox.desktop
+application/xhtml+xml=firefox.desktop
+application/x-extension-xhtml=firefox.desktop
+application/x-extension-xht=firefox.desktop
+application/octet-stream=libreoffice.desktop
+image/vnd.djvu=org.pwmt.zathura.desktop
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+image/bmp=sxiv.desktop
+image/gif=sxiv.desktop
+image/jpeg=sxiv.desktop
+image/jpg=sxiv.desktop
+image/png=sxiv.desktop
+image/tiff=sxiv.desktop
+inode/x-empty=nvim.desktop
+text/markdown=nvim.desktop
+application/json=nvim.desktop
+text/x-r-markdown=nvim.desktop
+image/x-eps=org.pwmt.zathura-ps.desktop
+text/x-r-source=nvim.desktop
+application/xml=nvim.desktop
+inode/directory=pcmanfm.desktop
+x-content/video-dvd=vlc.desktop
+x-content/audio-cdda=vlc.desktop
+x-content/audio-player=vlc.desktop

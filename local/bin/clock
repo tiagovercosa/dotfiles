@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+clock=$(date '+%I')
+
+case "$clock" in
+	"00") icon="🕛" ;;
+	"01") icon="🕐" ;;
+	"02") icon="🕑" ;;
+	"03") icon="🕒" ;;
+	"04") icon="🕓" ;;
+	"05") icon="🕔" ;;
+	"06") icon="🕕" ;;
+	"07") icon="🕖" ;;
+	"08") icon="🕗" ;;
+	"09") icon="🕘" ;;
+	"10") icon="🕙" ;;
+	"11") icon="🕚" ;;
+	"12") icon="🕛" ;;
+esac
+
+case "$BLOCK_BUTTON" in
+    1) i3-msg 'exec gsimplecal' > /dev/null ;;
+	2) dunstify "📅 Time/date module" "\- Left click to show upcoming appointments for the next three days via \`calcurse -d3\` and show the month via \`cal\`
+- Middle click opens calcurse if installed" ;;
+	#3) setsid -f $TERM -e calcurse ;;
+	3) "$TERM" -e "$EDITOR" "$0" ;;
+esac
+
+date "+$icon %a, %d %B %H:%M:%S"

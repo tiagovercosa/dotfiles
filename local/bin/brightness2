@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+URGENT_VALUE=19
+
+case $BLOCK_BUTTON in
+  4) light -A 10 ;; # scroll up, increase
+  5) light -U 10 ;; # scroll down, decrease
+esac
+
+percent=$(echo "scale=0;$(light -G) * 100 / 100" | bc -l)
+
+if [[ "${percent}" -le "${URGENT_VALUE}" ]]; then
+  echo "<span color='#BF616A'>  ${percent}%</span>"
+fi
+
+if [[ "${percent}" -le 35 ]]; then
+  echo "  ${percent}%"
+elif [[ "${percent}" -le 65 ]]; then
+  echo "  ${percent}%"
+else
+  echo "  ${percent}%"
+fi

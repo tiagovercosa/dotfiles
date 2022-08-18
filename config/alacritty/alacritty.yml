@@ -1,0 +1,48 @@
+env:
+  TERM: xterm-256color
+
+window:
+  position:
+    x: 1920
+    y: 1080
+  opacity: 0.97
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+font:
+  size: 9.5
+  normal:
+    family: Fira Code
+    style: Regular
+  bold:
+    family: Fira Code
+    style: Bold
+  italic:
+    family: Fira Code
+    style: Italic
+  bold_italic:
+    family: Fira Code
+    style: Bold Italic
+      
+import:
+  - ~/.config/alacritty/catppuccin.yml
+
+mouse:
+  hide_when_typing: true
+
+key_bindings:
+  - { key: K,         mods: Control|Shift,   mode: ~Alt,        action: ScrollLineUp      }
+  - { key: J,         mods: Control|Shift,   mode: ~Alt,        action: ScrollLineDown    }
+  - { key: PageUp,    mods: Control|Shift,   mode: ~Alt,        action: ScrollHalfPageUp, }
+  - { key: PageDown,  mods: Control|Shift,   mode: ~Alt,        action: ScrollHalfPageDown}
+  - { key: U,         mods: Control|Shift,   mode: ~Alt,        action: ScrollHalfPageUp, }
+  - { key: D,         mods: Control|Shift,   mode: ~Alt,        action: ScrollHalfPageDown}
+  - { key: Home,      mods: Control|Shift,   mode: ~Alt,        action: ScrollToTop,      }
+  - { key: End,       mods: Control|Shift,   mode: ~Alt,        action: ScrollToBottom    }
+  - { key: Return,    mods: Control|Shift,                      action: SpawnNewInstance  }
+  - { key: Key0,      mods: Control,                            action: ResetFontSize     }
+  - { key: Equals,    mods: Control,                            action: IncreaseFontSize  }
+  - { key: Minus,     mods: Control,                            action: DecreaseFontSize  }
+  - { key: F,         mods: Control|Shift,   mode: ~Search,     action: SearchForward     }
