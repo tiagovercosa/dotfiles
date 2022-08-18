@@ -1,2 +1,2 @@
-defaults.target.wants/
+default.target.wants/
 sockets.target.wants/
