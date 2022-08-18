@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-[ -f /etc/xprofile ] && . /etc/xprofile
-[ -f ~/.config/X11/xprofile ] && . ~/.config/X11/xprofile
-[[ -f ~/.config/X11/Xresources ]] && xrdb -merge -I$HOME ~/.config/X11/Xresources
-
-exec dbus-launch i3

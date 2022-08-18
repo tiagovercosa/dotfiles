@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-upd=$(checkupdates | wc -l)
-
-echo -e "<span color='#88C0FF'>  Update-Arch: $upd </span>"
