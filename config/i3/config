@@ -5,7 +5,7 @@
 # mod key (Alt=Mod1, Super=Mod4)
 
 set $mod Mod4
-set $term kitty
+set $term alacritty
 
 # exec shortener
 set $exe        exec --no-startup-id
@@ -110,7 +110,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 default_floating_border normal 2
 default_border pixel 2
 #title_align center
-hide_edge_borders smart
+#hide_edge_borders smart
 
 # focus defaults
 # focus_follows_mouse no
@@ -168,7 +168,7 @@ workspace 1 output primary
 font pango:Fira Sans Regular 13
 
 # class                  border  backgr  text       indicator  client_border
-client.focused           $black  $black  $cyan      $pink      $black
+client.focused           #81A1C1 #81A1C1 $black     #4c566a    #81A1C1
 client.unfocused         $darker $darker $darkgray  $cyan      $darker
 client.focused_inactive  $dark   $dark   $darkgray  $cyan      $dark
 client.urgent            $red    $red    $dark      $cyan      $red
@@ -180,21 +180,21 @@ client.urgent            $red    $red    $dark      $cyan      $red
 
 bar {
   status_command i3blocks
-  font pango:Symbols Nerd Font,Fira Sans Medium 13
+  font pango:Symbols Nerd Font,Fira Sans 14
   separator_symbol " | "
   position top
   tray_output primary
-  tray_padding 3
+  tray_padding 4
 
   colors {
       statusline    $white
-      background    #1e1e2e
+      background    #15121C
       separator     #bbccdd
 
       #                   border     backgr    text
-      focused_workspace   #CCCCFF    #1e1e2e   #CCCCFF
+      focused_workspace   #CCCCFF    #15121C   #CCCCFF
       active_workspace    $dark      $dark     $blue
-      inactive_workspace  #1e1e2e    #1e1e2e   $graybrown
+      inactive_workspace  #15121C    #15121C   $graybrown
       urgent_workspace    $red       $red      $darker
   }
 }
@@ -235,6 +235,8 @@ bindsym XF86AudioStop $exe playerctl stop
 # switch workspace
 bindsym $mod+Ctrl+comma     workspace prev
 bindsym $mod+Ctrl+period    workspace next
+bindsym $mod+Ctrl+Left     workspace prev
+bindsym $mod+Ctrl+Right    workspace next
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
@@ -349,7 +351,7 @@ bindsym $mod+KP_Enter                $exe $term
 # Calculator
 bindsym $mod+c                       $exe qalculate-qt
 # FileManager
-bindsym $mod+n                       $exe $term -e vifm
+bindsym $mod+n                       $exe $term -e vifmrun
 # PrintScreen
 bindsym Print                        $exe flameshot launcher
 # Lock Screen
@@ -364,7 +366,7 @@ bindsym $mod+d $exe rofi -show drun
 # ----------------------------------------------------------------------------
 # You can also use any non-zero value if you'd like to have a border
 # for_window [class=".*"] border pixel 2
-smart_gaps on
+# smart_gaps on
 
 # Só habilita quando tem apenas um conteiner aberto
 # smart_gaps inverse_outer
