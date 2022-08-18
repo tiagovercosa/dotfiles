@@ -7,10 +7,37 @@ filetype plugin on
 filetype indent on
 filetype on
 set encoding=utf-8
+set background=dark
 set wrap linebreak
 set number relativenumber
 set cursorline
 set ruler
 set showcmd
+set laststatus=2
+set showmode
+set termguicolors
+set t_Co=256
+set mouse=nicr
+set clipboard=unnamedplus
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+
+set splitbelow splitright
+
+set path+=**					" Searches current directory recursively.
+set wildmenu					" Display all matches when tab complete.
+set incsearch
+set nobackup
+set noswapfile
+
+set mouse=a
+
+set whichwrap+=<,>,[,],h,l
 
 colorscheme nord
+
+" Change leader key
+let mapleader=","
+
