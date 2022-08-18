@@ -1,0 +1,5099 @@
+clear
+doc/repos/dotfiles
+..
+l
+rm -rf dotfiles
+l
+
+ssh -T git@github.com
+ls -al ~/.ssh
+ssh -T git@github.com
+ls -al ~/.ssh
+vi known_hosts
+vi .ssh/known_hosts
+vi .ssh/known_hosts.old
+rm .ssh/known_hosts
+mv .ssh/known_hosts.old .ssh/known_hosts
+ssh -T git@github.com
+ls -al ~/.ssh
+teste.tex
+teste.tex
+cat ~/.ssh/id_ed25519.pub
+ssh -T git@github.com
+git@github.com:gillescastel/latex-snippets.git
+git clone https://github.com/gillescastel/latex-snippets.git
+l
+rm -rf latex-snippets
+l
+teste.tex
+tmp
+l
+vi tex.snippets
+tmp
+l
+vi tex2.snippets
+data
+snippets
+l
+cp tex.snippets ~/.config/nvim/snippets
+vi
+vi .config/zsh/.zshrc
+.config/nvim/snippets
+l
+nvim tex.snippets
+l
+cd
+vi
+vi
+vi
+vi
+cd -
+l
+..
+cp -r snippets /storage
+snippets
+rm -rf *
+cd
+vi
+vi
+nvim .config/nvim/snippets/tex.snippets
+vi
+vi
+nvim .config/nvim/snippets/tex.snippets
+nvim .config/nvim/snippets/tex.snippets
+teste.tex
+teste.tex
+nvim .config/nvim/snippets/tex.snippets
+vi
+teste.tex
+vi
+nvim .config/nvim/snippets/tex.snippets
+teste.tex
+vi
+vi
+vi
+vi
+vi
+teste.tex
+vi
+vi
+vi
+teste.tex
+vi
+teste.tex
+teste.tex
+teste.tex
+vi
+teste.tex
+teste.tex
+teste.tex
+/home/tiago/.cache/nvim/lsp.log
+vi teste.py
+teste.tex
+vi
+.config/nvim/snippets
+l
+rm tex.snippets
+cd
+vi
+vi
+teste.tex
+vi
+teste.tex
+vi
+vi
+l
+rm -rf teste*
+l
+upgrade
+paru
+ssh -T git@github.com
+ssh-agent
+rm -rf .ssh/*
+ssh-agent
+ssh-keygen -t ed25519 -C "vercosa@proton.me"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
+ssh -T git@github.com
+startx
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+vi
+teste.tex
+upgrade
+paru
+.ssh
+l
+ssh -T git@github.com
+cd
+clear
+vi
+vi
+vi
+vi
+vi
+vi
+.config/nvim/
+mv snippets UltiSnips
+cd
+vi
+teste.tex
+vi
+teste.tex
+vi
+teste.tex
+teste.tex
+teste.tex
+vi
+startx
+upgrade
+xbacklight -get
+xbacklight -set 80
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+ssh -T git@github.com
+tmp
+ll
+vi tex.snippets
+..
+l
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+k
+l
+teste.tex
+teste.tex
+upgrade
+clelar
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+pacman -Ss pywall
+pacman -Ss pywal
+sudo pacman -S python-pywal
+wal --theme base16-nord
+wal -h
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+kitty +list-fonts | grep -i "iosev"
+.config/kitty/kitty.conf
+clear
+vi
+.config/kitty/kitty.conf
+kitty +list-fonts | grep -i "iosevka "
+paru
+upgrade
+l
+teste.tex
+date +%F
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+.config/kitty/kitty.conf
+vi
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+vi
+vi
+.config/kitty
+l
+themes
+l
+wget https://github.com/connorholyday/nord-kitty/raw/master/nord.conf
+l
+../kitty.conf
+vi
+cd
+neofetch
+clear
+.config/kitty/kitty.conf
+vi .config/i3/config
+startx
+xbacklight -set 40
+ps -e | grep reds
+kill 1196
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+vi .config/picom/picom.conf
+vi .config/i3/config
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+mv todo.txt doc/todo.md
+vi
+vi
+vi
+vi
+vi
+neofetch
+clear
+upgrade
+paru
+cat ~/.ssh/id_ed25519.pub
+git@codeberg.org:tiagovercosa/thesisPhD.git
+clear
+sudo ufw status
+sudo ufw allow out 22
+sudo ufw status
+ssh -T git@github.com
+git@codeberg.org:tiagovercosa/thesisPhD.git tese/
+l
+tese
+git status
+la
+clear
+..
+l
+teste.tex
+l
+rm -rf teste.*
+drx.md
+doc
+l
+mv todo.md todo.wiki
+vi todo.wiki
+vi todo.wiki
+clear
+l
+..
+l
+rm -rf tese
+doto
+date
+data
+l
+nvim/
+l
+lt .
+vi general/settings.vim
+..
+rm -rf nvim
+l
+ls
+snippets
+l
+nvim tex.snippets
+l
+vi markdown.snippets
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+.config/nvim
+l
+mkdir snippets
+snippets
+ll ..
+nvim tex.snippets
+pwd
+cd
+teste.tex
+cd -
+l
+..
+rm -rf snippets
+l
+cd
+vi
+teste.tex
+teste.tex
+vi
+teste.tex
+l
+rm -rf teste*
+l
+clear
+vi
+vi
+doc
+mv todo.wiki todo.md
+data
+l
+backup
+l
+..
+mkdir repo_arq
+repo_arq
+l
+git@github.com:tiagovercosa/nvim.git nvim-old/
+l
+nvim-old
+l
+cd
+.config/nvim
+lt .
+clear
+la
+git config --list
+echo "# NeoVim-writing" > README.md
+git init
+git add .
+git commit -m "first commit"
+git remote add origin git@github.com:tiagovercosa/NeoVim-writing.git
+git push -u origin main
+nvim README.md
+git status
+git commit -a -m "update README"
+git push -u origin main
+cd
+doc/repos
+l
+mywiki
+git pull
+git status
+l
+cd
+vi
+vi
+git status
+cd -
+cd
+.config/nvim
+git status
+clear
+git status
+cd
+vi
+vi
+vi
+vi
+cd -
+git status
+cd
+.config/kitty/kitty.conf
+upgrade
+paru
+startx
+vi
+doc
+l
+rm todo.md
+sudo pacman -S --needed trash-cli
+trash-list
+_trash-empty
+trash-empty
+l
+cd
+vi
+vi
+vi
+doc/notas
+clear
+l
+clear
+ls
+..
+ls
+markdown/
+ls
+vi metadata.yaml
+cd
+teste.md
+teste.md
+.config/nvim
+ls plugin
+git status
+git restore plugin/packer_compiled.lua
+git status
+git rm plugin/
+git rm -r plugin/
+git status
+git commit -m "removed packer compiled"
+git push -u origin main
+l
+vi
+vi
+l
+git status
+vi .gitignore
+git status
+git add .gitignore
+git commit -m "added git ignore"
+clear
+git diff UltiSnips/markdown.snippets
+git add UltiSnips/markdown.snippets
+git commit -m "Template metadata block"
+git status
+git diff UltiSnips/tex.snippets
+clear
+git status
+git push -u origin main
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+upgrade
+paru
+vi
+vi
+.config/nvim
+l
+clear
+l
+cd
+vi
+.config/nvim
+git status
+git diff lua/status.lua
+git add lua/status.lua
+git commit -m "changed symbols for diff"
+git diff lua/packages.lua
+git add lua/packages.lua
+git commit -m "changed buttons at alpha startify"
+git status
+git push -u origin main
+git status
+vi
+vi
+git status
+cd
+cd -
+cd
+vi
+cd -
+git status
+clear
+cd
+vi
+.config/kitty/kitty.conf
+.config/kitty/kitty.conf
+vi
+vi
+l
+wallpaperflare.com_wallpaper.jpg
+sxiv wallpaperflare.com_wallpaper.jpg
+mv wallpaperflare.com_wallpaper.jpg img/wallpaper/0329.jpg
+doc/repos/catppuccin/wallpapers
+l
+git pull
+ls
+sxiv -t minimalistic/*
+sxiv -t dithered/*
+sxiv -t gradients/*
+sxiv -t solids/*
+sxiv -t waves/*
+sxiv -t misc/*
+sxiv -t mandelbrot/*
+sxiv -t os/*
+cd
+clear
+vi
+vi
+vi
+vi
+vi
+l
+vi
+.config/nvim
+l
+mv teste.md ~
+l
+git status
+clear
+git status
+git diff lua/status.lua
+git diff lua/packages.lua
+git diff lua/config.lua
+clear
+git status
+git add lua/*
+git status
+git commit -m "changed color scheme for catppuccin"
+git push -u origin main
+git status
+clear
+cd
+vi
+vi .config/i3/config
+.config/kitty/kitty.conf
+upgrade
+.config/kitty
+l
+ls themes
+./kitty.conf
+img/gim/
+img/gimp/
+l
+sxiv 0329.png
+cp 0329.png ../wallpaper/
+l
+neofetch
+.config/kitty/kitty.conf
+vi
+clear
+paru
+upgrade
+img/gimp/
+l
+ls ../wallpaper
+rm 0329.png
+l
+file 0329.xcf
+startx
+upgrade
+paru
+uname -a
+teste.tex
+teste.tex
+vi
+vi
+vi
+vi
+vi
+teste.tex
+vi
+.config/nvim
+l
+git status
+git diff lua/treesitter.lua
+git add lua/treesitter.lua
+git commit -m "disabled auto_install of TS and removed TS for tex files"
+git push -u origin main
+l
+rm -rf teste* Primavera\ silenciosa.mobi
+k
+l
+drx.md
+rm drx.md
+l
+vi teste.py
+vi teste.py
+vi teste.py
+vi teste.c
+vi teste.lua
+vi teste.lua
+vi .config/nvim/init.lua
+l
+tmp
+l
+rm -f *.epub
+l
+l
+..
+lsblk
+undrive /dev/sdb
+lsblk
+sudo eject /dev/sdb
+upgrade
+clear
+.config/nvim
+git status
+git add spell/
+git status
+clear
+cd
+vi .config/i3/autostart.sh
+tmp
+l
+..
+l
+ll tmp
+cd -
+cd
+.config/nvim
+git status
+git commit -m "new words in portuguese"
+git status
+cd
+clear
+data
+l
+repo_arq/nvim-old
+l
+vi init.lua
+lua/
+l
+vi plugins.lua
+vi plugins.lua
+cd
+teste.tex
+l
+cd -
+vi plugins.lua
+cd
+vi teste.lua
+vi teste.lua
+vi teste.lua
+vi teste.lua
+vi teste.py
+teste.tex
+.config/nvim
+git diff lua/packages.lua
+git status
+git diff lua/packages.lua
+git diff lua/lsp.lua
+cd
+vi teste.py
+l
+clear
+l
+rm teste.lua
+vi
+vi
+vi .config/nvim/init.lua
+vi .config/nvim/init.lua
+vi .config/nvim/init.lua
+vi
+vi .config/nvim/init.lua
+vi .config/nvim/init.lua
+vi .config/nvim/init.lua
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi .config/nvim/init.lua
+.config/nvim
+git status
+git diff lua/lsp.lua
+git diff lua/lsp.lua
+cd
+vi
+vi
+vi
+vi
+l
+vi teste.lua
+vi teste.py
+vi teste.lua
+lua teste.lua
+vi teste.lua
+teste.tex
+teste.tex
+vi
+data
+ls
+repo_arq/nvim-old/
+l
+vi init.lua
+cd
+.config/nvim
+l
+git status
+git status
+git diff lua/lsp.lua
+git diff lua/packages.lua
+git add lua/
+git status
+git commit -m "config Lsp for lua filetypes"
+git push -u origin main
+git status
+cd
+lsblk
+sudo eject /dev/sdb
+vi .config/i3/config
+vi
+doc
+ls
+escritas
+l
+git status
+git pull
+vi intro_eletronica.md
+vi intro_eletronica.md
+vi
+l
+sxiv Moore\'s_Law_Transistor_Count.png
+tmp
+zathura Quantum_Computing_as_a_High_School_Module.pdf
+l
+rm -rf hart1988.pdf Capillary\ flow\ as\ the\ cause\ of\ ring\ stains\ from\ dried\ liquid\ drop.pdf
+l
+vi
+vi
+upgrade
+paru
+tmp
+l
+mkdir ~/.config/nvim/fonts
+mv *.ttf ~/.config/nvim/fonts
+vi
+fc-cache
+fc-list :family | grep -i "Jetbrains mono"
+..
+.config/nvim
+git status
+fonts/
+l
+mv *.ttf ~/.local/share/fonts/TTF
+l
+..
+rmdir fonts
+git status
+cd
+fc-cache
+fc-list :family | grep -i "Jetbrains mono"
+kitty +list-fonts | grep -i "jetbrains mono "
+.config/kitty/kitty.conf
+vi
+ps -e | grep reds
+kill 2078
+ps -e | grep reds
+ps -e | grep reds
+kill 1201
+kill 1201
+ps -e | grep reds
+vi .config/i3/autostart.sh
+vi teste.lua
+doc/DOO.pdf
+doc/historico.pdf
+doc/historico.pdf
+doc/historico.pdf
+doc/
+l
+historico.pdf
+historico.pdf
+historico.pdf
+vi
+nvim --clean
+nvim --version
+vi
+vim
+nvim
+.config/kitty/kitty.conf
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+.config/nvim
+l
+lua/
+l
+rm -rf lsp.lua
+l
+..
+cd
+vi
+vi
+cd -
+git status
+git add lua/ init.lua
+git commit -m "changed the location of the Lsp config"
+git push -u origin main
+cd
+pacman -Ss texlab
+texlab -h
+texlab -h
+texlab -V
+texlab --log-file log.txt
+l
+log.txt
+rm log.txt
+paruu
+paru
+vi .config/zathura/zathurarc
+vi .config/zathura/zathurarc
+vi .config/zathura/zathurarc
+vi .config/zathura/catppuccin-mocha
+.config/vifm
+l
+vi vifmrc
+vi
+doc/repos/mywiki
+git status
+git pull
+git add .
+git commit -m "31-07-22 update"
+git push -u origin master
+upgrade
+vi
+vi
+doc/guidorizzo_vol01
+l
+zathura Apresentação\ de\ Conteúdo.pdf
+l
+l
+ex Problemas\ e\ Desafios.zip
+l
+mkdir Problemas_Desafios_Vol_01
+mv Problemas*.pdf Problemas_Desafios_Vol_01
+l
+./Problemas_Desafios_Vol_01
+l
+zathura Problemas_e_Desafios_Vol_01_cap-01.pdf
+l
+..
+l
+mv Problemas* guidorizzo_vol01
+l
+guidorizzo_vol01
+l
+..
+clear
+l
+mv guidorizzo_vol01 ~/doc
+l
+zathura Apresentação\ de\ Conteúdo.pdf
+rm -f Apresentação\ de\ Conteúdo.pdf Pré-CÃ�lculo.pdf
+l
+doc/guidorizzo_vol01/Pré-CÃ�lculo.pdf
+vi .config/zathura/zathurarc
+startx
+startx
+upgrade
+paru
+paclog
+kitty +list-fonts | grep -i "jetbrains mono "
+kitty +list-fonts | grep -i "jetbrains"
+upgrade
+paru
+vi
+.config/kitty/kitty.conf
+vi
+.local/share/fonts/TTF
+l
+rm -rf "JetBrains Mono"*
+fc-cache
+cd
+startx
+vi
+fc-list :family | grep -i "iosev"
+kitty +list-fonts | grep -i "iose"
+kitty +list-fonts
+vi
+vi
+vi
+fc-cache
+fc-list :family | grep -i "Fira sans"
+fc-list :family | grep -i "Fira sans nerd"
+fc-list :family | grep -i "Fira nerd"
+fc-list :family | grep -i "Fira code nerd"
+fc-list :family | grep -i "fira code"
+fc-list :family | grep -i "roboto "
+fc-list :family | grep -i "roboto medium"
+sudo pacman -S ttf-nerd-fonts-symbols
+paccache -ruk0
+paccache -rk1
+clear
+vi
+vi
+vi .config/alacritty/alacritty.yml
+vi
+upgrade
+paru
+vi
+vi
+neofetch
+clear
+vi
+vi
+vi
+paru nerd-fonts
+vi
+fc-list :family | grep -i "fira sans"
+fc-list :family | grep -i "fira sans medium"
+fc-list :family | grep -i "fira sans regular"
+fc-list :family | grep -i "fira sans "
+vi
+pacman -Ss ss08
+sudo pacman -S ttc-iosevka-ss08
+kitty +list-fonts | grep -i "iose"
+vi
+clear
+vi
+teste.tex
+vi
+vi
+vi
+.config/kitty/kitty.conf
+.config/kitty/kitty.conf
+vi
+neofetch
+clear
+sudo pacman -Ssyu
+sudo pacman -Syyu
+paru
+.config/kitty/kitty.conf
+clear
+.config/kitty/kitty.conf
+.config/kitty/kitty.conf
+cd $XDG_DATA_HOME
+l
+nvim/site
+l
+..
+l
+..
+rm -rf nvim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \\
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+prj/physics
+vi simple_model.py
+.config/nvim
+l
+mkdir UltiSnips
+UltiSnips
+vi
+vi tex.snippets
+cd
+teste.tex
+teste.tex
+teste.tex
+.config/nvim/plugins
+l
+cd
+teste.tex
+teste.tex
+vi .config/nvim/UltiSnips/tex.snippets
+cd .config/nvim
+l
+mv UltiSnips snippets
+l
+cd
+clear
+.config/nvim/plugins
+l
+vi lualine.vim
+vi lualine.vim
+..
+cd
+teste.tex
+teste.tex
+teste.tex
+l
+rm teste.tex
+clear
+teste.tex
+l
+teste.tex
+l
+rm -f teste.*
+l
+dotfiles
+l
+ls config
+l
+..
+rm -rf dotfiles
+l
+data
+l
+l
+rm -rf dotfiles
+l
+teste.tex
+l
+teste.tex
+data
+l
+vi
+.config/nvim
+ll
+git status
+git commit -a -m "new snippets for Tex"
+git push -u origin main
+..
+l
+rm -rf nvim
+l
+clear
+vi
+mkdir nvim
+nvim/
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+mkdir plugins
+ll
+la
+plugins
+config.vim
+../UltiSnips
+vi tex.snippets
+..
+vi init.vim
+vi init.vim
+vi plugins/config.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+vi snippets/tex.snippets
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+ls
+la
+clear
+vi init.vim
+vi init.vim
+vi init.vim
+vi init.vim
+cd
+cd -
+vi init.vim
+vi init.vim
+vi init.vim
+mv nvim /storage
+..
+mv nvim /storage
+vi
+git@github.com:tiagovercosa/NeoVim-writing.git nvim
+cd
+vi
+vi
+.local/share/
+rm -rf nvim
+cd
+~/.config $ git@github.com:tiagovercosa/NeoVim-writing.git nvim    \
+Cloning into 'nvim'...\
+Enter passphrase for key '/home/tiago/.ssh/id_ed25519': \
+remote: Enumerating objects: 77, done.\
+remote: Counting objects: 100% (77/77), done.\
+remote: Compressing objects: 100% (55/55), done.\
+remote: Total 77 (delta 30), reused 63 (delta 16), pack-reused 0\
+Receiving objects: 100% (77/77), 1.25 MiB | 2.05 MiB/s, done.\
+Resolving deltas: 100% (30/30), done.\
+~/.config $ cd  \
+~ $ vi\
+~ $ vi\
+~ $ ~/.config $ git@github.com:tiagovercosa/NeoVim-writing.git nvim    \
+Cloning into 'nvim'...\
+Enter passphrase for key '/home/tiago/.ssh/id_ed25519': \
+remote: Enumerating objects: 77, done.\
+remote: Counting objects: 100% (77/77), done.\
+remote: Compressing objects: 100% (55/55), done.\
+remote: Total 77 (delta 30), reused 63 (delta 16), pack-reused 0\
+Receiving objects: 100% (77/77), 1.25 MiB | 2.05 MiB/s, done.\
+Resolving deltas: 100% (30/30), done.\
+~/.config $ cd  \
+~ $ vi\
+~ $ vi\
+~ $ clear
+clear
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+vi
+vi
+vi .config/nvim/init.lua
+.config
+l
+rm -rf nvim
+git@github.com:tiagovercosa/NeoVim-writing.git nvim
+./nvim
+l
+cd
+vi
+vi
+vi
+vi
+vi
+vi .config/nvim/init.lua
+teste.tex
+l
+clear
+rm -f teste.*
+l
+vi
+vi teste.py
+teste.tex
+vi teste.py
+teste.tex
+l
+rm -f teste.*
+l
+.local/share/nvim
+l
+..
+rm -rf nvim
+.config/nvim
+l
+mv plugins config
+l
+cd config
+l
+mv config.vim plugins.vim
+\: > settings.vim
+vi settings.vim
+vi settings.vim
+cd
+data
+ls
+backup/
+ls
+cd nvim 
+l
+git status
+vi lua/packages.lua
+vi lua/config.lua
+vi lua/packages.lua
+ls lua
+vi lua/cmp_conf.lua
+vi lua/packages.lua
+cd
+teste.tex
+teste.tex
+l
+vi teste.py
+.config/nvim/config
+l
+clear
+l
+\: > lspconfig.vim
+cd -
+data
+ls
+./backup
+l
+nvim/
+clear
+vi init.lua
+vi init.lua
+vi init.lua
+vi UltiSnips/tex.snippets
+.config/nvim/config
+l
+vi cmpconfig.vim
+upgrade
+paru
+vi
+vi
+vi
+vi
+vi
+teste.tex
+l
+teste.tex
+vi
+vi
+clear
+ci
+vi
+vi
+vi
+vi --clean
+l
+vi teste.py
+.config
+mv nvim /storage/backup
+data
+mv nvim ~/.config
+cd
+vi teste.py
+teste.tex
+cd .config/nvim
+l
+nvim init.vim
+cd
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \\
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+vi
+vi
+teste.tex
+cd .config/nvim/snippets
+..
+nvim init.vim
+nvim init.vim
+nvim init.vim
+cd
+vi .config/nvim/init.lua
+vi .config/nvim/init.vim
+vi .config/nvim/init.vim
+vi .config/nvim/init.vim
+vi .config/nvim/init.vim
+vi .config/nvim/init.vim
+vi .config/nvim/init.vim
+vi .config/nvim/init.vim
+vi .config/nvim/init.vim
+vi teste.py
+vi .config/nvim/init.vim
+vi .config/nvim/init.vim
+vi .config/nvim/init.vim
+vi teste.py
+teste.tex
+vi .config/nvim/init.vim
+vi .config/nvim/init.vim
+teste.tex
+vi teste.py
+vi teste.py
+l
+vi .config/nvim/snippets/tex.snippets
+teste.tex
+vi .config/nvim/snippets/tex.snippets
+teste.tex
+clear
+vi .config/nvim/init.vim
+vi .config/nvim/init.vim
+vi .config/nvim/snippets/python.snippets
+vi .config/nvim/snippets/tex.snippets
+vi .config/nvim/snippets/python.snippets
+vi teste.py
+vi .config/nvim/init.vim
+.config/nvim
+l
+mv snippets UltiSnips
+cd
+vi teste.py
+teste.tex
+startx
+data
+backup/
+ls
+ls
+vi
+.config/nvim
+l
+mkdir lua
+.config/nvim/ua
+.config/nvim/lua
+mv config.lua settings.lua
+.local/share/nvim/site/pack/
+l
+ls packer
+./packer/start
+l
+ls packer.nvim
+upgrade
+vi .config/nvim/init.vim
+vi .config/nvim/init.vim
+vi .config/nvim/init.vim
+vi
+.config
+mv nvim /storage/backup/nvim-vim
+mkdir nvim
+cd nvim
+nvim init.lua
+nvim init.lua
+cd
+vi
+vi .config/nvim/init.lua
+vi .config/nvim/lua/settings.lua
+vi .config/nvim/lua/settings.lua
+rm -rf .local/share/nvim
+vi .config/nvim/lua/settings.lua
+vi .config/nvim/lua/settings.lua
+vi .config/nvim/lua/settings.lua
+vi .config/nvim/lua/settings.lua
+vi .config/nvim/lua/settings.lua
+vi .config/nvim/lua/settings.lua
+vi .config/nvim/lua/settings.lua
+vi .config/nvim/lua/settings.lua
+vi .config/nvim/lua/settings.lua
+vi .config/nvim/lua/settings.lua
+vi .config/nvim/lua/settings.lua
+vi .config/nvim/lua/settings.lua
+vi .config/nvim/lua/settings.lua
+vi .config/nvim/lua/settings.lua
+vi .config/nvim/init.lua
+vi .config/nvim/init.lua
+vi .config/nvim/init.lua
+mkdir .config/nvim/after/ftplugin
+mkdir -p .config/nvim/after/ftplugin
+vi .config/nvim/after/ftplugin/lua.lua
+vi .config/nvim/init.lua
+.config/nvim
+l
+lua/
+l
+mv packges.lua packages.lua 
+..
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+mkdir lua/config
+vi init.lua
+vi init.lua
+vi after/ftplugin/lua.lua
+vi init.lua
+vi after/ftplugin/lua.lua
+vi init.lua
+vi after/ftplugin/lua.lua
+vi init.lua
+vi init.lua
+vi after/ftplugin/lua.lua
+vi init.lua
+vi after/ftplugin/lua.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+pacdiff
+pacdiff -h
+pacdiff -s
+sudo vim /etc/locale.gen
+sudo locale-gen
+data
+./backup/nvim/lua
+l
+vi config.lua
+...
+nvim-vim
+l
+nvim config/settings.vim
+nvim config/settings.vim
+nvim config/settings.vim
+l
+mv UltiSnips ~/.config/nvim
+config
+l
+..
+l
+nvim init.vim
+vi config/lualine.vim
+vi settings.vim
+vi config/settings.vim
+cd
+upgrade
+startx
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+vi teste.py
+l
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+upgrade
+paru
+clear
+vi
+.config/nvim
+lt .
+clear
+vi init.lua
+vi init.lua
+vi init.lua
+ls
+lt UltiSnips
+vi UltiSnips/tex.snippets
+vi UltiSnips/tex.snippets
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi init.lua
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+cd
+ls
+rm teste.py
+teste.tex
+vi teste.py
+vi teste.py
+vi
+vi teste.py
+vi teste.py
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+upgrade
+paru
+bluetoothctl power on
+systemctl status bluetooth.target
+systemctl status bluetooth.service
+systemctl start bluetooth.service
+systemctl status bluetooth.service
+bluetoothctl power on
+bluetoothctl connect A0:AC:69:11:81:DF
+systemctl status bluetooth.service
+systemctl status bluetooth.target
+systemctl start bluetooth.target
+bluetoothctl power on
+teste.tex
+teste.tex
+vi
+vi
+vi
+vi
+vi
+vi
+teste.tex
+vi teste.py
+teste.tex
+teste.tex
+teste.tex
+vi
+vi
+teste.tex
+teste.tex
+teste.tex
+pacman -Ss ltex
+teste.tex
+vi
+pacman -Ss ltex
+paru ltex
+pacman -Ss ltex-ls
+teste.tex
+vi
+vi
+vi
+vi
+pacman -Qm
+vi
+vi
+vi
+vi
+vi
+vi
+teste.tex
+.config/nvim
+l
+lua/config
+l
+mv lsp.lua ..
+..
+mv lsp.lua config
+cd
+vi
+.config/nvim
+l
+UltiSnips
+l
+vi python.snippets
+vi tex.snippets
+cd
+clear
+teste.tex
+teste.tex
+l
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.md
+teste.md
+teste.md
+teste.md
+teste.md
+teste.md
+teste.md
+teste.md
+teste.md
+teste.md
+teste.md
+teste.tex
+teste.tex
+l
+rm teste.*
+teste.tex
+vi
+vi
+vi
+vi
+vi
+vi
+.config/kitty/kitty.conf
+kitty +list-fonts | grep -i "fira code"
+.config/kitty/kitty.conf
+vi
+vi
+.config/nvim
+vi
+c
+cd
+.config/kitty/kitty.conf
+sudo pacman -Syu
+paru
+clear
+.config/kitty/kitty.conf
+neofetch
+clear
+vi
+neofetch
+vi
+vi
+.config/kitty/kitty.conf
+doc
+cd
+startx
+biber --v
+paru
+neofetch
+upgrade
+paru
+vi .local/bin/battery2
+vi
+.config/kitty/kitty.conf
+clear
+neofetch
+clear
+data
+./backup/nvim/lua
+l
+vi packages.lua
+vi .local/bin/battery2
+vi .config/i3/config
+vi .local/bin/volume-pipewire
+vi
+vi .local/bin/volume-pipewire
+vi
+vi .config/i3blocks/config
+vi .local/bin/keyindicator
+vi
+neofetch
+vi
+vi
+.config/kitty/kitty.conf
+vi
+vi .config/nvim/UltiSnips/snippets.snippets
+vi .config/nvim/UltiSnips/tex.snippets
+.config/nvim
+vi README.md
+l
+git init
+git add .
+git commit -m "first commit"
+git remote add origin git@github.com:tiagovercosa/NVim-WritingTex.git
+git push -u origin main
+cd
+systemctl status bluetooth.target
+systemctl status bluetooth.service
+systemctl status bluetooth-mesh.service
+sudo systemctl start bluetooth.service
+sudo systemctl start bluetooth.target
+sudo systemctl status bluetooth.target
+sudo systemctl status bluetooth.service
+bluetoothctl
+.config/nvim
+git status
+l
+pwd
+git status
+mv Discente_-_Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.doc ~/tmp
+git status
+~/tmp
+l
+Discente_-_Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.doc
+Discente_-_Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.doc
+startx
+sudo systemctl start bluetooth.service
+sudo systemctl start bluetooth.target
+upgrade
+paru
+bluetoothctl
+bluetoothctl
+vi
+tmp
+ls
+Discente_-_Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.doc
+l
+libreoffice veroptbrv320aoc.oxt
+tmp
+tmp
+l
+ex dashlane-credential-export.zip
+l
+vi securenotes.csv
+vi ids.csv
+vi payments.csv
+vi personalInfo.csv
+vi credentials.csv
+rm -rf *.csv
+l
+rm veroptbrv320aoc.oxt
+l
+tmp
+Discente_-_Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.doc
+~/doc
+l
+historico.pdf
+l
+../tmp
+l
+Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.pdf
+Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.pdf
+Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.pdf
+Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina\ \(1\).pdf
+l
+~/doc/doutorado
+l
+cd -
+mv Requerimenro* Discente* ~/doc/doutorado
+l
+mv Requerimento* Discente* ~/doc/doutorado
+cd -
+l
+mv Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.doc Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.pdf 
+mv Discente-Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.doc Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.doc
+mv Discente_-_Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.doc Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.doc
+l
+Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina\ \(1\).pdf
+Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.pdf
+Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.doc
+clear
+cd
+upgrade
+vi
+vim
+vi
+startx
+upgrade
+vi
+vi
+vi
+upgrade
+vi
+teste.tex
+teste.tex
+vi
+tmp
+l
+./CÃ�lculo\ A\ -\ Funções,\ Limite,\ Derivação,\ Integração\ \(Diva\ Marília\ Flemming\)\ \(z-lib.org\).pdf
+ll
+./CÃ�lculo\ B\ Funções\ de\ vÃ�rias\ variÃ�veis,\ integrais\ múltiplas\ \(Mirian\ Buss\ Gonçalves,\ Diva\ Marília\ Flemming\)\ \(z-lib.org\).pdf
+./CÃ�lculo\ A\ -\ Funções,\ Limite,\ Derivação,\ Integração.pdf
+rm -rf CÃ�lculo\ A\ -\ Funções,\ Limite,\ Derivação,\ Integração\ \(Diva\ Marília\ Flemming\)\ \(z-lib.org\).pdf CÃ�lculo\ B\ Funções\ de\ vÃ�rias\ variÃ�veis,\ integrais\ múltiplas\ \(Mirian\ Buss\ Gonçalves,\ Diva\ Marília\ Flemming\)\ \(z-lib.org\).pdf
+l
+ll
+cd
+l
+tmo
+tmp
+l
+teste.tex
+teste.tex
+vi
+~/.config/nvim
+l
+mv init.lua init.vim
+vi
+vi
+vi
+vi init.vim
+vi
+vi init.vim
+vi
+vi init.vim
+vi
+vi init.vim
+git status
+git diff lua/packages.lua
+\: > .gitignore
+l
+echo "plugin/" >> .gitignore
+git status
+git add .
+git commit -m "add gitignore" .gitignore 
+git status
+git commit -m "changed init.lua for init.vim" init.lua init.vim
+git status
+git commit -m "changed init.lua for init.vim" lua/packages.lua
+git status
+git restore --staged plugin/
+git status
+git rm plugin/
+git rm -r plugin/
+l
+git status
+ls .config/nvim/colors
+data
+./backup/nvim/
+l
+la
+vi .gitignore
+vi
+vi
+ll .config/nvim
+lt .config/nvim
+clear
+.config/nvim
+mkdir colors
+cd colors
+l
+wget https://github.com/ejmastnak/dotfiles/raw/main/config/nvim/colors/nord-article-ice.vim
+l
+vi nord-article-ice.vim
+vi
+vi nord-article-ice.vim
+cd
+vi
+vi
+vi
+vi .config/nvim/lua/settings.lua
+vi .config/nvim/lua/config/nordtheme.lua
+vi .config/nvim/init.vim
+vi .config/nvim/init.vim
+vi .config/nvim/init.vim
+vi .config/nvim/init.vim
+clear
+vi .config/nvim/init.vim
+tmp
+teste.tex
+cd
+vi .config/nvim/init.vim
+vi
+vi
+vi
+.config/nvim
+mv init.vim init.lua
+vi
+cd
+vi
+vi
+.config/nvim
+l
+git status
+git rm plugin/packer_compiled.lua
+git restore plugin/packer_compiled.lua
+git status
+vi
+git status
+vi .gitignore
+vi .gitignore
+git status
+git status
+vi .gitignore
+git diff lua/config/nordtheme.lua
+git restore lua/config/nordtheme.lua
+git diff lua/settings.lua
+git restore lua/settings.lua
+vi
+git status
+git diff lua/packages.lua
+git add init.* lua/packages.lua
+git status
+git status
+git add init.vim
+git status
+git commit -m "changed init.vim for init.lua"
+git status
+git add .gitignore colors/
+git add .
+git status
+git commit -m "fix ignore folder" .gitignore
+git commit -m "added color folder and nord color scheme" colors/
+git commit -m "compiled plugins" plugin/packer_compiled.lua
+git status
+git push -u origin main
+clear
+git status
+git rm plugin/
+git rm -r plugin/
+git status
+vi
+l
+git commit -m "removed compilation file"
+git status
+git push -u origin main
+vi
+git status
+vi
+l
+cd
+clear
+data
+./backup/nvim/
+l
+..
+l
+..
+l
+cd -
+nvim/lua
+l
+..
+l
+..
+l
+..
+ls
+repo_arq/nvim-old/
+l
+vi init.lua
+vi lua/plugins.lua
+vi
+vi lua/plugins.lua
+cd
+vi
+vi
+cd -
+vi lua/user/cmp.lua
+vi
+vi
+vi
+vi
+.config/nvim
+git status
+git diff lua/packages.lua
+git diff lua/config/cmp.lua
+vi lua/config/cmp.lua
+clear
+git status
+git commit -a -m "added nvim-cmp source for neovim Lua API"
+git push -u origin main
+clear
+cd
+vi
+vi
+sudo pacman -S --needed inkscape
+doc/escritas
+git status
+git diff intro_eletronica.md
+clear
+git status
+def.md
+git add .
+git commit -m "adicionado algumas definições e introdução"
+git push -u origin main
+..
+rm -rd escritas
+rm -rd escritas
+rm -rf escritas
+l
+clear
+ls
+essentialism
+l
+../math
+l
+algebra_matriz.pdf
+vi .config/nvim/UltiSnips/tex.snippets
+.config/nvim/UltiSnips
+mkdir tex
+tex/
+vi system.snippets
+l
+ll ..
+vi ../tex.snippets
+upgrade
+paru
+.config/kitty/kitty.conf
+ll
+clear
+vi
+ls
+mkdir phd
+l
+phd/
+git@github.com:tiagovercosa/lecture-notes.git notes
+l
+clear
+mv notes lecture-notes
+l
+./lecture-notes
+l
+clear
+l
+mkdir thesis
+thesis
+vi master.tex
+vi master.tex
+> text1.tex
+l
+cat text1.tex
+nvi text1.tex
+vi text1.tex
+l
+clear
+cat text1.tex
+vi text1.tex
+vi master.tex
+vi master.tex
+upgrade
+startx
+upgrade
+upgrade
+phd/lecture-notes/intro_eletronica.md
+prj/thesisPhD/main.tex
+vi
+vi
+vi
+vi
+data
+repo_arq/nvim-old/
+l
+lua/user/
+l
+vi options.lua
+cd
+prj/thesisPhD/main.tex
+phd/lecture-notes/intro_eletronica.md
+l
+phd/lecture-notes/
+l
+intro_eletronica.md
+ligacao.md
+ligacao.md
+rm ligacao.md
+l
+mv def.md definition.md
+l
+mv definition.md definicoes.md
+l
+cd
+prj/thesisPhD/main.tex
+cd -
+l
+intro_eletronica.md
+rm intro_eletronica.md
+l
+clear
+corrente_eletrica.md
+phd/lecture-notes/thesis
+l
+vi preamble.tex
+rm -rf preamble.tex
+l
+vi master.tex
+vi master.tex
+vi master.tex
+vi master.tex
+vi master.tex
+vi master.tex
+vi master.tex
+vi master.tex
+vi master.tex
+vi master.tex
+vi master.tex
+vi master.tex
+vi master.tex
+l
+git status
+..
+clear
+git status
+git add .
+git commit -m "mudando toda a escrita para o LaTex"
+wget https://www.toptal.com/developers/gitignore/api/latex
+l
+la
+vi latex
+mv latex .gitignore
+vi .gitignore
+clear
+la
+mv .gitignore thesis
+cd thesis
+l
+la
+mv .gitignore ..
+rm -rf *.pdf master.synctex.gz
+l
+..
+git status
+git add .
+git commit -m "adicionado gitignore e removido lixo da compilação"
+git status
+thesis
+vi master.tex
+l
+..
+l
+git status
+git add .
+git commit -m "texto em PDF"
+git push -u origin main
+git pull
+clear
+l
+git status
+..
+l
+..
+mv prj/thesisPhD phd/
+phd
+l
+thesisPhD
+vi main.tex
+git status
+zathura main.pdf
+vi main.tex
+vi main.tex
+l
+biber main.bbl
+cd
+.config/nvim/UltiSnips/tex
+l
+vi greek.snippets
+l
+vi system.snippets
+l
+mv fonts.snipptes fonts.snippets
+l
+vi fonts.snippets
+...
+git status
+git diff lua/settings.lua
+clear
+git add lua/settings.lua
+git commit -m "setted whichwrap"
+git push -u origin main
+data
+repo_arq/nvim-old/
+vi lua/user/options.lua
+cd
+.config/nvim/
+l
+cd
+data
+./backup/nvim/
+l
+mv spell ~/.config/nvim
+~/.config/nvim
+l
+git status
+upgrade
+.config/zathura
+l
+l
+prj
+l
+cd
+ls prj/bandwidth
+clear
+doc
+l
+math/
+l
+mkdir num-reais
+num-reais
+clear
+vi main.tex
+vi main.tex
+l
+vi main.tex
+.config/zathura
+l
+vi catppuccin-mocha
+vi nord
+vi zathurarc
+startx
+upgrade
+upgrade
+checkupdates
+pacman -Qm
+pacman -Q | wc -l
+pacman -Q | grep electron
+vi
+vi
+upgrade
+checkupdates
+bluetoothctl
+paru
+clear
+upgrade
+sudo pacman -Rns bitwarden
+paccache -rk1
+paccache -ruk0
+upgrade
+sudo pacman -S bitwarden
+checkupdates
+checkupdates
+clear
+bluetoothctl
+systemctl status bluetooth-mesh.service
+systemctl status bluetooth.service
+systemctl status bluetooth.target
+systemctl start bluetooth.target
+systemctl status bluetooth.target
+data
+repo_arq/nvim-old/
+ll
+lua/user/
+l
+vi nvim-tree.lua
+.config/nvim
+git status
+git add lua/config/nvimtree.lua
+git diff lua/config/nvimtree.lua
+git diff lua/config/nvimtree.lua
+git diff lua/config/nvimtree.lua
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+data
+repo_arq/nvim-old/lua/user/
+l
+vi .
+v
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+.config/nvim
+git status
+git add spell/
+git diff lua/config/nordtheme.lua
+clear
+git commit -m "added spell lang dictionary"
+git push -u origin main
+data
+repo_arq/nvim-old/
+vi lua/plugins.lua
+cd
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+clear
+.config/nvim
+git status
+git add init.lua lua/{packages.lua,config/nvimtree.lua} 
+git status
+git diff --staged init.lua
+git diff --staged lua/packages.lua
+git diff --staged lua/config/nvimtree.lua
+clear
+git status
+git restore --staged lua/config/nvimtree.lua
+git status
+nvim .
+vi
+cd
+vi
+vi
+vi
+.config/nvim
+git status
+git add lua/{keybinding.lua,config/nvimtree.lua}
+git status
+git commit -m "added Nvim-tree plugin and new keybiding"
+git push -u origin main
+vi
+git status
+git diff lua/config/nordtheme.lua
+cd
+vi
+clear
+upgrade
+paru
+vi
+vi
+.config/nvim
+git status
+cd
+clear
+curl -o .config/kitty/themes/nord.conf https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf
+.config/kitty/kitty.conf
+.config/kitty/kitty.conf
+.config/kitty/themes
+l
+vi nord.conf
+.config/kitty/kitty.conf
+neofetch
+clear
+upgrade
+paru
+la
+clear
+la
+rm -rf .wget-hsts
+clear
+ssh -T git@github.com
+nvim
+vi
+vi
+vi
+upgrade
+paru
+biber --help
+upgrade
+paru
+vi
+doc/repos/catppuccin/wallpapers/waves
+sxiv -t *
+doc/repos/catppuccin/wallpapers/
+git pull
+img/gimp
+l
+mv cat-waves.png ../wallpaper/0330.jpg
+.config/kitty/kitty.conf
+vim .vimrc
+vim
+la
+mkdir .vim
+mv .vimrc .vim
+vim
+la
+.vim
+l
+la
+mv .vimrc vimrc
+vim
+mkdir colors
+cd
+l
+vim
+cp .config/nvim/colors/nord-article-ice.vim .vim/colors/nord.vim
+vim .vim/vimrc
+vim .vim/vimrc
+clear
+vi .config/nvim/UltiSnips/tex/template.snippets
+doc/math/num-reais
+l
+...
+..
+phd
+l
+lecture-notes
+l
+vi .
+git status
+vi
+doc/latex/
+l
+./estudo
+l
+Symbols.pdf
+cd
+vi
+doc/latex/estudo/2017_Book_LaTeXIn24Hours.pdf
+vi
+doc/latex/estudo/Symbols.pdf
+vi
+doc/latex/estudo/symbols\(1\).pdf
+vi
+vi
+vi
+neofetch
+vi
+.config/nvim
+git status
+clear
+cd
+upgrade
+paru
+clear
+doc/math/num-reais
+l
+zathura main.pdf
+..
+lt .
+l
+mkdir logica
+logica
+vi main.tex
+vi main.tex
+vi main.tex
+vi main.tex
+vi main.tex
+vi main.tex
+vi main.tex
+vi main.tex
+vi main.tex
+vi main.tex
+l
+clear
+l
+....
+clear
+upgrade
+paru
+startx
+upgrade
+paru
+sudo btrfs fi du /
+sudo systemctl status bluetooth.service
+sudo systemctl enable btrfs-scrub@-.timer
+sudo systemctl enable btrfs-scrub@home.timer
+sudo systemctl enable btrfs-scrub@var.timer
+sudo systemctl enable btrfs-scrub@data.timer
+sudo systemctl enable btrfs-scrub@swap.timer
+sudo systemctl status btrfs-scrub@swap.timer
+sudo systemctl status btrfs-scrub@data.timer
+sudo systemctl status btrfs-scrub@-.timer
+vi /etc/fstab
+startx
+pacman -Q | grep xdotool
+ldd $(which zathura) | grep libsyntex
+ldd $(which zathura) | grep libsynctex
+.local/share/nvim/site/pack/packer/start
+ls
+./vimtex
+l
+clear
+ls
+./autoload/vimtex/view
+l
+vi zathura.vim
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+doc/math/logica
+l
+l
+l
+l
+l
+l
+doc/math/logica/main.tex
+vi
+vim --version
+vi
+vi
+.config/nvim
+git diff lua/config/nordtheme.lua
+git diff --staged lua/settings.lua
+git diff --staged lua/settings.lua
+git add lua/settings.lua
+git diff --staged lua/settings.lua
+sudo btrfs scrub status /
+sudo btrfs scrub status /storage
+sudo btrfs scrub status /home
+sudo btrfs scrub start /
+sudo btrfs scrub status /
+sudo btrfs scrub status /
+sudo btrfs scrub status /home
+sudo btrfs scrub status /var
+sudo btrfs scrub status /swap
+sudo btrfs scrub status /data
+sudo btrfs scrub status /storage
+sudo btrfs scrub start /storage
+sudo btrfs scrub status /storage
+systemctl status bluetooth.target
+systemctl status btrfs-scrub@data.service
+systemctl status btrfs-scrub@data.timer
+systemctl status btrfs-scrub@-.timer
+systemctl status btrfs-scrub@data.timer
+systemctl status btrfs-scrub@home.timer
+vi
+.config/nvim/
+l
+git status
+mkdir ftplugin
+ftplugin
+clear
+tex.vim
+..
+vi ftplugin/tex.vim
+vi ftplugin/tex.vim
+git status
+git add ftplugin/ lua/settings.lua
+git status
+git diff --staged lua/settings.lua
+vi
+vi
+git status
+git commit -m "Set Up a PDF Reader for Writing LaTeX and config VimTeX plugin"
+git push -u origin main
+git pull
+.config/nvim
+git log --graph
+nvim README.md
+git pull
+git config pull.rebase true
+git pull
+git config pull.rebase false
+git pull
+git status
+git push -u origin main
+vi README.md
+cd
+clear
+.config/nvim/colors/nord-article-ice.vim
+.config/nvim/
+git status
+upgrad
+upgrade
+paru
+startx
+vi .config/i3/autostart.sh
+la
+.vim/
+l
+vim
+clear
+vi vimrc
+cd
+upgrade
+paru
+doc/math/logica/main.tex
+startx
+upgrade
+paru
+neofetch
+clear
+.config/nvim/spell
+l
+vi pt.utf-8.add
+vi pt.utf-8.add
+vi pt.utf-8.add
+vi pt.utf-8.add
+cp pt.utf-8.add dictionary.txt
+dictionary.txt
+l
+dictionary.txt
+rm dictionary.txt
+cd
+upgrade
+vi
+biber --help
+pacman -Ss clone
+sudo pacman -S perl-clone
+biber --help
+vi
+phd/thesisPhD
+l
+vi main.tex
+l
+git status
+vi textual/parte1/capitulo2.tex
+vi main.tex
+vi main.tex
+vi main.tex
+vi main.tex
+vi main.tex
+vi main.tex
+vi main.tex
+vi main.tex
+vi main.tex
+cd
+teste.md
+teste.md
+teste.md
+cd -
+vi main.tex
+c
+cd
+teste.md
+teste.md
+rm teste.md
+cd -
+vi main.tex
+vi textual/parte1/capitulo2.tex
+vi textual/parte1/capitulo2.tex
+git status
+clear
+...
+echo "Tiago\nDayene\n" >> textos.txt
+bat textos.txt
+tmp
+lua read.lua
+lua read.lua
+lua read.lua
+dc
+cd
+.config/nvim/spell
+l
+..
+cd
+vi
+.config/nvim
+git status
+vi
+.config/nvim/
+git status
+git add lua/config/lsp.lua
+git commit -m "Added a dict with words in ltex lsp"
+git push -u origin main
+upgrade
+cd
+tmp
+l
+vi
+..
+clear
+bat textos.txt
+echo "\nVerçosa" >> textos.txt
+bat textos.txt
+vi textos.txt
+bat textos.txt
+clear
+vi
+vi
+vi
+vi
+vi
+l
+rm textos.txt
+vi
+vi
+teste.md
+teste.tex
+vi
+.config/nvim/UltiSnips/tex
+l
+vi system.snippets
+vi fonts.snippets
+doc/latex/estudo/symbols\(1\).pdf
+vi
+.config/nvim/UltiSnips/tex
+vi math.snippets
+doc/math/logica/main.tex
+doc/math/logica/main.tex
+doc/math/logica/
+l
+main.tex
+main.tex
+main.tex
+main.tex
+main.tex
+main.tex
+main.tex
+./tex1.tex
+./tex1.tex
+./tex1.tex
+./tex1.tex
+l
+cd
+clear
+upgrade
+doc/guidorizzo_vol01/Pré-CÃ�lculo.pdf
+doc/guidorizzo_vol01/Apresentação\ de\ Conteúdo.pdf
+startx
+upgrade
+paru
+paru -Qua
+upgrade
+paru
+.config/kitty
+clear
+l
+mv kitty.conf.bk
+mv kitty.conf kitty.conf.bk
+l
+kitty.conf
+.config/kitty/kitty.conf
+neofetch
+clear
+kitty +list-fonts | grep -i "fira code"
+vi .config/kitty/kitty.conf.bk
+.config/kitty/kitty.conf
+vi
+.config/kitty/kitty.conf
+kitty +list-fonts | grep -i "cascadia"
+kitty +list-fonts | grep -i "cascadia"
+clear
+sudo pacman -Syyu
+vi
+neofetch
+vi
+.config/kitty/kitty.conf
+neofetch
+vi
+vi .config/kitty/kitty.conf.bk
+vi
+vi
+.config/nvim
+git status
+clear
+git status
+cd
+.config/kitty/kitty.conf
+neofetch
+.config/kitty/kitty.conf
+.config/kitty/kitty.conf
+.config/nvim/UltiSnips/
+l
+../../kitty/kitty.conf
+cd
+paru -Ps
+vi
+l
+rm teste.md
+clear
+doc/guidorizzo_vol01/Apresentação\ de\ Conteúdo.pdf
+doc/guidorizzo_vol01/Pré-CÃ�lculo.pdf
+.config/kitty/kitty.conf
+.config/kitty/kitty.conf
+vi .config/kitty/kitty.conf.bk
+.config/kitty/kitty.conf
+vi .config/i3/config
+upgrade
+.config/kitty/themes/nord.conf
+cd
+clear
+startx
+vi
+upgrade
+paru
+clear
+paru
+sudo pacman -Syyu
+doc/guidorizzo_vol01/Pré-CÃ�lculo.pdf
+bluetoothctl
+systemctl status btrfs-scrub@home.timer
+systemctl status bluetooth.target
+systemctl status bluetooth.service
+systemctl status bluetooth.target
+systemctl start bluetooth.target
+systemctl status bluetooth.target
+systemctl start bluetooth.target
+systemctl enable --now bluetooth.target
+systemctl enable --now bluetooth-mesh.service
+systemctl start bluetooth.target
+systemctl status bluetooth-mesh.service
+bluetoothctl
+clear
+upgrade
+doc/guidorizzo_vol01/Pré-CÃ�lculo.pdf
+books
+l
+Pré-cÃ�lculo.pdf
+cd
+upgrade
+paru
+clear
+ls
+doc/math/logica/
+l
+main.tex
+cd
+vi
+vi
+vi
+.config/nvim
+git status
+cd
+startx
+bluetoothctl power on
+systemctl status bluetooth-mesh.service
+sudo systemctl disable bluetooth-mesh.service
+systemctl status bluetooth.target
+systemctl status bluetooth.service
+systemctl start bluetooth.service
+systemctl status bluetooth.service
+systemctl start bluetooth.target
+systemctl status bluetooth.target
+bluetoothctl power on
+.config/alacritty/alacritty.yml
+vi .config/alacritty/alacritty.yml
+paru -Ps
+vi
+upgrade
+paru
+doc/guidorizzo_vol01/Pré-CÃ�lculo.pdf
+books
+ls
+./Pré-cÃ�lculo.pdf
+clear
+cd
+upgrade
+paru
+.config/kitty/kitty.conf
+neofetch
+vi
+neofetch
+vi
+vi
+vi
+vi
+vi
+paccache -ruk0
+paccache -rk1
+startx
+ping -c 4 google.com
+nmtui
+ping -c 4 google.com
+vi .config/i3/config
+vi
+vi
+vi
+vi
+vi
+vi .config/kitty/themes/nord.conf
+vi
+vi
+ping -c 4 google.com
+nmtui
+ping -c 4 google.com
+upgrade
+startx
+upgrade
+vi
+sudo pacman -S tor torbrowser-launcher
+ls
+pwd
+pwd
+l
+.local/share/torbrowser/tbb/x86_64/tor-browser_en-US/Browser/tmp
+l
+mv Precalculus\ Mathematics\ for\ Calculus.pdf ~/
+l
+~/tmp
+l
+tmp
+ll
+l
+..
+l
+Precalculus\ Mathematics\ for\ Calculus.pdf
+Precalculus\ Mathematics\ for\ Calculus.pdf
+l
+cp Precalculus\ Mathematics\ for\ Calculus.pdf ~/tmp
+books
+ls
+clear
+ll
+Stewart
+l
+./CÃ�lculo\ -\ Volume\ 1\ -\ 8Ed.pdf
+l
+l
+rm -rf CÃ�lculo\ -\ Volume\ 1\ -\ 8Ed.pdf
+l
+mv CÃ�lculo\ -\ Volume\ 1\ -\ 7Ed.pdf CÃ�lculo_V1_7Ed.pdf
+l
+mv CÃ�lculo\ -\ Volume\ 2\ -\ 7Ed.pdf CÃ�lculo_V2_7Ed.pdf
+l
+./CÃ�lculo_V2_7Ed.pdf
+l
+mv Calculus_Early_transcendentals_9thEd.pdf Calculus_Early_Transcendentals_9thEd.pdf 
+l
+tmp
+l
+Calculus\ Early\ transcendentals\ \(James\ Stewart\)\ \(z-lib.org\).pdf
+l
+rm Calculus\ Early\ transcendentals\ \(James\ Stewart\)\ \(z-lib.org\).pdf Calculus\ \(James\ Stewart\)\ \(z-lib.org\).pdf
+l
+Moore\'s_Law_Transistor_Count.png
+./Calculus\ \(James\ Stewart\).pdf
+./Calculus\ Early\ transcendentals\ \(James\ Stewart\).pdf
+l
+l
+Calculus\ Early\ Transcendentals\ Ninth\ Edition\ \(James\ Stewart,\ Daniel\ K.\ Clegg,\ Saleem\ Watson\)\ \(z-lib.org\).pdf
+l
+l
+rm Calculus\ Early\ transcendentals\ \(James\ Stewart\).pdf Calculus\ Early\ Transcendentals\ Ninth\ Edition\ \(James\ Stewart,\ Daniel\ K.\ Clegg,\ Saleem\ Watson\)\ \(z-lib.org\).pdf
+l
+Calculus\ \(James\ Stewart\).pdf
+CÃ�lculo\ \(James\ Stewart\)\ \(z-lib.org\).pdf
+ll
+l
+Calculus\ Early\ Transcendentals\ Ninth\ Edition\ \(James\ Stewart,\ Daniel\ K.\ Clegg,\ Saleem\ Watson\)\ \(z-lib.org\).pdf
+mv Calculus\ Early\ Transcendentals\ Ninth\ Edition\ \(James\ Stewart,\ Daniel\ K.\ Clegg,\ Saleem\ Watson\)\ \(z-lib.org\).pdf Calculus\ Early\ Transcendentals\ Ninth\ Edition.pdf 
+l
+ll
+./Calculus\ \(James\ Stewart\).pdf
+mv Calculus\ \(James\ Stewart\).pdf /storage/Books/Stewart/Calculus_8thEd.pdf
+l
+CÃ�lculo\ \(James\ Stewart\)\ \(z-lib.org\).pdf
+rm CÃ�lculo\ \(James\ Stewart\)\ \(z-lib.org\).pdf
+l
+clear
+ll
+Calculus\ Early\ Transcendentals\ Ninth\ Edition.pdf
+mv Calculus\ Early\ Transcendentals\ Ninth\ Edition.pdf /storage/Books/Stewart/Calculus_Early_transcendentals_9thEd.pdf
+l
+./Quantum_Computing_as_a_High_School_Module.pdf
+rm ./Quantum_Computing_as_a_High_School_Module.pdf
+l
+file dashlane-credential-export.zip
+..
+l
+mv Precalculus\ Mathematics\ for\ Calculus.pdf /storage/Books/Stewart/
+books
+./Stewart
+l
+mv Precalculus\ Mathematics\ for\ Calculus.pdf Precalculus_Mathematics_Calculus.pdf
+l
+books
+./Stewart
+l
+6e_reviewofalgebra.pdf
+cd
+upgrade
+paru
+startx
+upgrade
+vi .local/bin/battery2
+tmp
+l
+mv Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina\ \(1\).pdf Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.pdf
+ç
+l
+cd
+vi
+tmp
+l
+mv historico_20191021227.pdf historico.pdf
+l
+Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.pdf
+mv {historico.pdf,Parecer\ circunstanciado.pdf,Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.pdf} ~/doc/doutorado/requerimento_craditos
+l
+rm {CÃ�lculo\ A\ -\ Funções\,\ Limite\,\ Derivação\,\ Integração.pdf,CÃ�lculo\ B\ Funções\ de\ vÃ�rias\ variÃ�veis\,\ integrais\ múltiplas.pdf}
+l
+clear
+l
+doc/doutorado
+l
+rm {historico_20191021227.pdf,Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina\ \(1\).pdf,Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.pdf}
+clear
+l
+ls
+mkdir requerimento_craditos
+l
+l
+mv Requerimento_de_aproveitamento_de_Credito_Cursado_em_Disciplina.doc requerimento_craditos
+l
+./Sistema\ Integrado\ de\ Gestão\ de\ Atividades\ Acadêmicas.pdf
+cd
+upgrade
+paru
+upgrade
+books
+Stewart
+ls
+6e_reviewofalgebra.pdf
+cd
+clear
+upgrade
+paru
+startx
+vi
+startx
+nmtui
+ping -c 4 google.com
+ping -c 4 google.com
+upgrade
+nmtui
+clear
+paru
+phd/lecture-notes/thesis
+l
+zathura master.pdf
+vi master.tex
+..
+l
+..
+l
+thesisPhD
+l
+main.tex
+..
+l
+lecture-notes
+l
+thesis
+clear
+l
+zathura master.pdf
+v
+vi
+phd/thesisPhD
+zathura main.pdf
+zathura main.pdf
+upgrade
+# geraldom40@gmail.com
+doc/doutorado
+l
+requerimento_craditos/historico.pdf
+c
+c
+cd
+vi
+cd -
+requerimento_craditos/historico.pdf
+cd
+phd/lecture-notes/thesis
+l
+vi master.tex
+startx
+.local/share/fonts/TTF
+l
+clear
+ls
+vi
+tmp
+l
+ex FiraCode.zip
+l
+mv *.ttf ~/.local/share/fonts/TTF
+l
+mv *.otf ~/.local/share/fonts/TTF
+l
+cd
+upgrade
+paru
+clear
+fc-cache
+startx
+vi
+kitty +list-fonts | grep -i "Fira"
+neofetch
+clear
+vi .config/alacritty/alacritty.yml
+vi
+vi .config/alacritty/alacritty.yml
+vi
+vi
+upgrade
+paru
+paru -Ps
+vi
+neofetch
+clear
+.local/share/fonts/TTF
+ls | grep -i fira
+vi
+upgrade
+bluetoothctl power on
+systemctl status bluetooth.target
+systemctl start bluetooth.target
+systemctl status bluetooth.target
+systemctl status bluetooth.service
+bluetoothct
+bluetoothctl
+systemctl status bluetooth.service
+sudo updatedb
+locate -i bluetooth
+systemctl status bluetooth.service
+systemctl daemon-reload
+systemctl status bluetooth.service
+systemctl restart bluetooth.service
+systemctl status bluetooth.service
+bluetoothctl
+systemctl status bluetooth.target
+systemctl start bluetooth.target
+systemctl status bluetooth.target
+startx
+/etc/bluetooth/main.conf
+vi /etc/systemd/system/bluetooth.target.wants/bluetooth.service
+sudo vi /etc/systemd/system/bluetooth.target.wants/bluetooth.service
+sudo nvim /etc/systemd/system/bluetooth.target.wants/bluetooth.service
+reboot
+systemctl status bluetooth.target
+systemctl status bluetooth.service
+systemctl start bluetooth.target
+systemctl status bluetooth.service
+systemctl status bluetooth.target
+systemctl status bluetooth.target
+systemctl status bluetooth.service
+bluetoothctl
+bluetoothctl
+rfkill
+rfkill list
+rfkill unblock bluetooth
+rfkill list
+bluetoothctl
+clear
+bluetoothctl
+boo
+books
+ls
+./Simmons
+l
+..
+locate -i cond*.pdf
+locate -i "cond*.pdf"
+locate -i "cond"
+locate -i "oxford"
+/home/tiago/.config/zotero/storage/YCQ7TQ9U/
+l
+cp Simon\ -\ 2013\ -\ The\ Oxford\ solid\ state\ basics.pdf /storage/Books/Quantum
+/storage/Books/Quantum
+l
+chmod 644 *
+l
+mv Simon\ -\ 2013\ -\ The\ Oxford\ solid\ state\ basics.pdf TheOxford_solid_state_basics.pdf
+l
+tmp
+l
+sxiv Moore\'s_Law_Transistor_Count.png
+vi
+vi
+phd/lecture-notes/thesis
+git status
+git commit -a -m "concluída a introdução do capítulo de ligações atômicas"
+git push -u origin main
+zathura master.pdf
+tmp
+doc/doutorado/disciplinas/2022.1-Nanotecnologia/modelo-artigo.pdf
+doc/doutorado/disciplinas/2022.1-Nanotecnologia/article-nano/paper.pdf
+startx
+vi
+vi
+tmp
+l
+ex Iosevka.zip
+clear
+l
+clear
+ls
+mv Iosevka\ * ~/.local/share/fonts/TTF
+ls
+clear
+l
+fc-cache
+upgrade
+kitty +list-fonts | grep -i "iosevka"
+kitty +list-fonts | grep -i "iosevka"
+vi
+vi
+vi
+kitty +list-fonts | grep -i "iosevka"
+upgrade
+paru
+paru -Ps
+upgrade
+paru
+clear
+doc/math/logica/
+l
+vi tex1.tex
+neofetch
+vi
+startx
+doc/doutorado/disciplinas/2020.1-Propriedades\ Elétricas\ e\ Magnéticas\ dos\ Materiais/01_Condutores_isolantes_e_semicondutores_-_Fermi.pdf
+.local/bin
+l
+vi dim-screen.sh
+nmtui
+l
+phd
+l
+lecture-notes
+l
+mkdir prop_elec_mag
+l
+./prop_elec_mag
+clear
+l
+cp ../thesis/master.tex .
+l
+vi .
+l
+doc/doutorado/disciplinas/2020.1-Propriedades\ Elétricas\ e\ Magnéticas\ dos\ Materiais/01_Condutores_isolantes_e_semicondutores_-_Fermi.pdf
+startx
+upgrade
+paru
+vi
+vi
+upgrade
+clear
+vi
+.config/nvim
+git status
+vi UltiSnips/tex.snippets
+cd
+clear
+tmp
+l
+rm -rf {geim2007.pdf,historico_20191021227.pdf,Moore\'s_Law_Transistor_Count.png}
+l
+mv {FiraCode.zip,Iosevka.zip} /storage/backup/
+l
+./Telegram
+l
+sxiv image_2022-07-29_14-00-47.png
+rm image_2022-07-29_14-00-47.png
+..
+..
+vifm
+vi
+doc/repos/mywiki
+l
+git log --graph
+git status
+git commit -a -m "10-08-22 update"
+git push -u origin master
+startx
+uname
+uname -r
+upgrade
+sudo mkinitcpio -P
+pacman -Ss qat_4xxx
+paru qat_4xxx
+startx
+uname -r
+pacman -V
+pacman -Qm
+startx
+upgrade
+clear
+upgrade
+pacman -Ss profex
+paru -Ss profex
+paru profex
+pacman -Ss bgmn
+paru bgmn
+pacman -Qm
+tmp
+l
+ex DRX_ZNO1.zip
+l
+mkdir DRX_ZNO1
+mv ZNO1* DRX_ZNO1
+l
+clear
+ll
+DRX_ZNO1
+ll
+file ZNO1.ORG
+file ZNO1.RAW
+neofetch
+vifm
+vifm
+echo $TERM
+vi
+la
+.config
+clear
+ls
+../.cache
+ls
+../
+.local/share/
+ls
+rm -rf {dolphin}
+ls
+cd
+pacman -Qm
+which bgmn
+which bgmn-bin
+sudo updatedb
+locate -i "bgmn"
+/opt
+ls
+bgmn/
+clear
+l
+clear
+ls
+pacman -Qm
+cd
+clear
+l
+tmp
+l
+ex BGMN-Templates-220129.tar.gz
+l
+BGMN-Templates
+l
+clear
+l
+ls Wavelengths
+ls Structures
+ls Reports
+ls Structures/BGMN
+startx
+sudo pacman -Rns kdeclarative
+sudo pacman -Rns kdeclarative kcmutils
+sudo pacman -Rns kdeclarative kcmutils kaccounts-integration
+sudo pacman -Rns kdeclarative kcmutils kaccounts-integration purpose
+sudo pacman -Rns kdeclarative kcmutils kaccounts-integration purpose okular
+clear
+sudo pacman -Rns kdegraphics-thumbnailers
+sudo pacman -Rns kparts 
+sudo pacman -Rns kpackage
+sudo pacman -Rns kdeclarative
+clear
+pacman -Q | wc -l
+sudo pacman -R kwallet kio
+sudo pacman -R kdialog
+sudo pacman -Rns kdialog
+sudo pacman -Rns ffmpegthumbs
+clear
+sudo pacman -R kwallet kio
+sudo pacman -R signon-kwallet-extension
+sudo pacman -R signon-kwallet-extension kaccounts-integration
+sudo pacman -R signon-kwallet-extension kaccounts-integration purpose
+sudo pacman -R signon-kwallet-extension kaccounts-integration purpose okular
+sudo pacman -Rns signon-kwallet-extension kaccounts-integration purpose okular
+upgrade
+pacman -Qi kwallet
+sudo pacman -R kwallet
+sudo pacman -R kwallet signon-kwallet-extension
+sudo pacman -R kwallet signon-kwallet-extension kaccounts-integration
+sudo pacman -R kwallet signon-kwallet-extension kaccounts-integration kio
+sudo pacman -R kwallet signon-kwallet-extension kaccounts-integration kio
+pacman -Qi kparts
+pacman -Qi purpose
+pacman -Qi kio | grep "Required By"
+pacman -Qi kio | grep -3 "Required By"
+pacman -Qi kio | grep -1 "Required By"
+pacman -Qi purpose | grep -1 "Required By"
+pacman -Qi purpose | grep "Required By"
+sudo pacman -R kwallet signon-kwallet-extension kaccounts-integration kio
+pacman -Qi kdeclarative | grep "Required By"
+pacman -Qi kcmutils | grep "Required By"
+pacman -Q | wc -l
+paccache -rk1
+paccache -ruk0
+upgrade
+paru
+phd/BGMN-Templates
+l
+ls Devices
+phd/BGMN-Templates
+git status
+git pull
+clear
+git status
+ls
+cd ~/.local/share/doebelin.org
+l
+Profex5
+l
+clear
+l
+ls Devices
+la Devices
+rmdir Devices Structures
+ls
+ls Presets
+mv tmp/BGMN-Templates phd
+phd
+l
+cd
+profex
+.config/doebelin.org
+l
+vi Profex5.conf
+cd
+profex
+.config/
+rm -rf doebelin.org
+cd
+profex
+clear
+tmp/DRX_ZNO1/
+vi ZNO1.txt
+cd
+upgrade
+sudo pacman -S pcmanfm-gtk3
+sudo pacman -S gvfs
+tmp/DRX_ZNO1/
+l
+sudo pacman -Rns pcmanfm-gtk3
+.config
+ls
+rm -rf pcmanfm
+../.cache
+ls
+cd
+paccache -ruk0
+paccache -rk1
+tmp
+l
+file teste
+mv teste teste.csv
+l
+vi teste.csv
+rm teste.csv
+clear
+l
+l
+ex 01-tutorial.raw_.zip
+l
+DRX_ZNO1
+ll
+file ALBA-BM16.sav
+vi ALBA-BM16.sav
+file ALBA-BM16.geq
+vi ALBA-BM16.geq
+ll
+file ALBA-BM16.ger
+vi ALBA-BM16.ger
+file ALBA-BM16.tpl
+vi ALBA-BM16.tpl
+ps -e | grep prof
+kill 123818
+nvidia-smi
+tmp/DRX_ZNO1/
+ls
+file ZNO1.RAW
+xdg-open ZNO1.RAW
+pacman -Ss QualX2
+paru -Ss QualX2
+paru -Ss Qual
+paru -Ss qualx
+tmp
+l
+file 01-tutorial.raw
+rm -rf 01*
+l
+clear
+l
+unzip DRX_ZNO1.zip -d teste/
+teste/
+l
+..
+l DRX_ZNO1
+vi DRX_ZNO1/RMS-D8-ADS-15-LynxEyeXE.sav
+rm -rf DRX_ZNO1
+l
+clear
+l
+teste/
+l
+vi ZNO1.txt
+l
+..
+l
+file ZNO1.
+mv ZNO1. ZNO1.svg
+tmp/DRX_ZNO1/
+nvidia-smi
+clear
+cd
+prime-run profex
+prime-run profex
+data
+l
+Vídeos
+l
+./Caracterização\ Materiais
+l
+clear
+mpv Aula-01.1.mp4
+mpv Aula-01.2.mp4
+mpv Aula-02.mp4
+mpv Aula-03.mp4
+mpv Aula-04.1.mp4
+mpv Aula-04.2.mp4
+mpv Aula-06.mp4
+mpv Aula-06.mp4
+clear
+l
+tmp/teste
+l
+nvidia-smi
+l
+l
+vifm
+vi
+vifm
+startx
+upgrade
+vi
+vi
+vi
+vi
+vi
+clear
+upgrade
+paru
+paru
+clear
+upgrade
+vi
+.config/nvim
+git status
+git diff lua/config/nordtheme.lua
+clear
+ip a
+ip a
+ip a
+nmtui
+upgrade
+paru
+vi
+phd/thesisPhD
+l
+zathura main.pdf
+vi main.tex
+git status
+source .config/zsh/.zshrc
+source .config/zsh/.zshrc
+source .config/zsh/.zshrc
+source .config/zsh/.zshrc
+doc/repos/mywiki
+cd
+source .config/zsh/.zshrc
+source .config/zsh/.zshrc
+source .config/zsh/.zshrc
+doc/repos/mywiki
+cd
+source .config/zsh/.zshrc
+source .config/zsh/.zshrc
+source .config/zsh/.zshrc
+source .config/zsh/.zshrc
+source .config/zsh/.zshrc
+source .config/zsh/.zshrc
+source .config/zsh/.zshrc
+source .config/zsh/.zshrc
+source .config/zsh/.zshrc
+doc/repos/mywiki
+source .config/zsh/.zshrc
+source ~/.config/zsh/.zshrc
+cd
+l
+clear
+doc
+cd
+doc/repos/mywiki
+cd
+upgrade
+vi .config/zsh/.zshrc
+phd
+l
+vi .config/zsh/.zshrc
+source ~/.config/zsh/.zshrc
+neofetch
+doc
+cd
+pacman -Ss grace
+pacman -Ss grm
+pacman -Ss xmgrace
+paru -Ss xmgrace
+clear
+paru -Ss xmg
+paru grace
+paru grace
+ping -c 4 google.com
+ping -c 4 archlinux.org
+paru grace
+phd/
+l
+tmp/teste
+l
+vi ZNO1.txt
+..
+l
+ex cod-220114.zip
+l
+mv cod-220114.db3 ~/phd/
+l
+.cache/paru/clone
+l
+kitty +list-fonts | grep -i "fira code"
+kitty +list-fonts | grep -i "firacode"
+data
+l
+Vídeos
+l
+rm -rf Caracterização\ Materiais
+l
+cd
+vi
+vi .config/alacritty/alacritty.yml
+vi .config/alacritty/alacritty.yml
+cd -
+vi
+l
+PCA/
+l
+..
+l
+clear
+l
+rm -f {Dicas\ Finais\ de\ Redação\ PF.mp4,questões90_Contabilidade.mp4,Revisão\ de\ Arquivologia\ para\ Escrivão\ da\ Polícia\ Federal.mp4,S.O.S\ PF\ -\ Temas\ de\ Redação.mp4}
+l
+mpv VID-20180530-WA0004.mp4
+mpv VID_20190105_010545642.mp4
+clear
+l
+./Matéria_Condensada
+l
+clear
+ls
+..
+clear
+l
+..
+ls
+cd
+drive /dev/sdb
+lsblk
+drive /dev/sdb1
+clear
+lsblk -f
+pacman -Q | grep ntfs
+lsblk
+prime-run profex
+clear
+tmp
+l
+vi ZN1-peaks.txt
+profex --version
+cd
+prime-run profex
+pacman -Qm
+sudo pacman -Rns qtgrace 
+paccache -rk1
+paccache -ruk0
+clear
+pacman -Qm
+sudo pacman -Rns pdflib-lite
+paccache -ruk0
+paccache -rk1
+.cache/paru/clone
+ls
+rm -rf gcc9 grace gracegtk pdflib-lite qtgrace sflock-git
+ls
+clear
+ls
+pacman -Qm
+pacman -Qm | wc -l
+l | wc -l
+rm -rf nerd-fonts-complete
+ls
+l | wc -l
+l
+rm -rf profex bgmn-bin
+l
+pacman -Qm | wc -l
+l | wc -l
+sudo pacman -Rns profex bgmn-bin
+paccache -rk1
+paccache -ruk0
+sudo ufw status
+sudo ufw allow outgoing
+sudo ufw default deny incoming
+sudo ufw status
+sudo ufw default allow outgoing
+sudo ufw status
+clear
+paru grace
+paru grace
+upgrade
+rofi -show
+rofi -show drun
+clear
+upgrade
+paru
+upgrade
+pacman -Ss pdflib
+paru -Ss pdflib
+pacman -Q | grep libjpeg
+pacman -Ss libjpeg
+pacman -Q | grep fftw
+pacman -Q | grep t1lib
+pacman -Q | grep netcdf
+pacman -Q | grep gtk2
+pacman -Q | grep linuxdoc
+pacman -Ss  xmgrace
+pacman -Ss xmgrace
+tmp
+ls
+rm -rf GraceGTK3-1.4.0rc3 
+clear
+l
+Telegram
+l
+la
+tmp/GraceGTK3-1.4.0rc3/doc/GraceGTK.pdf
+paru -Si gracegtk
+tmp
+ls
+ex GraceGTK3-1.4.0rc3.tar.gz
+ls
+cd GraceGTK3-1.4.0rc3
+ls
+vi Makefile
+ls
+doc/GraceGTK.pdf
+pacman -Ss gcc
+sudo pacman -S gcc-fortran
+clear
+neofetch
+paccache -ruk0
+paccache -rk1
+tmp
+l
+rm -rf {BGMN-Templates-220129.tar.gz,cod-220114.zip}
+l
+ll teste
+clear
+rm -rf teste
+l
+~/phd
+l
+rm -rf BGMN-Templates cod-220114.db3
+l
+clear
+cd
+pacman -Ss linuxdoc
+pacman -Ss gcc9
+paru -Ss gcc9
+paru gracegtk
+tmp
+clear
+l
+ex GraceGTK3-1.4.0rc3.tar.gz
+l
+GraceGTK3-1.4.0rc3/
+l
+clear
+ls
+cd
+paru gracegtk
+paru gcc9
+clear
+.cache/paru/clone
+ls
+rm -rf gcc9
+l | wc -l
+pacman -Qm | wc -l
+clear
+cd
+tmp/GraceGTK3-1.4.0rc3
+clear
+l
+make install
+./configure
+ls
+make install
+cd
+clear
+vi .zshenv
+tmp/GraceGTK3-1.4.0rc3/doc/GraceGTK.pdf
+startx
+reboot
+tmp/GraceGTK3-1.4.0rc3/
+vi Makefile
+vi Make.conf
+tmp/GraceGTK3-1.4.0rc3/
+./configure
+vi Make.conf
+.local/gracegtk3/bin
+l
+./ggrace
+echo $GRACEGTK_HOME
+..
+ls
+echo $GRACEGTK_HOME
+.local/gracegtk3/bin
+l
+./ggrace
+cd
+tmp/GraceGTK3-1.4.0rc3/
+ls
+cd
+cd -
+doc/GraceGTK.pdf
+ggrace
+echo $PATH
+volume-pipewire
+/home/tiago/.local/bin/gracegtk3/bin
+startx
+vi .zshenv
+echo $PATH
+.local/gracegtk3/bin
+echo $GRACEGTK_HOME
+echo $PATH
+tmp/GraceGTK3-1.4.0rc3
+make install
+clear
+make install
+echo $?
+startx
+echo $PATH
+/home/tiago/.local/gracegtk3/bin
+cd
+ggrace
+.local
+l
+rm -rf gracegtk3
+echo $GRACEGTK_HOME
+vi .zshenv
+ggrace
+tmp/GraceGTK3-1.4.0rc3
+make uninstall
+..
+l
+rm -rf GraceGTK3-1.4.0rc3*
+l
+trash-list
+trash-empty
+clear
+l
+ex gracegtk-1.3.0.tar.gz
+l
+gracegtk-1.3.0
+clear
+l
+./configure
+vi Make.conf
+startx
+.local/gracegtk
+l
+bin/
+l
+cd
+ggrace
+.local/share/qtgrace
+ls
+.
+..
+l
+..
+l
+./share/qtgrace
+l
+clear
+doc/
+l
+..
+...
+bin/
+ls
+cd
+qtgrace
+qtgrace
+.local/share/
+rm -rf qtgrace
+ls
+rm -rf dolphin/ doebelin.org 
+cd
+.local/bin
+./qtgrace
+rm -rf qtgrace
+cd
+clear
+l
+la
+ll
+tmp/qtgrace_v026_src/doc/Tutorial.html
+firefox tmp/qtgrace_v026_src/doc/Tutorial.html
+tmp/qtgrace_v026_src/doc/
+ls
+README_QTGRACE.txt
+cd
+ll
+clear
+ll
+qtgrace_v026_src/bin
+l
+..
+.
+..
+tmp
+ls
+./gracegtk-1.3.0
+ls
+ggrace
+...
+cd
+clear
+l
+rm -rf qtgrace_v026_src
+clear
+.local
+ls
+rm -rf gracegtk
+bin/
+ls
+ll
+clear
+ll
+vi .zshenv
+tmp/gracegtk-1.3.0
+l
+make install
+echo $?
+cd
+clear
+env GTK_THEME=Adwaita ggrace
+env GTK_THEME=Adwaita ggrace
+tmp/
+l
+ex QtGrace_v027_src.zip
+ls
+./QtGrace_v027_src
+clear
+l
+vi Makefile
+..
+l
+ex qtgrace_v026_src.zip
+clear
+l
+qtgrace_v026_src
+l
+make install
+echo $?
+ls
+vi Make.conf
+make install
+echo $?
+vi Make.conf
+vi Makefile
+clear
+ls
+vi gracerc
+bin/
+ls
+vi Makefile
+./qtgrace
+..
+make uninstall
+bin/
+clear
+./qtgrace
+...
+l
+QtGrace_v027_src/bin
+l
+...
+mv qtgrace_v026_src ~ 
+l
+ex qtgrace_v026_src.zip
+clear
+qtgrace_v026_src
+bin/
+l
+clear
+ls
+make
+..
+make
+clear
+ls
+bin/
+ls
+./qtgrace
+...
+l
+rm -rf {qtgrace_v026_src,qtgrace_v026_src.zip,QtGrace_v027_src.zip}
+ll
+QtGrace_v027_src
+ls
+ls bin
+make
+clear
+ls
+make install
+src
+ls
+...
+clear
+l
+rm -rf {QtGrace_v027_src}
+l
+rm -rf {QtGrace_v027_src}
+ll
+clear
+rm -rf QtGrace_v027_src 
+ll
+rm -rf gracegtk-1.3.0 gracegtk-1.3.0.tar.gz
+ll
+ll
+ex GraceGTK3-1.4.0rc3.tar.gz
+ls
+clear
+ll
+clear
+GraceGTK3-1.4.0rc3
+ll
+clear
+ls
+./configure
+echo $?
+vi Make.conf
+make install
+echo $?
+clear
+cd
+.local/gracegtk3/bin
+l
+./ggrace
+startx
+ggrace
+co2.pdf
+ll
+l
+l
+./log.pdf
+./co2.pdf
+./log.pdf
+./co2.pdf
+rm -f *.pdf
+l
+tmp
+l
+rm -rf GraceGTK3-1.4.0rc3
+l
+mv GraceGTK3-1.4.0rc3.tar.gz /storage/
+l
+paccache -rk1
+paccache -ruk0
+upgrade
+paru
+tmp
+l
+..
+.local
+ls
+startx
+ping -c 4 archlinux.org
+nmtui
+ping -c 4 archlinux.org
+upgrade
+upgrade
+paru
+vi
+neofetch
+clear
+vi
+.config/kitty/kitty.conf
+upgrade
+vi .config/i3/config
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+neofetch
+htop
+.local/share/fonts/TTF
+ls
+cd
+clear
+kitty +list-fonts --psname | grep -i "firacode"
+kitty +list-fonts --psname | grep -i "iosevka"
+clear
+kitty +list-fonts | grep -i "iosevka"
+clear
+upgrade
+paru
+.config/kitty/kitty.conf
+.config/kitty/kitty.conf
+doc
+l
+clear
+cd
+phd
+l
+lecture-notes
+l
+l
+vi definicoes.md
+thesis
+l
+vi master.tex
+cd
+echo $?
+echo $TERM
+vim
+clear
+vi
+vi
+vi
+kitty +list-fonts | grep -i "jetbrains"
+.config/kitty/kitty.conf
+.config/kitty/kitty.conf
+vi
+vi 
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+echo $TERM
+upgrade
+paru
+upgrade
+ls
+ll
+l
+rm -f teste.pdf teste.synctex.gz
+l
+vi
+vi
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+teste.tex
+vi
+data
+l
+repo_arq/nvim-old/
+ls
+vi init.lua
+tmux
+.config/nvim
+git status
+vi .
+vi .
+git status
+git add lua/settings.lua
+git diff --staged lua/settings.lua
+vi
+git diff  lua/settings.lua
+git add lua/settings.lua
+git diff --staged lua/settings.lua
+git commit -m "enable signcolumn"
+git push -u origin main
+git status
+git diff lua/config/nordtheme.lua
+vi lua/config/nordtheme.lua
+git status
+clear
+cd
+vi
+upgrade
+tmp
+l
+ex JetBrainsMono.zip
+ls
+mv *.ttf ~/.local/share/fonts/TTF
+l
+clear
+cd
+vi
+vi
+vi
+upgrade
+neofetch
+paccache -ruk0
+paccache -rk1
+vi
+vi
+vi
+upgrade
+vim
+upgrade
+l
+trash-list
+trash-empty
+upgrade
+vifm
+vim
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+.config/nvim
+git status
+git diff lua/keybinding.lua
+git add lua/keybinding.lua
+git commit -m "navigate wrapped lines"
+git push -u origin main
+cd
+bluetoothctl
+clear
+vi .config/vifm/vifmrc
+vifm
+vi .config/vifm/vifmrc
+vifm
+vifm
+vi .config/vifm/vifmrc
+vifm
+vi .config/vifm/vifmrc
+vifm
+vi .config/vifm/vifmrc
+vifm
+vi .config/vifm/vifmrc
+vifm
+vifm
+vi .config/vifm/vifmrc
+vifm
+vi .config/vifm/vifmrc
+vifm
+vi .config/vifm/vifmrc
+vifm
+.config/vifm
+l
+clear
+l
+ls colors
+./colors
+l
+curl -o nord.vifm https://github.com/ejmastnak/dotfiles/raw/main/config/vifm/colors/nord.vifm
+l
+..
+vi vifmrc
+vi vifmrc
+vi vifmrc
+l
+chmod 755 perfil2.jpg
+l
+img/
+l
+./perfil2.jpg
+.config/vifm/personal
+l
+curl -o linux.vifm https://github.com/ejmastnak/dotfiles/raw/main/config/vifm/personal/linux.vifm
+l
+vi linux.vifm
+curl -o linux.vifm https://github.com/ejmastnak/dotfiles/raw/main/config/vifm/personal/linux.vifm
+wget https://github.com/ejmastnak/dotfiles/raw/main/config/vifm/personal/linux.vifm
+l
+clear
+l
+vifm
+mv linux.vifm.1 linux.vifm
+pacman -Ss gnumeric
+sudo pacman -S gnumeric
+vi
+doc/concurso_PF/SocialMedia
+l
+xdg-mime query filetype COMENTÁRIOS\ INSTAGRAM_Atualizado_Tagnova.odt
+..
+xdg-mime query filetype LOTAÃ�Ã�ES\ T1.ods
+cd
+clear
+l
+.config/vifm/scripts
+l
+clear
+l
+..
+lt .
+./scripts
+vi imgc 
+chmod x+u imgc
+chmod u+x imgc
+l
+..
+vi vifmrc
+pacman -Ss ffmpegth
+pacman -Ss ffmpegthumbnailer
+sudo pacman -S ffmpegthumbnailer
+pacman -Ss pdftoppm
+pacman -Ss w3mimgdisplay
+pacman -Ss w3m
+sudo pacman -Rns gnumeric
+paccache -rk1
+paccache -ruk0
+sudo pacman -S w3m
+.config/vifm/scripts
+clear
+l
+rm -rf imgc
+vi vifmimg
+chmod u+x vifmimg
+l
+..
+vi .
+cd
+paclog
+.config/vifm/scripts
+l
+..
+vi vifmrc
+vifm
+cd /usr/bin/
+cd
+.local/bin
+l
+vi imgc
+l
+chmod u+x imgc
+l
+mv imgc ~/.config/vifm/scripts
+~/.config/vifm/scripts
+clear
+l
+vi imgc
+l
+rm -f imgc vifmimg
+l
+..
+l
+vi vifmrc
+vifm
+.local/bin
+curl https://github.com/cirala/vifmimg/raw/master/vifmrun
+l
+curl -o vifmrun https://github.com/cirala/vifmimg/raw/master/vifmrun
+l
+wget https://github.com/cirala/vifmimg/raw/master/vifmrun
+l
+rm -rf vifmrun
+mv vifmrun.1 vifmrun
+chmod u+x vifmrun
+wget https://github.com/cirala/vifmimg/raw/master/vifmimg
+l
+chmod u+x vifmimg
+l
+.config/vifm/scripts
+l
+l
+chmod u+x vifmimg
+l
+./vifmimg
+echo $?
+paru -Ss pdftoppm
+pacman -Ss pdftoppm
+pacman -Ss pdftop
+pacman -Ss pdft
+l
+rm -f vifmimg
+paru poppler
+pacman -Ss poppler
+pacman -Ss ueberzug
+sudo pacman -S ueberzug
+pacman -Ss imagemagi
+pacman -Ss epub-thumb
+paru epub-thumbnailer
+pacman -Ss font-pre
+pacman -Ss fontpre
+paru -Ss fontpre
+paru fontpre
+echo $FIFO_UEBERZUG
+vifmrun
+vi .config/i3/config
+.local/bin
+vi vifmimg
+cd
+vifm
+cd -
+vi vifmimg
+cd
+vifm
+cp .local/bin/{vifmimg,vifmrun} .config/vifm/scripts
+.config/vifm/scripts
+l
+cd
+.cache/
+ls
+mkdir vifm
+cd
+vifmrun
+clear
+l
+xdg-mime query filetype 01-SONHAR\ CONTIGO.mp3
+..
+cd 1989\ -\ ADILSON\ RAMOS\ O\ CARISMÁTICO
+l
+xdg-mime query filetype 01\ INSENSATEZ.mp3
+exit
+startx
+startx
+ping -c 4 archlinux.org
+nmtui
+ping -c 4 archlinux.org
+upgrade
+reboot
+data
+l
+rm phd
+l
+.config
+ls
+..
+ls
+la
+.config/alacritty
+clear
+.config
+ls
+rm alacritty
+ls
+ls
+data
+ls
+cd
+.config
+ls
+cd alacritty
+bash
+cd alacritty
+lt alacritty
+rm alacritty
+ls
+file alacritty
+rm alacritty
+upgrade
+paru
+ls
+ln -s phd /storage
+l
+mv .config/alacritty /storage
+data
+l
+ln -s alacritty ~/.config/
+clear
+ln -s alacritty ~/.config 
+ln -s alacritty/ ~/.config/ 
+mv alacritty ~/
+cd
+ls
+ln -s alacritty ~/.config 
+[[ ! d "${HOME}/.config" ]]
+[[ ! -d "${HOME}/.config" ]]
+echo $?
+[[ ! -d "${HOME}/scripts" ]]
+echo $?
+git@github.com:ejmastnak/dotfiles.git
+ls
+dotfiles/
+ls
+./config
+ls
+file config
+ls
+...
+clear
+l
+mv alacritty .config
+ln -h
+ln --help
+vi
+feh --bg-fill ~/img/wallpaper/0330.jpg
+feh --bg-fill ~/img/wallpaper/0329.jpg
+feh --bg-fill ~/img/wallpaper/0328.jpg
+feh --bg-fill ~/img/wallpaper/0329.png
+vi
+la
+neofetch
+clear
+upgrade
+ls
+l
+l
+dtf/
+l
+clear
+l
+..
+git branch -m main
+cd -
+git branch -m main
+git push
+git push origin HEAD
+clear
+git branch
+git push -u origin main
+cd
+rm -rf dtf
+l
+git@github.com:tiagovercosa/dotfiles.git dtf
+dtf/
+clear
+git status
+git pull
+mv .config config
+l
+la
+mv .vim vim
+mv .local local
+clear
+ll
+la
+mv .bash_aliases bash_aliases 
+mv .bashrc bashrc
+mv .bash_profile bash_profile
+mv .zshenv zshenv
+clear
+ll
+config/
+ls
+..
+git status
+git commit -a -m "changed named files"
+git status
+git add .
+git commit -m "changed named files"
+git status
+clear
+git push -u origin main
+clear
+ln -s ${HOME}/dtf/config/alacritty ~/.config
+mv .config/alacritty ~/
+ln -s -t ~/alacritty .config
+.config
+ls
+..
+ls
+clear
+ls
+ln -s ~/alacritty ~/.config
+ls .config
+ll
+ll .config
+file alacritty
+file .config/alacritty
+clear
+ll
+rm -rf dotfiles
+git@github.com:tiagovercosa/dotfiles.git dtf
+clear
+.config
+ls
+rm -rf alacritty
+cd
+sudo pacman -Rns nitrogen
+sudo pacman -S feh
+paccache -ruk0
+paccache -rk1
+clear
+.config
+ls
+./systemd
+ls
+lt user
+..
+ls
+ls
+clear
+ll
+startx
+cd alacritty
+diff alacritty.yml ~/dtf/config/alacritty/alacritty.yml
+cd
+ls
+rm -rf alacritty
+ls
+dunstify "hello"
+data
+la
+vifmrun
+la
+clear
+upgrade
+upgrade
+upgrade
+sudo pacman -Rns kitty
+paccache -rk1
+paccache -ruk0
+sudo pacman -Scc
+clear
+ls
+cd alacritty
+ls
+diff catppuccin.yml ~/dtf/config/alacritty/catppuccin.yml
+rm catppuccin.yml
+l
+vi alacritty.yml
+l
+..
+l
+cd
+clear
+l
+dtf
+git status
+config
+clear
+l
+diff dunst/dunstrc ~/.config/dunst/dunstrc
+ln -s ${HOME}/dtf/config/dunst ~/.config
+diff flameshot/flameshot.ini ~/.config/flameshot/flameshot.ini
+ln -s ${HOME}/dtf/config/flameshot ~/.config
+..
+ln -s ${HOME}/dtf/config /storage/.config
+cd -
+clear
+l
+diff i3/config ~/.config/i3/config
+clear
+diff i3/autostart.sh ~/.config/i3/autostart.sh
+i3/
+ls
+rm -rf *
+l
+la
+l
+..
+ln -s ${HOME}/dtf/config/i3 ~/.config
+git status
+git add alacritty/alacritty.yml
+clear
+git status
+git commit -m "update theme and font"
+git add i3/
+git status
+git diff --staged i3/autostart.sh
+git commit -m "changed manager for wallpaper" i3/autostart.sh
+git diff --staged i3/config
+git commit -m "update of the terminal, keybindings, and some configs"
+git push -u origin main
+clear
+diff i3blocks/config ~/.config/i3blocks/config
+ln -s ${HOME}/dtf/config/i3blocks ~/.config
+ls kitty
+ls kitty/themes
+diff -r kitty/themes ~/.config/kitty/themes
+diff kitty/kitty.conf ~/.config/kitty/kitty.conf
+clear
+l
+ls kitty/
+clear
+vi kitty/kitty.conf
+vi kitty/kitty.conf
+lt kitty
+git status
+git add .
+clear
+l
+ls npm
+vi npm/npmrc
+bluetoothctl
+.config
+clear
+l
+rm -rf nitrogen
+clear
+ls
+ll
+cd alacritty
+clear
+l
+vi alacritty.yml
+..
+git status
+cd
+l
+cd =
+cd -
+l
+rm -rf dunst
+ls
+ll
+ls flameshot
+rm -rf flameshot
+l
+i3/
+l
+mv * ~/dtf/config/i3/
+..
+rmdir i3
+clear
+i3/
+l
+vi autostart.sh
+..
+cd -
+pwd
+..
+l
+rm -rf i3blocks
+l
+ls kitty
+ls kitty/themes
+cp kitty/themes/nord.conf ~/dtf/config/kitty/themes
+rm -rf kitty/themes
+kitty/
+l
+mv kitty.conf ~/dtf/config/kitty
+l
+..
+rm -rf kitty
+l
+startx
+la
+.npm
+l
+..
+rm -rf .npm/
+echo ${XDG_DATA_HOME}
+data
+la
+mkdir .config
+la
+du .config
+cler
+clear
+ls .config
+cd .config
+l
+cd alacritty
+pwd
+l
+pwd alacritty.yml
+pwd .
+pwd
+...
+clear
+rm -rf .config
+la
+ls
+rm -rf rofi
+ls
+exit
+tmux
+la
+./.vim/
+l
+vi vimrc
+vim vimrc
+vim
+..
+clear
+l
+vim
+vim
+vim
+vim
+/etc
+l | grep xpro
+dtf/config
+l
+ln -s ${HOME}/dtf/config/npm ~/.config
+vi npm/npmrc
+cd nvim
+clear
+l
+lt .
+vi init.lua
+..
+clear
+l
+rm -rf nvim
+ln -s ${HOME}/dtf/config/* /storage/.config
+diff picom/picom.conf ~/.config/picom/picom.conf
+rm -rf picom
+ln -s ${HOME}/dtf/config/picom ~/.config
+clear
+ln -s ${HOME}/dtf/config/r ~/.config
+l
+ls rofi
+vi rofi/config.rasi.ARC
+diff rofi/config.rasi.ARC rofi/config.rasi
+rofi/
+clear
+ls
+mv config.rasi.ARC config.rasi.bk
+ls
+diff ~/.config/rofi/config.rasi rofi/config.rasi
+diff ~/.config/rofi/config.rasi config.rasi
+l
+diff ~/.config/rofi/config.rasi config.rasi
+..
+ln -s ${HOME}/dtf/config/rofi ~/.config
+clear
+l
+diff ~/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
+ln -s ${HOME}/dtf/config/tmux ~/.config
+..
+l
+clear
+./vim
+l
+vi vimrc
+../config/vim
+l
+vi vimrc
+...
+l
+l vim
+diff ~/.vim/vimrc vim/vimrc
+config
+ls
+..
+ln -s ${HOME}/dtf/vim ~/.vim
+git status
+git diff --staged config/kitty/kitty.conf
+git commit -m "new config and add nord theme"
+clear
+git status
+git diff config/picom/picom.conf
+git add config/picom/picom.conf
+git commit -m "removed 'refresh-rate'"
+git status
+git add config/nvim/
+git add config/rofi
+git status
+git commit -m "excluded nvim config, added theme for rofi"
+git push -u origin main
+clear
+l
+git status
+config/vim
+l
+vi vimrc
+..
+rm -rf vim
+..
+git status
+git add .
+git commit -m "update config for vim"
+git push -u origin main
+git status
+config
+l
+ln -s ${HOME}/dtf/config/X11 ~/.config
+l
+ln -s ${HOME}/dtf/config/vifm ~/.config
+mkdir /storage/backup/config; mv {fontconfig,foot,gtk-2.0,gtk-3.0,qtile,readline,redshift,starship,sway,swaylock,swaynag,waybar,wofi} /storage/backup/config
+l
+git status
+git add .
+git commit -m "added config for vifm"
+git push -u origin main
+clear
+ls zathura
+zathura/
+l
+diff zathurarc ~/.config/zathura/zathurarc
+rm zathurarc
+l
+cd themes
+l
+l
+..
+l
+clear
+l
+..
+ln -s ${HOME}/dtf/config/zathura ~/.config
+clear
+l
+l | wc -l
+diff mimeapps.list ~/.config/mimeapps.list
+l
+diff user-dirs.dirs ~/.config/user-dirs.dirs
+ln -s ${HOME}/dtf/config/{user-dirs.dirs,user-dirs.locale} ~/.config
+l | wc -l
+l
+zsh/
+la
+...
+l
+diff zshenv ~/.zshenv
+diff zshenv ~/.zshenv
+rm zshenv
+l
+la
+mv .zshenv zshenv
+l
+git status
+clear
+l
+ln -s ${HOME}/dtf/zshenv ~/.zshenv
+git status
+git diff zshenv
+git add zshenv
+git status
+clear
+git status
+git restore --staged zshenv
+git status
+config/X11
+clear
+l
+vi xinitrc
+cd .config
+l
+l
+nvim/
+git status
+..
+mv picom ~/dtf/config/
+ls picom
+mv picom ~/dtf/config/
+ls picom
+l
+l
+clear
+ls rofi
+clear
+rofi/
+l
+mv catppuccin.rasi ~/dtf/config/rofi
+..
+mv rofi ~/
+l
+ls rofi
+clear
+l
+l
+rm -rf tmux
+l
+..
+clear
+la
+diff .vim/vimrc dtf/vim/vimrc
+.vim/
+l
+colors/
+l
+..
+mv colors ~/dtf/vim/
+l
+vim
+..
+rm -rf .vim
+clear
+la
+la
+clear
+vim
+vi .vim/vimrc
+vim
+la
+.config
+l
+wal/
+l
+wal
+..
+pacman -Q | grep wal
+sudo pacman -Rns python-pywal
+wal
+wal
+wal
+..
+l
+rm -rf wak
+rm -rf wal
+clear
+l
+l
+mv vifm ~/dtf/config
+l
+pacman -Q | grep gtk
+pacman -Ss gtk4
+rm -rf gtk-4.0
+clear
+l
+ls zotero
+ls zathura
+clear
+diff zathura/zathurarc ~/dtf/config/zathura/zathurarc
+mv zathura/zathurarc ~/dtf/config/zathura
+ls zathura
+mv zathura/* ~/dtf/config/zathura/themes
+la zathura
+rmdir zathura
+l
+l
+mv user-dirs.locale ~/dtf/config/
+rm user-dirs.dirs
+l
+vi user-dirs.locale
+vi user-dirs.dirs
+l
+zsh/
+l
+l
+la
+cd
+l
+la
+vi .zshenv
+mv .zshenv ~/dtf
+l
+la
+vi .xinitrc
+startx
+.config/X11
+l
+vi Xresources
+startx
+.local/share
+l
+la
+echo $XAUTHORITY
+rm -f {.xinitrc,.Xauthority}
+la
+startx
+reboot
+dtf/config
+git status
+..
+git add config/X11
+git status
+git commit -m "update config for X11"
+git push -u origin main
+git status
+git add config/{zathura,user-dirs.locale}
+git status
+git commit -m "update config for zathura and added new themes" config/zathura/
+git commit -m "added user-locale"
+git push -u origin main
+git status
+ln -s ${HOME}/dtf/bashrc ~/.bashrc
+ln -s ${HOME}/dtf/bash_aliases ~/.bash_aliases
+ln -s ${HOME}/dtf/bash_profile ~/.bash_profile
+config/zsh
+la
+rm .zshrc
+ll
+la
+vi .zprofile
+vi .zprofile
+la
+la
+..
+ln -s ${HOME}/dtf/config/zsh ~/.config
+neofetch
+htop
+la
+diff .bashrc ~/dtf/bashrc
+rm .bashrc
+l
+la
+bash
+clear
+diff .bash_aliases ~/dtf/bash_aliases
+rm .bash_aliases
+diff .bash_profile ~/dtf/bash_profile
+rm .bash_profile
+la
+.config/zsh
+la
+vi .zcompdump
+diff .zshrc ~/dtf/config/zsh/.zshrc
+alfetch
+cp .zshrc ~/dtf/config/zsh
+diff .zshrc ~/dtf/config/zsh/.zshrc
+diff zsh-aliases ~/dtf/config/zsh/zsh-aliases
+diff zsh-functions ~/dtf/config/zsh/zsh-functions
+la
+cp history .zcompdump ~/dtf/config/zsh
+..
+rm -rf zsh
+l
+zsh/
+la
+.local/bin
+l
+git status
+cd
+powermenu.sh
+upt

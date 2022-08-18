@@ -17,7 +17,7 @@ setopt prompt_subst
 zstyle ':vcs_info:*' formats ' %s(%F{196}%b%f)'
 
 # prompt
-PS1='%B%F{213}%(4~|.../%3~|%~)%f%b${vcs_info_msg_0_} $ '
+PS1='%F{red}[%f%F{blue}%B%n%b%f@%F{yellow}%m%f %F{magenta}%(4~|.../%3~|%~)%f%F{red}]%f${vcs_info_msg_0_}$ '
 #RPROMPT='${vcs_info_msg_0_}'
 
 autoload -U zsh-mime-setup
@@ -111,5 +111,3 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Pyenv integration
 eval "$(pyenv init --path)"
-
-alfetch

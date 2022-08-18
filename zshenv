@@ -11,7 +11,6 @@ export DIFFPROG="nvim -d $1"
 export VISUAL="nvim"
 export PAGER="less -Ri"
 export HISTCONTROL=ignoredups:erasedups
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 export QT_QPA_PLATFORMTHEME="gtk3"
 
 # Default directories in compliance with XDG standards
@@ -40,6 +39,9 @@ export R_PROFILE_USER="$XDG_CONFIG_HOME/r/.Rprofile"
 export R_ENVIRON_USER="$XDG_CONFIG_HOME/r/.Renviron" # Change R environment file location
 export RSTUDIO_CHROMIUM_ARGUMENTS="--disable-seccomp-filter-sandbox"
 
+# GraceGTK
+export GRACEGTK_HOME="$HOME/.local/gracegtk3"
+
 # Disables less history file
 export LESSHISTFILE=/dev/null
 
@@ -48,7 +50,7 @@ export HISTSIZE=5000
 export SAVEHIST=5000
 
 # Path
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/gracegtk3/bin:$PATH"
 
 # Set bat highlighting colour theme
 export BAT_THEME="base16"
