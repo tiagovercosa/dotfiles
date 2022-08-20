@@ -351,7 +351,7 @@ bindsym $mod+KP_Enter                $exe $term
 # Calculator
 bindsym $mod+c                       $exe qalculate-qt
 # FileManager
-bindsym $mod+n                       $exe $term -e vifmrun
+bindsym $mod+n                       $exe $term -e ranger
 # PrintScreen
 bindsym Print                        $exe flameshot launcher
 # Lock Screen
