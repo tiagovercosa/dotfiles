@@ -4,7 +4,7 @@ configuration{
     font: "Fira Sans Medium 14";
     show-icons: true;
     icon-theme: "Breeze";
-    terminal: "kitty";
+    terminal: "alacritty";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
