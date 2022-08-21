@@ -9,11 +9,11 @@ filetype on
 set encoding=utf-8
 set background=dark
 set wrap linebreak
-set number relativenumber
+" set number relativenumber
+" set laststatus=2
 set cursorline
 set ruler
 set showcmd
-set laststatus=2
 set showmode
 set termguicolors
 set t_Co=256
@@ -23,6 +23,7 @@ set expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
+set signcolumn=yes
 
 set splitbelow splitright
 
