@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-${HOME}/.fehbg &
+feh --no-fehbg --bg-fill '/home/tiago/images/wallpaper/0329.png' &
 picom -b --config ~/.config/picom/picom.conf --vsync &
 xset r rate 300 50 &
 xset +dpms s 60 180 &
