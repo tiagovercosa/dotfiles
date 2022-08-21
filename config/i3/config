@@ -134,12 +134,12 @@ for_window [class="Spotify"]	          title_format "  $ico_music  %title"
 for_window [class="Spotify"]            move to workspace $ws10 
 
 assign [class="TelegramDesktop"]        → $ws9
-#assign [class="Deezer"]                 → $ws10
+assign [class="Inkscape"]               → $ws7
 #assign [class="firefox"]                → $ws2
 #assign [class="qutebrowser"]            → $ws2
 
 # Floating defaults
-for_window [class="Nitrogen"] 		      floating enable sticky enable border normal
+for_window [class="^[aA]lacritty$" instance="popup-bottom-center"] floating enable border none move down 600px resize set 800 200
 for_window [class="TelegramDesktop"]    floating enable border normal
 for_window [class="Pavucontrol"]        floating enable sticky enable border normal
 for_window [class="mpv"]                floating enable border normal
