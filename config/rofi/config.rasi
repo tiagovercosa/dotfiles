@@ -1,7 +1,7 @@
 configuration{
     modi: "run,drun,window";
     lines: 5;
-    font: "Fira Sans Medium 14";
+    font: "Iosevka Nerd Font Medium 15";
     show-icons: true;
     icon-theme: "Breeze";
     terminal: "alacritty";
