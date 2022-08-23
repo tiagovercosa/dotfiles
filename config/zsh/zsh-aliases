@@ -44,5 +44,5 @@ alias drive='udisksctl mount -b'
 alias undrive='udisksctl unmount -b'
 
 # Suffix aliases
-alias -s {md,html,css,toml,txt,tex,log,py,R,Rmd,conf,vim}='nvim'
+alias -s {md,html,css,toml,txt,tex,log,Rmd,conf,vim}='nvim'
 alias -s git='git clone'
