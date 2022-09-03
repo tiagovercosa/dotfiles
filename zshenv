@@ -39,9 +39,6 @@ export R_PROFILE_USER="$XDG_CONFIG_HOME/r/.Rprofile"
 export R_ENVIRON_USER="$XDG_CONFIG_HOME/r/.Renviron" # Change R environment file location
 export RSTUDIO_CHROMIUM_ARGUMENTS="--disable-seccomp-filter-sandbox"
 
-# GraceGTK
-export GRACEGTK_HOME="$HOME/.local/gracegtk3"
-
 # Disables less history file
 export LESSHISTFILE=/dev/null
 
