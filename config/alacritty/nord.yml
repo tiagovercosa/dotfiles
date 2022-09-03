@@ -1,0 +1,51 @@
+# Colors (Nord)
+# Source: https://github.com/arcticicestudio/nord-alacritty/blob/develop/src/nord.yml
+
+colors:
+  primary:
+    background: '#2e3440'      # nord0; darkest in Polar Night
+    foreground: '#d8dee9'      # nord4; darkest in Snow Storm
+    dim_foreground: '#a5abb6'  # intermediate gray
+  cursor:
+    text: '#000000'    # nord0; darkest in Polar Night
+    cursor: '#81A1C1'  # nord4; darkest in Snow Storm
+  vi_mode_cursor:
+    text: '#2e3440'    # nord0; darkest in Polar Night
+    cursor: '#d8dee9'  # nord0; darkest in Polar Night
+  selection:
+    text: CellForeground
+    background: '#4c566a'   # nord3; lightest in Polar Night
+  search:
+    matches:
+      foreground: CellBackground
+      background: '#88c0d0'
+    bar:
+      background: '#434c5e'
+      foreground: '#d8dee9'
+  normal:
+    black: '#3b4252'    # nord1; one shade lighter than nord0
+    red: '#bf616a'      # nord11
+    green: '#a3be8c'    # nord14
+    yellow: '#ebcb8b'   # nord13
+    cyan: '#88c0d0'     # nord8; 2nd-lightest in Frost
+    blue: '#81a1c1'     # nord9; 2nd-darkest in Frost
+    magenta: '#b48ead'  # nord15
+    white: '#e5e9f0'    # nord5; intermediate in Snow Storm
+  bright:
+    black: '#4c566a'    # nord3; lightest in Polar Night
+    red: '#bf616a'      # nord11
+    green: '#a3be8c'    # nord14
+    yellow: '#ebcb8b'   # nord13
+    cyan: '#8fbcbb'     # nord7; lightest in Frost
+    blue: '#81a1c1'     # nord9; 2nd-darkest in Frost
+    magenta: '#b48ead'  # nord15
+    white: '#eceff4'    # nord6; lightest in Snow Storm
+  dim:
+    black: '#373e4d'    # dark black-blue-gray
+    red: '#94545d'      # muted version of nord11
+    green: '#809575'    # muted version of nord14
+    yellow: '#b29e75'   # muted version of nord13
+    blue: '#68809a'     # muted version of nord10
+    magenta: '#8c738c'  # muted version of nord15
+    cyan: '#6d96a5'     # muted version of nord7
+    white: '#aeb3bb'    # darkened version of nord4
