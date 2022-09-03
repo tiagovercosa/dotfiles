@@ -250,7 +250,7 @@ bindsym $mod+b              border toggle
 
 # Focus parent
 bindsym $mod+a              focus parent
-bindsym $mod+z              focus child
+bindsym $mod+x              focus child
 
 # change focus
 bindsym $mod+Left focus left
@@ -350,6 +350,8 @@ bindsym $mod+Return                  $exe $term
 bindsym $mod+KP_Enter                $exe $term
 # Calculator
 bindsym $mod+c                       $exe qalculate-qt
+# Zotero
+bindsym $mod+z                       $exe env GTK_THEME=Arc-Darker zotero
 # FileManager
 bindsym $mod+n                       $exe $term -e ranger
 # PrintScreen
