@@ -14,10 +14,11 @@ add-zsh-hook precmd vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
-zstyle ':vcs_info:*' formats ' %s(%F{196}%b%f)'
+zstyle ':vcs_info:*' formats '%s(%F{196}%b%f) '
 
 # prompt
-PS1='%F{red}[%f%F{blue}%B%n%b%f@%F{yellow}%m%f %F{magenta}%(4~|.../%3~|%~)%f%F{red}]%f${vcs_info_msg_0_}$ '
+PS1=' %F{magenta}%(4~|.../%3~|%~) %f${vcs_info_msg_0_}$ '
+#PS1='%F{red}[%f%F{blue}%B%n%b%f@%F{yellow}%m%f %F{magenta}%(4~|.../%3~|%~)%f%F{red}]%f${vcs_info_msg_0_}$ '
 #RPROMPT='${vcs_info_msg_0_}'
 
 autoload -U zsh-mime-setup
