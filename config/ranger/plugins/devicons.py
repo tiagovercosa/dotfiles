@@ -178,16 +178,16 @@ file_node_extensions = {
 dir_node_exact_matches = {
 # English
     '.git'                             : '',
-    'Desktop'                          : '',
-    'documents'                        : '',
-    'downloads'                        : '',
+    'Desktop'                          : '',
+    'Documents'                        : '',
+    'Downloads'                        : '',
     'dotfiles'                         : '',
     'Dropbox'                          : '',
     'music'                            : '',
     'images'                           : '',
     'university'                       : 'ﮛ',
-    'Public'                           : '',
-    'Templates'                        : '',
+    'Public'                           : '',
+    'Templates'                        : '',
     'videos'                           : '',
 # Spanish
     'Escritorio'                       : '',
