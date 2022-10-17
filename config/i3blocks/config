@@ -3,7 +3,7 @@
 # Global properties
 separator_block_width=20
 markup=pango
-color=#CCCCFF
+color=#D8DEE9
 #color=#88C0D0
 #color=#A4C2F4
 
@@ -13,11 +13,11 @@ interval=once
 signal=11
 command=${HOME}/.local/bin/keyindicator
 
-[num-lock]
-instance=NUM
-command=${HOME}/.local/bin/keyindicator
-interval=once
-signal=11
+# [num-lock]
+# instance=NUM
+# command=${HOME}/.local/bin/keyindicator
+# interval=once
+# signal=11
 
 [pacman-updates]
 command=${HOME}/.local/bin/arch-update
@@ -45,7 +45,7 @@ LONG_FORMAT="${SYMB}${VOL}%"
 #AUDIO_LOW_THRESH=0
 #AUDIO_LOW_SYMBOL='  '
 #AUDIO_DELTA=5
-DEFAULT_COLOR="#CCCCFF"
+DEFAULT_COLOR="#D8DEE9"
 MUTED_COLOR="#BF616A"
 #USE_ALSA_NAME=0
 #USE_DESCRIPTION=0
