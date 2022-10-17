@@ -3,9 +3,9 @@
  *******************************************************/
 
 configuration {
-    font:									"Fira Sans Condensed 15";
+    font:									"Fira Sans Condensed 14";
     show-icons:						true;
-    icon-theme:						"Papirus";
+    icon-theme:						"Paper-Mono-Dark";
     combi-modi:       		"window,drun,ssh";
     display-drun:					"Apps";
     drun-display-format:	"{name}";
