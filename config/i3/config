@@ -12,6 +12,24 @@ set $exe        exec --no-startup-id
 set $exe_always exec_always --no-startup-id
 
 # colors
+set_from_resource $backg i3wm.background #080910
+set_from_resource $nord0 i3wm.color0 #080910
+set_from_resource $nord1 i3wm.color1 #181920
+set_from_resource $nord2 i3wm.color2 #2F343F
+set_from_resource $nord3 i3wm.color3 #3B4252
+set_from_resource $nord4 i3wm.color4 #808080
+set_from_resource $nord5 i3wm.color5 #E7E8EB
+set_from_resource $nord6 i3wm.color6 #F5F6F7
+set_from_resource $nord7 i3wm.color7 #BF616A
+set_from_resource $nord8 i3wm.color8 #FF6F9C
+set_from_resource $nord9 i3wm.color9 #EBCB8B
+set_from_resource $nord10 i3wm.color10 #A3BE8C
+set_from_resource $nord11 i3wm.color11 #BBCCDD
+set_from_resource $nord12 i3wm.color12 #88C0D0
+set_from_resource $nord13 i3wm.color13 #91B1D1
+set_from_resource $nord14 i3wm.color14 #416181
+set_from_resource $nord15 i3wm.color15 #B48EAD
+
 set $darker    #080910
 set $dark      #181920
 set $black     #2F343F
@@ -168,11 +186,11 @@ workspace 1 output primary
 font pango:Fira Sans Regular 13
 
 # class                  border  backgr  text       indicator  client_border
-client.focused           #81A1C1 #81A1C1 $black     #4c566a    #81A1C1
-client.unfocused         $darker $darker $darkgray  $cyan      $darker
-client.focused_inactive  $dark   $dark   $darkgray  $cyan      $dark
-client.urgent            $red    $red    $dark      $cyan      $red
-
+client.focused           $nord6  $nord6  #000000    $nord7     $nord6
+client.unfocused         $nord0  $nord0  #D8DEF0    $nord0     $nord0
+client.focused_inactive  $nord0  $nord0  #D8DEF0    $nord0     $nord0
+client.urgent            $nord1  $nord1  $dark      $cyan      $nord1
+client.placeholder       #000000 #0c0c0c #ffffff  	#000000    #0c0c0c
 
 # ----------------------------------------------------------------------------
 # Status bar
@@ -180,21 +198,21 @@ client.urgent            $red    $red    $dark      $cyan      $red
 
 bar {
   status_command i3blocks
-  font pango:Symbols Nerd Font,Fira Sans 14
+  font pango:Symbols Nerd Font,Fira Sans Condensed 13
   separator_symbol " | "
   position top
   tray_output primary
   tray_padding 4
 
   colors {
-      statusline    $white
-      background    #15121C
-      separator     #bbccdd
+      statusline    #D8DEE9
+      background    $backg
+      separator     #D8DEE9
 
       #                   border     backgr    text
-      focused_workspace   #CCCCFF    #15121C   #CCCCFF
+      focused_workspace   #D8DEE9    #D8DEE9   #000000
       active_workspace    $dark      $dark     $blue
-      inactive_workspace  #15121C    #15121C   $graybrown
+      inactive_workspace  $backg     $backg    $graybrown
       urgent_workspace    $red       $red      $darker
   }
 }
@@ -351,7 +369,7 @@ bindsym $mod+KP_Enter                $exe $term
 # Calculator
 bindsym $mod+c                       $exe qalculate-qt
 # Zotero
-bindsym $mod+z                       $exe env GTK_THEME=Arc-Darker zotero
+bindsym $mod+z                       $exe env GTK_THEME=Nordic-Polar zotero
 # FileManager
 bindsym $mod+n                       $exe $term -e ranger
 # PrintScreen
