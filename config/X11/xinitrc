@@ -1,5 +1,28 @@
 #!/usr/bin/env bash
 
+[[ -d ${HOME}/bin ]] && export PATH=$PATH:$HOME/bin
+[[ -d ${HOME}/.local/bin ]] && export PATH=$PATH:$HOME/.local/bin
+[[ -d ${HOME}/.local/grace/bin ]] && export PATH=$PATH:$HOME/.local/grace/bin
 [[ -f ~/.config/X11/Xresources ]] && xrdb -merge -I$HOME ~/.config/X11/Xresources
 
-exec i3
+export DESKTOP_SESSION=plasma
+
+# dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+# 
+# xrandr --output eDP1 --primary --mode "1920x1080"
+# 
+# ${HOME}/.fehbg &
+# nm-applet &
+# numlockx on &
+# picom -b --log-file $HOME/.i3/logs/picom.log --config ~/.config/picom/picom.conf --vsync &
+# xset r rate 300 50 &
+# xset +dpms s 60 180 &
+# xss-lock -n ~/.local/bin/dim-screen.sh -- ~/.local/bin/my_i3lock &
+# redshift -l -7.15:-34.84 -t 6500:4500 -g 0.8 -m randr &
+# /usr/lib/polkit-kde-authentication-agent-1 &
+# dunst -conf ~/.config/dunst/dunstrc &
+
+while :; do
+	# exec i3
+	exec startplasma-x11
+done
