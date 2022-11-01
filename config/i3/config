@@ -128,10 +128,10 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 default_floating_border normal 2
 default_border pixel 2
 #title_align center
-#hide_edge_borders smart
+hide_edge_borders smart
 
 # focus defaults
-# focus_follows_mouse no
+focus_follows_mouse no
 focus_wrapping no
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -146,7 +146,7 @@ for_window [class="[Aa]lacritty"]       title_format "  $ico_terminal  %title"
 # Telegram
 for_window [class="TelegramDesktop"]    title_format "  $ico_telegram  %title"
 # Qalculate-gtk
-for_window [class="qalculate-qt"]       title_format "  $ico_window  %title"
+for_window [class="Qalculate-gtk"]       title_format "  $ico_window  %title"
 # Spotify
 for_window [class="Spotify"]	          title_format "  $ico_music  %title"
 for_window [class="Spotify"]            move to workspace $ws10 
@@ -157,7 +157,8 @@ assign [class="Inkscape"]               → $ws7
 #assign [class="qutebrowser"]            → $ws2
 
 # Floating defaults
-for_window [class="^[aA]lacritty$" instance="popup-bottom-center"] floating enable border none move down 600px resize set 800 200
+#for_window [class="^[kK]itty$" instance="popup-bottom-center"] floating enable border none move down 600px resize set 800 200
+for_window [class="popup-bottom-center"] floating enable border none move down 800px resize set 800 200
 for_window [class="TelegramDesktop"]    floating enable border normal
 for_window [class="Pavucontrol"]        floating enable sticky enable border normal
 for_window [class="mpv"]                floating enable border normal
@@ -166,7 +167,7 @@ for_window [class="Bitwarden"]          floating enable sticky enable border nor
 for_window [class="Nvidia-settings"]    floating enable border normal
 for_window [class="[fF]irefox" window_role="About"] floating enable border normal
 for_window [class="[fF]irefox" window_role="Organizer"] floating enable border normal
-for_window [class="qalculate-qt"]       floating enable sticky enable border normal
+for_window [class="Qalculate-gtk"]       floating enable sticky enable border normal
 for_window [class="matplotlib"]         floating enable border normal
 for_window [class="flameshot"]          floating enable sticky enable border normal
 
@@ -183,7 +184,7 @@ workspace 1 output primary
 # Apearance
 # ----------------------------------------------------------------------------
 
-font pango:Fira Sans Regular 13
+font pango:Fira Sans Medium 13
 
 # class                  border  backgr  text       indicator  client_border
 client.focused           $nord6  $nord6  #000000    $nord7     $nord6
@@ -198,7 +199,7 @@ client.placeholder       #000000 #0c0c0c #ffffff  	#000000    #0c0c0c
 
 bar {
   status_command i3blocks
-  font pango:Symbols Nerd Font,Fira Sans Condensed 13
+  font pango:Symbols Nerd Font,Fira Sans Regular 13
   separator_symbol " | "
   position top
   tray_output primary
@@ -206,13 +207,13 @@ bar {
 
   colors {
       statusline    #D8DEE9
-      background    $backg
+      background    #1a1b26
       separator     #D8DEE9
 
       #                   border     backgr    text
       focused_workspace   #D8DEE9    #D8DEE9   #000000
       active_workspace    $dark      $dark     $blue
-      inactive_workspace  $backg     $backg    $graybrown
+      inactive_workspace  #1a1b26    #1a1b26   $graybrown
       urgent_workspace    $red       $red      $darker
   }
 }
@@ -367,9 +368,9 @@ bindsym $mod+w                       $exe qutebrowser
 bindsym $mod+Return                  $exe $term
 bindsym $mod+KP_Enter                $exe $term
 # Calculator
-bindsym $mod+c                       $exe qalculate-qt
+bindsym $mod+c                       $exe qalculate-gtk
 # Zotero
-bindsym $mod+z                       $exe env GTK_THEME=Nordic-Polar zotero
+bindsym $mod+z                       $exe env GTK_THEME=Arc zotero
 # FileManager
 bindsym $mod+n                       $exe $term -e ranger
 # PrintScreen
@@ -387,7 +388,7 @@ bindsym $mod+d $exe rofi -show drun
 # ----------------------------------------------------------------------------
 # You can also use any non-zero value if you'd like to have a border
 # for_window [class=".*"] border pixel 2
-# smart_gaps on
+smart_gaps on
 
 # Só habilita quando tem apenas um conteiner aberto
 # smart_gaps inverse_outer
