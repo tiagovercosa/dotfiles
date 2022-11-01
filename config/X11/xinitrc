@@ -9,9 +9,7 @@ dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XA
 
 xrandr --output eDP1 --primary --mode "1920x1080"
 
-${HOME}/.fehbg &
 nm-applet &
-numlockx on &
 picom -b --log-file ${HOME}/.i3/logs/picom.log --config ${HOME}/.config/picom/picom.conf --vsync &
 xset r rate 300 50 &
 xset +dpms s 60 180 &
@@ -21,5 +19,5 @@ redshift -l -7.15:-34.84 -t 6500:4500 -g 0.8 -m randr &
 dunst -conf ${HOME}/.config/dunst/dunstrc &
 
 while :; do
-	exec i3
+	exec qtile start
 done
