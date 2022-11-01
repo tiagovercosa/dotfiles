@@ -46,9 +46,6 @@ export LESSHISTFILE=/dev/null
 export HISTSIZE=5000
 export SAVEHIST=5000
 
-# Path
-export PATH="$HOME/.local/bin:$HOME/.local/grace/bin:$PATH"
-
 # Set bat highlighting colour theme
 export BAT_THEME="base16"
 
