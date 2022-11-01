@@ -10,7 +10,6 @@ window:
     y: 1080
   opacity: 0.97
   dynamic_title: true
-  gtk_theme_variant: dark
 
 scrolling:
   history: 10000
