@@ -12,7 +12,7 @@ mod = "mod4"
 terminal = "alacritty"
 my_browser = "firefox"
 my_editor = "alacritty -e nvim"
-my_file_manager = "alacritty -e vifm"
+my_file_manager = "alacritty -e vifmrun"
 
 keys = [
     # Launch stuff
@@ -276,7 +276,7 @@ screens = [
                 mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(my_browser + " https://calendar.google.com")},
                 padding = 2
                 ),
-            widget.Systray(),],
+            widget.Systray()],
             24,
         ),
         wallpaper = '/home/henri/images/wallpaper/0308.jpg',
@@ -310,6 +310,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='Nvidia-settings'),
     Match(wm_class='Bitwarden'),
     Match(wm_class='Pavucontrol'),
+    Match(wm_class='TelegramDesktop'),
     Match(wm_class='popup-bottom-center'),
     Match(wm_class='firefox', role='About'),
     Match(wm_class='firefox', role='Organizer'),
