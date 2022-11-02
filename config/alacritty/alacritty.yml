@@ -1,5 +1,5 @@
 import:
-  - ~/.config/alacritty/nord.yml
+  - ~/.config/alacritty/ayu-mirage.yml
 
 env:
   TERM: xterm-256color
@@ -8,7 +8,7 @@ window:
   position:
     x: 1920
     y: 1080
-  opacity: 0.97
+  opacity: 1.00
   dynamic_title: true
 
 scrolling:
@@ -18,16 +18,16 @@ scrolling:
 font:
   size: 10.0
   normal:
-    family: Iosevka Nerd Font
+    family: Iosevka SS08
     style: Medium
   bold:
-    family: Iosevka Nerd Font
+    family: Iosevka SS08
     style: Bold
   italic:
-    family: Iosevka Nerd Font
+    family: Iosevka SS08
     style: Italic
   bold_italic:
-    family: Iosevka Nerd Font
+    family: Iosevka SS08
     style: Bold Italic
       
 # If `true`, bold text is drawn using the bright color variants.
