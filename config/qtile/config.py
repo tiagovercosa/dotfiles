@@ -1,28 +1,25 @@
 import os
 import socket
-import subprocess
 from libqtile import qtile
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.command import lazy
-from libqtile.utils import guess_terminal
-from libqtile import layout, bar, widget, hook
-from typing import List
+from libqtile import layout, bar, widget
 
 # Variable
 mod = "mod4"
-terminal = guess_terminal()
-my_terminal = "kitty"
+terminal = "alacritty"
 my_browser = "firefox"
-my_editor = "kitty -e nvim"
-my_file_manager = "kitty -e vifm"
+my_editor = "alacritty -e nvim"
+my_file_manager = "alacritty -e vifm"
 
 keys = [
     # Launch stuff
-    Key([mod], "Return", lazy.spawn(my_terminal), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "b", lazy.spawn(my_browser), desc="Launches my web browser"),
     Key([mod], "f", lazy.spawn(my_file_manager), desc="Launches my file manager"),
+    Key([mod], "c", lazy.spawn("qalculate-gtk"), desc="Spawn a command using a prompt widget"),
     Key([mod], "d", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
     # Switch between windows
@@ -39,20 +36,33 @@ keys = [
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
 
-    # Grow windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
+    Key([mod, 'control'], "j",
+        lazy.layout.shrink().when(layout='monadtall'),
+        lazy.layout.grow_down().when(layout='columns')
+    ),
+    Key([mod, 'control'], "k",
+        lazy.layout.grow().when(layout='monadtall'),
+        lazy.layout.grow_up().when(layout='columns')
+    ),
+    Key([mod, "control"], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+
+    # MonadTall
+    Key([mod, "control"], "o", lazy.layout.maximize()),
+    # Columns
     Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
     Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
 
+    # Move to the groups
+    Key([mod], "period", lazy.screen.next_group(), desc = "Move to the group on the right"),
+    Key([mod], "comma", lazy.screen.prev_group(), desc = "Move to the group on the left"),
+    Key([mod], "Tab", lazy.screen.toggle_group(), desc = "Move to the last visited group"),
+
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod, "control"], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod, "shift"], "Tab", lazy.prev_layout(), desc="Toggle between layouts"),
 
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
@@ -76,7 +86,6 @@ keys = [
     # Screenshot
     Key([], "Print", lazy.spawn("flameshot screen")),
     Key([mod], "Print", lazy.spawn("flameshot gui")),
-
 ]
 
 # Workspaces
@@ -142,6 +151,7 @@ layout_theme = {"border_width": 2,
 
 # Layouts to be used
 layouts = [
+    layout.Columns(**layout_theme, grow_amount = 1, border_on_single = True),
     layout.MonadTall(**layout_theme, ratio = 0.55),
     layout.Max(**layout_theme),
     layout.Stack(num_stacks=2),
@@ -153,7 +163,7 @@ layouts = [
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
 widget_defaults = dict(
-    font="Iosevka",
+    font="Iosevka SS08 Medium",
     fontsize=18,
     padding=2,
     background=colors["foreground"]
@@ -166,7 +176,7 @@ screens = [
     Screen(
         top=bar.Bar([
             widget.GroupBox(
-                font = "Iosevka SemiBold",
+                font = "Iosevka SS08 Semibold",
                 fontsize = 18,
                 margin_y = 3,
                 margin_x = 0,
@@ -187,7 +197,7 @@ screens = [
                 ),
             widget.TextBox(
                 text = '|',
-                font = "Iosevka",
+                font = "Iosevka SS08",
                 background = colors["background"],
                 foreground = colors["black1"],
                 padding = 2,
@@ -207,7 +217,7 @@ screens = [
                 ),
             widget.TextBox(
                 text = '|',
-                font = "Iosevka",
+                font = "Iosevka SS08",
                 background = colors["background"],
                 foreground = colors["black1"],
                 padding = 2,
@@ -234,7 +244,7 @@ screens = [
             widget.Memory(
                 foreground = colors["background"],
                 background = colors["yellow0"],
-                mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(my_terminal + ' -e htop')},
+                mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e htop')},
                 measure_mem='G',
                 format = '{MemUsed:.2f}{mm}/{MemTotal:.2f}{mm}',
                 update_interval = 10,
