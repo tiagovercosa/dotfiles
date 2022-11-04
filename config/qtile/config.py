@@ -1,11 +1,16 @@
+# -*- coding: utf-8 -*-
 import os
 import socket
 from libqtile import qtile
 from libqtile import bar, layout, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.command import lazy
-from libqtile import layout, bar, widget
+from typing import List  # noqa: F401
+from libqtile.backend.x11 import window
+from libqtile.confreader import ConfigError
+from libqtile.widget import base
+XEMBED_PROTOCOL_VERSION = 0
 
 # Variable
 mod = "mod4"
@@ -18,7 +23,6 @@ keys = [
     # Launch stuff
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "b", lazy.spawn(my_browser), desc="Launches my web browser"),
-    Key([mod], "f", lazy.spawn(my_file_manager), desc="Launches my file manager"),
     Key([mod], "c", lazy.spawn("qalculate-gtk"), desc="Spawn a command using a prompt widget"),
     Key([mod], "d", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
@@ -86,21 +90,35 @@ keys = [
     # Screenshot
     Key([], "Print", lazy.spawn("flameshot screen")),
     Key([mod], "Print", lazy.spawn("flameshot gui")),
+    
+    Key([mod, "shift"], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
+    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle fullscreen"),
+
+    Key([mod], "f", lazy.group['file_manager'].dropdown_toggle('file')),
+    Key([mod], "w", lazy.group['myWiki'].dropdown_toggle('wiki')),
 ]
 
 # Workspaces
-groups = [Group(i) for i in "123456789"]
+groups = [
+        Group("1"),
+        Group("2"),
+        Group("3"),
+        Group("4"),
+        Group("5"),
+        Group("6"),
+        Group("7"),
+        Group("8", matches=[Match(wm_class=["Inkscape"])], layout="max"),
+        Group("9", matches=[Match(wm_class=["telegram-desktop"])]),
+        ]
 
 for i in groups:
     keys.extend([
-        # mod1 + letter of group = switch to group
         Key(
             [mod],
             i.name,
             lazy.group[i.name].toscreen(),
             desc="Switch to group {}".format(i.name),
         ),
-        # mod1 + shift + letter of group = switch to & move focused window to group
         Key(
             [mod, "shift"],
             i.name,
@@ -109,16 +127,10 @@ for i in groups:
         ),
     ])
 
-# Connected screens
-# def get_monitors():
-#     xr = subprocess.check_output('xrandr --query | grep " connected"', shell=True).decode().split('\n')
-#     monitors = len(xr) - 1 if len(xr) > 2 else len(xr)
-#     return monitors
-# 
-# monitors = get_monitors()
-# 
-# for i in range(monitors):
-#     #keys.extend([Key([mod, "mod1"], str(i+1), lazy.window.toscreen(i))])
+groups.append(
+   ScratchPad("file_manager", 
+              [DropDown("file", "alacritty -e ranger", x=0.12, y=0.12, width=0.75, height=0.7,on_focus_lost_hide=False)]),
+)
 
 # Colors
 colors = {
@@ -139,6 +151,7 @@ colors = {
           "blue1": '#5CCFE6',
           "magenta1": '#FFEE99',
           "cyan1": '#95E6CB',
+          "ice1": '#bbccdd',
           "white1": '#FFFFFF'
           }
 
@@ -151,8 +164,8 @@ layout_theme = {"border_width": 2,
 
 # Layouts to be used
 layouts = [
-    layout.Columns(**layout_theme, grow_amount = 1, border_on_single = True),
     layout.MonadTall(**layout_theme, ratio = 0.55),
+    layout.Columns(**layout_theme, grow_amount = 1, border_on_single = True),
     layout.Max(**layout_theme),
     layout.Stack(num_stacks=2),
     layout.RatioTile(**layout_theme),
@@ -163,7 +176,7 @@ layouts = [
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
 widget_defaults = dict(
-    font="Iosevka SS08 Medium",
+    font="Iosevka Medium",
     fontsize=18,
     padding=2,
     background=colors["foreground"]
@@ -176,7 +189,7 @@ screens = [
     Screen(
         top=bar.Bar([
             widget.GroupBox(
-                font = "Iosevka SS08 Semibold",
+                font = "Iosevka Medium",
                 fontsize = 18,
                 margin_y = 3,
                 margin_x = 0,
@@ -197,7 +210,7 @@ screens = [
                 ),
             widget.TextBox(
                 text = '|',
-                font = "Iosevka SS08",
+                font = "Iosevka Regular",
                 background = colors["background"],
                 foreground = colors["black1"],
                 padding = 2,
@@ -217,14 +230,15 @@ screens = [
                 ),
             widget.TextBox(
                 text = '|',
-                font = "Iosevka SS08",
+                font = "Iosevka Regular",
                 background = colors["background"],
                 foreground = colors["black1"],
                 padding = 2,
                 fontsize = 18
                 ),
             widget.WindowName(
-                foreground = colors["magenta0"],
+                font = "Iosevka Medium",
+                foreground = colors["ice1"],
                 background = colors["background"],
                 padding = 0,
                 fontsize = 18
@@ -300,7 +314,7 @@ auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 
-floating_layout = layout.Floating(float_rules=[
+floating_layout = layout.Floating(**layout_theme, float_rules=[
     *layout.Floating.default_float_rules,
     Match(wm_class='R_x11'),
     Match(wm_class='gnuplot_qt'),
@@ -314,6 +328,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='popup-bottom-center'),
     Match(wm_class='firefox', role='About'),
     Match(wm_class='firefox', role='Organizer'),
+    Match(wm_class='RStudio', title='Plot Zoom'),
   ])
 
 # If things like steam games want to auto-minimize themselves when losing
