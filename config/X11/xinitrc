@@ -7,8 +7,6 @@
 
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
-xrandr --output eDP1 --primary --mode "1920x1080"
-
 picom -b --log-file $HOME/.local/share/picom/picom.log --config ${HOME}/.config/picom/picom.conf --vsync &
 xset r rate 300 50 &
 xset +dpms s 60 180 &
