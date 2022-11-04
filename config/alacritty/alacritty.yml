@@ -1,45 +1,29 @@
 import:
   - ~/.config/alacritty/ayu-mirage.yml
 
-env:
-  TERM: xterm-256color
-
 window:
-  position:
-    x: 1920
-    y: 1080
   opacity: 1.00
-  dynamic_title: true
-
-scrolling:
-  history: 10000
-  multiplier: 3
 
 font:
   size: 10.0
   normal:
-    family: Iosevka SS08
-    style: Medium
+    family: Iosevka Nerd Font
+    style: Regular
   bold:
-    family: Iosevka SS08
+    family: Iosevka Nerd Font
     style: Bold
   italic:
-    family: Iosevka SS08
+    family: Iosevka Nerd Font
     style: Italic
   bold_italic:
-    family: Iosevka SS08
+    family: Iosevka Nerd Font
     style: Bold Italic
       
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
+# Live config reload (changes require restart)
 live_config_reload: true
-
-selection:
-  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"     
-
-mouse:
-  hide_when_typing: true
 
 key_bindings:
   - { key: K,         mods: Control|Shift,   mode: ~Alt,        action: ScrollLineUp      }
