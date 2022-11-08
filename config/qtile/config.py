@@ -14,10 +14,10 @@ XEMBED_PROTOCOL_VERSION = 0
 
 # Variable
 mod = "mod4"
-terminal = "alacritty"
+terminal = "kitty"
 my_browser = "firefox"
-my_editor = "alacritty -e nvim"
-my_file_manager = "alacritty -e vifmrun"
+my_editor = "kitty -e nvim"
+my_file_manager = "kitty -e vifmrun"
 
 keys = [
     # Launch stuff
@@ -130,17 +130,17 @@ for i in groups:
 
 groups.append(
    ScratchPad("file_manager", 
-              [DropDown("file", "alacritty -e ranger",
+              [DropDown("file", "kitty -e ranger",
                         x=0.12, y=0.12, width=0.75, height=0.7,on_focus_lost_hide=False)])
 )
 groups.append(
    ScratchPad("myWiki",
-              [DropDown("openWiki", "alacritty -e nvim -c ':VimwikiIndex'",
+              [DropDown("openWiki", "kitty -e nvim -c ':VimwikiIndex'",
                         x=0.2, y=0.05, width=0.6, height=0.9, on_focus_lost_hide=False, opacity=1.0)])
 )
 groups.append(
    ScratchPad("ncmpcpp",
-              [DropDown("music", "alacritty -e ncmpcpp",
+              [DropDown("music", "kitty -e ncmpcpp",
                         x=0.2, y=0.05, width=0.6, height=0.45, on_focus_lost_hide=False, opacity=1.0)])
 )
 
