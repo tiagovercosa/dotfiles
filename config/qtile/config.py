@@ -188,7 +188,7 @@ layouts = [
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
 widget_defaults = dict(
-    font="Iosevka Medium",
+    font = 'Iosevka Nerd Font',
     fontsize=18,
     padding=2,
     background=colors["foreground"]
@@ -272,15 +272,16 @@ screens = [
                 background = colors["yellow0"],
                 mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e htop')},
                 measure_mem='G',
-                format = '{MemUsed:.2f}{mm}/{MemTotal:.2f}{mm}',
+                format = '  {MemUsed:.2f}{mm}/{MemTotal:.2f}{mm} ',
                 update_interval = 10,
                 padding = 2
                 ),
-            widget.Volume(
+            widget.PulseVolume(
                 foreground = colors["black0"],
                 background = colors["cyan1"],
                 padding = 2,
-                fmt = 'Vol:{}'
+                update_interval = 0.1,
+                fmt = ' 墳 {} '
                 ),
             widget.Battery(
                 foreground = colors["black0"],
@@ -298,9 +299,10 @@ screens = [
             widget.Clock(
                 foreground = colors["black0"],
                 background = colors["magenta1"],
-                format = " %A, %Y-%m-%d, %H:%M ",
-                mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(my_browser + " https://calendar.google.com")},
-                padding = 2
+                format = "%A, %Y-%m-%d, %H:%M ",
+                mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(my_browser + " https://calendar.proton.me/")},
+                padding = 2,
+                fmt = '   {}'
                 ),
             widget.Systray()],
             24,
