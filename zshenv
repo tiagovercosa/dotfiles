@@ -11,7 +11,8 @@ export DIFFPROG="nvim -d $1"
 export VISUAL="nvim"
 export PAGER="less -Ri"
 export HISTCONTROL=ignoredups:erasedups
-export QT_QPA_PLATFORMTHEME="gtk3"
+export GTK_USE_PORTAL=1
+# export QT_QPA_PLATFORMTHEME="gtk3"
 
 # Default directories in compliance with XDG standards
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -48,15 +49,6 @@ export SAVEHIST=5000
 
 # Set bat highlighting colour theme
 export BAT_THEME="base16"
-
-# COLORS IN LESS (31 - red; 32 - green; 33 - yellow; 0 - reset/normal; 1 - bold; 4 - underlined)
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
