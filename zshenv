@@ -12,6 +12,10 @@ export VISUAL="nvim"
 export PAGER="less -Ri"
 export HISTCONTROL=ignoredups:erasedups
 export GTK_USE_PORTAL=1
+export PLASMA_USE_QT_SCALING=1
+# export GBM_BACKEND=nvidia-drm
+# export __GLX_VENDOR_LIBRARY_NAME=nvidia
+# export QT_QPA_PLATFORM="wayland;xcb"
 # export QT_QPA_PLATFORMTHEME="gtk3"
 
 # Default directories in compliance with XDG standards
@@ -21,8 +25,11 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 # X11
-export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
-export XAUTHORITY="$XDG_DATA_HOME/Xauthority"
+#export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
+#export XAUTHORITY="$XDG_DATA_HOME/Xauthority"
+[[ -d ${HOME}/bin ]] && export PATH=$PATH:${HOME}/bin
+[[ -d ${HOME}/.local/bin ]] && export PATH=$PATH:${HOME}/.local/bin
+[[ -d ${HOME}/.local/xmgrace/bin ]] && export PATH=$PATH:${HOME}/.local/xmgrace/bin
 
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export HISTFILE="$ZDOTDIR/history"
@@ -32,6 +39,8 @@ export STARDICT_DATA_DIR="$XDG_DATA_HOME"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 
+export PATH="$PYENV_ROOT/bin:$PATH"
+#
 # Disables less history file
 export LESSHISTFILE=/dev/null
 
