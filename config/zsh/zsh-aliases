@@ -2,8 +2,8 @@ alias vi='nvim'
 alias upgrade='sudo pacman -Syu'
 alias myip='curl ipinfo.io/ip'
 
-alias data='/storage'
-alias books='/storage/Books'
+alias data='/store'
+alias books='/store/Books'
 
 # Changing "ls" to "exa"
 alias ls='exa --color=always --group-directories-first'  # All files and dirs (long format)
@@ -12,7 +12,7 @@ alias l='exa -l --color=always --group-directories-first'  # Long format
 alias ll='exa -lh --color=always --group-directories-first'
 alias lt='exa -aT --color=always --group-directories-first' # Tree listing
 
-alias du='du -sh'
+alias du='du -ahd1'
 
 # Confirm before overwriting
 alias cp='cp -i'
@@ -34,7 +34,7 @@ alias ip='ip -color=auto'
 alias diff='diff --color=auto'
 
 # startx
-alias startx='startx "$XINITRC"'
+#alias startx='startx "$XINITRC"'
 
 #git dotfiles
 #alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
