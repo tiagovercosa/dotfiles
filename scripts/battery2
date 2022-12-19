@@ -119,7 +119,7 @@ else:
             return "#FFFF77"
         if percent < 80:
             return "#FFFFaa"
-        return "#CCCCFF"
+        return "#8FBCBB"
 
     form =  '<span color="{}">{}{}%</span>'
     fulltext = form.format(color(percentleft), stateself, percentleft)
