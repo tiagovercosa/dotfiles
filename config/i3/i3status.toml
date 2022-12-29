@@ -1,0 +1,64 @@
+[theme]
+name = "nord-dark"
+
+[icons]
+name = "awesome6"
+
+[[block]]
+block = "music"
+player = "spotify"
+buttons = ["prev", "play", "next"]
+
+#NVIDIA
+[[block]]
+block = "nvidia_gpu"
+label = "MX250"
+show_memory = false
+interval = 1
+
+#DISKS
+#[[block]]
+#block = "disk_space"
+#path = "/"
+#info_type = "available"
+#format = "{icon} / {available}"
+#unit = "GB"
+#interval = 600
+#warning = 20.0
+#alert = 10.0
+
+#MEMORY
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{mem_used}"
+format_swap = "{swap_used}"
+interval = 15
+
+[[block]]
+block = "cpu"
+interval = 3
+
+[[block]]
+block = "load"
+interval = 35
+format = "{1m}"
+
+[[block]]
+block = "sound"
+step_width = 3
+
+[[block]]
+block = "sound"
+device_kind = "source"
+step_width = 3
+
+[[block]]
+block = "time"
+interval = 60
+format = "%d/%m/%Y %H:%M"
+
+[[block]]
+block = "battery"
+interval = 45
+format = "{percentage} {time}"
