@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 import os
 import socket
+import subprocess
 from libqtile import qtile
+from libqtile import hook
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
@@ -189,7 +191,7 @@ prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
 widget_defaults = dict(
     font = 'Iosevka Nerd Font',
-    fontsize=18,
+    fontsize=17,
     padding=2,
     background=colors["foreground"]
 )
@@ -304,10 +306,12 @@ screens = [
                 padding = 2,
                 fmt = '   {}'
                 ),
-            widget.Systray()],
+            widget.Systray(
+                background = colors["background"]
+                    )],
             24,
         ),
-        wallpaper = '/home/henri/images/wallpaper/0308.jpg',
+        wallpaper = '/home/jim/Pictures/wallpaper/0026.jpg',
         wallpaper_mode = 'fill',
     ),
 ]
@@ -353,3 +357,9 @@ auto_minimize = True
 wl_input_rules = None
 
 wmname = "LG3D"
+
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~/')
+    subprocess.Popen([home + '.config/qtile/autostart.sh'])
+
