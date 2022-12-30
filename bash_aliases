@@ -15,17 +15,17 @@ alias clima="curl http://pt.wttr.in"
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 
-alias v="nvim"
+alias vi="nvim"
 
 # Confirm before overwriting
 alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
 
-alias update="sudo pacman -Syu"
+alias upgrade="sudo pacman -Syu"
 alias myip="curl ipinfo.io/ip"
 
-alias data='cd /storage'
+alias data='cd /store'
 
 # Colorize grep output
 alias grep='grep --color=auto'
@@ -39,8 +39,8 @@ alias diff='diff --color=auto'
 #alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # udisks
-alias drive="udisksctl mount -b"
-alias undrive="udisksctl unmount -b"
+#alias drive="udisksctl mount -b"
+#alias undrive="udisksctl unmount -b"
 
 # uninstall package
 alias uninstall="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
