@@ -37,8 +37,8 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 
 # X11
-export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
-export XAUTHORITY="$XDG_DATA_HOME/Xauthority"
+#export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
+#export XAUTHORITY="$XDG_DATA_HOME/Xauthority"
 
 export HISTFILE="$XDG_STATE_HOME/bash/history"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
