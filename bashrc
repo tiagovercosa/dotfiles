@@ -67,29 +67,10 @@ export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv 
 export RSTUDIO_CHROMIUM_ARGUMENTS="--disable-seccomp-filter-sandbox"
-export QT_QPA_PLATFORMTHEME="qt5ct"
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 # Set bat highlighting colour theme
 export BAT_THEME="base16"
-
-# NNN config
-BLK="0B" CHR="0B" DIR="04" EXE="06" REG="00" HARDLINK="06" SYMLINK="06" MISSING="00" ORPHAN="09" FIFO="06" SOCK="0B" OTHER="06"
-export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
-export NNN_FIFO='/tmp/nnn.fifo'
-export NNN_OPTS="dicEx"
-export NNN_TRASH=1
-export NNN_PLUG='p:preview-tui'
-export NNN_OPS_PROG=0
-
-### COLORS IN LESS (31 - red; 32 - green; 33 - yellow; 0 - reset/normal; 1 - bold; 4 - underlined) ###
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 ### Options ###
 set -o vi
