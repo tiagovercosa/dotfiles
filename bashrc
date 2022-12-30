@@ -98,10 +98,12 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 HISTCONTROL=ignoredups:erasedups
 
-PATH="${PATH}:$HOME/.local/bin"
+# Pyenv integration
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 #PS1="\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]] \[$(tput bold)\]\[$(tput setaf 2)\]\$(get_branch)\[$(tput sgr0)\]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
-PS1="\[$(tput setaf 5)\]\w\[$(tput sgr0)\] \[$(tput bold)\]\[$(tput setaf 2)\]\$(get_branch)\[$(tput sgr0)\]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+PS1="\[$(tput setaf 5)\]\w\[$(tput sgr0)\] \[$(tput bold)\]\[$(tput setaf 1)\]\$(get_branch)\[$(tput sgr0)\]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
