@@ -2,6 +2,10 @@
 source "$HOME/.config/user-dirs.dirs"
 source "$HOME/.bash_aliases"
 
+[[ -d ${HOME}/bin ]] && export PATH=$PATH:${HOME}/bin
+[[ -d ${HOME}/.local/bin ]] && export PATH=$PATH:${HOME}/.local/bin
+[[ -d ${HOME}/.local/xmgrace/bin ]] && export PATH=$PATH:${HOME}/.local/xmgrace/bin
+
 ### fzf ###
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
