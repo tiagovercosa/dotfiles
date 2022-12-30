@@ -50,5 +50,11 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
+URxvt*scrollBar: False
+URxvt*scrollTtyOutput: False
+URxvt*scrollTtyKeypress: False
+URxvt*secondaryScroll: False
+URxvt*font: xft:Iosevka SS08:size=12
+
 ! xmgrace font for window
 XMgrace*fontList: -adobe-helvetica-*-r-*-*-*-120-100-100-p-*-*-*
