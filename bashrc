@@ -17,11 +17,15 @@ export BROWSER="firefox"
 export MANPAGER="less"
 export PAGER="less"
 export READER="zathura"
-export QT_QPA_PLATFORMTHEME="qt5ct"
 export DIFFPROG="nvim -d $1"
 export VISUAL="nvim"
 export PAGER="less -Ri"
 export HISTCONTROL=ignoredups:erasedups
+export GTK_USE_PORTAL=1
+export PLASMA_USE_QT_SCALING=1
+export GBM_BACKEND=nvidia-drm
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export QT_QPA_PLATFORM="wayland;xcb"
 
 # Default directories in compliance with XDG standards
 export XDG_CONFIG_HOME="$HOME/.config"
