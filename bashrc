@@ -50,7 +50,6 @@ export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export LESSHISTFILE="-"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
-export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
