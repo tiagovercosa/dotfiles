@@ -5,7 +5,7 @@ set synctex-editor-command "code -g %{input}:%{line}"
 
 # Basic Settings
 
-set font "Hack 12"
+set font "Hack 10"
 set highlight-transparency .4
 set zoom-center "true"
 set selection-clipboard clipboard
