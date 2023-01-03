@@ -1,14 +1,30 @@
 * {
-    font:   "Montserrat 11";
+    font:   "Segoe UI Regular 12";
 
-    bg0:    #242424E6;
-    bg1:    #7E7E7E80;
-    /*bg2:    #0860f2E6;*/
-    bg2:    #924441E6;
+    nord0: #2e3440;
+    nord1: #3b4252;
+    nord2: #434c5e;
+    nord3: #4c566a;
+    nord4: #d8dee9;
+    nord5: #e5e9f0;
+    nord6: #eceff4;
+    nord7: #8fbcbb;
+    nord8: #88c0d0;
+    nord9: #81a1c1;
+    nord10: #5e81ac;
+    nord11: #bf616a;
+    nord12: #d08770;
+    nord13: #ebcb8b;
+    nord14: #a3be8c;
+    nord15: #b48ead;
 
-    fg0:    #DEDEDE;
-    fg1:    #FFFFFF;
-    fg2:    #DEDEDE80;
+    bg0:    @nord0;
+    bg1:    @nord9;
+    bg2:    @nord10;
+
+    fg0:    @nord4;
+    fg1:    @nord11;
+    fg2:    @nord2;
 
     background-color:   transparent;
     text-color:         @fg0;
@@ -24,12 +40,12 @@ window {
     location:       center;
     anchor:         center;
     width:          640;
-    /* y-offse:       -200; */
-    border-radius:  8;
+    y-offse:       -200;
+    border-radius:  1;
 }
 
 inputbar {
-    font:       "Montserrat 15";
+    font:       "Fira Sans 15";
     padding:    12px;
     spacing:    12px;
     children:   [ icon-search, entry ];
@@ -81,12 +97,18 @@ element normal active {
     text-color: @bg2;
 }
 
-element selected normal, element selected active {
+element selected normal {
     background-color:   @bg2;
     text-color:         #d7d7d7;
-    /* text-color:         #1a1b26; */
+    text-color:         @nord0;
 }
 
+element selected active {
+    font:   "JetBrainsMono 11";
+    background-color:   @bg2;
+    text-color:         #d7d7d7;
+    text-color:         @nord0;
+}
 element-icon {
     size:   1em;
 }
