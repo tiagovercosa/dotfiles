@@ -1,22 +1,28 @@
 export ZDOTDIR="$HOME/.config/zsh"
 
+# Determine dotfiles location
+DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.config/dotfiles}"
+
 ### Exports and variables ###
 # Define default applications
 export EDITOR="nvim"
-export BROWSER="firefox"
+export BROWSER="${BROWSER:-firefox}"  # Can be overridden by OS-specific configs
 export MANPAGER="less"
 export PAGER="less"
-export READER="zathura"
+export READER="${READER:-zathura}"    # Can be overridden by OS-specific configs
 export DIFFPROG="nvim -d $1"
 export VISUAL="nvim"
 export PAGER="less -Ri"
 export HISTCONTROL=ignoredups:erasedups
-export GTK_USE_PORTAL=1
-export PLASMA_USE_QT_SCALING=1
-# export GBM_BACKEND=nvidia-drm
-# export __GLX_VENDOR_LIBRARY_NAME=nvidia
-# export QT_QPA_PLATFORM="wayland;xcb"
-# export QT_QPA_PLATFORMTHEME="gtk3"
+
+# OS-specific configurations for zsh
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS specific configurations
+    [[ -f "$DOTFILES_DIR/macos/macos-specific.sh" ]] && source "$DOTFILES_DIR/macos/macos-specific.sh"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # Linux specific configurations  
+    [[ -f "$DOTFILES_DIR/linux/linux-specific.sh" ]] && source "$DOTFILES_DIR/linux/linux-specific.sh"
+fi
 
 # Default directories in compliance with XDG standards
 export XDG_CONFIG_HOME="$HOME/.config"
