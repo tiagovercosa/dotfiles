@@ -1,3 +1,7 @@
+# Backups
+*.bk
+*.bak
+.DS_Store
 .directory
 **/.DS_Store
 **/undo/
