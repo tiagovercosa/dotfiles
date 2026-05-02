@@ -7,24 +7,14 @@ Multi-platform dotfiles configuration supporting both Linux (Arch Linux) and mac
 ## Quick Start
 
 ### Linux (Arch Linux)
-```bash
-git clone https://github.com/tiagovercosa/dotfiles.git ~/.config/dotfiles
-cd ~/.config/dotfiles
-./setup/install-linux.sh
-```
+- [ ] Make a Makefile for Linux installation
+- [ ] Adjust configuration files for Archlinux
 
 ### macOS
 ```bash
 git clone https://github.com/tiagovercosa/dotfiles.git ~/.config/dotfiles
-cd ~/.config/dotfiles
-./setup/install-macos.sh
-```
-
-### Shared configurations only
-```bash
-git clone https://github.com/tiagovercosa/dotfiles.git ~/.config/dotfiles
-cd ~/.config/dotfiles
-./setup/install-shared.sh
+cd ~/.config/dotfiles/macos
+make install
 ```
 
 ## Directory Structure
@@ -35,57 +25,26 @@ cd ~/.config/dotfiles
 │   ├── i3/          # i3 window manager  
 │   ├── scripts/     # Linux-specific scripts
 │   └── *.conf       # X11 configurations
-├── macos/           # macOS-specific configurations
-│   ├── brew/        # Homebrew configurations
-│   ├── defaults/    # macOS system preferences
-│   ├── terminal/    # Terminal configurations
-│   └── scripts/     # macOS-specific scripts
-├── shared/          # Cross-platform configurations
-│   ├── config/      # Application configs (tmux, git, zsh, etc.)
-│   ├── vim/         # Vim configuration
-│   ├── scripts/     # Cross-platform scripts
-│   └── shell files  # bashrc, zshenv, etc.
-└── setup/           # Setup scripts for each platform
+└── macos/           # macOS-specific configurations
+    ├── ghostty/     # Ghostty configurations
+    ├── git/         # git configurations
+    ├── nvim/        # Neovim configurations
+    ├── r/           # R environments
+    ├── tmux/        # Tmux configurations
+    ├── vim/         # Vim configurations
+    └── zsh/         # ZSH configurations
 ```
 
 ## Features
 
-### Shared Configurations
-- **Shell**: Bash and Zsh with intelligent OS detection
-- **Vim**: Complete Vim configuration with plugins
+### Configurations
+- **Shell**: Bash and Zsh
+- **Vim**: Complete Vim configuration
 - **Git**: Git configuration and aliases
 - **Tmux**: Terminal multiplexer configuration
-- **Development tools**: Various development environment configs
 
 ### Linux-Specific
 - **Window Managers**: i3wm and Qtile configurations
 - **X11**: Keyboard, touchpad, and font configurations
 - **Scripts**: Arch Linux package management and system utilities
 
-### macOS-Specific
-- **Homebrew**: Package management and installation
-- **System Preferences**: Automated macOS defaults configuration
-- **Terminal**: Terminal.app and iTerm2 configurations
-
-## OS Detection
-
-The dotfiles automatically detect your operating system and load appropriate configurations:
-
-- **Linux**: Sources `linux/linux-specific.sh`
-- **macOS**: Sources `macos/macos-specific.sh`
-
-This enables seamless cross-platform usage while maintaining platform-specific optimizations.
-
-## Installation Notes
-
-- **Backup**: All existing dotfiles are automatically backed up before installation
-- **Permissions**: Linux installation may require sudo for X11 configurations
-- **Shell restart**: You may need to restart your shell after installation
-
-## Customization
-
-Each platform directory contains its own README with specific customization instructions:
-- [Linux Configuration Guide](linux/README.md)
-- [macOS Configuration Guide](macos/README.md)
-
-<!-- ## Configuration files that are used to customize your Linux installation. -->
