@@ -1,5 +1,5 @@
 install:
-	stow -t ~ vim git r nvim ghostty tmux zsh uv
+	stow -t ~ vim git r nvim ghostty tmux zsh
 
 uninstall:
-	stow -D -t ~ vim git r nvim ghostty tmux zsh uv
+	stow -D -t ~ vim git r nvim ghostty tmux zsh
