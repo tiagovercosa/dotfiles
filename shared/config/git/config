@@ -1,9 +1,0 @@
-[init]
-	defaultBranch = main
-[user]
-	name = Tiago Verçosa
-	email = vercosa@proton.me
-	signingkey = D6E2ADFFA60A45DE
-[core]
-	editor = nvim
-	fileMode = false
