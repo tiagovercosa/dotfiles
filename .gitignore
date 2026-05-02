@@ -3,3 +3,9 @@
 **/undo/
 **/site/
 **/cache/
+
+# Cache Zsh
+**/zsh/history
+**/zsh/.zcompdump*
+**/zsh/.zcompcache/
+**/zsh/.zsh_sessions/
