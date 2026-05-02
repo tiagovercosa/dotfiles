@@ -1,0 +1,14 @@
+[init]
+	defaultBranch = main
+[user]
+	name = Tiago Lima
+	email = vercosa@proton.me
+	signingkey = D6E2ADFFA60A45DE
+[core]
+	editor = nvim
+	fileMode = false
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
