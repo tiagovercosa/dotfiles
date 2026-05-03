@@ -70,6 +70,16 @@ PROMPT='%F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
 # zinit ice pick"async.zsh" src"pure.zsh"
 # zinit light sindresorhus/pure
 
+typeset -U path
+
+path=(
+  "$HOME/Projetos/GitHub/packmol"
+  "${XDG_DATA_HOME:-$HOME/.local/share}/npm/bin"
+  $path
+  )
+
+export PATH
+
 # aliases
 cdi() { 
 	local dir;
@@ -96,8 +106,6 @@ alias imac='TERM=xterm-256color ssh -X tiagolima@100.75.126.24'
 # Apps
 alias qtgrace='/Applications/qtgrace.app/Contents/MacOS/qtgrace'
 alias vmd='/Applications/VMD2b1.app/Contents/MacOS/startup.command'
-
-export PATH="$HOME/Projetos/GitHub/packmol:$PATH"
 
 # Shell integrations
 eval "$(zoxide init zsh --cmd z)"
