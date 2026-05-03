@@ -64,7 +64,7 @@ precmd_functions+=(vcs_info)
 zstyle ':vcs_info:git:*' formats '%b '
 
 setopt PROMPT_SUBST
-PROMPT='%F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
+PROMPT='%F{blue}%(4~|.../%3~|%~)%f %F{red}${vcs_info_msg_0_}%f$ '
 
 # Prompt
 # zinit ice pick"async.zsh" src"pure.zsh"
