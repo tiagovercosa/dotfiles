@@ -98,6 +98,8 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias diff='diff --color=auto'
 
+alias tree='tree -C'
+
 # Cluster LCCMat
 alias cluster='TERM=xterm-256color ssh -p80 tiago@164.41.10.150'
 alias lccmat='TERM=xterm-256color ssh -X tiago@100.73.56.10'
