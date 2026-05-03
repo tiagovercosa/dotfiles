@@ -7,7 +7,7 @@ font-feature = liga
 
 # --- APPEARENCE ---
 # theme = omtheme
-theme = nordfox
+theme = Onenord
 gtk-tabs-location = bottom
 gtk-wide-tabs = false
 window-padding-x = 0,0
@@ -16,8 +16,8 @@ window-padding-balance = true
 window-decoration = true
 window-theme = ghostty
 background-blur = true
-background-opacity = 0.9
-background-blur-radius = 20
+background-opacity = 0.97
+background-blur-radius = 10
 # macos-titlebar-style = hidden
 # gtk-single-instance = true
 
