@@ -1,20 +1,37 @@
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.termguicolors = true
-vim.opt.winborder = "rounded"
-vim.opt.cmdheight = 2
-vim.opt.tabstop = 2
-vim.opt.wrap = false
-vim.opt.cursorline = true
-vim.opt.ignorecase = true
-vim.opt.shiftwidth = 2
-vim.opt.smartindent = false
-vim.opt.signcolumn = "yes"
-vim.opt.swapfile = false
-vim.opt.clipboard = "unnamedplus"
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
-vim.opt.shortmess:append("c")
-vim.opt.scrolloff = 3
-vim.opt.expandtab = true
+vim.cmd [[
+  filetype on        " enable filetype detection
+  filetype plugin on " load file-specific plugins
+  filetype indent on " load file-specific indentation
 
+  set whichwrap+=<,>,[,],h,l
+]]
+
+local options = {
+  number = true,
+  relativenumber = true,
+  winborder = "rounded",
+  cmdheight = 2,
+  tabstop = 2,
+  wrap = false,
+  cursorline = true,
+  ignorecase = true,
+  shiftwidth = 2,
+  smartindent = false,
+  signcolumn = "yes",
+  colorcolumn = "80",
+  swapfile = false,
+  clipboard = "unnamedplus",
+  completeopt = { "menu", "menuone", "noselect" },
+  shortmess = vim.opt.shortmess + "c",
+  scrolloff = 5,
+  expandtab = true,
+}
+
+for i, j in pairs(options) do
+  vim.opt[i] = j
+end
+
+if vim.cmd [["termguicolors"]] then
+  vim.opt.termguicolors = true
+end
 
