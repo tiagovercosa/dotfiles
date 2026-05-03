@@ -1,31 +1,18 @@
 return {
   {
-    "AlexvZyl/nordic.nvim",
+    "shaunsingh/nord.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require("nordic").setup({
-      transparent = {
-        bg = true,
-        float = true,
-      },
-      cursorline = {
-        theme = "dark",
-      },
 
-      bold_keywords = true,
-      italic_comments = true,
+      vim.g.nord_contrast = true
+      vim.g.nord_borders = false
+      vim.g.nord_disable_background = true
+      vim.g.nord_italic = true
+      vim.g.nord_uniform_diff_background = true
+      vim.g.nord_bold = true
 
-      integrations = {
-        telescope = true,
-        treesitter = true,
-      },
-
-      on_highlight = function(highlights, palette)
-        highlights.Comment = { fg = palette.gray4, italic = true }
-      end,
-    })
-      require('nordic').load()
+      require("nord").set()
     end
   }
 }
