@@ -49,7 +49,8 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls", "pyright", "clangd", "html",
-          "fortls", "texlab", "marksman", "bashls", "ltex_plus",
+          "fortls", "texlab", "marksman", "bashls",
+          "ltex_plus"
         },
         automatic_enable = {
           exclude = { "ltex_plus" },
