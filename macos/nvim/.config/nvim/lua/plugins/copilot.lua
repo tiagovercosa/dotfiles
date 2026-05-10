@@ -9,13 +9,23 @@ return {
          keymap = {
           accept = "<C-l>",
           accept_word = false,
-          acept_line = false,
-          next = "<C-]>",
-          prev = "<C-[>",
-          dismiss = "<C-/>",
+          accept_line = false,
+          next = "<M-]>",
+          prev = "<M-[>",
+          dismiss = "<M-/>",
       },
-      panel = { enabled = false },
+    },
+
+    panel = { enabled = false },
+
+    filetypes = {
+      tex = true,
+      latex = true,
+      plaintex = true,
+      markdown = true,
+      ["*"] = true,
     }
+
   })
   end,
 }
