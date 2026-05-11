@@ -1,6 +1,6 @@
 # --- FONT ---
-font-family = Iosevka Nerd Font
-font-size = 17
+font-family = Monaco Nerd Font
+font-size = 15
 font-thicken = false
 font-feature = calt
 font-feature = liga
@@ -16,8 +16,8 @@ window-padding-balance = true
 window-decoration = true
 window-theme = ghostty
 background-blur = true
-background-opacity = 0.95
-background-blur-radius = 10
+background-opacity = 1.0
+background-blur-radius = 0
 # macos-titlebar-style = hidden
 # gtk-single-instance = true
 
