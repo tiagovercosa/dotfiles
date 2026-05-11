@@ -25,6 +25,7 @@ local options = {
   shortmess = vim.opt.shortmess + "c",
   scrolloff = 5,
   expandtab = true,
+  list = true,
 }
 
 for i, j in pairs(options) do
@@ -34,4 +35,11 @@ end
 if vim.cmd [["termguicolors"]] then
   vim.opt.termguicolors = true
 end
+
+vim.opt.listchars = {
+  space = "·",
+  tab = "→ ",
+  multispace = "·",
+  leadmultispace = "·",
+}
 
