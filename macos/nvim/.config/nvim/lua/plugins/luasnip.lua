@@ -19,7 +19,7 @@ return {
         paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
       })
 
-      vim.keymap.set({ "i", "s" }, "<C-l>", function()
+      vim.keymap.set({ "i", "s" }, "<C-j>", function()
         if luasnip.choice_active() then
           luasnip.change_choice(1)
         end
