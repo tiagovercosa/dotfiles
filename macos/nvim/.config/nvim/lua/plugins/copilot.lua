@@ -1,5 +1,6 @@
 return {
   "zbirenbaum/copilot.lua",
+  event = "InsertEnter",
   config = function()
     require("copilot").setup({
       suggestion = {
@@ -27,6 +28,22 @@ return {
     }
 
   })
+
+    vim.api.nvim_create_autocmd("FileType", {
+      group = vim.api.nvim_create_augroup("copilot_keymap_fix", { clear = true }),
+      callback = function(args)
+        vim.schedule(function()
+          local ok_client, client = pcall(require, "copilot.client")
+          if not ok_client or not client.buf_is_attached(args.buf) then
+            return
+          end
+          pcall(function()
+            require("copilot.suggestion").set_keymap(args.buf)
+          end)
+        end)
+      end,
+      desc = "Re-register Copilot suggestion keymap after FileType is set",
+    })
   end,
 }
 
