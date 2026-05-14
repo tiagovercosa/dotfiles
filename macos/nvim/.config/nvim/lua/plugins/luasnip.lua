@@ -26,5 +26,4 @@ return {
       end, { desc = "LuaSnip: next choice" })
     end,
   },
-  { "saadparwaiz1/cmp_luasnip" },
 }
