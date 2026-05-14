@@ -1,7 +1,7 @@
 vim.cmd [[
-  filetype on        " enable filetype detection
-  filetype plugin on " load file-specific plugins
-  filetype indent on " load file-specific indentation
+  filetype on           " enable filetype detection
+  filetype plugin on    " load file-specific plugins
+  filetype indent on    " load file-specific indentation
 
   set whichwrap+=<,>,[,],h,l
 ]]
@@ -16,7 +16,7 @@ local options = {
   cursorline = true,
   ignorecase = true,
   shiftwidth = 2,
-  smartindent = false,
+  smartindent = true,
   signcolumn = "yes",
   colorcolumn = "80",
   swapfile = false,
@@ -26,6 +26,12 @@ local options = {
   scrolloff = 5,
   expandtab = true,
   list = true,
+  textwidth = 80,
+  splitbelow = true,
+  incsearch = true,
+  hlsearch = true,
+  laststatus = 2,
+  showmatch = true,
 }
 
 for i, j in pairs(options) do
