@@ -63,8 +63,50 @@ precmd_functions+=(vcs_info)
 
 zstyle ':vcs_info:git:*' formats '%b '
 
+# Tempo de execução do último comando
+zmodload zsh/datetime
+typeset -g _cmd_start=0
+typeset -g _cmd_elapsed=""
+
+_format_duration() {
+  local total=$1
+  local d=$(( total / 86400 ))
+  local h=$(( (total % 86400) / 3600 ))
+  local m=$(( (total % 3600) / 60 ))
+  local s=$(( total % 60 ))
+  local out=""
+  (( d > 0 )) && out+="${d}d "
+  (( h > 0 )) && out+="${h}h "
+  (( m > 0 )) && out+="${m}m "
+  out+="${s}s"
+  print -r -- "$out"
+}
+
+_cmd_timer_preexec() {
+  _cmd_start=$EPOCHSECONDS
+}
+
+_cmd_timer_precmd() {
+  if (( _cmd_start > 0 )); then
+    local elapsed=$(( EPOCHSECONDS - _cmd_start ))
+    if (( elapsed >= 3 )); then
+      _cmd_elapsed="%F{yellow}time $(_format_duration $elapsed)%f"
+    else
+      _cmd_elapsed=""
+    fi
+    _cmd_start=0
+  else
+    _cmd_elapsed=""
+  fi
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec _cmd_timer_preexec
+add-zsh-hook precmd  _cmd_timer_precmd
+
 setopt PROMPT_SUBST
 PROMPT='%F{blue}%(4~|.../%3~|%~)%f %F{red}${vcs_info_msg_0_}%f$ '
+RPROMPT='${_cmd_elapsed}'
 
 # Prompt
 # zinit ice pick"async.zsh" src"pure.zsh"
@@ -75,6 +117,7 @@ typeset -U path
 path=(
   "$HOME/Projetos/GitHub/packmol"
   "${XDG_DATA_HOME:-$HOME/.local/share}/npm/bin"
+  "/opt/homebrew/opt/node@22/bin"
   $path
   )
 
