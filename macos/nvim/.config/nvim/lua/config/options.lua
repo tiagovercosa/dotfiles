@@ -8,7 +8,7 @@ vim.cmd [[
 
 local options = {
   number = true,
-  relativenumber = true,
+  relativenumber = false,
   winborder = "rounded",
   cmdheight = 2,
   tabstop = 2,
