@@ -13,3 +13,7 @@
 **/zsh/.zcompdump*
 **/zsh/.zcompcache/
 **/zsh/.zsh_sessions/
+
+# Plugins
+**/tmux/plugins/
+**/tmux/tpm/
