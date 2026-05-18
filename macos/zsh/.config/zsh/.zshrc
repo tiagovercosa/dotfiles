@@ -1,50 +1,56 @@
-export DISABLE_AUTO_TITLE="true"
+# Set the directory we wont to store zinit and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
 
-# Carrega o Zinit
-if [[ -r /opt/homebrew/opt/zinit/zinit.zsh ]]; then
-  source /opt/homebrew/opt/zinit/zinit.zsh
+# Install zinit if it is not already installed
+if [[ ! -d "$ZINIT_HOME" ]]; then
+  mkdir -p "$(dirname "$ZINIT_HOME")"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
-# Historic config
-HISTFILE="$ZDOTDIR/history"
-HISTSIZE=100000
-SAVEHIST=100000
+# Source/Load zinit
+source "$ZINIT_HOME/zinit.zsh"
 
-setopt appendhistory
-setopt sharehistory
-setopt extendedglob
-setopt interactive_comments
+# Add in zsh plugins
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+
+# Add in snippets
+zinit snippet OMZP::git
+
+# Load completions
+autoload -Uz compinit && compinit
+
+zinit cdreplay -q
+
+# Prompt
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
+fi
+
+# Set change directory
 setopt autocd
-
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_REDUCE_BLANKS
-setopt hist_ignore_space
+setopt auto_pushd
+setopt pushd_ignore_dups
 
 # Keybindings
-bindkey -v
+bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
-bindkey -M vicmd '^p' history-search-backward
-bindkey -M vicmd '^n' history-search-forward
 
-# Plugins
-if (( ${+functions[zinit]} )); then
-  zinit light zsh-users/zsh-completions
-
-  # Load completions
-  autoload -Uz compinit
-  if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-    compinit
-  else
-    compinit -C
-  fi
-  zinit cdreplay -q
-
-  zinit light Aloxaf/fzf-tab
-  zinit light zsh-users/zsh-autosuggestions
-  zinit light zdharma-continuum/fast-syntax-highlighting
-fi
+# History
+HISTSIZE=50000
+HISTFILE="$ZDOTDIR/.zsh_history"
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
 
 # Completions zstyling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -53,88 +59,19 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -G "$realpath"'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls -G "$realpath"'
 
-# Aceita sugestão com Ctrl+f quando o widget existir
-if (( ${+widgets[autosuggest-accept]} )); then
-  bindkey '^f' autosuggest-accept
-fi
-
-autoload -Uz vcs_info
-precmd_functions+=(vcs_info)
-
-zstyle ':vcs_info:git:*' formats '%b '
-
-# Tempo de execução do último comando
-zmodload zsh/datetime
-typeset -g _cmd_start=0
-typeset -g _cmd_elapsed=""
-
-_format_duration() {
-  local total=$1
-  local d=$(( total / 86400 ))
-  local h=$(( (total % 86400) / 3600 ))
-  local m=$(( (total % 3600) / 60 ))
-  local s=$(( total % 60 ))
-  local out=""
-  (( d > 0 )) && out+="${d}d "
-  (( h > 0 )) && out+="${h}h "
-  (( m > 0 )) && out+="${m}m "
-  out+="${s}s"
-  print -r -- "$out"
-}
-
-_cmd_timer_preexec() {
-  _cmd_start=$EPOCHSECONDS
-}
-
-_cmd_timer_precmd() {
-  if (( _cmd_start > 0 )); then
-    local elapsed=$(( EPOCHSECONDS - _cmd_start ))
-    if (( elapsed >= 3 )); then
-      _cmd_elapsed="%F{yellow}time $(_format_duration $elapsed)%f"
-    else
-      _cmd_elapsed=""
-    fi
-    _cmd_start=0
-  else
-    _cmd_elapsed=""
-  fi
-}
-
-autoload -Uz add-zsh-hook
-add-zsh-hook preexec _cmd_timer_preexec
-add-zsh-hook precmd  _cmd_timer_precmd
-
-setopt PROMPT_SUBST
-PROMPT='%F{blue}%(4~|.../%3~|%~)%f %F{red}${vcs_info_msg_0_}%f$ '
-RPROMPT='${_cmd_elapsed}'
-
-# Prompt
-# zinit ice pick"async.zsh" src"pure.zsh"
-# zinit light sindresorhus/pure
-
-typeset -U path
-
-path=(
-  "$HOME/Projetos/GitHub/packmol"
-  "${XDG_DATA_HOME:-$HOME/.local/share}/npm/bin"
-  "/opt/homebrew/opt/node@22/bin"
-  $path
-  )
-
-export PATH
-
 # aliases
-cdi() { 
+cdi() {
 	local dir;
 	dir=$(zoxide query -i "$@") && cd "$dir"
 }
+
 alias vi='nvim'
 
-alias ls='ls -G'
-alias ll='ls -lhG'
-alias la='ls -lahG'
-alias l1='ls -1G'
-alias lr='ls -lhGR'
+alias ls='eza --color=always --sort=extension --group-directories-first'
+alias ll='eza -l --color=always --sort=extension --group-directories-first'
+alias la='eza -la --color=always --sort=extension --group-directories-first'
+alias lt='eza --tree --level=2 --sort=extension --group-directories-first'
+alias lg='eza -lh --git --color=always --sort=extension --group-directories-first'
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -152,8 +89,18 @@ alias imac='TERM=xterm-256color ssh -X tiagolima@100.75.126.24'
 alias qtgrace='/Applications/qtgrace.app/Contents/MacOS/qtgrace'
 alias vmd='/Applications/VMD2b1.app/Contents/MacOS/startup.command'
 
+path=(
+  "$HOME/Projetos/GitHub/packmol"
+  "${XDG_DATA_HOME:-$HOME/.local/share}/npm/bin"
+  "/opt/homebrew/opt/node@22/bin"
+  $path
+  )
+
+export PATH
+
 # Shell integrations
-eval "$(zoxide init zsh --cmd z)"
+eval "$(zoxide init --cmd cd zsh)"
 if command -v fzf >/dev/null 2>&1; then
   source <(fzf --zsh)
 fi
+
