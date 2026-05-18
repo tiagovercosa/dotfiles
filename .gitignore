@@ -9,7 +9,7 @@
 **/cache/
 
 # Cache Zsh
-**/zsh/history
+**/zsh/.zsh_history
 **/zsh/.zcompdump*
 **/zsh/.zcompcache/
 **/zsh/.zsh_sessions/
