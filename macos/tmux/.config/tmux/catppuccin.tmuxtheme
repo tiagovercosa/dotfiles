@@ -1,0 +1,47 @@
+# ==========================================
+# Catppuccin Mocha palette: https://catppuccin.com
+# ==========================================
+
+thm_bg="#1e1e2e"
+thm_fg="#cdd6f4"
+thm_br="#313244"
+
+# Status bar
+set -g status "on"
+set -g status-interval 1
+set -g status-left-length 40
+set -g status-right-length 60
+set -g status-bg "${thm_bg}"
+set -g status-justify "centre"
+set -g status-position "bottom"
+set -g status-style "fg=#1e1e2e,bg=default"
+
+# Pane borders
+set -g pane-border-style fg="${thm_fg}"
+set -g pane-active-border-style "fg=#89b4fa"
+
+# Messages
+set -g message-style "fg=#cdd6f4,bg=#45475a"
+set -g message-command-style "fg=#cdd6f4,bg=#45475a"
+
+# Left: session badge — blue, turns peach when prefix is active
+set -g status-left "#{?client_prefix,#[fg=#1e1e2e bg=#fab387 bold] PREFIX ,#[fg=#1e1e2e bg=#89b4fa bold]} #S #[default] "
+
+# Right
+set -g status-right "#[fg=#cdd6f4 bold]%H:%M %d/%m "
+
+# Window status — inactive
+setw -g window-status-separator ""
+setw -g window-status-style "fg=#7f849c,bg=default"
+setw -g window-status-format "#[fg=#585b70] #W "
+
+# Window status — active
+setw -g window-status-current-style "fg=#f5e0dc,bg=default,bold"
+setw -g window-status-current-format "#[fg=#f5e0dc,bold] #W "
+
+# Bell
+setw -g window-status-bell-style "fg=#f38ba8,bg=default,bold"
+
+# Copy / visual selection
+setw -g mode-style "fg=#1e1e2e,bg=#cba6f7,bold"
+
