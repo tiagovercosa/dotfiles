@@ -17,6 +17,17 @@ final_space = true
     [blocks.segments.options]
       style = 'agnoster_short'
       max_depth = 4
+  
+    [[blocks.segments]]
+      type = 'python'
+      style = 'plain'
+      foreground = 'yellow'
+      background = 'transparent'
+      template = '  {{ .Venv }} ({{ .Full }})'
+
+      [blocks.segments.options]
+        display_mode = 'environment'
+
 
   [[blocks.segments]]
     type = 'git'
