@@ -17,7 +17,7 @@ mouse-hide-while-typing = true
 
 # --- SHELL/TMUX ---
 # Auto-attach to an existing tmux session on launch, or create a new one if none exists.
-command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
+# command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
 
 # --- WINDOW ---
 macos-titlebar-style = hidden
