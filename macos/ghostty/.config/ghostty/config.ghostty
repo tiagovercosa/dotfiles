@@ -28,7 +28,7 @@ shell-integration-features = title
 
 # --- PADDING ---
 window-padding-x = 4
-window-padding-y = 4
+window-padding-y = 7
 
 # -- APPEARANCE ---
 # window-theme = ghostty
