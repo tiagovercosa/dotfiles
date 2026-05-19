@@ -1,5 +1,10 @@
+-- Set leader keys
+vim.g.mapleader = ","
+vim.g.maplocalleader = " "
+
+-- For conciseness
 local map = vim.keymap.set
-local opts = { silent = true }
+local opts = { noremap = true, silent = true }
 
 map("n", "<leader>w", ":write<cr>", opts)
 map("n", "<leader>q", ":quit<cr>", opts)
