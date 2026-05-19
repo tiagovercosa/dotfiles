@@ -1,37 +1,43 @@
 # --- FONT ---
-font-family = JetBrainsMono Nerd Font
-font-size = 17
-font-thicken = false
+font-family = Iosevka Nerd Font
+font-size = 18
+font-thicken = true
 font-feature = calt
 font-feature = liga
 
-# --- APPEARENCE ---
-theme = Onenord
-gtk-tabs-location = bottom
-gtk-wide-tabs = false
-window-padding-x = 0,0
-window-padding-y = 0,0
-window-padding-balance = true
-window-decoration = true
-window-theme = ghostty
-background-blur = true
-background-opacity = 0.97
-background-blur-radius = 50
-# macos-titlebar-style = hidden
-# gtk-single-instance = true
+# --- THEME ---
+theme = nord
+background = #282c35
 
 # --- CURSOR ---
-# Estilo do cursor: block | bar | underline
-cursor-style = block
+cursor-style = bar
 cursor-style-blink = true
+cursor-color = #A3BE8C
+mouse-hide-while-typing = true
 
-# ──- SCROLLBACK ———
-scrollback-limit = 10000
+# --- SHELL/TMUX ---
+# Auto-attach to an existing tmux session on launch, or create a new one if none exists.
+command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
+
+# --- WINDOW ---
+macos-titlebar-style = hidden
+window-save-state = always
+confirm-close-surface = false
+quick-terminal-position = center
+shell-integration-features = title
+
+# --- PADDING ---
+window-padding-x = 4
+window-padding-y = 4
+
+# -- APPEARANCE ---
+# window-theme = ghostty
+background-blur = true
+background-opacity = 0.9
+background-blur-radius = 20
 
 # --- MOUSE ---
 copy-on-select = clipboard
-focus-follows-mouse = false
-mouse-hide-while-typing = true
 
 # --- LINKS ---
 link-url = true
@@ -39,9 +45,8 @@ link-url = true
 # --- NOTIFICATIONS ---
 bell-features = system
 
-# ──- TABS AND SPLITS ───
-confirm-close-surface = true
-
-command = /bin/zsh --login
+# --- KEYBINDINGS ---
+keybind = ctrl+enter=text:\x1b[13;5u
+keybind = shift+enter=text:\x1b[13;2u
 macos-option-as-alt = left
 
