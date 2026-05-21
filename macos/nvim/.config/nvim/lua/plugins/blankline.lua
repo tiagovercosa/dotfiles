@@ -4,7 +4,7 @@ return {
     main = "ibl",
     ---@module "ibl"
     ---@type ibl.config
-    opts = {},
+
     config = function ()
       vim.api.nvim_set_hl(0, "Whitespace", { fg = "#4C566A" })
       vim.api.nvim_set_hl(0, "IblIndent", { fg = "#4C566A" })
