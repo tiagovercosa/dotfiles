@@ -6,7 +6,14 @@ return {
     require("copilot").setup({
       enabled = true,
 
-      suggestion = { enabled = false },
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        hide_during_completion = false,
+        keymap = {
+          accept = "<M-l>",
+        },
+      },
       panel = { enabled = false },
 
       filetypes = {
