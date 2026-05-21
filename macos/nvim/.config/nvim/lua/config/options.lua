@@ -43,7 +43,6 @@ vim.opt.pumheight = 10  -- Popup menu height
 vim.opt.winblend = 0  -- Transparency for floating windows
 vim.opt.conceallevel = 0  -- Don't conceal text
 vim.opt.concealcursor = ""  -- Don't conceal text in the cursor line
-vim.opt.lazyredraw = false -- Don't redraw while executing macros
 vim.opt.redrawtime = 2000  -- Time in milliseconds to wait for a redraw
 vim.opt.synmaxcol = 300  -- Syntax highlighting column limit
 vim.opt.winborder = "rounded"  -- Use rounded borders for floating windows
@@ -80,8 +79,6 @@ vim.opt.laststatus = 3 -- Use a single status line for all windows
 vim.opt.shortmess = vim.opt.shortmess + "c"  -- Don't show completion messages
 
 -- Folding Settings
-vim.opt.foldmethod = "expr"  -- Use an expression to define folds
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"  -- Use Treesitter
 vim.opt.foldlevel = 99  -- Start with all folds open
 
 -- Split Behavior
