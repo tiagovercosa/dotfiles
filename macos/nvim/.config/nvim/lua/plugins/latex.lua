@@ -19,6 +19,7 @@ return {
         "-file-line-error",
         "-synctex=1",
         "-interaction=nonstopmode",
+        "-outdir=.",
       },
       callback = 1,
       continuous = 1,
