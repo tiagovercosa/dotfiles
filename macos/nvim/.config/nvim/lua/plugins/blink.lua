@@ -76,6 +76,11 @@ return {
 
       sources = {
         default = { "lsp", "path", "snippets", "buffer", "copilot" },
+        per_filetype = {
+          markdown = { "lsp", "path", "snippets" },
+          tex      = { "lsp", "path", "snippets" },
+          text     = { "lsp", "path", "snippets" },
+        },
         providers = {
           copilot = {
             name = "copilot",
