@@ -1,9 +1,8 @@
 # --- FONT ---
-font-family = Iosevka Nerd Font
+font-family = Mononoki Nerd Font
 font-size = 18
 font-thicken = true
-font-feature = calt
-font-feature = liga
+font-feature = liga,calt,clig
 
 # --- THEME ---
 theme = nord
@@ -25,16 +24,16 @@ window-save-state = always
 confirm-close-surface = false
 quick-terminal-position = center
 shell-integration-features = title
+window-decoration = auto
 
 # --- PADDING ---
-window-padding-x = 4
-window-padding-y = 7
+window-padding-x = 10
+window-padding-y = 10
 
 # -- APPEARANCE ---
-# window-theme = ghostty
 background-blur = true
-background-opacity = 0.9
-background-blur-radius = 20
+background-opacity = 0.88
+background-blur-radius = 25
 
 # --- MOUSE ---
 copy-on-select = clipboard
@@ -44,6 +43,10 @@ link-url = true
 
 # --- NOTIFICATIONS ---
 bell-features = system
+
+# -- UPDATES ---
+auto-update = check
+auto-update-channel = stable
 
 # --- KEYBINDINGS ---
 keybind = ctrl+enter=text:\x1b[13;5u
