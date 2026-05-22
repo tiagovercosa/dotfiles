@@ -1,0 +1,35 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$directory$git_branch$git_status
+$character"""
+
+add_newline = true
+
+[directory]
+format = "[$path]($style) "
+style = "bold #81a1c1"
+truncation_length = 4
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = " "
+style = "#cfd8dc"
+format = "[$symbol$branch]($style)"
+
+[git_status]
+format = "[$all_status$ahead_behind]($style) "
+style = "bold #cfd8dc"
+modified = "*"
+untracked = "?"
+staged = "+"
+conflicted = "="
+ahead = "⇡"
+behind = "⇣"
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](blue)"
+

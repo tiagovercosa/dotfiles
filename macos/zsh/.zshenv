@@ -13,8 +13,14 @@ else
   export EDITOR='nvim'
 fi
 
+# Pager configuration
+if command -v bat >/dev/null 2>&1; then
+  export MANPAGER="bat -l man -p"
+elif command -v batcat >/dev/null 2>&1; then
+  export MANPAGER="batcat -l man -p"
+fi
+
 # Exports and variables
-export MANPAGER="sh -c 'col -bx | bat -l man --style plain --paging always'"
 export DIFFPROG="nvim -d"
 export VISUAL="nvim"
 export PAGER="less -Ri"
@@ -35,4 +41,7 @@ export BAT_THEME="base16"
 # R user config
 export R_PROFILE_USER="$XDG_CONFIG_HOME/r/.Rprofile"
 export R_ENVIRON_USER="$XDG_CONFIG_HOME/r/.Renviron"
+
+# Starship configuration
+export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
 
