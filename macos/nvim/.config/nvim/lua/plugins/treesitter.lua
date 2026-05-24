@@ -5,17 +5,23 @@ return {
     lazy = false,
     build = ":TSUpdate",
     config = function()
-      local langs = {
+      local install_langs = {
         "python", "fortran", "bibtex", "cpp", "c",
         "html", "gnuplot", "yaml", "toml", "tmux",
         "bash", "lua", "vim", "vimdoc", "markdown",
       }
 
+      local ft_patterns = {
+        "python", "fortran", "bib", "cpp", "c",
+        "html", "gnuplot", "yaml", "toml", "tmux",
+        "bash", "lua", "vim", "help", "markdown",
+      }
+
       require("nvim-treesitter").setup()
-      require("nvim-treesitter").install(langs)
+      require("nvim-treesitter").install(install_langs)
 
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = langs,
+        pattern = ft_patterns,
         callback = function(args)
           local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
           if lang then
