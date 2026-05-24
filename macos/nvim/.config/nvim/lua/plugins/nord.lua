@@ -15,16 +15,13 @@ return {
     -- Load the colorscheme
     require('nord').set()
 
-    local bg_transparent = true
-
     -- Toggle background transparency
     local toggle_transparency = function()
-      bg_transparent = not bg_transparent
-      vim.g.nord_disable_background = bg_transparent
-      vim.cmd [[colorscheme nord]]
-      -- set_menu_border_transparency()
+      vim.g.nord_disable_background = not vim.g.nord_disable_background
+      vim.cmd.colorscheme("nord")
     end
 
-    vim.keymap.set('n', '<leader>bg', toggle_transparency, { noremap = true, silent = true })
+    vim.keymap.set('n', '<leader>bg', toggle_transparency,
+      { desc = "Toggle Nord background transparency" })
   end,
 }
