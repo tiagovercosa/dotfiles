@@ -6,7 +6,7 @@ return {
       local npairs = require("nvim-autopairs")
       local Rule = require("nvim-autopairs.rule")
 
-      require('nvim-autopairs').setup({
+      npairs.setup({
         disable_filetype = { "TelescopePrompt", "vim" },
         disable_in_macro = true,
         check_ts = true,
