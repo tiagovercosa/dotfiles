@@ -9,8 +9,8 @@ return {
           language = "pt-BR",
           languageToolHttpServerUri = "https://api.languagetoolplus.com/",
           languageToolOrg = {
-            username = "USER-NAME",
-            apiKey = "API-KEY",
+            username = vim.env.LTEX_LT_USERNAME,
+            apiKey = vim.env.LTEX_LT_APIKEY,
           },
         },
       },
