@@ -40,13 +40,18 @@ map("n", "<leader>Q", ":quit!<cr>", opts)
 map("n", "<leader>x", ":xit<cr>", opts)
 map("n", "<leader>v", ":e $MYVIMRC<cr>", opts)
 map("n", "<leader>z", ":e $HOME/.config/zsh/.zshrc<cr>", opts)
-map("n", "<leader>b", ":e #<cr>", opts)
+map("n", "<leader>ba", ":e #<cr>", opts)
 
-map("n", "<leader>t", vim.diagnostic.open_float, opts)
-map("n", "<leader>gf", vim.lsp.buf.format, opts)
-map("n", "<leader>gd", vim.lsp.buf.definition, opts)
-map("n", "<leader>rn", vim.lsp.buf.rename, opts)
-map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-map("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, opts)
-map("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, opts)
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(ev)
+    local bopts = { buffer = ev.buf, silent = true }
+    map("n", "<leader>t", vim.diagnostic.open_float, bopts)
+    map("n", "<leader>gf", vim.lsp.buf.format, bopts)
+    map("n", "<leader>gd", vim.lsp.buf.definition, bopts)
+    map("n", "<leader>rn", vim.lsp.buf.rename, bopts)
+    map("n", "<leader>ca", vim.lsp.buf.code_action, bopts)
+    map("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, bopts)
+    map("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, bopts)
+  end,
+})
 
