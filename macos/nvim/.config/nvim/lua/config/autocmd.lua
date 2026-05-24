@@ -29,14 +29,3 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Markdown
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
-  callback = function()
-    vim.opt_local.conceallevel = 2
-    -- "nv" significa: mantenha o texto ocultado mesmo se o cursor estiver 
-    -- na linha, nos modos Normal (n) e Visual (c). Só mostra o código bruto no modo de Inserção.
-    vim.opt_local.concealcursor = "nv"
-  end,
-})
-
