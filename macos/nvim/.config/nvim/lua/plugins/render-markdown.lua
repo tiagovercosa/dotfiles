@@ -8,7 +8,7 @@ return {
     },
 
     ---@module 'render-markdown'
-    ft = { "markdown", "rmd", "obsidian", "org" },
+    ft = { "markdown", "rmd" },
 
     opts = {
       heading = {
