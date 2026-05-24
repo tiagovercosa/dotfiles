@@ -1,5 +1,5 @@
 # --- FONT ---
-font-family = Mononoki Nerd Font
+font-family = IosevkaTerm Nerd Font
 font-size = 18
 font-thicken = true
 font-feature = liga,calt,clig
@@ -9,12 +9,14 @@ theme = nord
 background = #282c35
 
 # --- CURSOR ---
-cursor-style = bar
+cursor-style = block
 cursor-style-blink = true
 cursor-color = #A3BE8C
 mouse-hide-while-typing = true
 
 # --- SHELL/TMUX ---
+shell-integration = detect
+shell-integration-features = no-cursor, ssh-env, ssh-terminfo, sudo, no-title
 # Auto-attach to an existing tmux session on launch, or create a new one if none exists.
 # command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
 
@@ -23,8 +25,6 @@ macos-titlebar-style = hidden
 window-save-state = always
 confirm-close-surface = false
 quick-terminal-position = center
-shell-integration-features = title
-window-decoration = auto
 
 # --- PADDING ---
 window-padding-x = 10
@@ -40,6 +40,7 @@ copy-on-select = clipboard
 
 # --- LINKS ---
 link-url = true
+clipboard-trim-trailing-spaces = true
 
 # --- NOTIFICATIONS ---
 bell-features = system
@@ -51,5 +52,10 @@ auto-update-channel = stable
 # --- KEYBINDINGS ---
 keybind = ctrl+enter=text:\x1b[13;5u
 keybind = shift+enter=text:\x1b[13;2u
+keybind = cmd+a>r=reload_config
+keybind = cmd+a>x=close_surface
+keybind = cmd+a>f=reset_font_size
+
+# --- MACOS ---
 macos-option-as-alt = left
 
