@@ -12,16 +12,23 @@ return {
         hide_during_completion = false,
         keymap = {
           accept = "<M-l>",
+          accept_word = "<M-w>",
         },
       },
       panel = { enabled = false },
 
       filetypes = {
-        tex = true,
-        latex = true,
-        plaintex = true,
         markdown = true,
-        ["*"] = true,
+        tex = true,
+        text = true,
+        plaintex = true,
+        bib = true,
+        python = true,
+        c = true,
+        cpp = true,
+        fortran = true,
+        lua = true,
+        ["*"] = false,
       },
     })
   end,
