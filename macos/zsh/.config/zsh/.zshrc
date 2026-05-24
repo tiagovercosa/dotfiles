@@ -1,5 +1,6 @@
 source "$ZDOTDIR/plugins.zsh"
 source "$ZDOTDIR/prompt.zsh"
+source "$ZDOTDIR/local.zsh"
 
 # Set change directory
 setopt autocd
