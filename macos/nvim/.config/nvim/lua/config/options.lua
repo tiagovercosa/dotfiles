@@ -14,15 +14,13 @@ vim.opt.shiftwidth = 2  -- Number of spaces to use for each step of (auto)indent
 vim.opt.softtabstop = 2  -- Number of spaces that a <Tab> counts
 vim.opt.expandtab = true  -- Use spaces instead of tabs
 vim.opt.smartindent = true  -- Smart auto-indenting
-vim.opt.autoindent = true  -- Copy indent from current line
 vim.opt.grepprg = "rg --vimgrep"  -- Use ripgrep for searching
 vim.opt.grepformat = "%f:%l:%c:%m"  -- Format: file:line:column:message
 
 -- Search Settings
 vim.opt.ignorecase = true  -- Ignore case in search patterns
 vim.opt.smartcase = true  -- Override 'ignorecase' if search pattern contains uppercase letters
-vim.opt.hlsearch = false  -- Highlight search matches
-vim.opt.incsearch = true  -- Incremental search
+vim.opt.hlsearch = false  -- Disable persistent search highlight
 
 -- Visual Settings
 vim.opt.termguicolors = true  -- Enable true color support
@@ -46,7 +44,7 @@ vim.opt.backup = false  -- Don't create backup files
 vim.opt.writebackup = false  -- Don't create backup files while writing
 vim.opt.swapfile = false  -- Don't create swap files
 vim.opt.undofile = true  -- Enable persistent undo
-vim.opt.updatetime = 300  -- Time in ms to wait before triggering the swap file write
+vim.opt.updatetime = 300  -- CursorHold trigger (gitsigns blame, LSP hover)
 vim.opt.timeoutlen = 500  -- Time in ms to wait for a mapped sequence to complete
 vim.opt.ttimeoutlen = 0  -- Time in ms to wait for a key code sequence to complete
 vim.opt.autoread = true  -- Automatically read files when changed outside of Vim
@@ -54,17 +52,10 @@ vim.opt.autowrite = false  -- Don't automatically save files
 vim.opt.diffopt = "vertical,algorithm:patience,linematch:60"  -- Diff options
 
 -- Behavior Settings
-vim.opt.errorbells = false  -- Don't beep on errors
-vim.opt.backspace = "indent,eol,start"  -- Allow backspacing over everything in insert mode
 vim.opt.autochdir = false  -- Don't change the working directory automatically
 vim.opt.iskeyword:append("-")  -- Treat hyphens as part of words
 vim.opt.path:append("**")  -- Search for files in subdirectories
-vim.opt.selection = "inclusive"  -- Inclusive selection mode
-vim.opt.mouse = "a"  -- Enable mouse support in all modes
 vim.opt.clipboard:append("unnamedplus")  -- Use the system clipboard
-vim.opt.modifiable = true  -- Allow modifications to the buffer
-vim.opt.encoding = "utf-8"  -- Set file encoding to UTF-8
-vim.opt.wildmenu = true  -- Enable command-line completion menu
 vim.opt.wildmode = "longest:full,full"  -- Command-line completion mode
 vim.opt.wildignorecase = true  -- Ignore case in file completion
 vim.opt.textwidth = 100  -- Set maximum text width for automatic line breaks
