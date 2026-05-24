@@ -9,7 +9,7 @@ setopt nobeep
 setopt numeric_glob_sort
 
 # Keybindings
-bindkey -e
+bindkey -v
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^L' clear-screen
