@@ -6,7 +6,6 @@ local t    = ls.text_node
 local c    = ls.choice_node
 local f    = ls.function_node
 local rep  = require("luasnip.extras").rep
-local fmt  = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
 
 local in_mathzone = function()
@@ -18,7 +17,7 @@ local not_in_mathzone = function()
 end
 
 return {
-  s({ trig = "beg", dscr = "Generic environment" },
+  s({ trig = "beg", dscr = "Generic environment", condition = not_in_mathzone },
     fmta(
       [[
         \begin{<>}
@@ -29,7 +28,7 @@ return {
     )
   ),
 
-  s({ trig = "eq", dscr = "Equation environment" },
+  s({ trig = "eq", dscr = "Equation environment", condition = not_in_mathzone },
     fmta(
       [[
         \begin{equation}
@@ -40,7 +39,7 @@ return {
     )
   ),
 
-  s({ trig = "fig", dscr = "Figure environment" },
+  s({ trig = "fig", dscr = "Figure environment", condition = not_in_mathzone },
     fmta(
       [[
         \begin{figure}[<>]
@@ -54,28 +53,28 @@ return {
     )
   ),
 
-  s({ trig = "sec", dscr = "Section" },
+  s({ trig = "sec", dscr = "Section", condition = not_in_mathzone },
     fmta([[\section{<>}]], { i(1) })
   ),
-  s({ trig = "ssec", dscr = "Subsection" },
+  s({ trig = "ssec", dscr = "Subsection", condition = not_in_mathzone },
     fmta([[\subsection{<>}]], { i(1) })
   ),
-  s({ trig = "sssec", dscr = "Subsubsection" },
+  s({ trig = "sssec", dscr = "Subsubsection", condition = not_in_mathzone },
     fmta([[\subsubsection{<>}]], { i(1) })
   ),
 
-  s({ trig = "ref", dscr = "Reference" },
+  s({ trig = "ref", dscr = "Reference", condition = not_in_mathzone },
     fmta([[\ref{<>}]], { i(1) })
   ),
-  s({ trig = "cite", dscr = "Citation" },
+  s({ trig = "cite", dscr = "Citation", condition = not_in_mathzone },
     fmta([[\cite{<>}]], { i(1) })
   ),
 }, {
-  s({ trig = "mk", dscr = "Inline math", snippetType = "autosnippet" },
+  s({ trig = "mk", dscr = "Inline math" },
     fmta([[$<>$]], { i(1) })
   ),
 
-  s({ trig = "dm", dscr = "Display math", snippetType = "autosnippet" },
+  s({ trig = "dm", dscr = "Display math" },
     fmta(
       [[
         \[
@@ -87,7 +86,7 @@ return {
   ),
 
   s({ trig = "([%w%)%]%}])/", regTrig = true, wordTrig = false,
-      snippetType = "autosnippet", dscr = "Inline fraction (a/ -> \\frac{a}{...})",
+      dscr = "Inline fraction (a/ -> \\frac{a}{...})",
       condition = in_mathzone },
     fmta([[\frac{<>}{<>}]], {
       f(function(_, snip) return snip.captures[1] end),
@@ -95,43 +94,39 @@ return {
     })
   ),
 
-  s({ trig = "//", dscr = "Empty fraction", snippetType = "autosnippet",
-      condition = in_mathzone },
+  s({ trig = "//", dscr = "Empty fraction", condition = in_mathzone },
     fmta([[\frac{<>}{<>}]], { i(1), i(2) })
   ),
 
   s({ trig = "([%a])(%d)", regTrig = true, wordTrig = false,
-      snippetType = "autosnippet", dscr = "Auto subscript: x1 -> x_1",
+      dscr = "Auto subscript: x1 -> x_1",
       condition = in_mathzone },
     f(function(_, snip)
       return snip.captures[1] .. "_" .. snip.captures[2]
     end)
   ),
 
-  s({ trig = "sr", dscr = "Squared", snippetType = "autosnippet",
-      condition = in_mathzone },
+  s({ trig = "sr", dscr = "Squared", condition = in_mathzone },
     t("^2")
   ),
-  s({ trig = "cb", dscr = "Cubed", snippetType = "autosnippet",
-      condition = in_mathzone },
+
+  s({ trig = "cb", dscr = "Cubed", condition = in_mathzone },
     t("^3")
   ),
 
-  s({ trig = "sq", dscr = "Square root", snippetType = "autosnippet",
-      condition = in_mathzone },
+  s({ trig = "sq", dscr = "Square root", condition = in_mathzone },
     fmta([[\sqrt{<>}]], { i(1) })
   ),
 
-  s({ trig = "sum", dscr = "Sum", snippetType = "autosnippet",
-      condition = in_mathzone },
+  s({ trig = "sum", dscr = "Sum", condition = in_mathzone },
     fmta([[\sum_{<>}^{<>}]], { i(1, "n=1"), i(2, "\\infty") })
   ),
-  s({ trig = "int", dscr = "Integral", snippetType = "autosnippet",
-      condition = in_mathzone },
+
+  s({ trig = "int", dscr = "Integral", condition = in_mathzone },
     fmta([[\int_{<>}^{<>} <>]], { i(1), i(2), i(3) })
   ),
-  s({ trig = "lim", dscr = "Limit", snippetType = "autosnippet",
-      condition = in_mathzone },
+
+  s({ trig = "lim", dscr = "Limit", condition = in_mathzone },
     fmta([[\lim_{<> \to <>}]], { i(1, "n"), i(2, "\\infty") })
   ),
 }
