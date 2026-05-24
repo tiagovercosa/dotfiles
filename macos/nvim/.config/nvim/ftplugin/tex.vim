@@ -1,4 +1,4 @@
-setlocal conceallevel=1
+setlocal conceallevel=2
 
 " Use `<localleader>l` to trigger continuous compilation
 nmap <localleader>l <Plug>(vimtex-compile)
