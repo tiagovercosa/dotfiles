@@ -10,12 +10,18 @@ return {
       local themes = require("telescope.themes")
       require("telescope").setup({
         defaults = {
+          layout_config = {
+            horizontal = {
+              prompt_position = "top",
+              preview_width = 0.55,
+              results_width = 0.8,
+            },
+            vertical = {
+              width = 0.5,
+              mirror = false,
+            },
+          },
           file_ignore_patterns = { "%.aux", "%.log", "%.out" },
-        },
-        pickers = {
-          find_files = {
-            theme = "ivy"
-          }
         },
         extensions = {
           ["ui-select"] = {
