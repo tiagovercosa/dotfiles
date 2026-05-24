@@ -1,11 +1,3 @@
-vim.cmd [[
-  filetype on           " enable filetype detection
-  filetype plugin on    " load file-specific plugins
-  filetype indent on    " load file-specific indentation
-
-  set whichwrap+=<,>,[,],h,l
-]]
-
 -- Basic Settings
 vim.opt.nu = true  -- Line numbers
 vim.opt.relativenumber = true  -- Relative line numbers
@@ -14,6 +6,7 @@ vim.opt.cmdheight = 1  -- Command line height
 vim.opt.wrap = false  -- Disable line wrapping
 vim.opt.cursorline = true  -- Highlight the current line
 vim.opt.scrolloff = 5  -- Keep 5 lines above/below the cursor
+vim.opt.whichwrap:append("<,>,[,],h,l")  -- Allow cursor to move to the next/previous line with these keys
 
 -- Tabbing and Indentation
 vim.opt.tabstop = 2  -- Number of spaces that a <Tab>
