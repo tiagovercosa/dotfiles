@@ -7,6 +7,7 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "williamboman/mason.nvim",
       "neovim/nvim-lspconfig",
@@ -45,6 +46,20 @@ return {
       vim.lsp.config("pyright",  { cmd = { "pyright-langserver", "--stdio" } })
       vim.lsp.config("bashls",   { cmd = { "bash-language-server", "start" } })
       vim.lsp.config("html",     { cmd = { "vscode-html-language-server", "--stdio" } })
+
+      vim.lsp.config("ltex_plus", {
+        cmd = { "ltex-ls-plus" },
+        settings = {
+          ltex = {
+            language = "pt-BR",
+            languageToolHttpServerUri = "https://api.languagetoolplus.com/",
+            languageToolOrg = {
+              username = vim.env.LTEX_LT_USERNAME,
+              apiKey = vim.env.LTEX_LT_APIKEY,
+            },
+          },
+        },
+      })
 
       require("mason-lspconfig").setup({
         ensure_installed = {
