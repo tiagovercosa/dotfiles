@@ -85,3 +85,19 @@ if vim.fn.isdirectory(undodir_local) == 0 then
   vim.fn.mkdir(undodir_local, "p")
 end
 
+-- Diagnostics (matches winborder = "rounded")
+vim.diagnostic.config({
+  virtual_text = { prefix = "●" },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN]  = " ",
+      [vim.diagnostic.severity.INFO]  = " ",
+      [vim.diagnostic.severity.HINT]  = " ",
+    },
+  },
+  underline = true,
+  severity_sort = true,
+  float = { border = "rounded", source = "if_many" },
+})
+
