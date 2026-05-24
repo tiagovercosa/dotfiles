@@ -26,7 +26,8 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = " "
-style = "#cfd8dc"
+style = "bright-black"
+# style = "#cfd8dc"
 format = "[$symbol$branch]($style)"
 
 [git_status]
