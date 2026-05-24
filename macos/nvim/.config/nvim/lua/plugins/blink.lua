@@ -77,9 +77,11 @@ return {
       sources = {
         default = { "lsp", "path", "snippets", "buffer", "copilot" },
         per_filetype = {
-          markdown = { "lsp", "path", "snippets" },
-          tex      = { "lsp", "path", "snippets" },
-          text     = { "lsp", "path", "snippets" },
+          markdown = { "lsp", "path", "snippets", "buffer" },
+          tex      = { "lsp", "path", "snippets", "buffer" },
+          text     = { "lsp", "path", "snippets", "buffer" },
+          plaintex = { "lsp", "path", "snippets", "buffer" },
+          bib      = { "lsp", "path", "snippets", "buffer" },
         },
         providers = {
           copilot = {
