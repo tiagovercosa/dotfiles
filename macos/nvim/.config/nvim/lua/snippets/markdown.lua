@@ -27,25 +27,13 @@ return {
         ---
         title: <>
         date: <>
+        tags: <>
         ---
 
         <>
       ]],
-      { i(1), t(os.date("%Y-%m-%d")), i(0) }
-    )
-  ),
-}, {
-  s({ trig = "mk", dscr = "Inline math", snippetType = "autosnippet" },
-    fmta([[$<>$]], { i(1) })
-  ),
-  s({ trig = "dm", dscr = "Display math", snippetType = "autosnippet" },
-    fmta(
-      [[
-        $$
-        <>
-        $$
-      ]],
-      { i(1) }
+      { i(1), t(os.date("%Y-%m-%d")), i(2), i(0) }
     )
   ),
 }
+
