@@ -6,7 +6,9 @@ font-feature = liga,calt,clig
 
 # --- THEME ---
 theme = nord
-background = #282c35
+background = #252A33
+selection-background = #8FBCBB
+selection-foreground = #252A33
 
 # --- CURSOR ---
 cursor-style = block
@@ -21,14 +23,15 @@ shell-integration-features = no-cursor, ssh-env, ssh-terminfo, sudo, no-title
 # command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
 
 # --- WINDOW ---
-macos-titlebar-style = hidden
+title = " "
+macos-titlebar-style = tabs
 window-save-state = always
 confirm-close-surface = false
 quick-terminal-position = center
 
 # --- PADDING ---
-window-padding-x = 10
-window-padding-y = 10
+window-padding-x = 5
+window-padding-y = 5
 
 # -- APPEARANCE ---
 background-blur = true
