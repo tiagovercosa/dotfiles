@@ -47,6 +47,8 @@ if command -v fzf >/dev/null 2>&1; then
   source <(fzf --zsh)
 fi
 
+typeset -U path
+
 path=(
   "$HOME/Projetos/GitHub/packmol"
   "${XDG_DATA_HOME:-$HOME/.local/share}/npm/bin"
@@ -54,7 +56,6 @@ path=(
   $path
   )
 
-export PATH
 
 # Shell integrations
 eval "$(zoxide init --cmd cd zsh)"
