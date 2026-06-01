@@ -11,17 +11,12 @@ return {
   s({ trig = "img", dscr = "Markdown image" },
     fmta([[![<>](<>)]], { i(1, "alt"), i(2, "path") })
   ),
-  s({ trig = "code", dscr = "Fenced code block" },
-    fmta(
-      [[
-        ```<>
-        <>
-        ```
-      ]],
-      { i(1, "lang"), i(2) }
-    )
-  ),
-  s({ trig = "fm", dscr = "YAML frontmatter" },
+},
+{
+  s({ trig = "^fmt", regTrig = true, dscr = "YAML frontmatter",
+    condition = function()
+      return vim.fn.line(".") == 1
+    end },
     fmta(
       [[
         ---
@@ -33,6 +28,39 @@ return {
         <>
       ]],
       { i(1), t(os.date("%Y-%m-%d")), i(2), i(0) }
+    )
+  ),
+
+  s({ trig = "^daily", regTrig = true, dscr = "YAML frontmatter",
+    condition = function()
+      return vim.fn.line(".") == 1
+    end },
+    fmta(
+      [[
+        ---
+        date: <>
+        tags:
+          - daily
+        ---
+
+        # <>
+
+        ## <>
+
+        <>
+      ]],
+      { t(os.date("%Y-%m-%d")), t(os.date("%A, %d %b %Y")), t(os.date("%H:%M")), i(0) }
+    )
+  ),
+
+  s({ trig = "^code", regTrig = true, dscr = "Fenced code block" },
+    fmta(
+      [[
+        ```<>
+        <>
+        ```
+      ]],
+      { i(1, "lang"), i(2) }
     )
   ),
 }
