@@ -44,7 +44,7 @@ return {
         },
       })
       vim.lsp.config("marksman", { cmd = { "marksman", "server" } })
-      vim.lsp.config("pyright",  { cmd = { "pyright-langserver", "--stdio" } })
+      vim.lsp.config("basedpyright",  { cmd = { "basedpyright-langserver", "--stdio" } })
       vim.lsp.config("bashls",   { cmd = { "bash-language-server", "start" } })
       vim.lsp.config("html",     { cmd = { "vscode-html-language-server", "--stdio" } })
 
@@ -64,7 +64,7 @@ return {
 
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "lua_ls", "pyright", "clangd", "html",
+          "lua_ls", "basedpyright", "clangd", "html",
           "fortls", "texlab", "marksman", "bashls",
           "ltex_plus"
         },
