@@ -28,14 +28,15 @@ return {
         pattern = ft_patterns,
         callback = function(args)
           local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
-          if lang then
-            pcall(vim.treesitter.start, args.buf, lang)
+          if lang and pcall(vim.treesitter.start, args.buf, lang) then
+            -- Dobras só onde existe árvore. Definir isto com vim.opt fazia o
+            -- foldexpr rodar em todo buffer, inclusive nos sem parser, onde
+            -- ele nunca produz dobra alguma.
+            vim.opt_local.foldmethod = "expr"
+            vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
           end
         end,
       })
-
-      vim.opt.foldmethod = "expr"
-      vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
     end,
   },
