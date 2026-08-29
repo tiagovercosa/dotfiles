@@ -2,7 +2,15 @@ local ls   = require("luasnip")
 local s    = ls.snippet
 local i    = ls.insert_node
 local t    = ls.text_node
+local f    = ls.function_node
 local fmta = require("luasnip.extras.fmt").fmta
+
+-- Datas e horas usam function_node, não text_node: dentro de t() o os.date()
+-- roda uma única vez, quando este arquivo é carregado, e o valor fica
+-- congelado pelo resto da sessão.
+local function agora(formato)
+  return f(function() return os.date(formato) end)
+end
 
 return {
   s({ trig = "link", dscr = "Markdown link" },
@@ -27,7 +35,7 @@ return {
 
         <>
       ]],
-      { i(1), t(os.date("%Y-%m-%d")), i(2), i(0) }
+      { i(1), agora("%Y-%m-%d"), i(2), i(0) }
     )
   ),
 
@@ -48,8 +56,11 @@ return {
         ## <>
 
         <>
+
+        ## Notes Today
+        !\[\[Daily.base\]\]
       ]],
-      { t(os.date("%Y-%m-%d")), t(os.date("%A, %d %b %Y")), t(os.date("%H:%M")), i(0) }
+      { agora("%Y-%m-%d"), agora("%A, %d %b %Y"), agora("%H:%M"), i(0) }
     )
   ),
 
