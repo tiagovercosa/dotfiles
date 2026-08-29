@@ -59,6 +59,7 @@ vim.opt.clipboard:append("unnamedplus")  -- Use the system clipboard
 vim.opt.wildmode = "longest:full,full"  -- Command-line completion mode
 vim.opt.wildignorecase = true  -- Ignore case in file completion
 vim.opt.textwidth = 100  -- Set maximum text width for automatic line breaks
+vim.opt.formatoptions:remove("t")  -- ...but don't hard-wrap while typing; autocmd.lua re-enables it for prose
 vim.opt.laststatus = 3 -- Use a single status line for all windows
 vim.opt.shortmess = vim.opt.shortmess + "c"  -- Don't show completion messages
 
