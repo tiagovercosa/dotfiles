@@ -9,10 +9,14 @@ return {
       -- parser no registry, o que imprimia "skipping unsupported language:
       -- tmux" a cada startup. O tmux.so em site/parser sobrou da versão antiga
       -- e não pinta nada — site/queries/tmux é um symlink quebrado.
+      -- markdown_inline não é um filetype: o parser markdown o injeta para o
+      -- conteúdo de linha (ênfase, código inline, links). Sem ele declarado
+      -- aqui, o realce inline depende do .so que sobrou da branch master e
+      -- some numa instalação limpa.
       local install_langs = {
         "python", "fortran", "bibtex", "cpp", "c",
         "html", "gnuplot", "yaml", "toml", "bash",
-        "lua", "vim", "vimdoc", "markdown",
+        "lua", "vim", "vimdoc", "markdown", "markdown_inline",
       }
 
       local ft_patterns = {
