@@ -43,7 +43,7 @@ return {  },
     )
   ),
 
-  s({ trig = "ˆsec", regTrig = true, dscr = "Section", condition = not_in_mathzone },
+  s({ trig = "^sec", regTrig = true, dscr = "Section", condition = not_in_mathzone },
     fmta([[\section{<>}]], { i(1) })
   ),
   s({ trig = "ssec", dscr = "Subsection", condition = not_in_mathzone },
