@@ -98,7 +98,9 @@ return {
           "bashls", "ltex_plus"
         },
         automatic_enable = {
-          exclude = { "ltex_plus" },
+          -- copilot: o copilot.lua já sobe o próprio servidor. Sem isto o
+          -- mason-lspconfig sobe um segundo, que ninguém consome.
+          exclude = { "ltex_plus", "copilot" },
         },
       })
     end,

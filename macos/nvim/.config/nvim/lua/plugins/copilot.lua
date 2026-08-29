@@ -9,7 +9,9 @@ return {
       suggestion = {
         enabled = true,
         auto_trigger = true,
-        hide_during_completion = false,
+        -- só afeta o popup nativo (vim.fn.pumvisible); a janela do blink
+        -- ele não detecta. É o default do copilot.lua.
+        hide_during_completion = true,
         keymap = {
           accept = "<M-l>",
           accept_word = "<M-w>",
