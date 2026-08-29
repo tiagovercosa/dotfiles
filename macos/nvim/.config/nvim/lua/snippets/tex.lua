@@ -16,19 +16,9 @@ local not_in_mathzone = function()
   return not in_mathzone()
 end
 
-return {
-  s({ trig = "beg", dscr = "Generic environment", condition = not_in_mathzone },
-    fmta(
-      [[
-        \begin{<>}
-            <>
-        \end{<>}
-      ]],
-      { i(1), i(0), rep(1) }
-    )
-  ),
-
-  s({ trig = "eq", dscr = "Equation environment", condition = not_in_mathzone },
+return {  },
+{
+  s({ trig = "^eqq", regTrig = true, dscr = "Equation environment", condition = not_in_mathzone },
     fmta(
       [[
         \begin{equation}
@@ -39,7 +29,7 @@ return {
     )
   ),
 
-  s({ trig = "fig", dscr = "Figure environment", condition = not_in_mathzone },
+  s({ trig = "^figg", regTrig = true, dscr = "Figure environment", condition = not_in_mathzone },
     fmta(
       [[
         \begin{figure}[<>]
@@ -53,7 +43,7 @@ return {
     )
   ),
 
-  s({ trig = "sec", dscr = "Section", condition = not_in_mathzone },
+  s({ trig = "ˆsec", regTrig = true, dscr = "Section", condition = not_in_mathzone },
     fmta([[\section{<>}]], { i(1) })
   ),
   s({ trig = "ssec", dscr = "Subsection", condition = not_in_mathzone },
@@ -69,7 +59,17 @@ return {
   s({ trig = "cite", dscr = "Citation", condition = not_in_mathzone },
     fmta([[\cite{<>}]], { i(1) })
   ),
-}, {
+    s({ trig = "^beg", regTrig = true, dscr = "Generic environment", condition = not_in_mathzone },
+    fmta(
+      [[
+        \begin{<>}
+            <>
+        \end{<>}
+      ]],
+      { i(1), i(0), rep(1) }
+    )
+  ),
+
   s({ trig = "mk", dscr = "Inline math" },
     fmta([[$<>$]], { i(1) })
   ),
