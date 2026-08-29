@@ -44,7 +44,36 @@ return {
         },
       })
       vim.lsp.config("marksman", { cmd = { "marksman", "server" } })
-      vim.lsp.config("basedpyright",  { cmd = { "basedpyright-langserver", "--stdio" } })
+      -- basedpyright cuida SÓ da verificação de tipos; o lint (import/variável
+      -- não usados, nome indefinido) fica com o ruff, para não duplicar.
+      vim.lsp.config("basedpyright", {
+        cmd = { "basedpyright-langserver", "--stdio" },
+        settings = {
+          basedpyright = {
+            -- lspconfig força true, o que transforma o hint esmaecido de
+            -- "não utilizado" em warning cheio. false devolve o esmaecido.
+            disableTaggedHints = false,
+            analysis = {
+              -- O padrão do basedpyright é "recommended", bem mais estrito que
+              -- o "standard" do pyright: exige anotação em tudo e inunda a tela
+              -- com "Type of X is unknown".
+              typeCheckingMode = "standard",
+              diagnosticSeverityOverrides = {
+                -- já cobertos pelo ruff (F401, F841, F821)
+                reportUnusedImport = "none",
+                reportUnusedVariable = "none",
+                reportUndefinedVariable = "none",
+                -- erro por padrão; vira ruído quando o venv não é detectado
+                reportMissingImports = "warning",
+              },
+            },
+          },
+        },
+      })
+
+      -- Lint + formatação. É o único servidor Python com documentFormatting,
+      -- ou seja, <leader>gf em .py depende dele.
+      vim.lsp.config("ruff", { cmd = { "ruff", "server" } })
       vim.lsp.config("bashls",   { cmd = { "bash-language-server", "start" } })
       vim.lsp.config("html",     { cmd = { "vscode-html-language-server", "--stdio" } })
 
@@ -64,9 +93,9 @@ return {
 
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "lua_ls", "basedpyright", "clangd", "html",
-          "fortls", "texlab", "marksman", "bashls",
-          "ltex_plus"
+          "lua_ls", "basedpyright", "ruff", "clangd",
+          "html", "fortls", "texlab", "marksman",
+          "bashls", "ltex_plus"
         },
         automatic_enable = {
           exclude = { "ltex_plus" },

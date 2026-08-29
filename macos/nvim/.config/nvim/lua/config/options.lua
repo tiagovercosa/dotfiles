@@ -87,7 +87,10 @@ end
 
 -- Diagnostics (matches winborder = "rounded")
 vim.diagnostic.config({
-  virtual_text = { prefix = "●" },
+  -- Sem texto inline solto pelo arquivo: a mensagem completa aparece só na
+  -- linha do cursor; as demais ficam apenas com o sinal no gutter.
+  virtual_text = false,
+  virtual_lines = { current_line = true },
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = " ",
