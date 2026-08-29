@@ -5,16 +5,20 @@ return {
     lazy = false,
     build = ":TSUpdate",
     config = function()
+      -- "tmux" ficou de fora: o branch main do nvim-treesitter não tem esse
+      -- parser no registry, o que imprimia "skipping unsupported language:
+      -- tmux" a cada startup. O tmux.so em site/parser sobrou da versão antiga
+      -- e não pinta nada — site/queries/tmux é um symlink quebrado.
       local install_langs = {
         "python", "fortran", "bibtex", "cpp", "c",
-        "html", "gnuplot", "yaml", "toml", "tmux",
-        "bash", "lua", "vim", "vimdoc", "markdown",
+        "html", "gnuplot", "yaml", "toml", "bash",
+        "lua", "vim", "vimdoc", "markdown",
       }
 
       local ft_patterns = {
         "python", "fortran", "bib", "cpp", "c",
-        "html", "gnuplot", "yaml", "toml", "tmux",
-        "bash", "lua", "vim", "help", "markdown",
+        "html", "gnuplot", "yaml", "toml", "bash",
+        "lua", "vim", "help", "markdown",
       }
 
       require("nvim-treesitter").setup()
