@@ -1,6 +1,6 @@
 # --- FONT ---
-font-family = IosevkaTerm Nerd Font
-font-size = 18
+font-family = Mononoki Nerd Font
+font-size = 17
 font-thicken = true
 font-feature = liga,calt,clig
 
@@ -20,7 +20,7 @@ mouse-hide-while-typing = true
 
 # --- SHELL/TMUX ---
 shell-integration = detect
-shell-integration-features = no-cursor, ssh-env, ssh-terminfo, sudo, no-title
+shell-integration-features = no-cursor,ssh-env,ssh-terminfo,sudo,no-title
 # Auto-attach to an existing tmux session on launch, or create a new one if none exists.
 # command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
 
@@ -37,8 +37,8 @@ window-padding-y = 5
 
 # -- APPEARANCE ---
 background-blur = true
-background-opacity = 0.88
-background-blur-radius = 25
+background-opacity = 0.95
+background-blur-radius = 15
 
 # --- MOUSE ---
 copy-on-select = clipboard
