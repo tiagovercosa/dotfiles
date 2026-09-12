@@ -9,7 +9,7 @@ function transient-prompt-finish() {
   STARSHIP_BACKUP_PROMPT="$PROMPT"
   
   # Substitui pelo símbolo transiente (versão estática para velocidade instantânea)
-  PROMPT="%F{green}❯%f "
+  PROMPT="%F{#81a1c1}%~%f %F{green}❯%f "
   RPROMPT=""
   
   # Redesenha a linha atual com o prompt encolhido
