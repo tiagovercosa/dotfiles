@@ -2,6 +2,8 @@ source "$ZDOTDIR/plugins.zsh"
 source "$ZDOTDIR/prompt.zsh"
 source "$ZDOTDIR/local.zsh"
 
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 # Set change directory
 setopt autocd
 setopt auto_pushd
@@ -55,7 +57,6 @@ path=(
   "/opt/homebrew/opt/node@22/bin"
   $path
   )
-
 
 # Shell integrations
 eval "$(zoxide init --cmd cd zsh)"
