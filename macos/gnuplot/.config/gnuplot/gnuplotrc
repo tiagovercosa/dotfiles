@@ -1,0 +1,10 @@
+set terminal qt font "Helvetica,12"
+
+# Grid sutil por padrão
+set style line 102 lc rgb "#d6d7d9" lt 0 lw 1
+set grid ls 102
+
+# Linhas mais espessas
+set style line 1 lw 2 lc rgb "#0072B2"
+set style line 2 lw 2 lc rgb "#E69F00"
+set style line 3 lw 2 lc rgb "#009E73"
