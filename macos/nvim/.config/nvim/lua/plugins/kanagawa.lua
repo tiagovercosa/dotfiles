@@ -15,7 +15,7 @@ return {
       keywordStyle = { italic = true },
       functionStyle = {},
       statementStyle = { bold = true },
-      transparent = false,   -- do not set a background color
+      transparent = true,   -- do not set a background color
       dimInactive = false,   -- dim the background of inactive windows
       terminalColors = true, -- define vim.g.terminal_color_{0,17}
     })
