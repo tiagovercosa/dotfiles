@@ -5,15 +5,17 @@ font-thicken = true
 font-feature = liga,calt,clig
 
 # --- THEME ---
-theme = nord
-background = #252A33
-selection-background = #8FBCBB
-selection-foreground = #252A33
+theme = Kanagawa Wave
+# The values below are already provided by the theme above; uncomment to override.
+# background = #1F1F28
+# foreground = #DCD7BA
+selection-background = #223249
+selection-foreground = #DCD7BA
 
 # --- CURSOR ---
 cursor-style = block
 cursor-style-blink = true
-cursor-color = #A3BE8C
+# cursor-color = #DCD7BA
 mouse-hide-while-typing = true
 
 # --- SHELL/TMUX ---
