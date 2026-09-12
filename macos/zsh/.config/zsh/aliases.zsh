@@ -10,8 +10,9 @@ cdi() {
 alias ls='eza --group-directories-first'
 alias ll='eza -l --git --group-directories-first'
 alias la='eza -la --git --group-directories-first'
+alias lt='eza -lr -s time --git'
 
-alias tree='eza --tree --icons'
+alias tree='eza --tree'
 
 alias -- -='cd -'
 
