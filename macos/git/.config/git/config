@@ -3,7 +3,7 @@
 [user]
 	name = Tiago Lima
 	email = vercosa@proton.me
-	signingkey = D6E2ADFFA60A45DE
+	signingkey = A6A9EC233FA87B1C
 [core]
 	editor = nvim
 	fileMode = false
@@ -12,3 +12,7 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
