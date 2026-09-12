@@ -5,19 +5,13 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
+export EZA_CONFIG_DIR="$HOME/.config/eza"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='nvim'
-fi
-
-# Pager configuration
-if command -v bat >/dev/null 2>&1; then
-  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-elif command -v batcat >/dev/null 2>&1; then
-  export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 fi
 
 # Exports and variables
