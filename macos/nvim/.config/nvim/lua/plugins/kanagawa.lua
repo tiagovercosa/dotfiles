@@ -18,6 +18,15 @@ return {
       transparent = true,   -- do not set a background color
       dimInactive = false,   -- dim the background of inactive windows
       terminalColors = true, -- define vim.g.terminal_color_{0,17}
+      colors = {
+        theme = {
+          all = {
+            ui = {
+              bg_gutter = "none", -- transparent line number / sign / fold column
+            },
+          },
+        },
+      },
     })
 
     -- Load the colorscheme
