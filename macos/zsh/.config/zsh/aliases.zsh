@@ -12,7 +12,7 @@ alias ll='eza -l --git --group-directories-first'
 alias la='eza -la --git --group-directories-first'
 alias lt='eza -lr -s time --git'
 
-alias tree='eza --tree'
+alias tree='eza --tree --icons auto'
 
 alias -- -='cd -'
 
