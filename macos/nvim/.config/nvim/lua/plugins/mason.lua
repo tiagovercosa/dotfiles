@@ -44,26 +44,17 @@ return {
         },
       })
       vim.lsp.config("marksman", { cmd = { "marksman", "server" } })
-      -- basedpyright cuida SÓ da verificação de tipos; o lint (import/variável
-      -- não usados, nome indefinido) fica com o ruff, para não duplicar.
       vim.lsp.config("basedpyright", {
         cmd = { "basedpyright-langserver", "--stdio" },
         settings = {
           basedpyright = {
-            -- lspconfig força true, o que transforma o hint esmaecido de
-            -- "não utilizado" em warning cheio. false devolve o esmaecido.
             disableTaggedHints = false,
             analysis = {
-              -- O padrão do basedpyright é "recommended", bem mais estrito que
-              -- o "standard" do pyright: exige anotação em tudo e inunda a tela
-              -- com "Type of X is unknown".
               typeCheckingMode = "standard",
               diagnosticSeverityOverrides = {
-                -- já cobertos pelo ruff (F401, F841, F821)
                 reportUnusedImport = "none",
                 reportUnusedVariable = "none",
                 reportUndefinedVariable = "none",
-                -- erro por padrão; vira ruído quando o venv não é detectado
                 reportMissingImports = "warning",
               },
             },
@@ -71,24 +62,25 @@ return {
         },
       })
 
-      -- Lint + formatação. É o único servidor Python com documentFormatting,
-      -- ou seja, <leader>gf em .py depende dele.
       vim.lsp.config("ruff", { cmd = { "ruff", "server" } })
       vim.lsp.config("bashls",   { cmd = { "bash-language-server", "start" } })
       vim.lsp.config("html",     { cmd = { "vscode-html-language-server", "--stdio" } })
 
+      local ltex_settings = { language = "pt-BR" }
+
+      local lt_user = vim.env.LTEX_LT_USERNAME
+      local lt_key = vim.env.LTEX_LT_APIKEY
+      if lt_user and lt_user ~= "" and lt_key and lt_key ~= "" then
+        ltex_settings.languageToolHttpServerUri = "https://api.languagetoolplus.com/"
+        ltex_settings.languageToolOrg = {
+          username = "${LTEX_LT_USERNAME}",
+          apiKey = "${LTEX_LT_APIKEY}",
+        }
+      end
+
       vim.lsp.config("ltex_plus", {
         cmd = { "ltex-ls-plus" },
-        settings = {
-          ltex = {
-            language = "pt-BR",
-            languageToolHttpServerUri = "https://api.languagetoolplus.com/",
-            languageToolOrg = {
-              username = vim.env.LTEX_LT_USERNAME,
-              apiKey = vim.env.LTEX_LT_APIKEY,
-            },
-          },
-        },
+        settings = { ltex = ltex_settings },
       })
 
       require("mason-lspconfig").setup({
