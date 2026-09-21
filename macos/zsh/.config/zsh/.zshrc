@@ -60,4 +60,5 @@ path=(
 
 # Shell integrations
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(/usr/libexec/path_helper)"
 
