@@ -26,6 +26,7 @@ alias fgrep='rg -F'
 alias diff='diff --color=auto'
 
 # Apps
-alias qtgrace='/Applications/qtgrace.app/Contents/MacOS/qtgrace'
+# alias qtgrace='/Applications/qtgrace.app/Contents/MacOS/qtgrace'
+alias tlup='sudo env PATH="/Library/TeX/texbin:$PATH" tlmgr update --self --all'
 alias vmd='/Applications/VMD2b1.app/Contents/MacOS/startup.command'
 alias vi='nvim'
