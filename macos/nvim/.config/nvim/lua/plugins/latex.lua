@@ -1,6 +1,6 @@
 return {
   "lervag/vimtex",
-  ft = { "tex", "plaintex", "bib" },
+  lazy = false,
   init = function()
     vim.g.vimtex_view_method = "skim"
     vim.g.vimtex_view_skim_sync = 1
@@ -8,10 +8,18 @@ return {
     vim.g.vimtex_quickfix_mode = 0
     vim.g.vimtex_fold_enabled = 1
     vim.g.tex_flavor = "latex"
-    vim.g.tex_conceal = "abdmg"
+
+    vim.g.vimtex_quickfix_ignore_filters = {
+      "Underfull \\\\hbox",
+      "Overfull \\\\hbox",
+      "LaTeX Warning: .\\+ float specifier changed to",
+      "LaTeX hooks Warning",
+      'Package siunitx Warning: Detected the "physics" package:',
+      "Package hyperref Warning: Token not allowed in a PDF string",
+    }
 
     vim.g.vimtex_compiler_latexmk = {
-      build_dir = "build",
+      out_dir = "build",
       options = {
         "-shell-escape",
         "-verbose",
@@ -26,4 +34,3 @@ return {
     }
   end,
 }
-
