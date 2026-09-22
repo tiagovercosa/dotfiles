@@ -8,9 +8,16 @@ return {
       local luasnip = require("luasnip")
 
       luasnip.config.set_config({
-        history = true,
-        updateevents = "TextChanged,TextChangedI",
         enable_autosnippets = true,
+        -- rep() nodes update while typing, not only when leaving insert mode
+        update_events = "TextChanged,TextChangedI",
+        -- In visual mode, <Tab> cuts the selection so the next snippet can wrap
+        -- it (see get_visual in lua/utils/snippets.lua)
+        store_selection_keys = "<Tab>",
+        -- Leave a snippet once insert mode starts outside it, so blink's <Tab>
+        -- doesn't jump back into old snippets (what `history = true` allowed)
+        region_check_events = "InsertEnter",
+        delete_check_events = "TextChanged",
       })
 
       require("luasnip.loaders.from_vscode").lazy_load({
