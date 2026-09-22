@@ -52,6 +52,7 @@ fi
 typeset -U path
 
 path=(
+  "$HOME/.local/bin"
   "$HOME/Projetos/GitHub/packmol"
   "${XDG_DATA_HOME:-$HOME/.local/share}/npm/bin"
   "/opt/homebrew/opt/node@22/bin"
