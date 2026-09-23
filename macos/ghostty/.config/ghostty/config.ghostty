@@ -5,7 +5,7 @@ font-thicken = true
 font-feature = liga,calt,clig
 
 # --- THEME ---
-theme = nordic
+theme = nord
 selection-background = #D8DEE9
 selection-foreground = #2E3440
 
@@ -34,9 +34,9 @@ window-padding-x = 5
 window-padding-y = 5
 
 # -- APPEARANCE ---
-background-blur = true
-background-opacity = 0.95
-background-blur-radius = 15
+# background-blur = true
+background-opacity = 0.98
+# background-blur-radius = 15
 
 # --- MOUSE ---
 copy-on-select = clipboard
