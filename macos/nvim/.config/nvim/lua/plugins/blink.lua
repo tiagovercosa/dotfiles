@@ -80,12 +80,15 @@ return {
         -- Copilot não entra aqui de propósito: a sugestão dele é inline
         -- (copilot.lua, aceita com <M-l>), para não aparecer em dois lugares.
         default = { "lsp", "path", "snippets", "buffer" },
+        -- Em arquivos de texto puro o "buffer" só repete palavras já digitadas
+        -- no documento; fica de fora e sobram LSP (comandos, referências),
+        -- caminhos e snippets.
         per_filetype = {
-          markdown = { "lsp", "path", "snippets", "buffer" },
-          tex      = { "lsp", "path", "snippets", "buffer" },
-          text     = { "lsp", "path", "snippets", "buffer" },
-          plaintex = { "lsp", "path", "snippets", "buffer" },
-          bib      = { "lsp", "path", "snippets", "buffer" },
+          markdown = { "lsp", "path", "snippets" },
+          tex      = { "lsp", "path", "snippets" },
+          text     = { "lsp", "path", "snippets" },
+          plaintex = { "lsp", "path", "snippets" },
+          bib      = { "lsp", "path", "snippets" },
         },
       },
     },
