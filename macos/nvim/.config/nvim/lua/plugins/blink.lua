@@ -64,10 +64,6 @@ return {
         documentation = {
           window = { border = "rounded" }
         },
-        -- Desligado (que é o default do blink): quem desenha ghost text aqui
-        -- é o copilot.lua. Com os dois ligados o texto sai sobreposto, porque
-        -- o hide_during_completion do copilot só detecta o popup nativo
-        -- (vim.fn.pumvisible), não a janela flutuante do blink.
         ghost_text = { enabled = false },
       },
 
@@ -77,12 +73,7 @@ return {
       },
 
       sources = {
-        -- Copilot não entra aqui de propósito: a sugestão dele é inline
-        -- (copilot.lua, aceita com <M-l>), para não aparecer em dois lugares.
         default = { "lsp", "path", "snippets", "buffer" },
-        -- Em arquivos de texto puro o "buffer" só repete palavras já digitadas
-        -- no documento; fica de fora e sobram LSP (comandos, referências),
-        -- caminhos e snippets.
         per_filetype = {
           markdown = { "lsp", "path", "snippets" },
           tex      = { "lsp", "path", "snippets" },
