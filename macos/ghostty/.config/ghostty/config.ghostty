@@ -1,20 +1,21 @@
 # --- FONT ---
-font-family = "Iosevka Nerd Font"
+font-family = "JetBrainsMono Nerd Font"
 font-size = 17
 font-thicken = true
 font-feature = liga,calt,clig
 
 # --- THEME ---
 theme = nord
-selection-background = #D8DEE9
-selection-foreground = #2E3440
+selection-background = #434c5e
+selection-foreground = #d8dee9
 
 # --- CURSOR ---
 cursor-style = block
-cursor-style-blink = true
-cursor-color = #8FBCBB
+cursor-style-blink = false
+cursor-color = #b48ead
 cursor-text = #2E3440
 mouse-hide-while-typing = true
+custom-shader = shaders/cursor_tail.glsl
 
 # --- SHELL/TMUX ---
 shell-integration = detect
@@ -28,18 +29,23 @@ macos-titlebar-style = transparent
 window-save-state = always
 confirm-close-surface = false
 quick-terminal-position = center
+unfocused-split-opacity = 0.75
+split-preserve-zoom = navigation
 
 # --- PADDING ---
-window-padding-x = 5
-window-padding-y = 5
+window-padding-x = 4
+window-padding-y = 4
 
 # -- APPEARANCE ---
-background-blur = true
-background-opacity = 0.98
-# background-blur-radius = 15
+background-blur = 30
+background-opacity = 0.95
+background-blur-radius = 15
 
 # --- MOUSE ---
 copy-on-select = clipboard
+scrollback-limit = 100000
+clipboard-read = ask
+clipboard-write = allow
 
 # --- LINKS ---
 link-url = true
@@ -48,9 +54,10 @@ clipboard-trim-trailing-spaces = true
 # --- NOTIFICATIONS ---
 bell-features = system
 
-# -- UPDATES ---
-auto-update = check
-auto-update-channel = stable
+
+# Directory
+tab-inherit-working-directory = true
+split-inherit-working-directory = true
 
 # --- KEYBINDINGS ---
 keybind = ctrl+enter=text:\x1b[13;5u
@@ -58,7 +65,43 @@ keybind = shift+enter=text:\x1b[13;2u
 keybind = cmd+a>r=reload_config
 keybind = cmd+a>x=close_surface
 keybind = cmd+a>f=reset_font_size
+# Home/End
+keybind = super+left=esc:[H
+keybind = super+right=esc:[F
+keybind = alt+backspace=text:\x17
+# Splits
+keybind = super+d=new_split:right
+keybind = super+shift+d=new_split:down
+keybind = super+w=close_surface
+keybind = super+shift+z=toggle_split_zoom
+
+# Tabs
+keybind = alt+left_bracket=previous_tab
+keybind = alt+right_bracket=next_tab
+keybind = alt+comma=previous_tab
+keybind = alt+period=next_tab
+keybind = super+shift+n=move_tab_to_new_window
+keybind = resize/arrow_up=resize_split:up,10
+keybind = resize/arrow_down=resize_split:down,10
+keybind = resize/arrow_left=resize_split:left,10
+keybind = resize/arrow_right=resize_split:right,10
+keybind = resize/escape=deactivate_key_table
+keybind = resize/catch_all=ignore
+keybind = cmd+a>s=activate_key_table:resize
+
+# Notify
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = no-bell,notify
+notify-on-command-finish-after = 30s
+
+# Move tab
 
 # --- MACOS ---
-macos-option-as-alt = left
+macos-option-as-alt = true
+quit-after-last-window-closed = true
+# macos-titlebar-style = tabs
+
+# --- auto-update ---
+auto-update = check
+auto-update-channel = tip
 
