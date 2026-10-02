@@ -16,6 +16,14 @@ bindkey -v
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^L' clear-screen
+#
+# Home/End (cmd+← / cmd+→ no kitty)
+for km in viins vicmd; do
+  bindkey -M $km '^[[H' beginning-of-line
+  bindkey -M $km '^[[F' end-of-line
+  bindkey -M $km '^[OH' beginning-of-line
+  bindkey -M $km '^[OF' end-of-line
+done
 
 # History
 HISTSIZE=50000
@@ -41,8 +49,6 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls -G "$realpath"'
 source "$ZDOTDIR/aliases.zsh"
 
 # fzf
-source /opt/homebrew/opt/fzf/shell/completion.zsh
-source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 source "$ZDOTDIR/fzf.zsh"
 
 if command -v fzf >/dev/null 2>&1; then
@@ -61,5 +67,4 @@ path=(
 
 # Shell integrations
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(/usr/libexec/path_helper)"
 
