@@ -25,9 +25,6 @@ alias grep="rg --colors 'match:fg:magenta' --colors 'match:style:bold'"
 alias fgrep='rg -F'
 alias diff='diff --color=auto'
 
-# SSH
-[ "$TERM" = "xterm-kitty" ] && alias ssh="kitten ssh"
-
 # Apps
 # alias qtgrace='/Applications/qtgrace.app/Contents/MacOS/qtgrace'
 alias tlup='sudo env PATH="/Library/TeX/texbin:$PATH" tlmgr update --self --all'
