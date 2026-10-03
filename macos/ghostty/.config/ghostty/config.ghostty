@@ -9,7 +9,6 @@ font-feature = liga,calt,clig
 theme = Nord
 selection-background = #434c5e
 selection-foreground = #d8dee9
-# Ghostty's Nord ships bright black as #596377; use the official nord3
 palette = 8=#4c566a
 
 # --- CURSOR ---
@@ -23,7 +22,7 @@ custom-shader = shaders-custom/ripple_cursor.glsl
 
 # --- SHELL/TMUX ---
 shell-integration = detect
-shell-integration-features = no-cursor,ssh-env,ssh-terminfo,sudo,no-title
+shell-integration-features = no-cursor,ssh-env,ssh-terminfo,sudo,title
 # Auto-attach to an existing tmux session on launch, or create a new one if none exists.
 # command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
 
@@ -31,8 +30,7 @@ shell-integration-features = no-cursor,ssh-env,ssh-terminfo,sudo,no-title
 # title = " "
 macos-titlebar-style = transparent
 window-save-state = always
-confirm-close-surface = false
-quick-terminal-position = center
+confirm-close-surface = true
 unfocused-split-opacity = 0.75
 split-preserve-zoom = navigation
 
@@ -41,8 +39,8 @@ window-padding-x = 4
 window-padding-y = 4
 
 # -- APPEARANCE ---
-background-blur = macos-glass-regular
-background-opacity = 0.95
+background-blur = macos-glass-clear
+background-opacity = 0.98
 
 # --- MOUSE ---
 copy-on-select = clipboard
@@ -55,8 +53,7 @@ link-url = true
 clipboard-trim-trailing-spaces = true
 
 # --- NOTIFICATIONS ---
-bell-features = system
-
+bell-features = system,audio,attention,title
 
 # Directory
 tab-inherit-working-directory = true
@@ -93,6 +90,9 @@ keybind = resize/catch_all=ignore
 keybind = cmd+a>s=activate_key_table:resize
 
 # Quick terminal
+quick-terminal-position = center
+quick-terminal-screen = main
+quick-terminal-animation-duration = 0.2
 keybind = global:cmd+grave_accent=toggle_quick_terminal
 
 # Notify
@@ -100,12 +100,16 @@ notify-on-command-finish = unfocused
 notify-on-command-finish-action = no-bell,notify
 notify-on-command-finish-after = 30s
 
-# Move tab
-
 # --- MACOS ---
 macos-option-as-alt = true
 quit-after-last-window-closed = true
-# macos-titlebar-style = tabs
+macos-dock-drop-behavior = new-window
+macos-auto-secure-input = true
+macos-secure-input-indication = true
+macos-shortcuts = allow
+macos-icon = custom
+macos-custom-icon = ~/.config/ghostty/icons/nightfly.icns
+undo-timeout = 10s
 
 # --- auto-update ---
 auto-update = check
