@@ -7,6 +7,9 @@ cdi() {
 }
 
 # Directory listing
+# eza uses only its own theme.yml: vivid's LS_COLORS would override it
+eza() { LS_COLORS= command eza "$@" }
+
 alias ls='eza --group-directories-first'
 alias ll='eza -l --git --group-directories-first'
 alias la='eza -la --git --group-directories-first'
