@@ -15,6 +15,7 @@ $character"""
 
 add_newline = true
 palette = "nord"
+continuation_prompt = "[❯❯ ](nord3)"
 
 [fill]
 symbol = ' '
