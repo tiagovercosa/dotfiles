@@ -1,13 +1,15 @@
 eval "$(starship init zsh)"
 
-# Variável global para armazenar temporariamente o prompt do Starship
-typeset -g STARSHIP_BACKUP_PROMPT=""
-typeset -g STARSHIP_BACKUP_RPROMPT=""
+# O starship define PROMPT/RPROMPT como strings estáticas ('$(starship prompt ...)'),
+# reavaliadas a cada exibição via prompt_subst. Basta guardá-las uma vez.
+typeset -g STARSHIP_FULL_PROMPT="$PROMPT"
+typeset -g STARSHIP_FULL_RPROMPT="$RPROMPT"
 
 # Executado no momento em que você aperta ENTER
 function transient-prompt-finish() {
-  STARSHIP_BACKUP_PROMPT="$PROMPT"
-  STARSHIP_BACKUP_RPROMPT="$RPROMPT"
+  [[ $CONTEXT == start ]] || return 0
+
+  setopt localoptions extendedglob
 
   local symbol_color=$nord14
   (( ${STARSHIP_CMD_STATUS:-0} != 0 )) && symbol_color=$nord11
@@ -16,23 +18,17 @@ function transient-prompt-finish() {
 
   RPROMPT=""
   if [[ -n "$STARSHIP_DURATION" ]]; then
-    setopt localoptions extendedglob
     local duration="$(starship module cmd_duration --cmd-duration="$STARSHIP_DURATION")"
     local open='%{' close='%}'
     RPROMPT="${duration//(#m)$'\e'\[[0-9;]#m/$open$MATCH$close}"
   fi
-  
+
   zle reset-prompt
 }
 
 function transient-prompt-precmd() {
-  # Se houver um backup, restaura o Starship completo para a nova linha
-  if [[ -n "$STARSHIP_BACKUP_PROMPT" ]]; then
-    PROMPT="$STARSHIP_BACKUP_PROMPT"
-    RPROMPT="$STARSHIP_BACKUP_RPROMPT"
-    STARSHIP_BACKUP_PROMPT=""
-    STARSHIP_BACKUP_RPROMPT=""
-  fi
+  PROMPT="$STARSHIP_FULL_PROMPT"
+  RPROMPT="$STARSHIP_FULL_RPROMPT"
 }
 
 # Carrega os módulos de ganchos do Zsh
