@@ -9,10 +9,10 @@ function transient-prompt-finish() {
   STARSHIP_BACKUP_PROMPT="$PROMPT"
   STARSHIP_BACKUP_RPROMPT="$RPROMPT"
 
-  local symbol_color=green
-  (( ${STARSHIP_CMD_STATUS:-0} != 0 )) && symbol_color=red
+  local symbol_color=$nord14
+  (( ${STARSHIP_CMD_STATUS:-0} != 0 )) && symbol_color=$nord11
 
-  PROMPT="%F{#81a1c1}%~%f %F{$symbol_color}❯%f "
+  PROMPT="%B%F{$nord9}%~%f%b %F{$symbol_color}❯%f "
 
   RPROMPT=""
   if [[ -n "$STARSHIP_DURATION" ]]; then
