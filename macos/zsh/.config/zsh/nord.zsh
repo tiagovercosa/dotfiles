@@ -27,7 +27,8 @@ nord15='#B48EAD'  # purple
 # bat (also used by MANPAGER and the fzf previews)
 export BAT_THEME='Nord'
 
-# LS_COLORS: used by completion menus (list-colors) and eza
+# LS_COLORS: used by completion menus (list-colors) and fd.
+# eza ignores it (see aliases.zsh) and uses ~/.config/eza/theme.yml.
 if command -v vivid >/dev/null 2>&1; then
   export LS_COLORS="$(vivid generate nord)"
 fi
