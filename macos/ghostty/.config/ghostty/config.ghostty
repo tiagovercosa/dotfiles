@@ -2,10 +2,11 @@
 font-family = "JetBrainsMono Nerd Font"
 font-size = 17
 font-thicken = true
+font-thicken-strength = 0
 font-feature = liga,calt,clig
 
 # --- THEME ---
-theme = nord
+theme = Nord
 selection-background = #434c5e
 selection-foreground = #d8dee9
 
@@ -15,7 +16,8 @@ cursor-style-blink = false
 cursor-color = #b48ead
 cursor-text = #2E3440
 mouse-hide-while-typing = true
-custom-shader = shaders/cursor_tail.glsl
+custom-shader = shaders-custom/cursor_tail.glsl
+custom-shader = shaders-custom/ripple_cursor.glsl
 
 # --- SHELL/TMUX ---
 shell-integration = detect
@@ -37,13 +39,12 @@ window-padding-x = 4
 window-padding-y = 4
 
 # -- APPEARANCE ---
-background-blur = 30
-background-opacity = 0.95
-background-blur-radius = 15
+background-blur = macos-glass-regular
+background-opacity = 0.9
 
 # --- MOUSE ---
 copy-on-select = clipboard
-scrollback-limit = 100000
+scrollback-limit-lines = 100000
 clipboard-read = ask
 clipboard-write = allow
 
@@ -88,6 +89,9 @@ keybind = resize/arrow_right=resize_split:right,10
 keybind = resize/escape=deactivate_key_table
 keybind = resize/catch_all=ignore
 keybind = cmd+a>s=activate_key_table:resize
+
+# Quick terminal
+keybind = global:cmd+grave_accent=toggle_quick_terminal
 
 # Notify
 notify-on-command-finish = unfocused
