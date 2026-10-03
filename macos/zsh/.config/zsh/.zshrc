@@ -44,8 +44,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always --icons=auto --group-directories-first "$realpath"'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always --icons=auto --group-directories-first "$realpath"'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'LS_COLORS= eza -1 --color=always --icons=auto --group-directories-first "$realpath"'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'LS_COLORS= eza -1 --color=always --icons=auto --group-directories-first "$realpath"'
 
 # aliases
 source "$ZDOTDIR/aliases.zsh"
