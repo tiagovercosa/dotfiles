@@ -1,106 +1,115 @@
+# Nord for eza, kept muted: names in Snow Storm, metadata dimmed,
+# color only where it carries meaning (kind of file, git status).
+# https://www.nordtheme.com/docs/colors-and-palettes
+#
+#   nord3  #4C566A  punctuation (-)
+#   #616E88         metadata (dates, units, other users)
+#   nord4  #D8DEE9  text
+#   nord7  #8FBCBB  symlinks
+#   nord9  #81A1C1  directories
+#   nord11 #BF616A  red   nord13 #EBCB8B yellow
+#   nord14 #A3BE8C  green nord15 #B48EAD purple
+
 colourful: true
 
 filekinds:
-#   normal: {foreground: "#000"}
-#   directory: {foreground: "#000"}
-  symlink: {foreground: "#8fbcbb"}
-#   pipe: {foreground: "#000"}
-#   block_device: {foreground: "#000"}
-#   char_device: {foreground: "#000"}
-#   socket: {foreground: "#000"}
-#   special: {foreground: "#000"}
-#   executable: {foreground: "#000"}
-#   mount_point: {foreground: "#000"}
+  normal: {foreground: "#D8DEE9"}
+  directory: {foreground: "#81A1C1", is_bold: true}
+  symlink: {foreground: "#8FBCBB"}
+  pipe: {foreground: "#EBCB8B"}
+  block_device: {foreground: "#EBCB8B"}
+  char_device: {foreground: "#EBCB8B"}
+  socket: {foreground: "#EBCB8B"}
+  special: {foreground: "#B48EAD"}
+  executable: {foreground: "#A3BE8C"}
+  mount_point: {foreground: "#81A1C1", is_underline: true}
 
 perms:
-  user_read: {foreground: "#d8dee9"}
-  user_write: {foreground: "#d8dee9"}
-  user_execute_file: {foreground: "#d8dee9"}
-  user_execute_other: {foreground: "#d8dee9"}
-  group_read: {foreground: "#d8dee9"}
-  group_write: {foreground: "#d8dee9"}
-  group_execute: {foreground: "#d8dee9"}
-  other_read: {foreground: "#d8dee9"}
-  other_write: {foreground: "#d8dee9"}
-  other_execute: {foreground: "#d8dee9"}
-  special_user_file: {foreground: "#d8dee9"}
-  special_other: {foreground: "#d8dee9"}
-  attribute: {foreground: "#4c566a"}
+  user_read: {foreground: "#D8DEE9"}
+  user_write: {foreground: "#D8DEE9"}
+  user_execute_file: {foreground: "#D8DEE9"}
+  user_execute_other: {foreground: "#D8DEE9"}
+  group_read: {foreground: "#616E88"}
+  group_write: {foreground: "#616E88"}
+  group_execute: {foreground: "#616E88"}
+  other_read: {foreground: "#616E88"}
+  other_write: {foreground: "#616E88"}
+  other_execute: {foreground: "#616E88"}
+  special_user_file: {foreground: "#B48EAD"}
+  special_other: {foreground: "#B48EAD"}
+  attribute: {foreground: "#4C566A"}
 
 size:
-  major: {foreground: "#d8dee9"}
-  minor: {foreground: "#d8dee9"}
-  number_byte: {foreground: "#d8dee9"}
-  number_kilo: {foreground: "#d8dee9"}
-  number_mega: {foreground: "#d8dee9"}
-  number_giga: {foreground: "#d8dee9"}
-  number_huge: {foreground: "#d8dee9"}
-  unit_byte: {foreground: "#d8dee9"}
-  unit_kilo: {foreground: "#d8dee9"}
-  unit_mega: {foreground: "#d8dee9"}
-  unit_giga: {foreground: "#d8dee9"}
-  unit_huge: {foreground: "#d8dee9"}
+  major: {foreground: "#D8DEE9"}
+  minor: {foreground: "#D8DEE9"}
+  number_byte: {foreground: "#D8DEE9"}
+  number_kilo: {foreground: "#D8DEE9"}
+  number_mega: {foreground: "#D8DEE9"}
+  number_giga: {foreground: "#D8DEE9"}
+  number_huge: {foreground: "#D8DEE9"}
+  unit_byte: {foreground: "#616E88"}
+  unit_kilo: {foreground: "#616E88"}
+  unit_mega: {foreground: "#616E88"}
+  unit_giga: {foreground: "#616E88"}
+  unit_huge: {foreground: "#616E88"}
 
 users:
-  user_you: {
-    foreground: "#d8dee9",
-    is_bold: false
-  }
-  user_root: {foreground: "#d8dee9"}
-  user_other: {foreground: "#d8dee9"}
-  group_yours: {foreground: "#d8dee9"}
-  group_other: {foreground: "#d8dee9"}
-  group_root: {foreground: "#d8dee9"}
+  user_you: {foreground: "#D8DEE9", is_bold: false}
+  user_root: {foreground: "#BF616A"}
+  user_other: {foreground: "#616E88"}
+  group_yours: {foreground: "#616E88"}
+  group_other: {foreground: "#616E88"}
+  group_root: {foreground: "#616E88"}
 
-# links:
-#   normal: {foreground: "#000"}
-#   multi_link_file: {foreground: "#000"}
+links:
+  normal: {foreground: "#616E88"}
+  multi_link_file: {foreground: "#D8DEE9"}
 
-# git:
-#   new: {foreground: "#88c0d0"}
-#   modified: {foreground: "#88c0d0"}
-#   deleted: {foreground: "#88c0d0"}
-#   renamed: {foreground: "#88c0d0"}
-#   typechange: {foreground: "#88c0d0"}
-#   ignored: {foreground: "#88c0d0"}
-#   conflicted: {foreground: "#88c0d0"}
+git:
+  new: {foreground: "#A3BE8C"}
+  modified: {foreground: "#EBCB8B"}
+  deleted: {foreground: "#BF616A"}
+  renamed: {foreground: "#81A1C1"}
+  typechange: {foreground: "#B48EAD"}
+  ignored: {foreground: "#4C566A"}
+  conflicted: {foreground: "#BF616A"}
 
-# git_repo:
-#   branch_main: {foreground: "#000"}
-#   branch_other: {foreground: "#000"}
-#   git_clean: {foreground: "#000"}
-#   git_dirty: {foreground: "#000"}
+git_repo:
+  branch_main: {foreground: "#616E88"}
+  branch_other: {foreground: "#B48EAD"}
+  git_clean: {foreground: "#A3BE8C"}
+  git_dirty: {foreground: "#EBCB8B"}
 
-# security_context:
-#   colon: {foreground: "#000"}
-#   user: {foreground: "#000"}
-#   role: {foreground: "#000"}
-#   typ: {foreground: "#000"}
-#   range: {foreground: "#000"}
+security_context:
+  colon: {foreground: "#4C566A"}
+  user: {foreground: "#616E88"}
+  role: {foreground: "#616E88"}
+  typ: {foreground: "#616E88"}
+  range: {foreground: "#616E88"}
 
-# file_type:
-#   image: {foreground: "#000"}
-#   video: {foreground: "#000"}
-#   music: {foreground: "#000"}
-#   lossless: {foreground: "#000"}
-#   crypto: {foreground: "#000"}
-#   document: {foreground: "#000"}
-#   compressed: {foreground: "#000"}
-#   temp: {foreground: "#000"}
-#   compiled: {foreground: "#000"}
-#   build: {foreground: "#000"}
-#   source: {foreground: "#000"}
+# Regular files stay uncolored by type; only disposable files are dimmed.
+file_type:
+  image: {foreground: "#D8DEE9"}
+  video: {foreground: "#D8DEE9"}
+  music: {foreground: "#D8DEE9"}
+  lossless: {foreground: "#D8DEE9"}
+  crypto: {foreground: "#D8DEE9"}
+  document: {foreground: "#D8DEE9"}
+  compressed: {foreground: "#D8DEE9"}
+  source: {foreground: "#D8DEE9"}
+  temp: {foreground: "#616E88"}
+  compiled: {foreground: "#616E88"}
+  build: {foreground: "#D8DEE9", is_underline: true}
 
-punctuation: {foreground: "#3b4252"}
-date: {foreground: "#d8dee9"}
-inode: {foreground: "#d8dee9"}
-blocks: {foreground: "#d8dee9"}
-header: {foreground: "#d8dee9"}
-octal: {foreground: "#d8dee9"}
-flags: {foreground: "#d8dee9"}
+punctuation: {foreground: "#4C566A"}
+date: {foreground: "#616E88"}
+inode: {foreground: "#616E88"}
+blocks: {foreground: "#616E88"}
+header: {foreground: "#D8DEE9", is_underline: true}
+octal: {foreground: "#616E88"}
+flags: {foreground: "#616E88"}
 
-symlink_path: {foreground: "#8fbcbb"}
-# control_char: {foreground: "#000"}
-# broken_symlink: {foreground: "#000"}
-# broken_path_overlay: {foreground: "#000"}
-
+symlink_path: {foreground: "#8FBCBB"}
+control_char: {foreground: "#BF616A"}
+broken_symlink: {foreground: "#BF616A"}
+broken_path_overlay: {is_underline: true}
