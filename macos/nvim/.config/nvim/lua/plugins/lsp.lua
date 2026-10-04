@@ -47,10 +47,8 @@ return {
         settings = {
           Lua = {
             runtime = { version = "LuaJIT" },
-            workspace = {
-              checkThirdParty = false,
-              library = { vim.env.VIMRUNTIME }
-            },
+            -- A library (VIMRUNTIME e plugins) fica a cargo do lazydev.lua.
+            workspace = { checkThirdParty = false },
           },
         },
       })

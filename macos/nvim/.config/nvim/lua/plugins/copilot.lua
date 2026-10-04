@@ -31,6 +31,20 @@ return {
         ["*"] = false,
       },
     })
+
+    -- hide_during_completion só enxerga o menu nativo (pumvisible); o do
+    -- blink.cmp precisa avisar por conta própria.
+    local group = vim.api.nvim_create_augroup("CopilotBlink", {})
+    vim.api.nvim_create_autocmd("User", {
+      group = group,
+      pattern = "BlinkCmpMenuOpen",
+      callback = function() vim.b.copilot_suggestion_hidden = true end,
+    })
+    vim.api.nvim_create_autocmd("User", {
+      group = group,
+      pattern = "BlinkCmpMenuClose",
+      callback = function() vim.b.copilot_suggestion_hidden = false end,
+    })
   end,
 }
 

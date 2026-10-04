@@ -45,6 +45,10 @@ return {
         enabled = true,
         preset = "heavy", -- Deixa as bordas da tabela mais marcadas
       },
+
+      -- Exige o parser latex do treesitter e o utftex/latex2text, nenhum dos
+      -- dois instalado: só gerava aviso no checkhealth, sem renderizar nada.
+      latex = { enabled = false },
     },
   }
 }

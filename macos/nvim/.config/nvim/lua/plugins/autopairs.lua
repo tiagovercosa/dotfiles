@@ -13,7 +13,15 @@ return {
         fast_wrap = {
           map = '<M-e>',
         },
+        -- O <BS> do autopairs é por buffer e apagava o do markdown-plus (que
+        -- remove o marcador de lista). Global, ele vira o fallback que o
+        -- markdown-plus chama fora de lista, e os dois funcionam.
+        map_bs = false,
       })
+
+      vim.keymap.set("i", "<BS>", function()
+        return npairs.autopairs_bs()
+      end, { expr = true, replace_keycodes = false, desc = "autopairs delete" })
 
       npairs.add_rules {
         Rule(' ', ' ')

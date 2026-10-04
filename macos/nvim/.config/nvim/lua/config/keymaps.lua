@@ -41,6 +41,12 @@ map("n", "<leader>v", ":e $MYVIMRC<cr>", { silent = true, desc = "Edit init.lua"
 map("n", "<leader>z", ":e $HOME/.config/zsh/.zshrc<cr>", { silent = true, desc = "Edit .zshrc" })
 map("n", "<leader>ba", ":e #<cr>", { silent = true, desc = "Alternate buffer" })
 
+-- Undo tree (builtin plugin from 0.12, loaded only on first use)
+map("n", "<leader>u", function()
+  vim.cmd.packadd("nvim.undotree")
+  require("undotree").open()
+end, { desc = "Toggle undotree" })
+
 -- Gnuplot compile and preview
 vim.keymap.set('n', '<leader>p', ':w<CR>:!gnuplot %<CR>', { desc = 'Executar script gnuplot' })
 vim.keymap.set('n', '<leader>o', ':w<CR>:!gnuplot -p %<CR>', { desc = 'Executar script gnuplot' })

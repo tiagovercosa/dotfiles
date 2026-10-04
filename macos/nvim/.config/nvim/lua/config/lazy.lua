@@ -26,6 +26,8 @@ require("lazy").setup({
     { import = "plugins" },
   },
   install = { colorscheme = { "nord" } },
+  -- Nenhum plugin daqui usa luarocks; sem isto o checkhealth acusa erro.
+  rocks = { enabled = false },
   checker = {
     enabled = true,
     notify = false,

@@ -105,3 +105,11 @@ vim.diagnostic.config({
   float = { border = "rounded", source = "if_many" },
 })
 
+
+-- ui2 (0.12, experimental): new messages and cmdline layer. No "Press ENTER"
+-- on long messages, highlighting while typing in ":", and the history in a
+-- pager (g<). The pcall keeps an incompatible future version from breaking
+-- startup; it just falls back to the classic UI.
+pcall(function()
+  require("vim._core.ui2").enable({})
+end)
