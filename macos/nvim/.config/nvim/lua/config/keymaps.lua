@@ -51,12 +51,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
       return { buffer = ev.buf, silent = true, desc = desc }
     end
     map("n", "<leader>t", vim.diagnostic.open_float, bopts("Show diagnostic float"))
-    map("n", "<leader>gf", vim.lsp.buf.format, bopts("LSP format"))
     map("n", "<leader>gd", vim.lsp.buf.definition, bopts("Go to definition"))
     map("n", "<leader>rn", vim.lsp.buf.rename, bopts("Rename symbol"))
     map("n", "<leader>ca", vim.lsp.buf.code_action, bopts("Code action"))
-    map("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, bopts("Previous diagnostic"))
-    map("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, bopts("Next diagnostic"))
+    -- [d / ]d já são mapeamentos padrão do Neovim (vim.diagnostic.jump).
   end,
 })
 

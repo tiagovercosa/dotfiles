@@ -1,25 +1,49 @@
+-- Servidor (nome do nvim-lspconfig) -> pacote do mason.
+local servers = {
+  lua_ls       = "lua-language-server",
+  basedpyright = "basedpyright",
+  ruff         = "ruff",
+  clangd       = "clangd",
+  html         = "html-lsp",
+  fortls       = "fortls",
+  texlab       = "texlab",
+  marksman     = "marksman",
+  bashls       = "bash-language-server",
+  ltex_plus    = "ltex-ls-plus",
+}
+
+-- Formatadores do conform.lua.
+local formatters = { "stylua", "fprettify", "shfmt", "prettier", "tex-fmt" }
+
 return {
   {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUpdate", "MasonLog" },
-    config = function()
-      require("mason").setup()
+    opts = {},
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    event = "VeryLazy",
+    dependencies = { "williamboman/mason.nvim" },
+    opts = {
+      ensure_installed = vim.list_extend(vim.tbl_values(servers), formatters),
+    },
+    config = function(_, opts)
+      local mti = require("mason-tool-installer")
+      mti.setup(opts)
+      -- O plugin dispara a checagem no VimEnter, que já passou quando o
+      -- VeryLazy carrega; por isso a chamada direta.
+      mti.run_on_start()
     end,
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "williamboman/mason.nvim",
-      "neovim/nvim-lspconfig",
-      "saghen/blink.cmp",
-    },
+    -- O setup do mason põe o bin dele no PATH; tem que vir antes de qualquer
+    -- servidor subir.
+    dependencies = { "williamboman/mason.nvim" },
     config = function()
-      local capabilities = require("blink.cmp").get_lsp_capabilities()
-      vim.lsp.config("*", { capabilities = capabilities })
-
       vim.lsp.config("lua_ls", {
-        cmd = { "lua-language-server" },
         settings = {
           Lua = {
             runtime = { version = "LuaJIT" },
@@ -30,10 +54,7 @@ return {
           },
         },
       })
-      vim.lsp.config("clangd",   { cmd = { "clangd" } })
-      vim.lsp.config("fortls",   { cmd = { "fortls" } })
       vim.lsp.config("texlab", {
-        cmd = { "texlab" },
         settings = {
           texlab = {
             chktex = {
@@ -43,9 +64,7 @@ return {
           },
         },
       })
-      vim.lsp.config("marksman", { cmd = { "marksman", "server" } })
       vim.lsp.config("basedpyright", {
-        cmd = { "basedpyright-langserver", "--stdio" },
         settings = {
           basedpyright = {
             disableTaggedHints = false,
@@ -62,10 +81,6 @@ return {
         },
       })
 
-      vim.lsp.config("ruff", { cmd = { "ruff", "server" } })
-      vim.lsp.config("bashls",   { cmd = { "bash-language-server", "start" } })
-      vim.lsp.config("html",     { cmd = { "vscode-html-language-server", "--stdio" } })
-
       local ltex_settings = { language = "pt-BR" }
 
       local lt_user = vim.env.LTEX_LT_USERNAME
@@ -79,22 +94,13 @@ return {
       end
 
       vim.lsp.config("ltex_plus", {
-        cmd = { "ltex-ls-plus" },
         settings = { ltex = ltex_settings },
       })
 
-      require("mason-lspconfig").setup({
-        ensure_installed = {
-          "lua_ls", "basedpyright", "ruff", "clangd",
-          "html", "fortls", "texlab", "marksman",
-          "bashls", "ltex_plus"
-        },
-        automatic_enable = {
-          -- copilot: o copilot.lua já sobe o próprio servidor. Sem isto o
-          -- mason-lspconfig sobe um segundo, que ninguém consome.
-          exclude = { "ltex_plus", "copilot" },
-        },
-      })
+      local enabled = vim.tbl_filter(function(name)
+        return name ~= "ltex_plus"
+      end, vim.tbl_keys(servers))
+      vim.lsp.enable(enabled)
     end,
   },
 }

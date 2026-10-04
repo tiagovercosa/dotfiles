@@ -31,5 +31,19 @@ require("lazy").setup({
     notify = false,
     frequency = 86400,
   },
+  performance = {
+    rtp = {
+      -- Plugins do runtime que não têm uso aqui. netrw: o oil já é o
+      -- explorador, e o gx nativo (vim.ui.open) não depende dele.
+      disabled_plugins = {
+        "gzip",
+        "netrwPlugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
+  },
 })
 
