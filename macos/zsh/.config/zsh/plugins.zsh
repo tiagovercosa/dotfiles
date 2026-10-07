@@ -11,10 +11,18 @@ fi
 source "$ZINIT_HOME/zinit.zsh"
 
 # Add in zsh plugins
-zinit light zsh-users/zsh-syntax-highlighting
+# zsh-vi-mode first, initialized right away (not on the first prompt), so every
+# plugin and bindkey loaded after it in .zshrc overrides its defaults.
+ZVM_INIT_MODE=sourcing
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
+# Keep Tab for fzf-tab (^N is already history-search-forward in .zshrc)
+export DEJA_CYCLE_KEY=
+zinit ice wait"0" lucid depth=1 pick"deja.plugin.zsh"
+zinit light Giammarco-Ferranti/deja
 zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit light zdharma-continuum/fast-syntax-highlighting
 
 # Add in snippets
 zinit snippet OMZP::git
