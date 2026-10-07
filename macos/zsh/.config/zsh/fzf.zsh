@@ -34,4 +34,5 @@ _fzf_file_no_hidden() {
   zle reset-prompt
 }
 zle -N _fzf_file_no_hidden
+# Bound in .zshrc
 
