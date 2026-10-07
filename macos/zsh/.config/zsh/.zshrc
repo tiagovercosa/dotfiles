@@ -12,11 +12,11 @@ setopt pushd_ignore_dups
 setopt nobeep
 setopt numeric_glob_sort
 
-# Keybindings
-bindkey -v
+# Keybindings (vi mode comes from zsh-vi-mode, see plugins.zsh)
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^L' clear-screen
+bindkey '^F' _fzf_file_no_hidden
 #
 # Home/End (cmd+← / cmd+→ no kitty)
 for km in viins vicmd; do
@@ -30,19 +30,17 @@ done
 HISTSIZE=50000
 HISTFILE="$ZDOTDIR/.zsh_history"
 SAVEHIST=$HISTSIZE
-HISTDUP=erase
 setopt appendhistory
+setopt extended_history
 setopt sharehistory
 setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # Completions zstyling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu select
+zstyle ':completion:*' menu no  # let fzf-tab show the menu and insert the common prefix first
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'LS_COLORS= eza -1 --color=always --icons=auto --group-directories-first "$realpath"'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'LS_COLORS= eza -1 --color=always --icons=auto --group-directories-first "$realpath"'
