@@ -1,7 +1,12 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-[[ -d ${HOME}/bin ]] && export PATH=$PATH:${HOME}/bin
-[[ -d ${HOME}/.local/bin ]] && export PATH=$PATH:${HOME}/.local/bin
-
-# Added by Obsidian
-export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
+typeset -U path   # remove duplicatas automaticamente
+path=(
+  "$HOME/.local/bin"
+  $HOME/bin(N-/)
+  "$HOME/Projetos/GitHub/packmol"
+  "$XDG_DATA_HOME/npm/bin"
+  "/opt/homebrew/opt/node@22/bin"
+  $path
+  "/Applications/Obsidian.app/Contents/MacOS"
+)
