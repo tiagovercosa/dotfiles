@@ -1,11 +1,14 @@
-export ZDOTDIR="$HOME/.config/zsh"
-
 # Default directories in compliance with XDG standards
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
-export EZA_CONFIG_DIR="$HOME/.config/eza"
+
+# EZA Config
+export EZA_CONFIG_DIR="$XDG_CONFIG_HOME/eza"
+
+# ZSH config
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -15,15 +18,13 @@ else
 fi
 
 # Exports and variables
-export DIFFPROG="nvim -d"
-export VISUAL="nvim"
+export VISUAL="$EDITOR"
 export PAGER="less -Ri"
 export STARDICT_DATA_DIR="$XDG_DATA_HOME"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-export ZINIT_HOME="$HOME/.local/share/zinit"
+export ZINIT_HOME="$XDG_DATA_HOME/zinit"
 
 # GPG configuration
-export GPG_TTY=$(tty)
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
 # Disables less history file
