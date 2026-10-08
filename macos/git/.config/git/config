@@ -4,9 +4,12 @@
 	name = Tiago Lima
 	email = vercosa@proton.me
 	signingkey = A6A9EC233FA87B1C
-[core]
-	editor = nvim
-	fileMode = false
+[diff]
+  tool = nvimdiff
+[difftool]
+  prompt = false
+[merge]
+  tool = nvimdiff
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
