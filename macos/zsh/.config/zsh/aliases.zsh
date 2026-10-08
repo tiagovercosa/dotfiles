@@ -1,11 +1,5 @@
 # Aliases for zsh
 
-# Zoxide integration
-cdi() {
-	local dir;
-	dir=$(zoxide query -i "$@") && cd "$dir"
-}
-
 # Directory listing
 # eza uses only its own theme.yml: vivid's LS_COLORS would override it
 eza() { LS_COLORS= command eza "$@" }
@@ -23,9 +17,7 @@ alias -- -='cd -'
 compdef eza=ls
 
 # Core utilities
-alias rg="rg --colors 'match:fg:magenta' --colors 'match:style:bold'"
-alias grep="rg --colors 'match:fg:magenta' --colors 'match:style:bold'"
-alias fgrep='rg -F'
+alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 
 # Apps
