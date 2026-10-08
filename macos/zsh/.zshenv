@@ -22,16 +22,12 @@ export VISUAL="$EDITOR"
 export PAGER="less -Ri"
 export STARDICT_DATA_DIR="$XDG_DATA_HOME"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-export ZINIT_HOME="$XDG_DATA_HOME/zinit"
 
 # GPG configuration
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
 # Disables less history file
 export LESSHISTFILE=/dev/null
-
-# Set bat highlighting colour theme
-export BAT_THEME="base16"
 
 # R user config
 export R_PROFILE_USER="$XDG_CONFIG_HOME/r/.Rprofile"
