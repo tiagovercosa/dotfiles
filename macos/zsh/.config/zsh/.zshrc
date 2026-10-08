@@ -1,7 +1,6 @@
 source "$ZDOTDIR/nord.zsh"
 source "$ZDOTDIR/plugins.zsh"
 source "$ZDOTDIR/prompt.zsh"
-source "$ZDOTDIR/local.zsh"
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
@@ -13,11 +12,11 @@ setopt nobeep
 setopt numeric_glob_sort
 
 # Keybindings (vi mode comes from zsh-vi-mode, see plugins.zsh)
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
+bindkey '^p' history-beginning-search-backward
+bindkey '^n' history-beginning-search-forward
 bindkey '^L' clear-screen
 bindkey '^F' _fzf_file_no_hidden
-#
+
 # Home/End (cmd+← / cmd+→ no kitty)
 for km in viins vicmd; do
   bindkey -M $km '^[[H' beginning-of-line
@@ -28,9 +27,8 @@ done
 
 # History
 HISTSIZE=50000
-HISTFILE="$ZDOTDIR/.zsh_history"
+HISTFILE="$XDG_STATE_HOME/zsh/history"
 SAVEHIST=$HISTSIZE
-setopt appendhistory
 setopt extended_history
 setopt sharehistory
 setopt hist_ignore_space
@@ -45,6 +43,9 @@ zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'LS_COLORS= eza -1 --color=always --icons=auto --group-directories-first "$realpath"'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'LS_COLORS= eza -1 --color=always --icons=auto --group-directories-first "$realpath"'
 
+# GPG
+export GPG_TTY=$TTY
+
 # aliases
 source "$ZDOTDIR/aliases.zsh"
 
@@ -55,16 +56,7 @@ if command -v fzf >/dev/null 2>&1; then
   source <(fzf --zsh)
 fi
 
-typeset -U path
-
-path=(
-  "$HOME/.local/bin"
-  "$HOME/Projetos/GitHub/packmol"
-  "${XDG_DATA_HOME:-$HOME/.local/share}/npm/bin"
-  "/opt/homebrew/opt/node@22/bin"
-  $path
-  )
-
 # Shell integrations
 eval "$(zoxide init --cmd cd zsh)"
 
+source "$ZDOTDIR/local.zsh"
