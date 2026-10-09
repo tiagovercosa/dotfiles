@@ -11,24 +11,31 @@ return {
     ft = { "markdown", "rmd" },
 
     opts = {
+      -- Títulos minimalistas: só a cor do texto, sem faixa de fundo, borda ou
+      -- ícone na coluna de sinais. O ícone substitui os "#" na própria linha.
       heading = {
         enabled = true,
-        sign = true,
+        sign = false,
+        border = false,
+        position = "inline",
+        width = "block",
         icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
-        border = true,
+        backgrounds = {},
       },
 
       code = {
         enabled = true,
-        sign = true,
+        sign = false,
         style = "full",
         width = "block",
+        left_pad = 1,
         right_pad = 1,
+        border = "thin",
       },
 
       bullet = {
         enabled = true,
-        icons = { "●", "○", "◆", "◇" },
+        icons = { "•", "◦", "▪", "▫" },
       },
 
       checkbox = {
@@ -43,7 +50,7 @@ return {
 
       pipe_table = {
         enabled = true,
-        preset = "heavy", -- Deixa as bordas da tabela mais marcadas
+        preset = "round",
       },
 
       -- Exige o parser latex do treesitter e o utftex/latex2text, nenhum dos
