@@ -21,7 +21,7 @@ return {
 
       local ft_patterns = {
         "python", "fortran", "bib", "cpp", "c",
-        "html", "gnuplot", "yaml", "toml", "bash",
+        "html", "gnuplot", "yaml", "toml", "bash", "sh",
         "lua", "vim", "help", "markdown",
       }
 
