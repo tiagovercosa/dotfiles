@@ -13,22 +13,14 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
--- Auto-wrap only in prose.
--- textwidth = 100 (options.lua) pairs with colorcolumn as a visual guide, but
--- the 't' flag in formatoptions also makes it break the line on its own past
--- column 100 — wanted in prose, syntax-breaking in code. options.lua drops 't'
--- from the global default, which also covers buffers with no filetype at all
--- (a .log, a scratch buffer), where FileType never fires. Here it goes back on
--- for prose only.
-local prose_filetypes = {
-  "markdown", "tex", "plaintex", "text", "bib", "gitcommit",
-}
-local prose_wrap_group = vim.api.nvim_create_augroup("ProseAutoWrap", {})
+-- No hard-wrap while typing, in any filetype. options.lua drops 't' from the
+-- global default, but runtime ftplugins (gitcommit, mail, markdown) add it
+-- back, and gitcommit/mail also set textwidth=72.
+local no_autowrap_group = vim.api.nvim_create_augroup("NoAutoWrap", {})
 vim.api.nvim_create_autocmd("FileType", {
-  group = prose_wrap_group,
-  pattern = prose_filetypes,
+  group = no_autowrap_group,
   callback = function()
-    vim.opt_local.formatoptions:append("t")
+    vim.opt_local.formatoptions:remove("t")
   end,
 })
 
