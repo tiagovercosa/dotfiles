@@ -13,7 +13,8 @@ return {
       keymap = {
         preset = "super-tab",
         ["<CR>"] = { "accept", "fallback" },
-        ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+        -- <C-Space> é do Things no macOS. <C-n> abre o menu e, já aberto, desce.
+        ["<C-n>"] = { "show", "select_next", "fallback" },
       },
 
       appearance = {
@@ -60,7 +61,17 @@ return {
 
       completion = {
         keyword = { range = 'prefix' },
-        menu = { border = "rounded" },
+        menu = {
+          border = "rounded",
+          -- Em prosa o menu abre a cada palavra digitada; lá ele só aparece
+          -- sob demanda, com <C-n>.
+          auto_show = function()
+            return not vim.tbl_contains(
+              { "markdown", "tex", "text", "plaintex", "bib", "gitcommit" },
+              vim.bo.filetype
+            )
+          end,
+        },
         documentation = {
           window = { border = "rounded" }
         },
