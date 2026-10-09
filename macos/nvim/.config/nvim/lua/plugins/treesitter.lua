@@ -12,11 +12,12 @@ return {
       -- markdown_inline não é um filetype: o parser markdown o injeta para o
       -- conteúdo de linha (ênfase, código inline, links). Sem ele declarado
       -- aqui, o realce inline depende do .so que sobrou da branch master e
-      -- some numa instalação limpa.
+      -- some numa instalação limpa. "regex" também só entra por injeção: o
+      -- noice o usa para realçar buscas e padrões na cmdline.
       local install_langs = {
         "python", "fortran", "bibtex", "cpp", "c",
         "html", "gnuplot", "yaml", "toml", "bash",
-        "lua", "vim", "vimdoc", "markdown", "markdown_inline",
+        "lua", "vim", "vimdoc", "markdown", "markdown_inline", "regex",
       }
 
       local ft_patterns = {
