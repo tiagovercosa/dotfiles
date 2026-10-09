@@ -37,7 +37,8 @@ return {
         return { timeout_ms = 1000 }
       end,
       formatters = {
-        -- Quebra no mesmo limite do textwidth (options.lua); o padrão é 80.
+        -- Quebra as linhas em 100 colunas só ao formatar (<leader>gf); o
+        -- padrão é 80.
         ["tex-fmt"] = {
           prepend_args = { "--wraplen", "100" },
         },

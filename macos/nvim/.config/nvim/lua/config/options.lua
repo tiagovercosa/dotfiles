@@ -25,7 +25,7 @@ vim.opt.hlsearch = false -- Disable persistent search highlight
 -- Visual Settings
 vim.opt.termguicolors = true -- Enable true color support
 vim.opt.signcolumn = "yes" -- Always show the sign column
-vim.opt.colorcolumn = "70" -- Highlight column 100
+vim.opt.colorcolumn = "70" -- Highlight column 70 (visual guide only)
 vim.opt.showmatch = true -- Highlight matching parentheses
 vim.opt.matchtime = 2 -- Tenths of a second to show the matching paren
 vim.opt.completeopt = { "noinsert", "menuone", "noselect" }
@@ -58,8 +58,7 @@ vim.opt.path:append("**") -- Search for files in subdirectories
 vim.opt.clipboard:append("unnamedplus") -- Use the system clipboard
 vim.opt.wildmode = "longest:full,full" -- Command-line completion mode
 vim.opt.wildignorecase = true -- Ignore case in file completion
--- vim.opt.textwidth = 100  -- Set maximum text width for automatic line breaks
-vim.opt.formatoptions:remove("t") -- ...but don't hard-wrap while typing; autocmd.lua re-enables it for prose
+vim.opt.formatoptions:remove("t") -- Never hard-wrap text while typing
 vim.opt.laststatus = 3 -- Use a single status line for all windows
 vim.opt.shortmess = vim.opt.shortmess + "c" -- Don't show completion messages
 
