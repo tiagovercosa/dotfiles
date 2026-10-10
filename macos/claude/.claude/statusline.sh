@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Statusline do Claude Code no estilo do prompt (Starship + Nord).
+# Statusline do Claude Code no estilo do prompt (prompt.zsh + Nord).
 # Recebe o JSON da sessão pela stdin e imprime uma linha.
 
 input=$(cat)
@@ -19,13 +19,15 @@ fg() { printf '\e[38;2;%sm' "$1"; }
 reset=$'\e[0m'
 sep=" $(fg "$nord3")│$reset "
 
-# Diretório e git: os mesmos módulos e estilos do prompt.
-# STARSHIP_SHELL vazio evita os %{ %} do zsh na saída.
-export STARSHIP_CONFIG="${STARSHIP_CONFIG:-$HOME/.config/zsh/starship.toml}"
-starship_module() {
-  (cd "$dir" 2>/dev/null && STARSHIP_SHELL= starship module "$1" --path "$dir")
-}
-location="$(starship_module directory)$(starship_module git_branch)$(starship_module git_status)"
+# Diretório e git: as mesmas funções e estilos do prompt do zsh (prompt.zsh).
+location=$(cd "$dir" 2>/dev/null && ZDOTDIR="${ZDOTDIR:-$HOME/.config/zsh}" zsh -fc '
+  source "$ZDOTDIR/nord.zsh"
+  source "$ZDOTDIR/prompt.zsh"
+  local _prompt_root
+  _prompt_git; local git=$REPLY
+  _prompt_dir "$_prompt_root"
+  print -nP -- "$REPLY$git"
+')
 
 # Uso do contexto: tokens de entrada da última resposta do agente principal
 context=""

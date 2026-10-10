@@ -1,40 +1,162 @@
-eval "$(starship init zsh)"
+zmodload zsh/datetime
+autoload -Uz add-zle-hook-widget add-zsh-hook
 
-# O starship define PROMPT/RPROMPT como strings estáticas ('$(starship prompt ...)'),
-# reavaliadas a cada exibição via prompt_subst. Basta guardá-las uma vez.
-typeset -g STARSHIP_FULL_PROMPT="$PROMPT"
-typeset -g STARSHIP_FULL_RPROMPT="$RPROMPT"
+typeset -g _prompt_status=0      # exit status of the last command
+typeset -g _prompt_start=        # EPOCHREALTIME when the last command started
+typeset -g _prompt_duration=     # formatted duration ("" when under 2s)
+typeset -g _prompt_line1=        # first line of the full prompt
+typeset -g _prompt_vicmd=0       # 1 while in vi normal (command) mode
 
-# Executado no momento em que você aperta ENTER
-function transient-prompt-finish() {
-  [[ $CONTEXT == start ]] || return 0
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+PS2="%F{$nord3}❯❯ %f"
 
-  setopt localoptions extendedglob
+# Directory: repo-relative inside git (truncate_to_repo), ~ for $HOME,
+# last 5 components, "…/" when the path no longer starts at ~ or /.
+function _prompt_dir() {
+  local root=$1 dir pwd=${PWD:A}
+  if [[ -n $root && $root != ${HOME:A} ]]; then
+    dir=${root:t}${pwd#$root}
+  else
+    dir=${PWD/#$HOME/\~}
+  fi
+  local -a parts=(${(s:/:)dir})
+  (( $#parts > 5 )) && dir=${(j:/:)parts[-5,-1]}
+  [[ $dir == '~'* || $dir == /* ]] || dir="…/$dir"
+  REPLY="%B%F{$nord9}${dir//\%/%%}%f%b"
+  [[ -w $PWD ]] || REPLY+="%F{$nord11}🔒%f"
+}
 
-  local symbol_color=$nord14
-  (( ${STARSHIP_CMD_STATUS:-0} != 0 )) && symbol_color=$nord11
+# Git: find the repo root without forking, then a single `git status`.
+function _prompt_git() {
+  REPLY= _prompt_root=
+  local d=${PWD:A}
+  while :; do
+    [[ -e $d/.git ]] && { _prompt_root=$d; break; }
+    [[ $d == / ]] && return
+    d=${d:h}
+  done
 
-  PROMPT="%B%F{$nord9}%~%f%b %F{$symbol_color}❯%f "
+  local line branch= ahead=0 behind=0 stash=0
+  local conflicted= untracked= modified= staged= renamed= deleted=
+  for line in ${(f)"$(git --no-optional-locks status --porcelain=v2 --branch --show-stash 2>/dev/null)"}; do
+    case $line in
+      '# branch.head '*) branch=${line#\# branch.head } ;;
+      '# branch.ab '*)   local -a ab=(${=line}); ahead=${ab[3]#+}; behind=${ab[4]#-} ;;
+      '# stash '*)       stash=1 ;;
+      'u '*)             conflicted='=' ;;
+      '? '*)             untracked='?' ;;
+      [12]' '*)
+        local x=${line[3]} y=${line[4]}
+        [[ $x == R ]] && renamed='»'
+        [[ $x == [MATC] ]] && staged='+'
+        [[ $x == D || $y == D ]] && deleted='✘'
+        [[ $y == [MT] ]] && modified='*'
+        ;;
+    esac
+  done
+  [[ -z $branch ]] && return
+  [[ $branch == '(detached)' ]] && branch=HEAD
 
-  RPROMPT=""
-  if [[ -n "$STARSHIP_DURATION" ]]; then
-    local duration="$(starship module cmd_duration --cmd-duration="$STARSHIP_DURATION")"
-    local open='%{' close='%}'
-    RPROMPT="${duration//(#m)$'\e'\[[0-9;]#m/$open$MATCH$close}"
+  REPLY="%F{$nord3} ${branch//\%/%%}%f"
+  local changes=$conflicted$untracked$modified$staged$renamed$deleted ab_sym=
+  if (( ahead && behind )); then ab_sym='⇕'
+  elif (( ahead )); then ab_sym='⇡'
+  elif (( behind )); then ab_sym='⇣'
+  fi
+  (( stash )) && ab_sym+='$'
+  [[ -n $changes ]] && REPLY+="%F{$nord15}$changes%f"
+  [[ -n $ab_sym ]] && REPLY+="%F{$nord8}$ab_sym%f"
+}
+
+function _prompt_venv() {
+  REPLY=
+  [[ -n $VIRTUAL_ENV ]] || return
+  local name=${VIRTUAL_ENV:t} line
+  if [[ -r $VIRTUAL_ENV/pyvenv.cfg ]]; then
+    while IFS= read -r line; do
+      [[ $line == prompt[[:space:]]#=* ]] && name=${${${line#*=}## #}//[\'\"]/}
+    done < $VIRTUAL_ENV/pyvenv.cfg
+  fi
+  REPLY=" %F{$nord3}py:$name%f"
+}
+
+# Command duration, shown only from 2s on (e.g. 5s, 1m3s, 1h0m2s).
+function _prompt_format_duration() {
+  local -i secs=$1 d h m s
+  REPLY=
+  (( secs < 2 )) && return
+  d=$(( secs / 86400 )) h=$(( secs % 86400 / 3600 )) m=$(( secs % 3600 / 60 )) s=$(( secs % 60 ))
+  (( d )) && REPLY+="${d}d"
+  (( d || h )) && REPLY+="${h}h"
+  (( d || h || m )) && REPLY+="${m}m"
+  REPLY="%F{$nord13}$REPLY${s}s%f"
+}
+
+function _prompt_render() {
+  local char_color=$nord14 char='❯'
+  (( _prompt_status != 0 )) && char_color=$nord11
+  (( _prompt_vicmd )) && char_color=$nord9 char='❮'
+  PROMPT=$'\n'"$_prompt_line1"$'\n'"%F{$char_color}$char%f "
+}
+
+function _prompt_preexec() {
+  _prompt_start=$EPOCHREALTIME
+}
+
+function _prompt_precmd() {
+  _prompt_status=$?
+  _prompt_vicmd=0
+
+  _prompt_duration=
+  if [[ -n $_prompt_start ]]; then
+    _prompt_format_duration $(( EPOCHREALTIME - _prompt_start ))
+    _prompt_duration=$REPLY
+    _prompt_start=
   fi
 
+  local _prompt_root left
+  _prompt_git;  local git=$REPLY
+  _prompt_dir "$_prompt_root"; left=$REPLY$git
+  _prompt_venv; left+=$REPLY
+
+  # Right-align the duration on the first line (starship's $fill).
+  _prompt_line1=$left
+  if [[ -n $_prompt_duration ]]; then
+    local zero='%([BSUbfksu]|([FK]|){*})'
+    local -i lw=${(m)#${(S%%)left//$~zero/}} rw=${(m)#${(S%%)_prompt_duration//$~zero/}}
+    local -i pad=$(( COLUMNS - lw - rw ))
+    (( pad < 1 )) && pad=1
+    _prompt_line1+="${(l:pad:: :)}$_prompt_duration"
+  fi
+
+  RPROMPT=
+  _prompt_render
+}
+
+# vi normal mode turns the symbol into a blue ❮
+function _prompt_keymap_select() {
+  local vicmd=0
+  [[ $KEYMAP == (vicmd|visual) ]] && vicmd=1
+  (( vicmd == _prompt_vicmd )) && return
+  _prompt_vicmd=$vicmd
+  _prompt_render
   zle reset-prompt
 }
 
-function transient-prompt-precmd() {
-  PROMPT="$STARSHIP_FULL_PROMPT"
-  RPROMPT="$STARSHIP_FULL_RPROMPT"
+# Transient prompt: runs when ENTER is pressed
+function _prompt_transient() {
+  [[ $CONTEXT == start ]] || return 0
+  local char_color=$nord14
+  (( _prompt_status != 0 )) && char_color=$nord11
+  PROMPT="%B%F{$nord9}%~%f%b %F{$char_color}❯%f "
+  RPROMPT=$_prompt_duration
+  zle reset-prompt
 }
 
-# Carrega os módulos de ganchos do Zsh
-autoload -Uz add-zle-hook-widget
-autoload -Uz add-zsh-hook
+# Non-interactive shells (e.g. the Claude Code statusline) only reuse the functions
+[[ -o interactive ]] || return 0
 
-# Registra as funções nos momentos certos do ciclo de vida do shell
-add-zle-hook-widget zle-line-finish transient-prompt-finish
-add-zsh-hook precmd transient-prompt-precmd
+add-zsh-hook preexec _prompt_preexec
+add-zsh-hook precmd _prompt_precmd
+add-zle-hook-widget keymap-select _prompt_keymap_select
+add-zle-hook-widget zle-line-finish _prompt_transient

@@ -33,6 +33,3 @@ export LESSHISTFILE=/dev/null
 export R_PROFILE_USER="$XDG_CONFIG_HOME/r/.Rprofile"
 export R_ENVIRON_USER="$XDG_CONFIG_HOME/r/.Renviron"
 
-# Starship configuration
-export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
-
