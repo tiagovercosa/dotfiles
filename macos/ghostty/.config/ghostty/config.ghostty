@@ -12,7 +12,7 @@ selection-foreground = #d8dee9
 palette = 8=#4c566a
 
 # --- CURSOR ---
-cursor-style = block
+cursor-style = bar
 cursor-style-blink = false
 cursor-color = #b48ead
 cursor-text = #2e3440
@@ -38,9 +38,9 @@ split-preserve-zoom = navigation
 window-padding-x = 4
 window-padding-y = 4
 
-# -- APPEARANCE ---
 background-blur = macos-glass-clear
 background-opacity = 0.98
+# --- APPEARANCE ---
 
 # --- MOUSE ---
 copy-on-select = clipboard
