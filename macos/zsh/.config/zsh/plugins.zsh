@@ -10,12 +10,6 @@ fi
 # Source/Load zinit
 source "$ZINIT_HOME/zinit.zsh"
 
-# zsh-vi-mode first, initialized right away (not on the first prompt), so every
-# plugin and bindkey loaded after it in .zshrc overrides its defaults.
-ZVM_INIT_MODE=sourcing
-zinit ice depth=1
-zinit light jeffreytse/zsh-vi-mode
-
 # Extra completion definitions (must be in fpath before compinit)
 zinit light zsh-users/zsh-completions
 

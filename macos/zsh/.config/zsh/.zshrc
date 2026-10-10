@@ -11,7 +11,7 @@ setopt pushd_ignore_dups
 setopt nobeep
 setopt numeric_glob_sort
 
-# Keybindings (vi mode comes from zsh-vi-mode, see plugins.zsh)
+# Keybindings
 bindkey '^p' history-beginning-search-backward
 bindkey '^n' history-beginning-search-forward
 bindkey '^L' clear-screen

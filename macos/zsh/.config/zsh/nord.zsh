@@ -97,7 +97,3 @@ FAST_HIGHLIGHT_STYLES[correct-subtle]="fg=$nord8"
 FAST_HIGHLIGHT_STYLES[incorrect-subtle]="fg=$nord11"
 FAST_HIGHLIGHT_STYLES[subtle-separator]="fg=$nord3_bright"
 FAST_HIGHLIGHT_STYLES[subtle-bg]="bg=$nord1"
-
-# zsh-vi-mode (visual selection)
-ZVM_VI_HIGHLIGHT_BACKGROUND="$nord2"
-ZVM_VI_HIGHLIGHT_FOREGROUND="$nord6"
