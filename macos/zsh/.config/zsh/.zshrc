@@ -11,19 +11,17 @@ setopt pushd_ignore_dups
 setopt nobeep
 setopt numeric_glob_sort
 
-# Keybindings
+# Keybindings: emacs mode, like macOS text fields (otherwise EDITOR=nvim selects vi mode)
+bindkey -e
 bindkey '^p' history-beginning-search-backward
 bindkey '^n' history-beginning-search-forward
 bindkey '^L' clear-screen
-bindkey '^F' _fzf_file_no_hidden
 
 # Home/End (cmd+← / cmd+→ no kitty)
-for km in viins vicmd; do
-  bindkey -M $km '^[[H' beginning-of-line
-  bindkey -M $km '^[[F' end-of-line
-  bindkey -M $km '^[OH' beginning-of-line
-  bindkey -M $km '^[OF' end-of-line
-done
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+bindkey '^[OH' beginning-of-line
+bindkey '^[OF' end-of-line
 
 # History
 HISTSIZE=50000

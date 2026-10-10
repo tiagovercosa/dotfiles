@@ -5,7 +5,6 @@ typeset -g _prompt_status=0      # exit status of the last command
 typeset -g _prompt_start=        # EPOCHREALTIME when the last command started
 typeset -g _prompt_duration=     # formatted duration ("" when under 2s)
 typeset -g _prompt_line1=        # first line of the full prompt
-typeset -g _prompt_vicmd=0       # 1 while in vi normal (command) mode
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 PS2="%F{$nord3}❯❯ %f"
@@ -93,10 +92,9 @@ function _prompt_format_duration() {
 }
 
 function _prompt_render() {
-  local char_color=$nord14 char='❯'
+  local char_color=$nord14
   (( _prompt_status != 0 )) && char_color=$nord11
-  (( _prompt_vicmd )) && char_color=$nord9 char='❮'
-  PROMPT=$'\n'"$_prompt_line1"$'\n'"%F{$char_color}$char%f "
+  PROMPT=$'\n'"$_prompt_line1"$'\n'"%F{$char_color}❯%f "
 }
 
 function _prompt_preexec() {
@@ -105,7 +103,6 @@ function _prompt_preexec() {
 
 function _prompt_precmd() {
   _prompt_status=$?
-  _prompt_vicmd=0
 
   _prompt_duration=
   if [[ -n $_prompt_start ]]; then
@@ -133,16 +130,6 @@ function _prompt_precmd() {
   _prompt_render
 }
 
-# vi normal mode turns the symbol into a blue ❮
-function _prompt_keymap_select() {
-  local vicmd=0
-  [[ $KEYMAP == (vicmd|visual) ]] && vicmd=1
-  (( vicmd == _prompt_vicmd )) && return
-  _prompt_vicmd=$vicmd
-  _prompt_render
-  zle reset-prompt
-}
-
 # Transient prompt: runs when ENTER is pressed
 function _prompt_transient() {
   [[ $CONTEXT == start ]] || return 0
@@ -158,5 +145,4 @@ function _prompt_transient() {
 
 add-zsh-hook preexec _prompt_preexec
 add-zsh-hook precmd _prompt_precmd
-add-zle-hook-widget keymap-select _prompt_keymap_select
 add-zle-hook-widget zle-line-finish _prompt_transient
