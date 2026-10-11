@@ -38,9 +38,9 @@ split-preserve-zoom = navigation
 window-padding-x = 4
 window-padding-y = 4
 
-background-blur = macos-glass-clear
-background-opacity = 0.98
 # --- APPEARANCE ---
+background-blur = true
+background-opacity = 0.97
 
 # --- MOUSE ---
 copy-on-select = clipboard
