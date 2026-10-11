@@ -20,13 +20,6 @@ return {
       symbols = { added = " ", modified = " ", removed = " " },
     }
 
-    local mode = {
-      "mode",
-      fmt = function(str)
-        return "-- " .. str .. " --"
-      end,
-    }
-
     local filetype = {
       "filetype",
       icons_enabled = true,
