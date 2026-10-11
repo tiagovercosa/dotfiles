@@ -56,7 +56,7 @@ function _prompt_git() {
   [[ -z $branch ]] && return
   [[ $branch == '(detached)' ]] && branch=HEAD
 
-  REPLY="%F{$nord3} ${branch//\%/%%}%f"
+  REPLY="%F{$nord3}  ${branch//\%/%%}%f"
   local changes=$conflicted$untracked$modified$staged$renamed$deleted ab_sym=
   if (( ahead && behind )); then ab_sym='⇕'
   elif (( ahead )); then ab_sym='⇡'
