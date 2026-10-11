@@ -10,7 +10,7 @@ export FZF_DEFAULT_OPTS='
   --border=rounded
   --prompt="  "
   --pointer="  "
-  --preview-window=right:65%:wrap:border-left
+  --preview-window=right:65%:border-left
 '
 
 # Nord colors (variables from nord.zsh)
@@ -22,6 +22,6 @@ FZF_DEFAULT_OPTS+="
   --color=info:$nord3_bright,header:$nord9,query:$nord6
 "
 
-export _FZF_PREVIEW_CMD='bat --color=always --style=plain,numbers --line-range=:500 {}'
+export _FZF_PREVIEW_CMD="$ZDOTDIR/fzf-preview.sh {}"  # images via kitten icat, text via bat
 export FZF_CTRL_T_OPTS="--preview '$_FZF_PREVIEW_CMD'"
 

@@ -40,6 +40,7 @@ zstyle ':completion:*' menu no  # let fzf-tab show the menu and insert the commo
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'LS_COLORS= eza -1 --color=always --icons=auto --group-directories-first "$realpath"'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'LS_COLORS= eza -1 --color=always --icons=auto --group-directories-first "$realpath"'
+zstyle ':fzf-tab:complete:*:*' fzf-preview '"$ZDOTDIR/fzf-preview.sh" "$realpath"'  # images via kitten icat
 
 # GPG
 export GPG_TTY=$TTY
