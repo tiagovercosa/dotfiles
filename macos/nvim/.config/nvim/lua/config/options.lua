@@ -51,6 +51,10 @@ vim.opt.autoread = true -- Automatically read files when changed outside of Vim
 vim.opt.autowrite = false -- Don't automatically save files
 vim.opt.diffopt = "vertical,algorithm:patience,linematch:60" -- Diff options
 
+-- .gp é PARI/GP para o Neovim e .plt não é reconhecido; aqui os dois são
+-- scripts gnuplot (o ftplugin/gnuplot.lua depende disso).
+vim.filetype.add({ extension = { gp = "gnuplot", plt = "gnuplot" } })
+
 -- Behavior Settings
 vim.opt.autochdir = false -- Don't change the working directory automatically
 vim.opt.iskeyword:append("-") -- Treat hyphens as part of words

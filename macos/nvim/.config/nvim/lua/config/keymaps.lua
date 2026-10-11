@@ -47,10 +47,6 @@ map("n", "<leader>u", function()
   require("undotree").open()
 end, { desc = "Toggle undotree" })
 
--- Gnuplot compile and preview
-vim.keymap.set('n', '<leader>p', ':w<CR>:!gnuplot %<CR>', { desc = 'Executar script gnuplot' })
-vim.keymap.set('n', '<leader>o', ':w<CR>:!gnuplot -p %<CR>', { desc = 'Executar script gnuplot' })
-
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
     local function bopts(desc)
@@ -63,4 +59,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- [d / ]d já são mapeamentos padrão do Neovim (vim.diagnostic.jump).
   end,
 })
-
