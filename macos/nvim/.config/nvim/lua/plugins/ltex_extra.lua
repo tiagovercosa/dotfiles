@@ -1,6 +1,7 @@
 return {
   "barreiroleo/ltex_extra.nvim",
   ft = { "markdown", "tex", "plaintex", "bib", "text", "gitcommit" },
+  dependencies = { "neovim/nvim-lspconfig" },
   config = function()
     vim.lsp.enable("ltex_plus")
 
@@ -11,7 +12,9 @@ return {
       group = vim.api.nvim_create_augroup("LtexExtraSetup", {}),
       callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if not client or client.name ~= "ltex_plus" then return end
+        if not client or client.name ~= "ltex_plus" then
+          return
+        end
 
         if not setup_feito then
           setup_feito = true
