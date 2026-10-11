@@ -14,7 +14,7 @@ palette = 8=#4c566a
 # --- CURSOR ---
 cursor-style = bar
 cursor-style-blink = false
-cursor-color = #b48ead
+cursor-color = #d8dee9
 cursor-text = #2e3440
 adjust-cursor-thickness = 3
 mouse-hide-while-typing = true
