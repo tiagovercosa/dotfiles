@@ -1,6 +1,6 @@
 # --- FONT ---
-font-family = "Iosevka Nerd Font"
-font-size = 18
+font-family = "JetBrainMono Nerd Font"
+font-size = 16
 font-thicken = false
 # font-thicken-strength = 0
 font-feature = liga,calt,clig
@@ -16,9 +16,12 @@ cursor-style = bar
 cursor-style-blink = false
 cursor-color = #b48ead
 cursor-text = #2e3440
+adjust-cursor-thickness = 3
 mouse-hide-while-typing = true
 custom-shader = shaders-custom/cursor_tail.glsl
 custom-shader = shaders-custom/ripple_cursor.glsl
+custom-shader = shaders-custom/cursor_fade.glsl
+custom-shader-animation = always
 
 # --- SHELL/TMUX ---
 shell-integration = detect
