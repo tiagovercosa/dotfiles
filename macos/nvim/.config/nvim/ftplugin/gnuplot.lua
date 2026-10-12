@@ -8,9 +8,11 @@ local function run(flags)
 end
 
 vim.keymap.set("n", "<leader>p", run(""), { buffer = true, desc = "Executar script gnuplot" })
-vim.keymap.set("n", "<leader>o", run("-p "), { buffer = true, desc = "Executar gnuplot (janela persistente)" })
+-- <leader>P, não <leader>o: o <leader>o é prefixo dos atalhos do Obsidian, e
+-- o Neovim esperaria o timeoutlen antes de rodar.
+vim.keymap.set("n", "<leader>P", run("-p "), { buffer = true, desc = "Executar gnuplot (janela persistente)" })
 
-local undo = "exe 'silent! nunmap <buffer> <leader>p' | exe 'silent! nunmap <buffer> <leader>o'"
+local undo = "exe 'silent! nunmap <buffer> <leader>p' | exe 'silent! nunmap <buffer> <leader>P'"
 if vim.b.undo_ftplugin and vim.b.undo_ftplugin ~= "" then
   vim.b.undo_ftplugin = vim.b.undo_ftplugin .. " | " .. undo
 else
