@@ -74,10 +74,10 @@ vim.opt.splitright = true -- Open vertical splits to the right
 vim.opt.splitbelow = true -- Open horizontal splits below
 
 vim.opt.listchars = {
-  space = "·",
   tab = "→ ",
   multispace = "·",
-  leadmultispace = "·",
+  leadmultispace = "| ",
+  trail = "·",
 }
 
 -- Set undo directory and ensure it exists
