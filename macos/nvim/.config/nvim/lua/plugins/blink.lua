@@ -64,12 +64,19 @@ return {
         menu = {
           border = "rounded",
           -- Em prosa o menu abre a cada palavra digitada; lá ele só aparece
-          -- sob demanda, com <C-n>.
-          auto_show = function()
-            return not vim.tbl_contains(
+          -- sob demanda, com <C-n>. Exceção: numa nota do Obsidian, abre
+          -- sozinho ao digitar [[link ou #tag.
+          auto_show = function(ctx)
+            if not vim.tbl_contains(
               { "markdown", "tex", "text", "plaintex", "bib", "gitcommit" },
               vim.bo.filetype
-            )
+            ) then
+              return true
+            end
+            if not vim.b.obsidian_buffer then return false end
+            local before = ctx.line:sub(1, ctx.cursor[2])
+            return before:match("%[%[[^%]]*$") ~= nil
+              or before:match("%f[%S]#[^%s#]+$") ~= nil
           end,
         },
         documentation = {

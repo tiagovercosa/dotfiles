@@ -32,8 +32,11 @@ return {
       },
       -- LaTeX fica só no <leader>gf por enquanto: o tex-fmt ainda pode
       -- indentar ambientes verbatim que ele não conhece (pycode, gnuplot...).
+      -- Notas dos vaults também: o prettier reescreveria o markdown que o app
+      -- do Obsidian gera (ênfase, listas, frontmatter).
       format_on_save = function(bufnr)
         if vim.bo[bufnr].filetype == "tex" then return end
+        if require("config.vaults").contains(vim.api.nvim_buf_get_name(bufnr)) then return end
         return { timeout_ms = 1000 }
       end,
       formatters = {

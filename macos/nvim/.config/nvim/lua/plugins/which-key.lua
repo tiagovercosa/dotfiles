@@ -11,6 +11,7 @@ return {
         { "<leader>f", group = "Buscar" },
         { "<leader>g", group = "LSP" },
         { "<leader>h", group = "Git" },
+        { "<leader>o", group = "Obsidian" },
         { "<leader>r", group = "REPL / Renomear" },
         { "<leader>s", group = "Split" },
       },

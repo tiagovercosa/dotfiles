@@ -95,6 +95,16 @@ return {
         settings = { ltex = ltex_settings },
       })
 
+      -- Nos vaults do Obsidian, links, definição, referências e rename ficam
+      -- com o LSP do obsidian.nvim; com os dois, a completação de [[ vinha
+      -- duplicada e o <leader>gd abria uma lista com o mesmo destino duas vezes.
+      vim.lsp.config("marksman", {
+        root_dir = function(bufnr, on_dir)
+          if require("config.vaults").contains(vim.api.nvim_buf_get_name(bufnr)) then return end
+          on_dir(vim.fs.root(bufnr, { ".marksman.toml", ".git" }))
+        end,
+      })
+
       local enabled = vim.tbl_filter(function(name)
         return name ~= "ltex_plus"
       end, vim.tbl_keys(servers))
