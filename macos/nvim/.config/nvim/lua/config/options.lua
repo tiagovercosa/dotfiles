@@ -3,7 +3,9 @@ vim.opt.nu = true -- Line numbers
 vim.opt.relativenumber = true -- Relative line numbers
 vim.opt.sidescrolloff = 8 -- Keep 8 columns to the left/right of the cursor
 vim.opt.cmdheight = 1 -- Command line height
-vim.opt.wrap = false -- Disable line wrapping
+vim.opt.wrap = true -- Soft-wrap long lines instead of scrolling sideways
+vim.opt.linebreak = true -- Wrap at word boundaries, not mid-word
+vim.opt.breakindent = true -- Keep indentation on wrapped continuation lines
 vim.opt.cursorline = true -- Highlight the current line
 vim.opt.scrolloff = 5 -- Keep 5 lines above/below the cursor
 vim.opt.whichwrap:append("<,>,[,],h,l") -- Allow cursor to move to the next/previous line with these keys
