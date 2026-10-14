@@ -5,8 +5,8 @@
 eza() { LS_COLORS= command eza "$@" }
 
 alias ls='eza --group-directories-first'
-alias ll='eza -l --git --group-directories-first --icons'
-alias la='eza -la --git --group-directories-first --icons'
+alias ll='eza -l --git --group-directories-first --icons auto'
+alias la='eza -la --git --group-directories-first --icons auto'
 alias lt='eza -lr -s time --git'
 
 alias tree='eza --tree --icons auto'
