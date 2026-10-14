@@ -25,6 +25,7 @@ return {
         bash     = { "shfmt" },
         markdown = { "prettier" },
         html     = { "prettier" },
+        css      = { "prettier" },
         yaml     = { "prettier" },
       },
       default_format_opts = {

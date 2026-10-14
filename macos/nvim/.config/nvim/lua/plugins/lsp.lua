@@ -5,6 +5,7 @@ local servers = {
   ruff         = "ruff",
   clangd       = "clangd",
   html         = "html-lsp",
+  cssls        = "css-lsp",
   fortls       = "fortls",
   texlab       = "texlab",
   marksman     = "marksman",

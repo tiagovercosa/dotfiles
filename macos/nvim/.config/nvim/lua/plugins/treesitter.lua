@@ -16,13 +16,13 @@ return {
       -- noice o usa para realçar buscas e padrões na cmdline.
       local install_langs = {
         "python", "fortran", "bibtex", "cpp", "c",
-        "html", "gnuplot", "yaml", "toml", "bash",
+        "html", "css", "gnuplot", "yaml", "toml", "bash",
         "lua", "vim", "vimdoc", "markdown", "markdown_inline", "regex",
       }
 
       local ft_patterns = {
         "python", "fortran", "bib", "cpp", "c",
-        "html", "gnuplot", "yaml", "toml", "bash", "sh",
+        "html", "css", "gnuplot", "yaml", "toml", "bash", "sh",
         "lua", "vim", "help", "markdown",
       }
 
