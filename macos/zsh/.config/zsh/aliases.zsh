@@ -17,6 +17,12 @@ alias -- -='cd -'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 
+# tmux
+alias tn='tmux new-session -s'
+alias tl='tmux list-sessions'
+alias ta='tmux attach -t'
+alias tk='tmux kill-session -t'
+
 # Apps
 # alias qtgrace='/Applications/qtgrace.app/Contents/MacOS/qtgrace'
 alias tlup='sudo env PATH="/Library/TeX/texbin:$PATH" tlmgr update --self --all'
