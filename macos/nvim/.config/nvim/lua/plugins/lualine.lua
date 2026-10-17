@@ -77,7 +77,7 @@ return {
       options = {
         theme = "nord",
         component_separators = { left = "|", right = "|" },
-        section_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
         globalstatus = true,
       },
       sections = {
@@ -87,7 +87,7 @@ return {
         lualine_x = {
           lsp_progress(),
           "encoding",
-          { "fileformat", icons_enabled = false },
+          -- { "fileformat", icons_enabled = true },
           "filetype",
         },
         lualine_y = { "progress" },

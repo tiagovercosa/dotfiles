@@ -1,7 +1,6 @@
 return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    enabled = true,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
@@ -14,7 +13,6 @@ return {
       -- Títulos minimalistas: só a cor do texto, sem faixa de fundo, borda ou
       -- ícone na coluna de sinais. O ícone substitui os "#" na própria linha.
       heading = {
-        enabled = true,
         sign = false,
         border = false,
         position = "inline",
@@ -24,7 +22,6 @@ return {
       },
 
       code = {
-        enabled = true,
         sign = false,
         style = "full",
         width = "block",
@@ -34,12 +31,10 @@ return {
       },
 
       bullet = {
-        enabled = true,
         icons = { "•", "◦", "▪", "▫" },
       },
 
       checkbox = {
-        enabled = true,
         unchecked = { icon = " 󰄱 " },
         checked = { icon = " 󰱒 " },
         -- Estilo opcional para tarefas em andamento (ex: [-])
@@ -49,7 +44,6 @@ return {
       },
 
       pipe_table = {
-        enabled = true,
         preset = "round",
       },
 

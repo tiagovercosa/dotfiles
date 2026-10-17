@@ -12,8 +12,8 @@ return {
       -- markdown_inline não é um filetype: o parser markdown o injeta para o
       -- conteúdo de linha (ênfase, código inline, links). Sem ele declarado
       -- aqui, o realce inline depende do .so que sobrou da branch master e
-      -- some numa instalação limpa. "regex" também só entra por injeção: o
-      -- noice o usa para realçar buscas e padrões na cmdline.
+      -- some numa instalação limpa. "regex" também só entra por injeção, para
+      -- realçar padrões de busca na cmdline.
       local install_langs = {
         "python", "fortran", "bibtex", "cpp", "c",
         "html", "css", "gnuplot", "yaml", "toml", "bash",

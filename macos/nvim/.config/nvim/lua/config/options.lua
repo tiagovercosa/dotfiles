@@ -2,7 +2,7 @@
 vim.opt.nu = true -- Line numbers
 vim.opt.relativenumber = true -- Relative line numbers
 vim.opt.sidescrolloff = 8 -- Keep 8 columns to the left/right of the cursor
-vim.opt.cmdheight = 1 -- Command line height
+vim.opt.cmdheight = 2 -- Command line height
 vim.opt.wrap = true -- Soft-wrap long lines instead of scrolling sideways
 vim.opt.linebreak = true -- Wrap at word boundaries, not mid-word
 vim.opt.breakindent = true -- Keep indentation on wrapped continuation lines
@@ -30,27 +30,19 @@ vim.opt.signcolumn = "yes" -- Always show the sign column
 vim.opt.colorcolumn = "70" -- Highlight column 70 (visual guide only)
 vim.opt.showmatch = true -- Highlight matching parentheses
 vim.opt.matchtime = 2 -- Tenths of a second to show the matching paren
-vim.opt.completeopt = { "noinsert", "menuone", "noselect" }
 vim.opt.showmode = false -- Don't show mode
 vim.opt.pumheight = 10 -- Popup menu height
-vim.opt.winblend = 0 -- Transparency for floating windows
-vim.opt.conceallevel = 0 -- Don't conceal text
-vim.opt.concealcursor = "" -- Don't conceal text in the cursor line
-vim.opt.redrawtime = 2000 -- Time in milliseconds to wait for a redraw
 vim.opt.synmaxcol = 300 -- Syntax highlighting column limit
 vim.opt.winborder = "rounded" -- Use rounded borders for floating windows
 vim.opt.list = true -- Show whitespace characters
 
 -- File Handling
-vim.opt.backup = false -- Don't create backup files
 vim.opt.writebackup = false -- Don't create backup files while writing
 vim.opt.swapfile = false -- Don't create swap files
 vim.opt.undofile = true -- Enable persistent undo
 vim.opt.updatetime = 300 -- CursorHold trigger (gitsigns blame, LSP hover)
 vim.opt.timeoutlen = 500 -- Time in ms to wait for a mapped sequence to complete
 vim.opt.ttimeoutlen = 0 -- Time in ms to wait for a key code sequence to complete
-vim.opt.autoread = true -- Automatically read files when changed outside of Vim
-vim.opt.autowrite = false -- Don't automatically save files
 vim.opt.diffopt = "vertical,algorithm:patience,linematch:60" -- Diff options
 
 -- .gp é PARI/GP para o Neovim e .plt não é reconhecido; aqui os dois são
@@ -58,7 +50,6 @@ vim.opt.diffopt = "vertical,algorithm:patience,linematch:60" -- Diff options
 vim.filetype.add({ extension = { gp = "gnuplot", plt = "gnuplot" } })
 
 -- Behavior Settings
-vim.opt.autochdir = false -- Don't change the working directory automatically
 vim.opt.iskeyword:append("-") -- Treat hyphens as part of words
 vim.opt.path:append("**") -- Search for files in subdirectories
 vim.opt.clipboard:append("unnamedplus") -- Use the system clipboard
@@ -81,14 +72,6 @@ vim.opt.listchars = {
   leadmultispace = "| ",
   trail = "·",
 }
-
--- Set undo directory and ensure it exists
-local undo_dir = vim.fn.stdpath("data") .. "/undodir"
-vim.opt.undodir = vim.fn.expand(undo_dir)
-local undodir_local = vim.fn.expand(undo_dir)
-if vim.fn.isdirectory(undodir_local) == 0 then
-  vim.fn.mkdir(undodir_local, "p")
-end
 
 -- Diagnostics (matches winborder = "rounded")
 vim.diagnostic.config({

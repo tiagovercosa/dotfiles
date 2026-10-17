@@ -6,7 +6,6 @@ return {
     lazy = false,
     config = function()
       require("oil").setup({
-        default_file_explorer = true,
         columns = {
           "icon",
           "permissions",
@@ -20,29 +19,6 @@ return {
             return name == ".." or name == ".git"
           end,
         },
-        keymaps = {
-          ["g?"] = "actions.show_help",
-          ["<CR>"] = "actions.select",
-          ["<C-s>"] = "actions.select_vsplit",
-          ["<C-h>"] = "actions.select_split",
-          ["<C-p>"] = "actions.preview",
-          ["<C-c>"] = "actions.close",
-          ["<C-l>"] = "actions.refresh",
-          ["-"] = "actions.parent",
-          ["_"] = "actions.open_cwd",
-          ["gs"] = "actions.change_sort",
-          ["gx"] = "actions.open_external",
-          ["g."] = "actions.toggle_hidden",
-        },
-        float = {
-          padding = 2,
-          max_width = 0,
-          max_height = 0,
-          border = "rounded",
-          win_options = {
-            winblend = 0,
-          },
-        },
       })
 
       vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
@@ -50,13 +26,6 @@ return {
       vim.keymap.set("n", "<leader>e", function()
         require("oil").toggle_float()
       end, { desc = "Toggle floating file explorer" })
-
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "oil",
-        callback = function()
-          vim.opt_local.cursorline = true
-        end,
-      })
 
     end
   }

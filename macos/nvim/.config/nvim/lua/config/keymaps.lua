@@ -10,12 +10,6 @@ map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up" })
 map("n", "<leader>bn", ":bnext<cr>", { desc = "Next buffer" })
 map("n", "<leader>bp", ":bprevious<cr>", { desc = "Previous buffer" })
 
--- Window navigation
-map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
-map("n", "<C-j>", "<C-w>j", { desc = "Move to down window" })
-map("n", "<C-k>", "<C-w>k", { desc = "Move to up window" })
-map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
-
 -- Splitting and resizing
 map("n", "<leader>sv", ":vsplit<cr>", { desc = "Vertical split" })
 map("n", "<leader>sh", ":split<cr>", { desc = "Horizontal split" })

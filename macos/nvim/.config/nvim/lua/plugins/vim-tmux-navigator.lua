@@ -1,7 +1,4 @@
+-- O plugin já mapeia <C-h/j/k/l> para navegar entre splits e panes do tmux.
 return {
   "christoomey/vim-tmux-navigator",
-  vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { silent = true }),
-  vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { silent = true }),
-  vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { silent = true }),
-  vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { silent = true }),
 }
