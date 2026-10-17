@@ -2,7 +2,7 @@ return {
   {
     "saghen/blink.cmp",
     version = "*",
-    event = { "InsertEnter", "CmdlineEnter" },
+    event = "VeryLazy",
 
     dependencies = {
       "L3MON4D3/LuaSnip",
@@ -16,6 +16,33 @@ return {
         ["<CR>"] = { "accept", "fallback" },
         -- <C-Space> é do Things no macOS. <C-n> abre o menu e, já aberto, desce.
         ["<C-n>"] = { "show", "select_next", "fallback" },
+        -- Prioridade do <Tab>: 1) menu do blink aberto; 2) gatilho de snippet
+        -- manual na ponta do cursor (ref, cite, ff, link...); 3) fantasma do
+        -- Copilot visível (aceita por palavra); 4) próximo campo de snippet já
+        -- aberto; 5) fallback (indenta lista do markdown-plus ou insere tab).
+        ["<Tab>"] = {
+          function(cmp)
+            if cmp.snippet_active() then
+              return cmp.accept()
+            else
+              return cmp.select_and_accept()
+            end
+          end,
+          function()
+            local ls = require("luasnip")
+            if ls.expandable() then
+              vim.schedule(ls.expand)
+              return true
+            end
+            local ok, suggestion = pcall(require, "copilot.suggestion")
+            if ok and suggestion.is_visible() then
+              suggestion.accept_word()
+              return true
+            end
+          end,
+          "snippet_forward",
+          "fallback",
+        },
       },
 
       snippets = {

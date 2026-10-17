@@ -10,9 +10,11 @@ return {
         enabled = true,
         auto_trigger = true,
         hide_during_completion = true,
+        -- Por palavra fica no <Tab> (integrado ao blink.lua para não atropelar
+        -- snippets nem o markdown-plus).
         keymap = {
           accept = "<M-y>",
-          accept_word = "<M-w>",
+          accept_word = false,
         },
       },
       panel = { enabled = false },
