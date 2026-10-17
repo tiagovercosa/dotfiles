@@ -4,12 +4,15 @@ font-size = 17
 font-thicken = false
 # font-thicken-strength = 0
 font-feature = liga,calt,clig
+font-shaping-break = cursor
+alpha-blending = linear-corrected
 
 # --- THEME ---
 theme = Nord
 selection-background = #434c5e
 selection-foreground = #d8dee9
 palette = 8=#4c566a
+palette-generate = true
 
 # --- CURSOR ---
 cursor-style = bar
@@ -18,14 +21,10 @@ cursor-color = #d8dee9
 cursor-text = #2e3440
 adjust-cursor-thickness = 3
 mouse-hide-while-typing = true
-custom-shader = shaders-custom/cursor_tail.glsl
-custom-shader = shaders-custom/ripple_cursor.glsl
-custom-shader = shaders-custom/cursor_fade.glsl
-custom-shader-animation = always
 
 # --- SHELL/TMUX ---
 shell-integration = detect
-shell-integration-features = no-cursor,ssh-env,ssh-terminfo,sudo,title
+shell-integration-features = no-cursor,ssh-env,ssh-terminfo,sudo,title,path
 # Auto-attach to an existing tmux session on launch, or create a new one if none exists.
 # command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
 
@@ -36,6 +35,7 @@ window-save-state = always
 confirm-close-surface = true
 unfocused-split-opacity = 0.75
 split-preserve-zoom = navigation
+drag-handle = auto
 
 # --- PADDING ---
 window-padding-x = 4
@@ -43,20 +43,24 @@ window-padding-y = 4
 
 # --- APPEARANCE ---
 background-blur = macos-glass-clear
-background-opacity = 0.95
+background-opacity = 0.90
+background-opacity-cells = true
 
 # --- MOUSE ---
 copy-on-select = clipboard
 scrollback-limit-lines = 100000
+scrollback-compression = true
 clipboard-read = ask
 clipboard-write = allow
 clipboard-trim-trailing-spaces = true
 
 # --- LINKS ---
 link-url = true
+link-osc8 = true
+link-previews = true
 
 # --- NOTIFICATIONS ---
-bell-features = system,audio,attention,title
+bell-features = system,attention,title
 
 # Directory
 tab-inherit-working-directory = true
@@ -81,6 +85,7 @@ keybind = resize/arrow_up=resize_split:up,10
 keybind = resize/arrow_down=resize_split:down,10
 keybind = resize/arrow_left=resize_split:left,10
 keybind = resize/arrow_right=resize_split:right,10
+keybind = resize/equal=equalize_splits
 keybind = resize/escape=deactivate_key_table
 keybind = resize/catch_all=ignore
 keybind = cmd+b>s=activate_key_table:resize
@@ -114,5 +119,5 @@ undo-timeout = 10s
 
 # --- auto-update ---
 auto-update = check
-auto-update-channel = stable
+auto-update-channel = tip
 
