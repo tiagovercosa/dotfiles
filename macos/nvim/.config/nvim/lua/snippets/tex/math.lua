@@ -18,11 +18,11 @@ return {
 },
 {
   -- Math delimiters
-  s({ trig = "mk", dscr = "Inline math" },
+  s({ trig = "mk", dscr = "Inline math", condition = u.not_in_mathzone },
     fmta([[$<>$]], { i(1) })
   ),
 
-  s({ trig = "dm", dscr = "Display math" },
+  s({ trig = "dm", dscr = "Display math", condition = u.not_in_mathzone },
     fmta(
       [[
         \[

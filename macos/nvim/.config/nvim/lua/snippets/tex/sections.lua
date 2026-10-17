@@ -12,10 +12,10 @@ return {},
   s({ trig = "^sec", regTrig = true, dscr = "Section", condition = u.not_in_mathzone },
     fmta([[\section{<>}]], { i(1) })
   ),
-  s({ trig = "ssec", dscr = "Subsection", condition = u.not_in_mathzone },
+  s({ trig = "^ssec", regTrig = true, dscr = "Subsection", condition = u.not_in_mathzone },
     fmta([[\subsection{<>}]], { i(1) })
   ),
-  s({ trig = "sssec", dscr = "Subsubsection", condition = u.not_in_mathzone },
+  s({ trig = "^sssec", regTrig = true, dscr = "Subsubsection", condition = u.not_in_mathzone },
     fmta([[\subsubsection{<>}]], { i(1) })
   ),
 }

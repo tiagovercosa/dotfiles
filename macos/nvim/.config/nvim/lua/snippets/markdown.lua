@@ -44,7 +44,7 @@ return {
       return vim.fn.line(".") == 1
     end },
     fmta(
-      [[
+      [=[
         ---
         date: <>
         tags:
@@ -58,8 +58,8 @@ return {
         <>
 
         ## Notes Today
-        !\[\[Daily.base\]\]
-      ]],
+        ![[Daily.base]]
+      ]=],
       { agora("%Y-%m-%d"), agora("%A, %d %b %Y"), agora("%H:%M"), i(0) }
     )
   ),
