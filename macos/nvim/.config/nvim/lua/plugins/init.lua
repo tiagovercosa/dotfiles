@@ -1,10 +1,15 @@
--- vim.pack has no build step: compile LuaSnip's jsregexp (used by
--- snippet transformations) whenever it is installed or updated.
+-- vim.pack has no build step: compile native parts whenever a plugin is
+-- installed or updated (LuaSnip's jsregexp, telescope's fzf sorter).
+local builds = {
+	["LuaSnip"] = { "make", "install_jsregexp" },
+	["telescope-fzf-native.nvim"] = { "make" },
+}
 vim.api.nvim_create_autocmd("PackChanged", {
 	callback = function(ev)
 		local data = ev.data
-		if data.spec.name == "LuaSnip" and data.kind ~= "delete" then
-			vim.system({ "make", "install_jsregexp" }, { cwd = data.path })
+		local cmd = builds[data.spec.name]
+		if cmd and data.kind ~= "delete" then
+			vim.system(cmd, { cwd = data.path })
 		end
 	end,
 })
@@ -19,6 +24,10 @@ vim.pack.add({
 	"https://github.com/meanderingprogrammer/render-markdown.nvim",
 	"https://github.com/barreiroleo/ltex_extra.nvim",
 	"https://github.com/lewis6991/gitsigns.nvim",
+	"https://github.com/nvim-telescope/telescope.nvim",
+	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/nvim-telescope/telescope-fzf-native.nvim",
+	"https://github.com/nvim-telescope/telescope-ui-select.nvim",
 
 	-- LSP, completion, snippets and formatting
 	"https://github.com/mason-org/mason.nvim",
@@ -29,13 +38,14 @@ vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1") },
 	"https://github.com/nvim-lualine/lualine.nvim",
 
-	-- Ctrl-h/j/k/l between splits and tmux panes (counterpart of the tmux plugin)
 	"https://github.com/christoomey/vim-tmux-navigator",
+	"https://github.com/folke/which-key.nvim",
 })
 
 require("plugins.colorscheme")
 require("plugins.mini")
 require("plugins.oil")
+require("plugins.telescope")
 require("plugins.treesitter")
 require("plugins.lualine")
 require("plugins.vimtex")
@@ -46,3 +56,4 @@ require("plugins.mason")
 require("plugins.conform")
 require("plugins.luasnip")
 require("plugins.blink")
+require("plugins.which-key")
