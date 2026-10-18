@@ -27,6 +27,10 @@ return {
 
         if not clientes_carregados[client.id] then
           clientes_carregados[client.id] = true
+          vim.diagnostic.config({
+            virtual_lines = false,
+            signs = false,
+          }, vim.lsp.diagnostic.get_namespace(client.id))
           vim.api.nvim_buf_call(args.buf, function()
             pcall(require("ltex_extra").reload, { "pt-BR", "en-US" })
           end)

@@ -21,6 +21,7 @@ return {
       hl.GitSignsAdd = { fg = "#6E806A" }
       hl.GitSignsChange = { fg = "#968769" }
       hl.GitSignsDelete = { fg = "#7E4D57" }
+      hl.DiagnosticUnderlineHint = { undercurl = true, sp = c.aurora.red }
     end,
   },
   config = function(_, opts)

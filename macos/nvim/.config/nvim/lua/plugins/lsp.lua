@@ -80,7 +80,11 @@ return {
         },
       })
 
-      local ltex_settings = { language = "pt-BR" }
+      local ltex_settings = {
+        language = "pt-BR",
+        checkFrequency = "save",
+        diagnosticSeverity = "hint",
+      }
 
       local lt_user = vim.env.LTEX_LT_USERNAME
       local lt_key = vim.env.LTEX_LT_APIKEY
