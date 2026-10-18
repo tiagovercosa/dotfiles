@@ -1,101 +1,84 @@
+require("vim._core.ui2").enable({})
+vim.g.mapleader = "," -- space leader key
+vim.g.maplocalleader = " " -- space leader key
+
 -- Basic Settings
-vim.opt.nu = true -- Line numbers
-vim.opt.relativenumber = true -- Relative line numbers
-vim.opt.sidescrolloff = 8 -- Keep 8 columns to the left/right of the cursor
-vim.opt.cmdheight = 2 -- Command line height
-vim.opt.wrap = true -- Soft-wrap long lines instead of scrolling sideways
-vim.opt.linebreak = true -- Wrap at word boundaries, not mid-word
-vim.opt.breakindent = true -- Keep indentation on wrapped continuation lines
-vim.opt.cursorline = true -- Highlight the current line
-vim.opt.scrolloff = 5 -- Keep 5 lines above/below the cursor
-vim.opt.whichwrap:append("<,>,[,],h,l") -- Allow cursor to move to the next/previous line with these keys
+vim.o.nu = true -- enable line numbers
+vim.o.rnu = true -- enable relative line numbers
+vim.o.ch = 2 -- hide bottom cmdline
+vim.o.cul = true -- enable cursor line
+vim.o.so = 8 -- always keep 8 lines above/below cursor unless at start/end of file
+vim.o.ai = true -- copy indent from current line when starting new line
+vim.o.wrap = false -- disable wrapping
+vim.o.bri = true -- prevent line wrapping
+vim.o.lbr = true -- wrap at word boundaries, not mid-word
 
 -- Tabbing and Indentation
-vim.opt.tabstop = 2 -- Number of spaces that a <Tab>
-vim.opt.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent
-vim.opt.softtabstop = 2 -- Number of spaces that a <Tab> counts
-vim.opt.expandtab = true -- Use spaces instead of tabs
-vim.opt.smartindent = true -- Smart auto-indenting
-vim.opt.grepprg = "rg --vimgrep" -- Use ripgrep for searching
-vim.opt.grepformat = "%f:%l:%c:%m" -- Format: file:line:column:message
-
--- Search Settings
-vim.opt.ignorecase = true -- Ignore case in search patterns
-vim.opt.smartcase = true -- Override 'ignorecase' if search pattern contains uppercase letters
-vim.opt.hlsearch = false -- Disable persistent search highlight
+vim.o.ts = 2 -- how many spaces tab inserts
+vim.o.sts = 2 -- how many spaces tab inserts
+vim.o.sw = 2 -- controls number of spaces when using >> or << commands
+vim.o.et = true -- use appropriate number of spaces with tab
+vim.o.si = true -- indenting correctly after {
 
 -- Visual Settings
-vim.opt.termguicolors = true -- Enable true color support
-vim.opt.signcolumn = "yes" -- Always show the sign column
-vim.opt.colorcolumn = "70" -- Highlight column 70 (visual guide only)
-vim.opt.showmatch = true -- Highlight matching parentheses
-vim.opt.matchtime = 2 -- Tenths of a second to show the matching paren
-vim.opt.showmode = false -- Don't show mode
-vim.opt.pumheight = 10 -- Popup menu height
-vim.opt.synmaxcol = 300 -- Syntax highlighting column limit
-vim.opt.winborder = "rounded" -- Use rounded borders for floating windows
-vim.opt.list = true -- Show whitespace characters
-
--- File Handling
-vim.opt.writebackup = false -- Don't create backup files while writing
-vim.opt.swapfile = false -- Don't create swap files
-vim.opt.undofile = true -- Enable persistent undo
-vim.opt.updatetime = 300 -- CursorHold trigger (gitsigns blame, LSP hover)
-vim.opt.timeoutlen = 500 -- Time in ms to wait for a mapped sequence to complete
-vim.opt.ttimeoutlen = 0 -- Time in ms to wait for a key code sequence to complete
-vim.opt.diffopt = "vertical,algorithm:patience,linematch:60" -- Diff options
-
--- .gp é PARI/GP para o Neovim e .plt não é reconhecido; aqui os dois são
--- scripts gnuplot (o ftplugin/gnuplot.lua depende disso).
-vim.filetype.add({ extension = { gp = "gnuplot", plt = "gnuplot" } })
-
--- Behavior Settings
-vim.opt.iskeyword:append("-") -- Treat hyphens as part of words
-vim.opt.path:append("**") -- Search for files in subdirectories
-vim.opt.clipboard:append("unnamedplus") -- Use the system clipboard
-vim.opt.wildmode = "longest:full,full" -- Command-line completion mode
-vim.opt.wildignorecase = true -- Ignore case in file completion
-vim.opt.formatoptions:remove("t") -- Never hard-wrap text while typing
-vim.opt.laststatus = 3 -- Use a single status line for all windows
-vim.opt.shortmess = vim.opt.shortmess + "c" -- Don't show completion messages
-
--- Folding Settings
-vim.opt.foldlevel = 99 -- Start with all folds open
-
--- Split Behavior
-vim.opt.splitright = true -- Open vertical splits to the right
-vim.opt.splitbelow = true -- Open horizontal splits below
-
+vim.o.tgc = true -- enable 24-bit colors
+vim.o.ph = 10 -- max height of completion menu
+vim.o.winborder = "rounded" -- rounded border
+vim.o.pumborder = vim.o.winborder
+vim.o.scl = "auto:2" -- always show sign column
+vim.o.cc = "70" -- highlight column 70
+vim.o.list = true -- show whitespace characters
+vim.o.sm = true -- highlight matching parentheses
+vim.o.mat = 2 -- Tenths of a second to show the matching paren
+vim.o.smc = 300 -- syntax highlighting column limit
+vim.o.smd = false -- Don't show mode
 vim.opt.listchars = {
-  tab = "→ ",
-  multispace = "·",
-  leadmultispace = "| ",
-  trail = "·",
+	tab = "→ ",
+	multispace = "·",
+	leadmultispace = "| ",
+	trail = "·",
 }
 
--- Diagnostics (matches winborder = "rounded")
-vim.diagnostic.config({
-  -- Sem texto inline solto pelo arquivo: a mensagem completa aparece só na
-  -- linha do cursor; as demais ficam apenas com o sinal no gutter.
-  virtual_text = false,
-  virtual_lines = { current_line = true },
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = " ",
-      [vim.diagnostic.severity.WARN] = " ",
-      [vim.diagnostic.severity.INFO] = " ",
-      [vim.diagnostic.severity.HINT] = " ",
-    },
-  },
-  underline = true,
-  severity_sort = true,
-  float = { border = "rounded", source = "if_many" },
-})
+-- File Handling
+vim.o.ut = 200 -- save swap file with 200ms debouncing
+vim.o.swf = false -- disable swapfile
+vim.o.bk = false -- disable backup on q
+vim.o.wb = false -- don't create backup while writing
+vim.o.udf = true -- persistant undo history
+vim.o.ar = true -- auto update file if changed outside of nvim
+vim.o.dip = "vertical,algorithm:patience" -- Diff options
 
--- ui2 (0.12, experimental): new messages and cmdline layer. No "Press ENTER"
--- on long messages, highlighting while typing in ":", and the history in a
--- pager (g<). The pcall keeps an incompatible future version from breaking
--- startup; it just falls back to the classic UI.
-pcall(function()
-  require("vim._core.ui2").enable({})
-end)
+-- Search Settings
+vim.o.ic = true -- case-insensitive search
+vim.o.scs = true -- until search pattern contains upper case characters
+vim.o.is = true -- enable highlighting search in progress
+vim.o.hls = false -- Disable persistent search highlight
+vim.o.grepprg = "rg --vimgrep" -- Use ripgrep for searching
+vim.o.grepformat = "%f:%l:%c:%m" -- Format: file:line:column:message
+
+-- Split Behavior
+vim.o.sb = true -- better splitting
+vim.o.spr = true -- better splitting
+
+-- Folding Settings
+vim.o.fdl = 99 -- start with all fold open
+vim.o.fdls = 99 -- fold espanded always
+
+-- Behavior Settings
+vim.opt.cb = "unnamedplus" -- Use the system clipboard
+vim.opt.wic = true -- Ignore case in file completion
+
+vim.diagnostic.config({
+	underline = true,
+	virtual_text = true,
+	update_in_insert = false,
+	severity_sort = true,
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.HINT] = " ",
+			[vim.diagnostic.severity.INFO] = " ",
+		},
+	},
+})

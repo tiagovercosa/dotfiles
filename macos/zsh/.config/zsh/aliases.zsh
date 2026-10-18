@@ -23,6 +23,12 @@ alias tl='tmux list-sessions'
 alias ta='tmux attach -t'
 alias tk='tmux kill-session -t'
 
+# Git
+alias gst="git status"
+alias gld="git log --color --decorate"
+alias gps="git push"
+alias gpl="git pull"
+
 # Apps
 # alias qtgrace='/Applications/qtgrace.app/Contents/MacOS/qtgrace'
 alias tlup='sudo env PATH="/Library/TeX/texbin:$PATH" tlmgr update --self --all'

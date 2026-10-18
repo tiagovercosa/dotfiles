@@ -40,16 +40,3 @@ map("n", "<leader>u", function()
   vim.cmd.packadd("nvim.undotree")
   require("undotree").open()
 end, { desc = "Toggle undotree" })
-
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(ev)
-    local function bopts(desc)
-      return { buffer = ev.buf, silent = true, desc = desc }
-    end
-    map("n", "<leader>t", vim.diagnostic.open_float, bopts("Show diagnostic float"))
-    map("n", "<leader>gd", vim.lsp.buf.definition, bopts("Go to definition"))
-    map("n", "<leader>rn", vim.lsp.buf.rename, bopts("Rename symbol"))
-    map("n", "<leader>ca", vim.lsp.buf.code_action, bopts("Code action"))
-    -- [d / ]d já são mapeamentos padrão do Neovim (vim.diagnostic.jump).
-  end,
-})
