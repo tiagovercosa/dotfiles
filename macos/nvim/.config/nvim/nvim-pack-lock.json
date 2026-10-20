@@ -14,6 +14,10 @@
       "rev": "016802de402556da54c36bd7359b441266b01cdd",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "copilot.lua": {
+      "rev": "3f1f8cc30783ca905224eadebaa6ddfd73c28828",
+      "src": "https://github.com/zbirenbaum/copilot.lua"
+    },
     "friendly-snippets": {
       "rev": "b4d01b0fdf3c9a549961c2f9ffe8dc09be166219",
       "src": "https://github.com/rafamadriz/friendly-snippets"

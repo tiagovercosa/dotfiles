@@ -37,6 +37,7 @@ vim.pack.add({
 	"https://github.com/rafamadriz/friendly-snippets",
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1") },
 	"https://github.com/nvim-lualine/lualine.nvim",
+	"https://github.com/zbirenbaum/copilot.lua",
 
 	"https://github.com/christoomey/vim-tmux-navigator",
 	"https://github.com/folke/which-key.nvim",
@@ -57,3 +58,4 @@ require("plugins.conform")
 require("plugins.luasnip")
 require("plugins.blink")
 require("plugins.which-key")
+require("plugins.copilot")
