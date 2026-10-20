@@ -1,19 +1,20 @@
-local theme = vim.deepcopy(require("lualine.themes.nord"))
-for _, mode in pairs(theme) do
-	for name, section in pairs(mode) do
-		if name == "a" then
-			section.fg = section.bg
-		end
-		section.bg = "NONE"
+local function diff_source()
+	local gitsigns = vim.b.gitsigns_status_dict
+	if gitsigns then
+		return {
+			added = gitsigns.added,
+			modified = gitsigns.changed,
+			removed = gitsigns.removed,
+		}
 	end
 end
 
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = theme,
-		component_separators = { left = "|", right = "" },
-		section_separators = { left = "|", right = "" },
+		theme = "nord",
+		component_separators = { left = "|", right = "|" },
+		section_separators = { left = "", right = "" },
 		disabled_filetypes = {
 			statusline = {},
 			winbar = {},
@@ -43,7 +44,11 @@ require("lualine").setup({
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_b = {
+			{ "b:gitsigns_head", icon = "" },
+			{ "diff", source = diff_source },
+			"diagnostics",
+		},
 		lualine_c = { "filename" },
 		lualine_x = {},
 		lualine_y = { "progress" },
@@ -61,20 +66,4 @@ require("lualine").setup({
 	winbar = {},
 	inactive_winbar = {},
 	extensions = {},
-})
-
--- Lualine groups without bg fall back to StatusLine/StatusLineNC, which nord
--- paints even with transparent = true. Reapplied on every colorscheme change.
-local function transparent_statusline()
-	for _, name in ipairs({ "StatusLine", "StatusLineNC" }) do
-		local hl = vim.api.nvim_get_hl(0, { name = name, link = false })
-		hl.bg = "NONE"
-		vim.api.nvim_set_hl(0, name, hl)
-	end
-end
-
-transparent_statusline()
-vim.api.nvim_create_autocmd("ColorScheme", {
-	group = vim.api.nvim_create_augroup("TransparentStatusline", { clear = true }),
-	callback = transparent_statusline,
 })
