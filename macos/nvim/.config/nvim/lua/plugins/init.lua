@@ -14,6 +14,26 @@ vim.api.nvim_create_autocmd("PackChanged", {
 	end,
 })
 
+-- remove plugins from disk that are no longer in vim.pack.add() specs
+vim.api.nvim_create_user_command("PackClean", function()
+	local inactive = vim.iter(vim.pack.get())
+		:filter(function(x)
+			return not x.active
+		end)
+		:map(function(x)
+			return x.spec.name
+		end)
+		:totable()
+	if #inactive == 0 then
+		vim.notify("No inactive plugins to remove", vim.log.levels.INFO)
+		return
+	end
+	vim.pack.del(inactive)
+	vim.notify("Removed: " .. table.concat(inactive, ", "), vim.log.levels.INFO)
+end, { desc = "Remove plugins not in vim.pack.add() specs" })
+
+require("plugins.vimtex")
+
 vim.pack.add({
 	"https://github.com/gbprod/nord.nvim",
 	"https://github.com/stevearc/oil.nvim",
@@ -49,7 +69,6 @@ require("plugins.oil")
 require("plugins.telescope")
 require("plugins.treesitter")
 require("plugins.lualine")
-require("plugins.vimtex")
 require("plugins.render-markdown")
 require("plugins.ltex_extra")
 require("plugins.gitsigns")
