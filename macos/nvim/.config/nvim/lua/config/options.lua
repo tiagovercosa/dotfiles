@@ -1,6 +1,6 @@
 require("vim._core.ui2").enable({})
 vim.g.mapleader = "," -- space leader key
-vim.g.maplocalleader = " " -- space leader key
+vim.g.maplocalleader = "\\" -- bar leader key
 
 -- Basic Settings
 vim.o.nu = true -- enable line numbers
