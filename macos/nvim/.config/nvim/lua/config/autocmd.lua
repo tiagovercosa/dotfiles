@@ -1,60 +1,47 @@
 -- highlight yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-  group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
-  pattern = "*",
-  desc = "highlight selection on yank",
-  callback = function()
-    vim.highlight.on_yank({ timeout = 200, on_visual = true })
-  end,
+	group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
+	desc = "highlight selection on yank",
+	callback = function()
+		vim.hl.on_yank({ timeout = 200, on_visual = true })
+	end,
 })
-
 
 -- restore cursor to file position in previous editing session (ignoring git files)
 vim.api.nvim_create_autocmd("BufReadPost", {
-  callback = function(args)
-    local ft = vim.bo[args.buf].filetype
-    if ft == "gitcommit" or ft == "gitrebase" then return end
+	group = vim.api.nvim_create_augroup("restore_cursor", { clear = true }),
+	callback = function(args)
+		local ft = vim.bo[args.buf].filetype
+		if ft == "gitcommit" or ft == "gitrebase" then
+			return
+		end
 
-    local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
-    local line_count = vim.api.nvim_buf_line_count(args.buf)
-    if mark[1] > 0 and mark[1] <= line_count then
-      vim.api.nvim_win_set_cursor(0, mark)
-      vim.schedule(function()
-        vim.cmd("normal! zz")
-      end)
-    end
-  end,
+		local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
+		local line_count = vim.api.nvim_buf_line_count(args.buf)
+		if mark[1] > 0 and mark[1] <= line_count then
+			vim.api.nvim_win_set_cursor(0, mark)
+			vim.schedule(function()
+				vim.api.nvim_buf_call(args.buf, function()
+					vim.cmd("normal! zz")
+				end)
+			end)
+		end
+	end,
 })
 
 -- open help in vertical split
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "help",
-  command = "wincmd L",
+	group = vim.api.nvim_create_augroup("help_vertical", { clear = true }),
+	pattern = "help",
+	callback = function()
+		if vim.bo.buftype == "help" then
+			vim.cmd("wincmd L")
+		end
+	end,
 })
 
 -- syntax highlighting for dotenv files
-vim.api.nvim_create_autocmd("BufRead", {
-  group = vim.api.nvim_create_augroup("dotenv_ft", { clear = true }),
-  pattern = { ".env", ".env.*" },
-  callback = function()
-    vim.bo.filetype = "dosini"
-  end,
+vim.filetype.add({
+	filename = { [".env"] = "dosini" },
+	pattern = { ["%.env%..*"] = "dosini" },
 })
-
--- remove plugins from disk that are no longer in vim.pack.add() specs
-vim.api.nvim_create_user_command("PackClean", function()
-  local inactive = vim.iter(vim.pack.get())
-  :filter(function(x)
-    return not x.active
-  end)
-  :map(function(x)
-    return x.spec.name
-  end)
-  :totable()
-  if #inactive == 0 then
-    vim.notify("No inactive plugins to remove", vim.log.levels.INFO)
-    return
-  end
-  vim.pack.del(inactive)
-  vim.notify("Removed: " .. table.concat(inactive, ", "), vim.log.levels.INFO)
-end, { desc = "Remove plugins not in vim.pack.add() specs" })
