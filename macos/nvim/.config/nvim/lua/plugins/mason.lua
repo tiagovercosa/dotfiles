@@ -1,6 +1,6 @@
 -- Servidores (configurados em lsp/*.lua) e formatadores (do conform.lua)
--- instalados pelo mason. O mason.setup() põe o bin dele no PATH, por isso
--- precisa rodar antes do config.lsp.
+-- instalados pelo mason.
+
 local packages = {
   -- LSP
   "lua-language-server",
@@ -23,8 +23,15 @@ local packages = {
   "tex-fmt",
 }
 
-require("mason").setup()
-
-require("mason-tool-installer").setup({
-  ensure_installed = packages,
-})
+return {
+  "mason-org/mason.nvim",
+  dependencies = {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+  },
+  config = function()
+    require("mason").setup()
+    require("mason-tool-installer").setup({
+      ensure_installed = packages,
+    })
+  end,
+}
