@@ -1,6 +1,4 @@
 require("vim._core.ui2").enable({})
-vim.g.mapleader = "," -- space leader key
-vim.g.maplocalleader = "\\" -- bar leader key
 
 -- Basic Settings
 vim.o.nu = true -- enable line numbers
@@ -75,10 +73,10 @@ vim.diagnostic.config({
 	severity_sort = true,
 	signs = {
 		text = {
-			[vim.diagnostic.severity.ERROR] = " ",
-			[vim.diagnostic.severity.WARN] = " ",
-			[vim.diagnostic.severity.HINT] = " ",
-			[vim.diagnostic.severity.INFO] = " ",
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.HINT] = "󰌵",
+			[vim.diagnostic.severity.INFO] = "",
 		},
 	},
 })
