@@ -1,3 +1,3 @@
-require("config")
-require("plugins")
+require("config.lazy")
+require("config.autocmd")
 require("config.lsp")
