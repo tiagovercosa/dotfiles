@@ -5,8 +5,8 @@ return {
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
-		keymap = { preset = "default" },
-		-- snippets = { preset = "luasnip" },
+		keymap = { preset = "super-tab" },
+		snippets = { preset = "luasnip" },
 		signature = { enabled = true },
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
