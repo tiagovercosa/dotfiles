@@ -5,7 +5,7 @@ return {
 		"refractalize/oil-git-status.nvim",
 	},
 	keys = {
-		vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" }),
+		{ "<leader>e", "<CMD>Oil<CR>", desc = "Open parent directory" },
 	},
 	lazy = false,
 	---@module 'oil'
