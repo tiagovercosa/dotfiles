@@ -50,7 +50,7 @@ return {
 			lualine_b = {
 				{ "b:gitsigns_head", icon = "" },
 				{ "diff", source = diff_source },
-				"diagnostics",
+				{ "diagnostics", symbols = { error = " ", warn = " ", info = "", hint = "󰌵" } },
 			},
 			lualine_c = { "filename" },
 			lualine_x = {},
