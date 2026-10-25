@@ -11,7 +11,8 @@ end
 
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = {},
+	event = "VeryLazy",
+	dependencies = { "nvim-mini/mini.icons" },
 	opts = {
 		options = {
 			icons_enabled = true,
