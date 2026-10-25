@@ -1,9 +1,6 @@
 return {
 	"stevearc/oil.nvim",
-	dependencies = {
-		{ "nvim-mini/mini.icons", opts = {} },
-		"refractalize/oil-git-status.nvim",
-	},
+	dependencies = { "nvim-mini/mini.icons", "refractalize/oil-git-status.nvim" },
 	keys = {
 		{ "<leader>e", "<CMD>Oil<CR>", desc = "Open parent directory" },
 	},
