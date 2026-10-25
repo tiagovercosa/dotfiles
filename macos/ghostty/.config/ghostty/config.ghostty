@@ -1,5 +1,5 @@
 # --- FONT ---
-font-family = "Cascadia Mono"
+font-family = Cascadia Code
 font-size = 17
 font-thicken = false
 # font-thicken-strength = 0
@@ -8,7 +8,7 @@ font-shaping-break = cursor
 alpha-blending = linear-corrected
 
 # --- THEME ---
-theme = Nord
+theme = Onenord
 background = #272C36
 selection-background = #434c5e
 selection-foreground = #d8dee9
@@ -17,7 +17,7 @@ palette-generate = true
 
 # --- CURSOR ---
 cursor-style = bar
-cursor-style-blink = false
+cursor-style-blink = true
 cursor-color = #d8dee9
 cursor-text = #2e3440
 adjust-cursor-thickness = 3
@@ -30,10 +30,7 @@ shell-integration-features = no-cursor,ssh-env,ssh-terminfo,sudo,title,path
 # command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
 
 # --- WINDOW ---
-# title = " "
-macos-titlebar-style = transparent
 window-save-state = always
-confirm-close-surface = true
 unfocused-split-opacity = 0.75
 split-preserve-zoom = navigation
 drag-handle = auto
