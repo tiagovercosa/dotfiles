@@ -1,0 +1,32 @@
+#!/bin/bash
+
+DATE=$(date +%Y-%m-%d)
+CREATED=$(date "+%Y-%m-%d %H:%M:%S")
+NOTE_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Pessoal/Daily"
+
+mkdir -p "$NOTE_DIR"
+
+if [ ! -f "$NOTE_DIR/$DATE.md" ]; then
+  cat >"$NOTE_DIR/$DATE.md" <<EOF
+---
+created: $CREATED
+walked: false
+tags:
+- daily
+---
+# $DATE
+
+## Plan for today
+- [ ] 
+
+## Notes of the day
+
+
+
+## On This Day
+![[Daily.base]]
+
+EOF
+fi
+
+nvim "$NOTE_DIR/$DATE.md"

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+TOPIC=${1:-"liquid_simulations"}
+DATE=$(date +%Y-%m-%d)
+DATE_DOC=$(date '+%Y %B %d')
+NOTE_DIR="$HOME/Projects/GitHub/research-notes/$TOPIC/$DATE"
+
+mkdir -p "$NOTE_DIR"
+
+if [ ! -f "$NOTE_DIR/note.tex" ]; then
+  cat >"$NOTE_DIR/note.tex" <<EOF
+\lecture{}{$DATE_DOC}{}
+\section{}~\label{sec:}
+
+EOF
+fi
+
+nvim "$NOTE_DIR/note.tex"

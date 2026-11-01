@@ -1,0 +1,63 @@
+% ─── Packages ─────────────────────────────────────────────────
+\usepackage{iftex}
+\ifpdftex\usepackage[utf8]{inputenc}\fi
+\usepackage[brazil]{babel}
+\usepackage[a4paper,margin=1in]{geometry}
+\geometry{headheight=14.5pt}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{indentfirst}
+\usepackage{physics}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{slashed}
+\usepackage{cancel}
+\usepackage[mathcal]{euscript}
+\usepackage[normalem]{ulem}
+\usepackage[hyphens]{url}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+% ─── Bibliography ─────────────────────────────────────────────
+\usepackage[backend=biber,style=numeric-comp,sorting=none]{biblatex}
+\addbibresource{references.bib}
+
+% ─── Colors ───────────────────────────────────────────────────
+\definecolor{lightblue}{RGB}{230,240,250}
+\definecolor{borderblue}{RGB}{100,140,180}
+\definecolor{noteblue}{RGB}{40,80,150}
+
+% ─── Header ───────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textit{\titulo}}
+\lhead{\textbf{Research Notes}}
+\cfoot{\thepage}
+
+% ─── Section Formatting ──────────────────────────────────────
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+
+% ─── Custom Environments ─────────────────────────────────────
+\tcbuselibrary{theorems,skins,breakable}
+
+\newtcolorbox{keyidea}[1][]{
+    colback=lightblue,
+    colframe=noteblue,
+    fonttitle=\bfseries,
+    title=Idea,
+    breakable,
+    #1
+}
+
+\newtcolorbox{openquestion}[1][]{
+    colback=yellow!10,
+    colframe=orange!80!black,
+    fonttitle=\bfseries,
+    title=Open Question,
+    breakable,
+    #1
+}
+

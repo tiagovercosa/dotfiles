@@ -1,0 +1,32 @@
+\documentclass[12pt,a4paper]{article}
+
+\newcommand{\titulo}{Título}
+\newcommand{\autor}{Tiago Lima}
+
+\input{preamble.tex}
+
+% ══════════════════════════════════════════════════════════════
+\begin{document}
+
+\begin{center}
+	\thispagestyle{empty}
+  {\LARGE\bfseries \titulo}\\[2.0em]
+  {\Large \autor}\\[0.5em]
+  {\today}\\[2.0em]
+\end{center}
+
+\begin{abstract}
+	Aqui segue um resumo ou abstract da nota de estudo.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\input{notes/less01.tex}
+
+% ──────────────────────────────────────────────────────────────
+\clearpage
+\printbibliography
+
+\end{document}
+% ══════════════════════════════════════════════════════════════
