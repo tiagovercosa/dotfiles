@@ -1,6 +1,7 @@
 # --- FONT ---
-font-family = Cascadia Code
-font-size = 17
+font-family = "JetBrains Mono"
+font-family = "Symbols Nerd Font Mono"
+font-size = 16
 font-thicken = false
 # font-thicken-strength = 0
 font-feature = liga,calt,clig
@@ -16,7 +17,7 @@ palette = 8=#4c566a
 palette-generate = true
 
 # --- CURSOR ---
-cursor-style = bar
+#cursor-style = bar  # disabled by ghostty-config: back to the default
 cursor-style-blink = true
 cursor-color = #d8dee9
 cursor-text = #2e3440
@@ -31,8 +32,10 @@ shell-integration-features = no-cursor,ssh-env,ssh-terminfo,sudo,title,path
 
 # --- WINDOW ---
 window-save-state = always
-unfocused-split-opacity = 0.75
+unfocused-split-opacity = 0.55
 split-preserve-zoom = navigation
+split-divider-color = #88c0d0
+unfocused-split-opacity = 0.75
 drag-handle = auto
 
 # --- PADDING ---
@@ -40,8 +43,8 @@ window-padding-x = 4
 window-padding-y = 4
 
 # --- APPEARANCE ---
-background-blur = macos-glass-clear
-background-opacity = 0.95
+# background-blur = macos-glass-regular
+# background-opacity = 0.95
 background-opacity-cells = true
 
 # --- MOUSE ---
