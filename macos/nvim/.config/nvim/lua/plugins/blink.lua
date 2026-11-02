@@ -16,6 +16,14 @@ return {
 				text = { "lsp", "path", "snippets" },
 				plaintex = { "lsp", "path", "snippets" },
 				bib = { "lsp", "path", "snippets" },
+				lua = { inherit_defaults = true, "lazydev" },
+			},
+			providers = {
+				lazydev = {
+					name = "LazyDev",
+					module = "lazydev.integrations.blink",
+					score_offset = 100,
+				},
 			},
 		},
 	},
