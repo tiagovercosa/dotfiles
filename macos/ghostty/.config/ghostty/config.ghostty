@@ -108,7 +108,7 @@ notify-on-command-finish-action = no-bell,notify
 notify-on-command-finish-after = 30s
 
 # --- MACOS ---
-macos-option-as-alt = true
+macos-option-as-alt = left
 quit-after-last-window-closed = false
 macos-dock-drop-behavior = new-window
 macos-auto-secure-input = true
