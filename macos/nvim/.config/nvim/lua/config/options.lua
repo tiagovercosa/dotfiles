@@ -31,9 +31,9 @@ vim.o.mat = 2 -- Tenths of a second to show the matching paren
 vim.o.smc = 300 -- syntax highlighting column limit
 vim.o.smd = false -- Don't show mode
 vim.opt.listchars = {
-	tab = "→ ",
-	multispace = "·",
-	leadmultispace = "| ",
+	tab = "  ",
+	-- multispace = "·",
+	-- leadmultispace = "| ",
 	trail = "·",
 }
 
