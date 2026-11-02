@@ -26,6 +26,7 @@ local function check(bufnr)
 		"-fsyntax-only",
 		"-fdiagnostics-plain-output",
 		"-Wall",
+		"-Wextra",
 		"-J",
 		mod_dir,
 		"-I",
