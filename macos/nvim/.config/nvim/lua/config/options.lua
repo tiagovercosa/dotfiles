@@ -10,6 +10,7 @@ vim.o.ai = true -- copy indent from current line when starting new line
 vim.o.wrap = false -- disable wrapping
 vim.o.bri = true -- prevent line wrapping
 vim.o.lbr = true -- wrap at word boundaries, not mid-word
+vim.o.isk = vim.o.isk .. ",-" -- Treat hyphens as part of words
 
 -- Tabbing and Indentation
 vim.o.ts = 2 -- how many spaces tab inserts
@@ -78,5 +79,12 @@ vim.diagnostic.config({
 			[vim.diagnostic.severity.HINT] = "󰌵",
 			[vim.diagnostic.severity.INFO] = "",
 		},
+	},
+})
+
+vim.filetype.add({
+	extension = {
+		gp = "gnuplot",
+		plt = "gnuplot",
 	},
 })
