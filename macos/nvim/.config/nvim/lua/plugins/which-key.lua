@@ -15,6 +15,7 @@ return {
 			{ "<leader>h", group = "Git" },
 			{ "<leader>r", group = "Renomear" },
 			{ "<leader>s", group = "Split" },
+			{ "<leader>n", group = "Notas" },
 		},
 	},
 	keys = {
