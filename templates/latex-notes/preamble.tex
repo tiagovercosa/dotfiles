@@ -1,24 +1,34 @@
+\ProvidesPackage{preamble}
+
 % ─── Packages ─────────────────────────────────────────────────
 \usepackage{iftex}
+\usepackage[T1]{fontenc}
 \ifpdftex\usepackage[utf8]{inputenc}\fi
-\usepackage[brazil]{babel}
-\usepackage[a4paper,margin=1in]{geometry}
-\geometry{headheight=14.5pt}
+\usepackage[brazilian]{babel}
+\usepackage[a4paper, margin=1in, headheight=14.5pt]{geometry}
+\usepackage{import}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{indentfirst}
-\usepackage{physics}
+\usepackage{physics2}
 \usepackage{mathtools}
-\usepackage{xcolor}
+\usepackage{wrapfig}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{tcolorbox}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{slashed}
 \usepackage{cancel}
+\usepackage{bm}
+\usepackage{esvect}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta}
+\usepackage{csquotes}
 \usepackage[mathcal]{euscript}
 \usepackage[normalem]{ulem}
 \usepackage[hyphens]{url}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[mode=buildnew]{standalone}
 
 % ─── Bibliography ─────────────────────────────────────────────
 \usepackage[backend=biber,style=numeric-comp,sorting=none]{biblatex}
@@ -29,6 +39,25 @@
 \definecolor{borderblue}{RGB}{100,140,180}
 \definecolor{noteblue}{RGB}{40,80,150}
 
+% ─── Section Formatting ──────────────────────────────────────
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+
+% ─── Notes ───────────────────────────────────────────────────
+\usepackage{xifthen}
+\makeatletter
+\def\@lecture{}
+\newcommand{\lecture}[3]{
+	\ifthenelse{\isempty{#3}}{
+		\def\@lecture{Aula #1}
+	}{
+		\def\@lecture{Aula #1: #3}
+	}
+	\subsubsection*{\@lecture}
+	\marginpar{\small\textsf{\mbox{#2}}}
+}
+\makeatother
+
 % ─── Header ───────────────────────────────────────────────────
 \pagestyle{fancy}
 \fancyhf{}
@@ -36,11 +65,16 @@
 \lhead{\textbf{Research Notes}}
 \cfoot{\thepage}
 
-% ─── Section Formatting ──────────────────────────────────────
-\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
-\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+% ─── custom commands ─────────────────────────────────────────
 
-% ─── Custom Environments ─────────────────────────────────────
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\newcommand\C{\ensuremath{\mathbb{C}}}
+
+% ─── custom environments ─────────────────────────────────────
 \tcbuselibrary{theorems,skins,breakable}
 
 \newtcolorbox{keyidea}[1][]{
@@ -60,4 +94,34 @@
     breakable,
     #1
 }
+
+\newtcbtheorem[number within=section]{definition}{Definição}{
+    enhanced,
+    breakable,
+    colback=ForestGreen!5,
+    colframe=green!50!black,
+    fonttitle=\bfseries,
+    attach boxed title to top left={yshift=-2mm, xshift=2mm},
+    boxed title style={colback=green!50!black}
+}{th}
+
+\newtcbtheorem[number within=section]{postulate}{Postulado}{
+    enhanced,
+    breakable,
+    colback=NavyBlue!5,
+    colframe=blue!50!black,
+    fonttitle=\bfseries,
+    attach boxed title to top left={yshift=-2mm, xshift=2mm},
+    boxed title style={colback=blue!50!black}
+}{pst}
+
+\newtcbtheorem[auto counter]{observacao}{Observação}{
+    enhanced,
+    breakable,
+    colback=RawSienna!5,
+    colframe=RawSienna!50!black,
+    fonttitle=\bfseries,
+    attach boxed title to top left={yshift=-2mm, xshift=2mm},
+    boxed title style={colback=RawSienna!50!black}
+}{obs}
 
