@@ -8,6 +8,9 @@ return {
 	opts = {
 		enable_autosnippets = true,
 		store_selection_keys = "<Tab>",
+		update_events = "TextChanged,TextChangedI",
+		region_check_events = "InsertEnter",
+		delete_check_events = "TextChanged",
 	},
 	config = function(_, opts)
 		require("luasnip").setup(opts)
