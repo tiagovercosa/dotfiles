@@ -48,5 +48,17 @@ return {
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 		vim.keymap.set("n", "<leader>fx", builtin.diagnostics, { desc = "Telescope diagnostics" })
+
+		-- Telescope notes commands
+		local notes = vim.fn.expand("~/notes")
+		vim.keymap.set("n", "<leader>nf", function()
+			builtin.find_files({ cwd = notes })
+		end, { desc = "Telescope find notes" })
+		vim.keymap.set("n", "<leader>ng", function()
+			builtin.live_grep({ cwd = notes })
+		end, { desc = "Telescope live grep notes" })
+		vim.keymap.set("n", "<leader>nd", function()
+			vim.cmd.edit(notes .. "/Daily/" .. os.date("%Y-%m-%d") .. ".md")
+		end, { desc = "Telescope Daily note" })
 	end,
 }
