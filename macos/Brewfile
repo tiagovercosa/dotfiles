@@ -1,0 +1,87 @@
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Language Server for Bash
+brew "bash-language-server"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Predictive ghost-text autosuggestions for zsh
+brew "deja"
+# Modern, maintained replacement for ls
+brew "eza"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU compiler collection
+brew "gcc"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Command-driven, interactive function plotting
+brew "gnuplot"
+# Configurable static site generator
+brew "hugo"
+# LTeX+ Language Server: maintained fork of LTeX Language Server
+brew "ltex-ls-plus"
+# Package manager for the Lua programming language
+brew "luarocks"
+# Language Server Protocol for Markdown
+brew "marksman"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Autoformat shell script source code
+brew "shfmt"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
+# Implementation of the Language Server Protocol for LaTeX
+brew "texlab"
+# Lightweight BitTorrent client
+brew "transmission-cli"
+# Parser generator tool
+brew "tree-sitter-cli"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# Generator for LS_COLORS with support for multiple color themes
+brew "vivid"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# Terminal interface for Antigravity agents
+cask "antigravity-cli"
+# E-books management software
+cask "calibre"
+cask "font-fantasque-sans-mono-nerd-font"
+cask "font-iosevka-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-plemol-jp-nf"
+cask "font-symbols-only-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Chromium-based web browser
+cask "helium-browser"
+# Full TeX Live distribution with GUI applications
+cask "mactex"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# Scientific data visualization and analysis software
+cask "ovito"
+# PDF reader and note-taking application
+cask "skim"
+# Visualisation for electronic and structural analysis
+cask "vesta"
+# Multimedia player
+cask "vlc"
+# Collect, organise, cite, and share research sources
+cask "zotero"
