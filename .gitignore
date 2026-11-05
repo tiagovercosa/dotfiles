@@ -21,3 +21,6 @@
 
 # Themes Ghostty
 **/themes/
+
+# Neovim lock.json
+lazy-lock.json
