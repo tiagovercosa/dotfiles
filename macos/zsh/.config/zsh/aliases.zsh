@@ -24,6 +24,7 @@ alias ta='tmux attach -t'
 alias tk='tmux kill-session -t'
 
 # Git
+alias ginit="git init"
 alias gst="git status"
 alias gld="git log --color --decorate"
 alias gps="git push"
