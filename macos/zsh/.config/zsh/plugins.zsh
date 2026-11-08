@@ -30,6 +30,10 @@ zinit cdreplay -q
 # fzf-tab needs compinit already loaded
 zinit light Aloxaf/fzf-tab
 
+# Oh My Zsh git aliases/functions
+zinit ice wait"0" lucid
+zinit snippet OMZP::git
+
 # Keep Tab for fzf-tab (^N is already history-beginning-search-forward in .zshrc)
 export DEJA_CYCLE_KEY=
 zinit ice wait"0" lucid depth=1 pick"deja.plugin.zsh"
